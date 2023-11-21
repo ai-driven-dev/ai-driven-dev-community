@@ -9,7 +9,7 @@ This repo is filled of amazing prompt for developers, mapped with my favorite te
 Follow the [Espanso installation guide here](https://espanso.org/install/).
 
 ```shell
-espanso install prompts-dev --git https://github.com/alexsoyes/prompts-dev --external
+espanso install prompts-dev --git git@github.com:alexsoyes/prompts-dev.git --external
 ```
 
 # Usage
@@ -26,23 +26,32 @@ Use this timeline to find and fix bugs.
 * 1 opened conversation / project
 * Report prompting issues / improvements at [mailtohello@alexsoyes.com](hello@alexsoyes.com)
 
-
 # Prompts list
+
+- [Developer's prompts](#developers-prompts)
+  - [Installation](#installation)
+- [Usage](#usage)
+  - [Good practices](#good-practices)
+- [Prompts list](#prompts-list)
+  - [`:cd`](#cd)
+    - [Convert this type into `:cdtsconv`](#convert-this-type-into-cdtsconv)
+  - [`:pr`](#pr)
+    - [Act as a developer `:prspec`](#act-as-a-developer-prspec)
+    - [My project configuration `:prproject`](#my-project-configuration-prproject)
+    - [Ask for a feature : `:prfeat`](#ask-for-a-feature--prfeat)
+    - [Code the feature : `:prcode`](#code-the-feature--prcode)
+    - [Code the feature : `:prrecode`](#code-the-feature--prrecode)
+    - [Debug the feature : `:prdebug`](#debug-the-feature--prdebug)
+    - [Fix the the : `:prfix`](#fix-the-the--prfix)
 
 ## `:cd`
 
 Related to code interaction (eg: with Copilot).
 
-
-### `:cd` 
-
-Related to code with IDE.
-
 ### Convert this type into `:cdtsconv`
 
 ```
 Here is my JSON object:
-
 
 
 Convert it to a TypeScript Type.
@@ -114,11 +123,10 @@ The code needs to be errorless and get the result I want to.
 
 ### Debug the feature : `:prdebug`
 
-```For this bugfix I am responsible of, here his the context:
-
+```
+For this bugfix I am responsible of, here his the context:
 
 This is producing this strange bug which:
-
 
 Can you give me a list of possibilities (at least 2) in order to find the issue and then fix it?
 
@@ -127,7 +135,8 @@ You should order the list of possibles fixes by the order of the best probable o
 
 ### Fix the the : `:prfix`
 
-```The following code is not working the way I want it to.
+````
+The following code is not working the way I want it to.
 
 This error is:
 
@@ -135,4 +144,12 @@ When I try to:
 
 Please, fix the error. 
 Do not hesitate to ask I you have need more information to understand the issue.
+```
+
+# ChatGPT Prompt for conversion
+
+In order to make this readme up-to-date, I did gave Chat-GPT this prompt in order to transform this readme into a `yml` based file structure.
+
+```
+WIP
 ```
