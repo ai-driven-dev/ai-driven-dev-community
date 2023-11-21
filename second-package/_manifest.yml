@@ -1,5 +1,0 @@
-name: "second-package"
-title: "The Second package"
-description: Another package, used to show that you can put multiple packages in the same repo.
-version: 0.1.0
-author: Federico Terzi
