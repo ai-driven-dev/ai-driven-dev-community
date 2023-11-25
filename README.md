@@ -21,17 +21,16 @@ Quick jump into the section you want.
   * [Usage](#usage)
 * [Contribution](#contribution)
 * [Prompts list](#prompts-list)
-  * [Code related prompts `:cd`](#code-related-prompts-cd)
-    * [Convert this type into `:cdtsconv`](#convert-this-type-into-cdtsconv)
   * [Global dev prompts `:pr`](#global-dev-prompts-pr)
     * [Who am I? `:prtsme`](#who-am-i-prtsme)
     * [My project configuration `:prproject`](#my-project-configuration-prproject)
     * [Ask for a feature `:prfeat`](#ask-for-a-feature-prfeat)
     * [Code the feature `:prcode`](#code-the-feature-prcode)
-    * [Recode the feature : `:prrecode`](#recode-the-feature--prrecode)
+    * [Recode the feature `:prrecode`](#recode-the-feature-prrecode)
     * [Debug issue `:prdebug`](#debug-issue-prdebug)
     * [Fix my error `:prfix`](#fix-my-error-prfix)
-* [ChatGPT Prompt for conversion](#chatgpt-prompt-for-conversion)
+  * [Code related prompts `:cd`](#code-related-prompts-cd)
+    * [Convert this type into `:cdtsconv`](#convert-this-type-into-cdtsconv)
 * [Bonus](#bonus)
   * [ChatGPT Prompt for Code-GPT](#chatgpt-prompt-for-code-gpt)
 
@@ -66,20 +65,6 @@ I tried to respect the following convention.
 * `:{group}` : Either code related or prompt related.
 * `{optionalLanguageShort}` : Like `ts` for TypeScript related things.
 * `{action}` : A verb, a wish or an actions suite.
-
-### Code related prompts `:cd`
-
-Related to code interaction (eg: with Copilot).
-
-#### Convert this type into `:cdtsconv`
-
-```
-Here is my JSON object:
-
-[[code]]
-
-Convert it to a TypeScript Type.
-```
 
 ### Global dev prompts `:pr`
 
@@ -137,7 +122,7 @@ You should:
 * Function / Variables names must be short, in english and really matching the expected outcome
 ```
 
-#### Recode the feature : `:prrecode`
+#### Recode the feature `:prrecode`
 
 ```text
 Your code does not work as excepted.
@@ -191,9 +176,19 @@ Please, try to understand the error and then propose the 2 best ways to fix it.
 Do not hesitate to ask me if you have need more information to understand the issue.
 ```
 
-## ChatGPT Prompt for conversion
+### Code related prompts `:cd`
 
-In order to make this readme up-to-date, I did gave Chat-GPT this prompt in order to transform this readme into a `yml` based file structure.
+Related to code interaction (eg: with Copilot).
+
+#### Convert this type into `:cdtsconv`
+
+```
+Here is my JSON object:
+
+[[code]]
+
+Convert it to a TypeScript Type.
+```
 
 ## Bonus
 

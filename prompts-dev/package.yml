@@ -1,3 +1,126 @@
 matches:
-  - trigger: ":hello"
-    replace: "Hello from Example Package!"
+  - trigger: ":cdtsconv"
+    form: |
+      Here is my JSON object:
+
+      [[code]]
+
+      Convert it to a TypeScript Type.
+    form_fields:
+      code:
+        multiline: true
+
+  - trigger: ":prtsme"
+    form: |
+      I am a senior software engineer on JavaScript but I prefer to use TypeScript.
+
+      The libraries I am using are: React, NextJS, Zod, React-Hook-Form, Tailwind.
+
+      I need help to write 100% working and clean code.
+
+  - trigger: ":prproject"
+    form: |
+      I need help for my current project and I need you to help me as an experimented mentor, developer and agile coach.
+
+      My project is about:
+
+      [[fully_detailed_explanation]]
+
+      Technically speaking, here are the libs we are using for our project:
+      [[package_json_or_equivalent]]
+    form_fields:
+      fully_detailed_explanation:
+        multiline: true
+      package_json_or_equivalent:
+        multiline: true
+
+  - trigger: ":prfeat"
+    form: |
+      I am building a new feature for my project.
+
+      Goal of the feature: [[context]]
+      Incoming parameters are: [[params]]
+      Expected result is: [[result]]
+
+      Please give me every detailed steps to do in order to achieve my goal.
+    form_fields:
+      context:
+        multiline: true
+      params:
+        multiline: true
+      result:
+        multiline: true
+
+  - trigger: ":prcode"
+    form: |
+      You did understand the feature I want to code.
+      Now, I need your to write the code following my projects requirements (both technical and from a user view).
+      
+      You should:
+
+      * Spit files (only if needed, respecting clean code principles and other good practices)
+      * Not put into comment
+      * Function / Variables names must be short, in english and really matching the expected outcome
+
+  - trigger: ":prrecode"
+    form: |
+      Your code does not work as excepted.
+
+      [[explanation_why_it_is_failing]]
+
+      Can you auto-evaluate your own work?
+      
+      1) Remind you the goal and try another way to code it.
+      2) Keep in mind that the code needs to be errorless and get the proper result I asked you about.
+      3) Can you remind me the goal, the entry parameters and the expect output?
+      4) Then provide the steps in order to fix the code you wrote.
+      5) Lastly, check for the generated code in order to be sure that it fits my needs.
+
+      Thank you for you professionalism.
+    form_fields:
+      explanation_why_it_is_failing:
+        multiline: true
+
+  - trigger: ":prdebug"
+    form: |
+      For this bugfix I am responsible of, here his the context of what I want to do:
+
+      [[the_context_of_what_i_wanted]]
+
+      This is producing this strange behavior, the bug is causing:
+
+      [[what_the_bug_is_doing]]
+
+      Can you give me a list 3 clues regarding my issue in order to find the root cause and then, fix it?
+
+      Please sort them with the more probable first.
+    form_fields:
+      the_context_of_what_i_wanted:
+        multiline: true
+      what_the_bug_is_doing:
+        multiline: true
+
+  - trigger: ":prfix"
+    form: |
+      The following code is not working the way I want it to.
+
+      [[code]]
+
+      This technical error is:
+
+      [[error]]
+
+      When I try to:
+
+      [[action]]
+
+      Please, try to understand the error and then propose the 2 best ways to fix it.
+
+      Do not hesitate to ask me if you have need more information to understand the issue.
+    form_fields:
+      code:
+        multiline: true
+      error:
+        multiline: true
+      action:
+        multiline: true
