@@ -139,6 +139,22 @@ Technically speaking, here are the libs we are using for our project:
 "[[package.json or equivalent]]"
 ```
 
+#### My project configuration `:prsumfeat`
+
+```text
+I need your help about a feature I am trying to make.
+
+Can you summarize the following specifications?
+
+I need to clear my mind about it, I want to have some very clear statements about what the feature is about and its goal, the problem it is trying to solve.
+
+Reduce irrelevant information from the specifications I gave you and reply as clear as possible to make it understandable by every one.
+
+Use a bullet list grouped by sections (if necessary), you do not need that much details, just give the required information.
+
+"[[feature to summarize]]"
+```
+
 #### Ask for a feature `:prfeat`
 
 ```text
@@ -180,6 +196,20 @@ Can you auto-evaluate your own work?
 3) Can you remind me the goal, the entry parameters and the expect output?
 4) Then provide the steps in order to fix the code you wrote.
 5) Lastly, check for the generated code in order to be sure that it fits my needs.
+
+Thank you for you professionalism.
+```
+
+#### Self auto-correct `:prselfcritical`
+
+```text
+Can you be self-critical of your answer?
+
+1) Evaluate your own work. List its strengths and weaknesses.
+2) Give it a mark between 0 and 20. Justify your score in terms of the rules you had to respect.
+3) Make a list of suggestions that will enable you to achieve a score of 20, again in relation to these rules. Number each suggestion.
+4) Rewrite your work following the recommendations in point 3).
+5) Ask me if I'd like to repeat the process. We'll do this until your work is marked 20/20.
 
 Thank you for you professionalism.
 ```
@@ -248,6 +278,20 @@ Can you generate the corresponding code to test the following file:
 Remember, you test must be 100% working.
 ```
 
+#### Search in the documentation `:prsearchdoc`
+
+```text
+I need you to read the following documentation.
+
+[[documentation url]]
+
+Based on that documentation, can you:
+
+[[want you want to do]]
+
+Please provide the best step by step way to it. For each step, detail your explanation with the proper code.
+```
+
 ### Code related prompts `:cd`
 
 Related to code interaction (eg: with Copilot).
@@ -271,7 +315,13 @@ It must produce the same output.
 "[[code]]"
 ```
 
-#### Convert this type into `:cdlog`
+#### Log every steps of this code `:cdstepslog`
+
+```text
+Add logging on every steps in order to identify bugs.
+```
+
+#### Convert this type into `:cdexplainlog`
 
 ```text
 Analyze the following logs.
