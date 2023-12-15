@@ -8,6 +8,8 @@ This repo is filled of **amazing prompt for developers**, mapped with my favorit
 
 ♻️ This is a WIP one, do not hesitate to contribute kicking errors and improving prompts!
 
+🚀 Contribution are welcomed, [check the guide](./contributing.md)
+
 ## A french community
 
 Join a group of french software engineers that are using AI.

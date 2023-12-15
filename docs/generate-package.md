@@ -3,7 +3,7 @@
 In order to make the prompt list up-to-date with the text expansion, I gave Chat-GPT this prompt the list info a `yml` based file structure for Espanso.
 
 ```text
-I want to extract data from a markdown file.
+I want to extract data from a markdown file surrounded by "---"
 Do not use code interpreter for this task.
 
 Step 1)
@@ -39,7 +39,10 @@ matches:
 
 Is everything understood? If so, here is the markdown file to operate.
 
-(Do not comment your actions, only generate the output yml file.)
+* Do not comment your actions, only generate the output yml file.
+* Please process the entire file.
 
----copy/past this file---
+---
+COPY PASTE README HERE
+---
 ```
