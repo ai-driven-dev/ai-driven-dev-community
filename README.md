@@ -14,12 +14,12 @@ Join a group of french software engineers that are using AI.
 
 [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC)
 
-## Do not use ChatGPT
+## Do not use ChatGPT standalone
 
 I prompted two AI to act like the best software engineers.
 
-* [Prefer using CodeGPT FR (in you are francophone)](https://chat.openai.com/g/g-RmIJzZYzS-code-gpt) 🇫🇷
-* [Prefer using CodeGPT (english version)](https://chat.openai.com/g/g-S1wfMarvA-ai-programming-expert) 🌎
+* [AI programming expert](https://chat.openai.com/g/g-S1wfMarvA-ai-programming-expert) - [(source)](./agents/mentor-developer.md)
+* [AI project manager](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt) - [(source)](./agents/agile.md)
 
 > It is working much better that the original version and works even better with the prompts under.
 
@@ -27,36 +27,40 @@ I prompted two AI to act like the best software engineers.
 
 Quick jump into the section you want.
 
-* [A french community](#a-french-community)
-* [Do not use ChatGPT](#do-not-use-chatgpt)
-* [Table of Contents](#table-of-contents)
-* [Text expansion](#text-expansion)
-  * [Installation](#installation)
-  * [Updates](#updates)
-  * [Usage](#usage)
-    * [Quick demo](#quick-demo)
-* [Contribution](#contribution)
-* [Prompts list](#prompts-list)
-  * [Global dev prompts `:pr`](#global-dev-prompts-pr)
-    * [Who am I? `:prtsme`](#who-am-i-prtsme)
-    * [My project configuration `:prproject`](#my-project-configuration-prproject)
-    * [Ask for a feature `:prfeat`](#ask-for-a-feature-prfeat)
-    * [Code the feature `:prcode`](#code-the-feature-prcode)
-    * [Recode the feature `:prrecode`](#recode-the-feature-prrecode)
-    * [Debug issue `:prdebug`](#debug-issue-prdebug)
-    * [Fix my error `:prfix`](#fix-my-error-prfix)
-    * [Test my feature `:prpretest`](#test-my-feature-prpretest)
-    * [Test my feature `:prunittests`](#test-my-feature-prunittests)
-  * [Code related prompts `:cd`](#code-related-prompts-cd)
-    * [Convert this type into `:cdtsconv`](#convert-this-type-into-cdtsconv)
-    * [Convert this type into `:cdopt`](#convert-this-type-into-cdopt)
-    * [Convert this type into `:cdlog`](#convert-this-type-into-cdlog)
-    * [Convert this type into `:cdtrans`](#convert-this-type-into-cdtrans)
-* [Bonus](#bonus)
-  * [Coming Soon](#coming-soon)
-  * [ChatGPT Prompt for Code-GPT](#chatgpt-prompt-for-code-gpt)
-    * [i10n version 🌎](#i10n-version-)
-    * [French version 🇫🇷](#french-version-)
+* [A tailored list of developer prompts 📋](#a-tailored-list-of-developer-prompts-)
+  * [A french community](#a-french-community)
+  * [Do not use ChatGPT standalone](#do-not-use-chatgpt-standalone)
+  * [Table of Contents](#table-of-contents)
+  * [Text expansion](#text-expansion)
+    * [Installation](#installation)
+    * [Updates](#updates)
+    * [Usage](#usage)
+      * [Quick demo](#quick-demo)
+  * [Contribution](#contribution)
+  * [Prompts list](#prompts-list)
+    * [Global prompts](#global-prompts)
+      * [Prompt evaluation `:gprompteval`](#prompt-evaluation-gprompteval)
+      * [Answer evaluation with iteration `:ganswereval`](#answer-evaluation-with-iteration-ganswereval)
+    * [Global dev prompts `:pr`](#global-dev-prompts-pr)
+      * [Who am I? `:prtsme`](#who-am-i-prtsme)
+      * [My project configuration `:prproject`](#my-project-configuration-prproject)
+      * [My project configuration `:prsumfeat`](#my-project-configuration-prsumfeat)
+      * [Ask for a feature `:prfeat`](#ask-for-a-feature-prfeat)
+      * [Code the feature `:prcode`](#code-the-feature-prcode)
+      * [Recode the feature `:prrecode`](#recode-the-feature-prrecode)
+      * [Debug issue `:prdebug`](#debug-issue-prdebug)
+      * [Fix my error `:prfix`](#fix-my-error-prfix)
+      * [Test my feature `:prpretest`](#test-my-feature-prpretest)
+      * [Test my feature `:prunittests`](#test-my-feature-prunittests)
+      * [Search in the documentation `:prsearchdoc`](#search-in-the-documentation-prsearchdoc)
+    * [Code related prompts `:cd`](#code-related-prompts-cd)
+      * [Convert this type into `:cdtsconv`](#convert-this-type-into-cdtsconv)
+      * [Convert this type into `:cdopt`](#convert-this-type-into-cdopt)
+      * [Log every steps of this code `:cdstepslog`](#log-every-steps-of-this-code-cdstepslog)
+      * [Convert this type into `:cdexplainlog`](#convert-this-type-into-cdexplainlog)
+      * [Convert this type into `:cdtrans`](#convert-this-type-into-cdtrans)
+  * [Bonus](#bonus)
+    * [Coming Soon](#coming-soon)
 
 ## Text expansion
 
@@ -103,7 +107,44 @@ I tried to respect the following convention.
 
 * `:{group}` : Either code related or prompt related.
 * `{optionalLanguageShort}` : Like `ts` for TypeScript related things.
+* `{type}` : What we are talking about.
 * `{action}` : A verb, a wish or an actions suite.
+
+### Global prompts
+
+#### Prompt evaluation `:gprompteval`
+
+In order to improve and reduce prompt's size and improve efficiency.
+
+```text
+This is the prompt I made (surrounded with """) for an a generative artificial intelligence like ChatGPT.
+
+I need you to help me to make it better in order for the AI to better understand what I am asking about.
+
+"""[[Prompt you have made]]"""
+
+Please reformulate it to be clearer for the AI, do not hesitate to change complexe words with easy ones.
+Merge duplication and remove not necessary instructions.
+Be clear and specific.
+Avoid ambiguity.
+Use good english, fix text mistakes.
+
+Please also acknowledge that AI can access URL, documents and generate images.
+```
+
+#### Answer evaluation with iteration `:ganswereval`
+
+```text
+Can you be self-critical of your answer?
+
+1) Evaluate your own work. List its strengths and weaknesses.
+2) Give it a mark between 0 and 20. Justify your score in terms of the rules you had to respect.
+3) Make a list of suggestions that will enable you to achieve a score of 20, again in relation to these rules. Number each suggestion.
+4) Rewrite your work following the recommendations in point 3).
+5) Ask me if I'd like to repeat the process. We'll do this until your work is marked 20/20.
+
+Thank you for you professionalism.
+```
 
 ### Global dev prompts `:pr`
 
@@ -196,20 +237,6 @@ Can you auto-evaluate your own work?
 3) Can you remind me the goal, the entry parameters and the expect output?
 4) Then provide the steps in order to fix the code you wrote.
 5) Lastly, check for the generated code in order to be sure that it fits my needs.
-
-Thank you for you professionalism.
-```
-
-#### Self auto-correct `:prselfcritical`
-
-```text
-Can you be self-critical of your answer?
-
-1) Evaluate your own work. List its strengths and weaknesses.
-2) Give it a mark between 0 and 20. Justify your score in terms of the rules you had to respect.
-3) Make a list of suggestions that will enable you to achieve a score of 20, again in relation to these rules. Number each suggestion.
-4) Rewrite your work following the recommendations in point 3).
-5) Ask me if I'd like to repeat the process. We'll do this until your work is marked 20/20.
 
 Thank you for you professionalism.
 ```
@@ -355,71 +382,3 @@ Here are some more prompts you might want to check about:
 
 * <https://doc.clickup.com/36022947/d/h/12ban3-7144/106554999066a43>
 * <https://doc.clickup.com/36022947/d/h/12ban3-7042/bb657cd40f843e7>
-
-### ChatGPT Prompt for Code-GPT
-
-#### i10n version 🌎
-
-```text
-I am seeking assistance in software development and require your advanced expertise as an AI. You are a highly skilled software developer, adept in a broad spectrum of programming languages, technologies, and best practices. Your role is an AI Software Engineer Assistant, powered by OpenAI's cutting-edge capabilities.
-
-Your mission includes:
-
-- Tackling Complex Engineering Problems: Utilize your extensive knowledge to provide solutions to challenging engineering issues.
-- Developing Functional and Efficient Software: Focus on creating software that is not only effective but also optimized for performance.
-- Exploring Cutting-Edge Software Engineering Trends: Keep abreast of the latest developments in the field and apply these insights to your work.
-- As you introduce yourself as a Software Engineer, demonstrate your proficiency in handling queries and challenges related to software development. Engage in insightful discussions on system design, architecture, scalability, and optimization, among other critical aspects of software engineering.
- 
-Specific Guidance for Your Assistance:
-
-- Prioritize the most recent versions of programming languages you are familiar with.
-- Draw upon your extensive reading of programming books to write clean, efficient code.
-- Offer solutions across various domains including web development, mobile applications, and embedded systems.
-- Address issues pertaining to testing, clean code practices, algorithms, debugging, code optimization, and system architecture.
-- Provide responses that resonate with expert-level understanding, always considering key factors like performance, security, and accessibility in your solutions.
-- Code Presentation Guidelines:
-
-Present only the code, without supplementary explanations.
-Avoid adding comments within the code.
-Exclude package installation instructions.
-Adhere to a two-space indentation format.
-Your role is crucial in advancing my career, and I highly value your comprehensive and nuanced analysis. If you need any clarification or additional information to respond effectively, please feel free to ask.
-```
-
-#### French version 🇫🇷
-
-```text
-I am seeking assistance as a software developer and require your expertise. You are a highly skilled developer, well-versed in a wide range of programming books and technologies.
-
-Assume the role of an AI Software Engineer Assistant.
-
-Harness the power of OpenAI to:
-
-Solve complex engineering challenges,
-Create functional and efficient software solutions,
-Investigate the latest advancements in software engineering.
-Start by introducing yourself as a Software Engineer and demonstrate your expertise in addressing software development-related queries and challenges.
-
-Engage in discussions on topics like system design, architecture, scalability, optimization, or any other facets of software engineering that you find intriguing.
-
-Here are some specifics for tailoring your assistance:
-
-Focus on the latest version of the programming langage you know.
-Use your knowledge from every programming book you read, try to write the best possible clean code you can.
-Provide solutions for web development, mobile apps, or embedded systems.
-Address problems related to tests, clean code, algorithms, debugging, code optimization, system architecture.
-Tailor your responses for expert level understanding.
-Always consider performance, security, accessibility in your solutions.
-This task is crucial to my career, and I greatly value your in-depth analysis.
-
-Respond in French, unless I ask otherwise.
-
-When providing code:
-
-Only include the code itself without explanations.
-Do not add comments within the code.
-Refrain from giving package installation instructions.
-Use two spaces for indentation.
-
-Please ask me if you are wondering how to respond, ask me if you need an info you do not have or a request that is not clear enough to provide de best results.
-```
