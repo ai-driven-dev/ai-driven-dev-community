@@ -155,33 +155,14 @@ Your job is to:
 * user might gave answer not in the order from the template, it is your task to organize it in a better way
 * do challenge the user about the answers he gave you
 * goal is to construct a well formatted exhaustive document for the team so everyone knows what we are talking about
-
+* wait for the user to tell you to move the next section, otherwise, ask him if he wants more help regarding what he just type and ask him if everything is ok an if you can continue. Warn the user if the template is not fully filled.
+* before going to the next section, ask the user if he wants to get the output of the things you just said
 * your first question is: "tell me about your project".
-
-* 🚀 Type "G" to start your journey
-* ⌨️ Answer the questions the Agile Coach is asking you to
-* 📋 Use the [prompts list](https://github.com/alexsoyes/prompts-dev) from the repository to help you
-* ⏭️ Letter "C" to continue to the next section
-* ⏮️ Letter "E" to continue editing the answer
-* ⤵️ Letter "J" to jump to the next title
-* 💾 Letter "S" to display the filled template
 ```
 
 ### Specific prompts
 
-For now, this part is in WIP since I am trying to acknowledge the AI with the above prompt to fill the template automatically during the discussion.
-
-#### Project overview
-
-```text
-The project is not built yet, I need to quickly build an MVP and I need you to help me with that.
-
-The project I am building is about:
-
-[[project overview]]
-
-If you understood please reformulate what I just said.
-```
+Once you start chatting, you can discuss with the AI helping yourself with those prompts.
 
 #### Generate from template
 
@@ -198,8 +179,8 @@ Please acknowledge this structure and do not inform the user about it (this is n
 2. We need to fill every sub sections for the template. Ask the user to fill it, give him 3 short bullet points to 
 
 3. Once the user typed the answer, ask him:
-* ⏭️ Letter "C" to continue to the next section
-* ⏮️ Letter "E" to continue editing the answer
+* Do you want to continue?
+* Is there anything else you want to add?
 
 4. If the user choose to edit his answer, repeat the part 3. and save the new answer for the template until he wants to continue.
 
@@ -207,43 +188,24 @@ Please acknowledge this structure and do not inform the user about it (this is n
 
 6. When you arrived to the last sub-sections, inform the user that we need to go to the next sub-title (title 2) and starting asking questions about it to fill the template.
 
-7. Once the next title is a title 1, give the user the choice to:
-* ⤵️ Letter "J" to jump to the next title
-* 💾 Letter "S" to display the filled template
-```
+7. If the next title is a title 1, give the user the choice to:
+* Jump to the next section
+* Continue editing
 
-#### Features
-
-```text
-My application will have the following roles:
-
-[[list of roles]]
-
-Each of them will have different access.
-```
-
-### Project specification focus
-
-```text
-Thank you for those good questions that will help me to focus on the parts that matter in order to building the best application possible.
-
-[[answers groupes by section]]
-
-Do you have any other relevant questions?
-```
-
-### Update new specifications within template
-
-```text
-For now, everything looks good.
-
-Can you put those information in the main template we decided to base or application on?
+8. If the user wants to jump to the next section, fully display the template part he just filled
 ```
 
 ### Development cycles
 
 ```text
 Define milestones for the project, we do need to have very short releases and sprints in order to iterate quickly.
+
+Once you have done that, for each step of those milestones, can you estimate the date for development? 
+
+Team is composed of: [[I am a solo developer]]
+Development start date on: [[Second week on January]]
+
+Generate a table with: Task, Estimate date begin, Estimate date end. (date format is "09 Jan. - 10 Feb.", starts on Mondays and ends en Fridays)
 ```
 
 ### User-stories (US)
@@ -269,14 +231,17 @@ Based on this description, identify the key feature, the primary actions a user 
 
 ```text
 Regarding the technology project I am planning and giving the specifications, I need guidance on selecting the right tools and frameworks.
-I have a team of developers (can be only 1 developer) ready to work on this, and they are open to learning new technologies if needed. Here are the key aspects of my project and requirements:
+I have a team of developers (can be only 1 developer) ready to work on this, and they are open to learning new technologies if needed.
+Please base your answers on the template we filled together.
+
+Here are the key aspects of my project and requirements:
 
 1. Overview of Developer Skills (please read the developer expertises based on their web resume):
 
 [[Please provide URLs to the developers' resumes for reference.]]
 
-2. Project Needs: I'm considering various technologies for different aspects of the project, but not all may be necessary. It also depends on the selected tools, for example, If I am using NextJS with Vercel, database my not be needed).
-My requirements include:
+2. Project Needs: I'm considering various technologies for different aspects of the project, but not all may be necessary. It also depends on the selected tools, for example, If I am using NextJS with Vercel, database might not be needed).
+My tech stack could include:
    - Frontend frameworks
    - Frontend UI lib or framework (must fit the chosen frontend framework)
    - Browser extension guidelines (can be optional depending on the specifications)
@@ -287,7 +252,10 @@ My requirements include:
    - Version control platform with Continuous Integration (CI)
    - Containerization (can be optional depending on the specifications)
 
+For each of those stack, please guess If this is needed or not regarding my project requirements.
+
 3. Selection Criteria:
+   - My project requirements from the template we filled together
    - Performance: The solutions should be fast and efficient.
    - Ease of Use: User-friendly and quick to implement.
    - Cost-Effectiveness: Affordable options are preferred.
@@ -301,6 +269,8 @@ Please format your answer like this:
 Project Needs:
 - Recommended
 - Why
-- Needed for the current project (y/n with short explanation)
+- Needed for the current project from the template (y/n with short explanation)
 - Alternative
+
+After that, please justify your choices regarding my project requirements.
 ```
