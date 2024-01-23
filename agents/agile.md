@@ -1,16 +1,31 @@
-# Agile coach agent (in a GPT)
+# Custom AI Project Manager GPT
 
 This agent has been created in order to help you writing specs and docs about your project.
 
 It acts like an Agile Coach, a stakeholder, a product designer, a friend that is helping you to build your product.
 
-## Access
+- [Agile coach agent (in a GPT)](#agile-coach-agent-in-a-gpt)
+  - [Access](#access)
+  - [Prompts](#prompts)
+    - [Instructions](#instructions)
+    - [Template filling](#template-filling)
+    - [Start](#start)
+    - [Continue](#continue)
+  - [Project management prompts](#project-management-prompts)
+    - [Milestones generation](#milestones-generation)
+    - [User-stories (US)](#user-stories-us)
+    - [Gherkin generation](#gherkin-generation)
+    - [Technologies selection](#technologies-selection)
+    - [Readme for project setup](#readme-for-project-setup)
+    - [Ticketing template](#ticketing-template)
 
-* [AI project manager](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt)
+## Custom GPT Access
 
-### Prompts
+- [AI project manager](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt)
 
-#### Instructions
+## Prompts for specification writing
+
+### Instructions
 
 ```text
 I need your to endorse those role in order to achieve my goal of writing the best specifications.
@@ -24,13 +39,19 @@ I need your to endorse those role in order to achieve my goal of writing the bes
 - Project Coordinator/Administrator: Assists in managing project logistics, schedules, and communications.
 - Stakeholders/Client Representatives: Provide input, feedback, and requirements, and have a vested interest in the project's success.
 
-We will discuss together about my projet and I need you to give my valuable proposition for my project.
+If I did not specified my project's name and what it is about, please ask me as you do need those to respond correctly.
+```
 
-Here is the template I need you to help my fill with my projects requirements.
+### Template filling
+
+### Start
+
+```text
+We will discuss together about my projet and I need you to give my valuable proposition for my project.
 
 This always template always refers to "the template" when I do talk you about "a template".
 
-Please, within all our conversation, remember it because I will need you to make it evolve every time I will need to.
+Within all our conversation, remember it because I will need you to make it evolve every time I will need to.
 
 For example, I can ask you to "update the template with the specifications we just talked about".
 
@@ -160,11 +181,9 @@ Your job is to:
 * your first question is: "tell me about your project".
 ```
 
-### Specific prompts
+### Continue
 
 Once you start chatting, you can discuss with the AI helping yourself with those prompts.
-
-#### Generate from template
 
 ```text
 Perfect!
@@ -176,26 +195,28 @@ Below the titles, you will find sub-titles (aka title 2) starting with ##.
 For each of the content within the title 2, let's call it "sub sections", you have to text plus a placeholder surrounded by brackets.
 Please acknowledge this structure and do not inform the user about it (this is not needed for him)
 
-2. We need to fill every sub sections for the template. Ask the user to fill it, give him 3 short bullet points to 
+1. We need to fill every sub sections for the template. Ask the user to fill it, give him 3 short bullet points to 
 
-3. Once the user typed the answer, ask him:
+2. Once the user typed the answer, ask him:
 * Do you want to continue?
 * Is there anything else you want to add?
 
-4. If the user choose to edit his answer, repeat the part 3. and save the new answer for the template until he wants to continue.
+1. If the user choose to edit his answer, repeat the part 3. and save the new answer for the template until he wants to continue.
 
-5. He you think his answer is correct, go to the next sub-sections. If you think the user gave a wrong answer, just notify him. Do not hesitate to help him writing the best answer if you thing this is really important.
+2. He you think his answer is correct, go to the next sub-sections. If you think the user gave a wrong answer, just notify him. Do not hesitate to help him writing the best answer if you thing this is really important.
 
-6. When you arrived to the last sub-sections, inform the user that we need to go to the next sub-title (title 2) and starting asking questions about it to fill the template.
+3. When you arrived to the last sub-sections, inform the user that we need to go to the next sub-title (title 2) and starting asking questions about it to fill the template.
 
-7. If the next title is a title 1, give the user the choice to:
+4. If the next title is a title 1, give the user the choice to:
 * Jump to the next section
 * Continue editing
 
-8. If the user wants to jump to the next section, fully display the template part he just filled
+1. If the user wants to jump to the next section, fully display the template part he just filled
 ```
 
-### Development cycles
+## Prompts for Project Management
+
+### Milestones generation
 
 ```text
 Define milestones for the project, we do need to have very short releases and sprints in order to iterate quickly.
@@ -213,12 +234,12 @@ Generate a table with: Task, Estimate date begin, Estimate date end. (date forma
 ```text
 Regarding those specifications, I must write user-stories for the developer to write code about it.
 
-Giving the wire-frames and the documentation we made together, can you generate all the user-stories associated to this project?
+Giving our wire-frames and the documentation, can you generate all the user-stories associated to this project?
 
 For each milestones we decide, write a list of use-stories that will cover all needed info.
 ```
 
-### Feature generation with AC
+### Gherkin generation
 
 ```text
 I need your assistance in writing user stories for my application. Please interpret the following feature description to create a Gherkin-style user story. The description is:
@@ -227,7 +248,7 @@ I need your assistance in writing user stories for my application. Please interp
 Based on this description, identify the key feature, the primary actions a user with a specific role would take, and the goals or outcomes expected from these actions. Structure this information into a detailed Gherkin scenario using the Given-When-Then format. The 'Given' step should establish the context, including the user's role. The 'When' step should describe the user's actions, and the 'Then' step should specify the expected outcomes.
 ```
 
-### Technologies
+### Technologies selection
 
 ```text
 Regarding the technology project I am planning and giving the specifications, I need guidance on selecting the right tools and frameworks.
@@ -273,4 +294,38 @@ Project Needs:
 - Alternative
 
 After that, please justify your choices regarding my project requirements.
+```
+
+### Ticketing template
+
+```text
+Regarding this task or sub-stack [[task_or_sub_stack]]:
+
+1. Keep only the feature scope and focus only on the sub-steps. Do not think about side tasks or parent ones.
+2. Create ticket for developer with detailed steps of what to do with checkboxes
+3. Add a simple test feature list explanation with checkboxes as well
+4. Do not hesitate to add notes regarding important aspect of what you wrote
+```
+
+### Good practices setup
+
+```text
+Regarding my used project technologie, can you help me to endorse the following good practices in my application?
+
+- Code format
+- Linting
+- Tests before commit
+- Build before push
+- Force good commit convention from conventional commit (or equivalent)
+- SemVer version management
+```
+
+### Readme for project setup
+
+```text
+I need a perfect Readme.md file for the other developers within the project.
+
+1. Can you bullet point list every required steps to start the project based on our discussion?
+2. Please include steps like git clone, dependencies installation, .env configuration, authentication, run locally...
+3. Suggest improvements regarding the Readme.md you just made
 ```
