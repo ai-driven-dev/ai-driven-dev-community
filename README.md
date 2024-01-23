@@ -182,7 +182,7 @@ Technically speaking, here are the libs we are using for our project:
 "[[package.json or equivalent]]"
 ```
 
-#### My project configuration `:prsumfeat`
+#### Help to summarize a feature `:prsumfeat`
 
 ```text
 I need your help about a feature I am trying to make.
