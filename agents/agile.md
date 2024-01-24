@@ -318,6 +318,8 @@ Regarding my used project technologie, can you help me to endorse the following 
 - Build before push
 - Force good commit convention from conventional commit (or equivalent)
 - SemVer version management
+- Major updates notice (in CI)
+- Minor and security updates automatically install
 ```
 
 ### Readme for project setup
