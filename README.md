@@ -43,10 +43,10 @@ Quick jump into the section you want.
     * [Global prompts](#global-prompts)
       * [Prompt evaluation `:gprompteval`](#prompt-evaluation-gprompteval)
       * [Answer evaluation with iteration `:ganswereval`](#answer-evaluation-with-iteration-ganswereval)
-    * [Global dev prompts `:pr`](#global-dev-prompts-pr)
+    * [Global dev prompts](#global-dev-prompts)
       * [Who am I? `:prtsme`](#who-am-i-prtsme)
       * [My project configuration `:prproject`](#my-project-configuration-prproject)
-      * [My project configuration `:prsumfeat`](#my-project-configuration-prsumfeat)
+      * [Help to summarize a feature `:prsumfeat`](#help-to-summarize-a-feature-prsumfeat)
       * [Ask for a feature `:prfeat`](#ask-for-a-feature-prfeat)
       * [Code the feature `:prcode`](#code-the-feature-prcode)
       * [Recode the feature `:prrecode`](#recode-the-feature-prrecode)
@@ -55,7 +55,7 @@ Quick jump into the section you want.
       * [Test my feature `:prpretest`](#test-my-feature-prpretest)
       * [Test my feature `:prunittests`](#test-my-feature-prunittests)
       * [Search in the documentation `:prsearchdoc`](#search-in-the-documentation-prsearchdoc)
-    * [Code related prompts `:cd`](#code-related-prompts-cd)
+    * [Code related prompts](#code-related-prompts)
       * [Convert this type into `:cdtsconv`](#convert-this-type-into-cdtsconv)
       * [Convert this type into `:cdopt`](#convert-this-type-into-cdopt)
       * [Log every steps of this code `:cdstepslog`](#log-every-steps-of-this-code-cdstepslog)
@@ -96,7 +96,7 @@ Use this timeline to find and fix bugs.
 
 It saved hours.
 
-![Text expander with AI](images/espanso-code-gpt.gif)
+![Text expander with AI](docs/images/espanso-code-gpt.gif)
 
 ## Contribution
 
@@ -148,7 +148,7 @@ Can you be self-critical of your answer?
 Thank you for you professionalism.
 ```
 
-### Global dev prompts `:pr`
+### Global dev prompts
 
 Related to prompts chatting.
 
@@ -321,7 +321,7 @@ Based on that documentation, can you:
 Please provide the best step by step way to it. For each step, detail your explanation with the proper code.
 ```
 
-### Code related prompts `:cd`
+### Code related prompts
 
 Related to code interaction (eg: with Copilot).
 
