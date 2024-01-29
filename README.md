@@ -182,6 +182,22 @@ Technically speaking, here are the libs we are using for our project:
 "[[package.json or equivalent]]"
 ```
 
+#### Acknowledge new feature `:prackfeat`
+
+```text
+Here is the feature that I want to code as a developer, can you acknowledge it?
+
+Then, reformulate in bullet point grouped by section to show me that you understood what to do:
+
+[[feature to build]]
+```
+
+#### Acknowledge new feature `:prdrivefeat`
+
+```text
+Please help me step by step to write the code for "[[step to do]]" with "[[tech]]".
+```
+
 #### Help to summarize a feature `:prsumfeat`
 
 ```text

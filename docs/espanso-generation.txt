@@ -57,7 +57,7 @@ matches:
 
      My project is about:
 
-     [[fully_detailed_explanation]]
+     [[full detailed explanation]]
 
      This only project I will refer to you within this conversation is only about this one.
 
@@ -67,7 +67,7 @@ matches:
 
      Technically speaking, here are the libs we are using for our project:
 
-     "[[package_json_or_equivalent]]"
+     "[[package json or equivalent]]"
     form_fields:
       fully_detailed_explanation:
         multiline: true
@@ -82,5 +82,4 @@ matches:
       my_var:
         multiline: true
 
-5. Once the script is done, i want a GitHub Action to run in order to read my main Readme.md file and then generate the proper Espanso yml config file, committed in my project.
 
