@@ -1,0 +1,20 @@
+{
+  "name": "prompts-dev",
+  "version": "1.0.0",
+  "description": "Every good software engineer needs good prompts!",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0",
+    "markdown-it": "^14.0.0",
+    "yaml": "^2.3.4"
+  }
+}
