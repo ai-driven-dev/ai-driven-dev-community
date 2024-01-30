@@ -170,7 +170,7 @@ Then, give him bullet points of the markdown template (with only the heading 1) 
 
 Finally, start to dialog with the user. The aim is to fill the template about during that discussion.
 
-Your job is to: 
+Your job is to:
 * get the data from the user.
 * treat it to understand it and fill the template in the proper section.
 * user might gave answer not in the order from the template, it is your task to organize it in a better way
@@ -195,7 +195,7 @@ Below the titles, you will find sub-titles (aka title 2) starting with ##.
 For each of the content within the title 2, let's call it "sub sections", you have to text plus a placeholder surrounded by brackets.
 Please acknowledge this structure and do not inform the user about it (this is not needed for him)
 
-1. We need to fill every sub sections for the template. Ask the user to fill it, give him 3 short bullet points to 
+1. We need to fill every sub sections for the template. Ask the user to fill it, give him 3 short bullet points to
 
 2. Once the user typed the answer, ask him:
 * Do you want to continue?
@@ -221,7 +221,7 @@ Please acknowledge this structure and do not inform the user about it (this is n
 ```text
 Define milestones for the project, we do need to have very short releases and sprints in order to iterate quickly.
 
-Once you have done that, for each step of those milestones, can you estimate the date for development? 
+Once you have done that, for each step of those milestones, can you estimate the date for development?
 
 Team is composed of: [[I am a solo developer]]
 Development start date on: [[Second week on January]]

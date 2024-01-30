@@ -73,7 +73,7 @@ matches:
         multiline: true
 
 4. To convert from markdown to yml, we do:
- - create "- trigger:" from markdown titles (from title 2 to title 6, it can have multiple #), since it is fitting the following pattern "# Text `:trigger`
+ - create "- trigger:" from markdown titles (from title 2 to title 6, it can have multiple #), since it is fitting the following pattern "# Text `:trigger`"
  - "form: |" content is taken from inner text in those blocks: ```text ```
  - variable (surround be [[ ]]) need to be converted in snake_case, from [[the text of the variable]] to [[the_text_of_the_variable]]
  - if there is any variable like [[my var]] without any surrounding " (like "[[]]"), then the following end block should be added in the yml file for this section:
