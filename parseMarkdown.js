@@ -40,19 +40,26 @@ function parseMarkdown(markdownText) {
     }
 
     // Check for code block tokens
-    if (token.type === 'fence' && token.info === 'text') {
-      if (currentTrigger) {
-        currentTrigger.form = token.content;
-        // Extract variables
-        const variableMatches = [...token.content.matchAll(/\[\[(.*?)\]\]/g)];
-        for (const match of variableMatches) {
-          const variableName = match[1]
+    if (token.type === 'fence' && currentTrigger) {
+      let newContentWithReplacedVars = token.content;
+      const variableMatches = token.content.match(/\[\[(.*?)\]\]/g);
+      if (variableMatches) {
+        variableMatches.forEach((variable) => {
+          const variableName = variable
             .trim()
             .replace(/\s+/g, '_')
             .toLowerCase();
-          currentTrigger.variables.push(variableName);
-        }
+          if (!currentTrigger.variables.includes(variableName)) {
+            currentTrigger.variables.push(variableName);
+            newContentWithReplacedVars = newContentWithReplacedVars.replace(
+              variable,
+              variableName
+            );
+          }
+        });
       }
+
+      currentTrigger.form = newContentWithReplacedVars;
     }
   }
 

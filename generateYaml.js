@@ -12,7 +12,9 @@ function generateYaml(espansoConfig) {
       if (configItem.variables.length > 0) {
         matchItem.form_fields = {};
         configItem.variables.forEach((variable) => {
-          matchItem.form_fields[variable] = { multiline: true };
+          if (!matchItem.replace.includes('"[[' + variable + ']]"')) {
+            matchItem.form_fields[variable] = { multiline: true };
+          }
         });
       }
 
@@ -23,18 +25,17 @@ function generateYaml(espansoConfig) {
   // Convert the JavaScript object to a YAML string
   // Use the "styles" option to specify custom styles for different data types
   return yaml.dump(yamlConfig, {
-    lineWidth: -1, // Prevent line wrapping
-    noRefs: true, // Do not create YAML references
+    lineWidth: -1, // Disable line wrapping
+    noRefs: true, // Prevent creating YAML references
+    noCompatMode: true, // Disable compatibility mode to allow special characters in strings
     styles: {
       '!!null': 'canonical', // Dump null as ~
       '!!bool': 'lowercase', // Dump boolean values in lowercase
       '!!int': 'decimal', // Dump integers in decimal format
       '!!float': 'lowercase', // Dump floats in lowercase
-      // Use block literals for multi-line strings, double quotes otherwise
-      '!!str': (value) => (/\n/.test(value) ? '|' : '"'),
+      '!!str': 'fold', // Use block style for multi-line strings
     },
-    // Specify the quoting type for strings that are not multi-line
-    quotingType: '"',
+    quotingType: '"', // Use double quotes for strings
   });
 }
 

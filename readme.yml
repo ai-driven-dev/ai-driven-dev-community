@@ -1,0 +1,277 @@
+matches:
+  - trigger: gprompteval
+    replace: |
+      This is the prompt I made (surrounded with """) for an a generative artificial intelligence like ChatGPT.
+
+      I need you to help me to make it better in order for the AI to better understand what I am asking about.
+
+      """[[prompt_you_have_made]]"""
+
+      Please reformulate it to be clearer for the AI, do not hesitate to change complexe words with easy ones.
+      Merge duplication and remove not necessary instructions.
+      Be clear and specific.
+      Avoid ambiguity.
+      Use good english, fix text mistakes.
+
+      Please also acknowledge that AI can access URL, documents and generate images.
+    form_fields:
+      '[[prompt_you_have_made]]':
+        multiline: true
+  - trigger: ganswereval
+    replace: |
+      Can you be self-critical of your answer?
+
+      1) Evaluate your own work. List its strengths and weaknesses.
+      2) Give it a mark between 0 and 20. Justify your score in terms of the rules you had to respect.
+      3) Make a list of suggestions that will enable you to achieve a score of 20, again in relation to these rules. Number each suggestion.
+      4) Rewrite your work following the recommendations in point 3).
+      5) Ask me if I'd like to repeat the process. We'll do this until your work is marked 20/20.
+
+      Thank you for you professionalism.
+  - trigger: prtsme
+    replace: |
+      I am a senior software engineer on JavaScript but I prefer to use TypeScript.
+
+      The libraries I am using are: React, NextJS, Zod, React-Hook-Form, Tailwind.
+
+      I need help to write 100% working and clean code.
+  - trigger: prproject
+    replace: |
+      I need help for my current project and I need you to help me as an experimented mentor, developer and agile coach.
+
+      My project is about:
+
+      [[fully_detailed_explanation]]
+
+      This only project I will refer to you within this conversation is only about this one.
+
+      I will try to always provide to you the relevant code associated to the feature or bug or whatever I talk you about.
+
+      The code will be surrounded by ", whenever possible.
+
+      Technically speaking, here are the libs we are using for our project:
+
+      "[[package.json_or_equivalent]]"
+    form_fields:
+      '[[fully_detailed_explanation]]':
+        multiline: true
+      '[[package.json_or_equivalent]]':
+        multiline: true
+  - trigger: prackfeat
+    replace: |
+      I need to code this feature, as a developer.
+
+      1. Please acknowledge it
+      2. Reformulate in bullet point grouped by section to show me that you understood what to do
+      3. Draw me the development steps to code, grouped by sections
+
+      Here is the feature:
+
+      [[feature_to_build]]
+    form_fields:
+      '[[feature_to_build]]':
+        multiline: true
+  - trigger: prdrivefeat
+    replace: |
+      Please help me step by step to write the code for "[[step_to_do]]".
+    form_fields:
+      '[[step_to_do]]':
+        multiline: true
+  - trigger: prsumfeat
+    replace: |
+      I need your help about a feature I am trying to make.
+
+      Can you summarize the following specifications?
+
+      I need to clear my mind about it, I want to have some very clear statements about what the feature is about and its goal, the problem it is trying to solve.
+
+      Reduce irrelevant information from the specifications I gave you and reply as clear as possible to make it understandable by every one.
+
+      Use a bullet list grouped by sections (if necessary), you do not need that much details, just give the required information.
+
+      "[[feature_to_summarize]]"
+    form_fields:
+      '[[feature_to_summarize]]':
+        multiline: true
+  - trigger: prfeat
+    replace: |
+      I am building a new feature for my project.
+
+      Goal of the feature: [[context]]
+      Incoming parameters are: [[params]]
+      Expected result is: [[result]]
+
+      Please give me every detailed steps to do in order to achieve my goal.
+    form_fields:
+      '[[context]]':
+        multiline: true
+      '[[params]]':
+        multiline: true
+      '[[result]]':
+        multiline: true
+  - trigger: prcode
+    replace: |
+      You did understand the feature I want to code.
+      Now, I need your to write the code following my projects requirements (both technical and from a user view).
+
+      You should:
+
+      * Spit files (only if needed, respecting clean code principles and other good practices)
+      * Not put into comment
+      * Function / Variables names must be short, in english and really matching the expected outcome
+  - trigger: prrecode
+    replace: |
+      Your code does not work as excepted.
+
+      [[explanation_why_it_is_failing]]
+
+      Can you auto-evaluate your own work?
+
+      1) Remind you the goal and try another way to code it.
+      2) Keep in mind that the code needs to be errorless and get the proper result I asked you about.
+      3) Can you remind me the goal, the entry parameters and the expect output?
+      4) Then provide the steps in order to fix the code you wrote.
+      5) Lastly, check for the generated code in order to be sure that it fits my needs.
+
+      Thank you for you professionalism.
+    form_fields:
+      '[[explanation_why_it_is_failing]]':
+        multiline: true
+  - trigger: prdebug
+    replace: |
+      For this bugfix I am responsible of, here his the context of what I want to do:
+
+      [[the_context_of_what_i_wanted]]
+
+      This is producing this strange behavior, the bug is causing:
+
+      [[what_the_bug_is_doing]]
+
+      Can you give me a list 3 clues regarding my issue in order to find the root cause and then, fix it?
+
+      Please sort them with the more probable first.
+    form_fields:
+      '[[the_context_of_what_i_wanted]]':
+        multiline: true
+      '[[what_the_bug_is_doing]]':
+        multiline: true
+  - trigger: prfix
+    replace: |
+      The following code is not working the way I want it to.
+
+      "[[code]]"
+
+      This technical error is:
+
+      [[error]]
+
+      When I try to:
+
+      [[action]]
+
+      Please, try to understand the error and then propose the 2 best ways to fix it.
+
+      Do not hesitate to ask me if you have need more information to understand the issue.
+    form_fields:
+      '[[code]]':
+        multiline: true
+      '[[error]]':
+        multiline: true
+      '[[action]]':
+        multiline: true
+  - trigger: prpretest
+    replace: |
+      I want you to write a test for the this feature:
+
+      [[feature_you_talked_about_previously]]
+
+      Give me a list of tests that need to be done in order to secure the feature delivery in production.
+
+      It must be 100% bullet proof since I cannot afford to have bug in the feature, this is vital to me.
+
+      Every test cases must be covered.
+    form_fields:
+      '[[feature_you_talked_about_previously]]':
+        multiline: true
+  - trigger: prunittests
+    replace: |
+      For the following list of test cases:
+
+      [[your_test_cases_and_the_ones_gave_by_ai]]
+
+      Can you generate the corresponding code to test the following file:
+
+      "[[copy_paste_your_component_here]]"
+
+      Remember, you test must be 100% working.
+    form_fields:
+      '[[your_test_cases_and_the_ones_gave_by_ai]]':
+        multiline: true
+      '[[copy_paste_your_component_here]]':
+        multiline: true
+  - trigger: prsearchdoc
+    replace: |
+      I need you to read the following documentation.
+
+      [[documentation_url]]
+
+      Based on that documentation, can you:
+
+      [[want_you_want_to_do]]
+
+      Please provide the best step by step way to it. For each step, detail your explanation with the proper code.
+    form_fields:
+      '[[documentation_url]]':
+        multiline: true
+      '[[want_you_want_to_do]]':
+        multiline: true
+  - trigger: cdtsconv
+    replace: |
+      Here is my JSON object:
+
+      "[[code]]"
+
+      Convert it to a TypeScript Type.
+    form_fields:
+      '[[code]]':
+        multiline: true
+  - trigger: cdopt
+    replace: |
+      Please optimize the following code for readability.
+      It must produce the same output.
+
+      "[[code]]"
+    form_fields:
+      '[[code]]':
+        multiline: true
+  - trigger: cdstepslog
+    replace: |
+      Add logging on every steps in order to identify bugs.
+  - trigger: cdexplainlog
+    replace: |
+      Analyze the following logs.
+
+      "[[code]]"
+
+      Give me a list of top 5 possibilities that explain why:
+
+      [[cause]]
+    form_fields:
+      '[[code]]':
+        multiline: true
+      '[[cause]]':
+        multiline: true
+  - trigger: cdtrans
+    replace: |
+      I need you to translate the following text:
+
+      [[text]]
+
+      It should be translated into the following langage, keep the tone.
+
+      [[languages]]
+    form_fields:
+      '[[text]]':
+        multiline: true
+      '[[languages]]':
+        multiline: true

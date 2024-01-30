@@ -10,7 +10,8 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "test": "jest --watch"
+    "start": "node index.js",
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
