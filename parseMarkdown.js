@@ -46,6 +46,8 @@ function parseMarkdown(markdownText) {
       if (variableMatches) {
         variableMatches.forEach((variable) => {
           const variableName = variable
+            .replace('[[', '')
+            .replace(']]', '')
             .trim()
             .replace(/\s+/g, '_')
             .toLowerCase();
@@ -53,7 +55,7 @@ function parseMarkdown(markdownText) {
             currentTrigger.variables.push(variableName);
             newContentWithReplacedVars = newContentWithReplacedVars.replace(
               variable,
-              variableName
+              `[[${variableName}]]`
             );
           }
         });

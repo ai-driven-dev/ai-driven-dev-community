@@ -12,5 +12,4 @@ const espansoConfig = parseMarkdown(markdownText);
 const yamlContent = generateYaml(espansoConfig);
 
 // Output the YAML content to a file or console
-fs.writeFileSync('readme.yml', yamlContent);
-console.log('YAML configuration generated successfully.');
+fs.writeFileSync('./prompts-dev/package.yml', yamlContent);

@@ -5,7 +5,7 @@ function generateYaml(espansoConfig) {
     matches: espansoConfig.map((configItem) => {
       const matchItem = {
         trigger: `:${configItem.trigger}`,
-        replace: configItem.form,
+        form: configItem.form,
       };
 
       // If there are variables, add form_fields
@@ -13,9 +13,9 @@ function generateYaml(espansoConfig) {
         matchItem.form_fields = {};
         configItem.variables.forEach((variable) => {
           // Construct the pattern to search for the variable enclosed in double quotes
-          const pattern = `"${variable}"`;
+          const pattern = `"[[${variable}]]"`;
           // Check if the pattern is not included in the replace string
-          if (!matchItem.replace.includes(pattern)) {
+          if (!matchItem.form.includes(pattern)) {
             // Add the variable to form_fields with multiline set to true
             matchItem.form_fields[variable] = { multiline: true };
           }

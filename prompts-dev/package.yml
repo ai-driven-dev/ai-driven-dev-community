@@ -1,4 +1,30 @@
 matches:
+  - trigger: ':gprompteval'
+    form: |
+      This is the prompt I made (surrounded with """) for an a generative artificial intelligence like ChatGPT.
+
+      I need you to help me to make it better in order for the AI to better understand what I am asking about.
+
+      """[[prompt_you_have_made]]"""
+
+      Please reformulate it to be clearer for the AI, do not hesitate to change complexe words with easy ones.
+      Merge duplication and remove not necessary instructions.
+      Be clear and specific.
+      Avoid ambiguity.
+      Use good english, fix text mistakes.
+
+      Please also acknowledge that AI can access URL, documents and generate images.
+  - trigger: ':ganswereval'
+    form: |
+      Can you be self-critical of your answer?
+
+      1) Evaluate your own work. List its strengths and weaknesses.
+      2) Give it a mark between 0 and 20. Justify your score in terms of the rules you had to respect.
+      3) Make a list of suggestions that will enable you to achieve a score of 20, again in relation to these rules. Number each suggestion.
+      4) Rewrite your work following the recommendations in point 3).
+      5) Ask me if I'd like to repeat the process. We'll do this until your work is marked 20/20.
+
+      Thank you for you professionalism.
   - trigger: ':prtsme'
     form: |
       I am a senior software engineer on JavaScript but I prefer to use TypeScript.
@@ -22,12 +48,40 @@ matches:
 
       Technically speaking, here are the libs we are using for our project:
 
-      "[[package_json_or_equivalent]]"
+      "[[package.json_or_equivalent]]"
     form_fields:
       fully_detailed_explanation:
         multiline: true
-      package_json_or_equivalent:
+  - trigger: ':prackfeat'
+    form: |
+      I need to code this feature, as a developer.
+
+      1. Please acknowledge it
+      2. Reformulate in bullet point grouped by section to show me that you understood what to do
+      3. Draw me the development steps to code, grouped by sections
+
+      Here is the feature:
+
+      [[feature_to_build]]
+    form_fields:
+      feature_to_build:
         multiline: true
+  - trigger: ':prdrivefeat'
+    form: |
+      Please help me step by step to write the code for "[[step_to_do]]".
+  - trigger: ':prsumfeat'
+    form: |
+      I need your help about a feature I am trying to make.
+
+      Can you summarize the following specifications?
+
+      I need to clear my mind about it, I want to have some very clear statements about what the feature is about and its goal, the problem it is trying to solve.
+
+      Reduce irrelevant information from the specifications I gave you and reply as clear as possible to make it understandable by every one.
+
+      Use a bullet list grouped by sections (if necessary), you do not need that much details, just give the required information.
+
+      "[[feature_to_summarize]]"
   - trigger: ':prfeat'
     form: |
       I am building a new feature for my project.
@@ -108,8 +162,6 @@ matches:
 
       Do not hesitate to ask me if you have need more information to understand the issue.
     form_fields:
-      code:
-        multiline: true
       error:
         multiline: true
       action:
@@ -138,11 +190,25 @@ matches:
 
       "[[copy_paste_your_component_here]]"
 
-      Remember, you test must be 100% working
+      Remember, you test must be 100% working.
     form_fields:
       your_test_cases_and_the_ones_gave_by_ai:
         multiline: true
-      copy_paste_your_component_here:
+  - trigger: ':prsearchdoc'
+    form: |
+      I need you to read the following documentation.
+
+      [[documentation_url]]
+
+      Based on that documentation, can you:
+
+      [[want_you_want_to_do]]
+
+      Please provide the best step by step way to it. For each step, detail your explanation with the proper code.
+    form_fields:
+      documentation_url:
+        multiline: true
+      want_you_want_to_do:
         multiline: true
   - trigger: ':cdtsconv'
     form: |
@@ -151,19 +217,16 @@ matches:
       "[[code]]"
 
       Convert it to a TypeScript Type.
-    form_fields:
-      code:
-        multiline: true
   - trigger: ':cdopt'
     form: |
       Please optimize the following code for readability.
       It must produce the same output.
 
       "[[code]]"
-    form_fields:
-      code:
-        multiline: true
-  - trigger: ':cdlog'
+  - trigger: ':cdstepslog'
+    form: |
+      Add logging on every steps in order to identify bugs.
+  - trigger: ':cdexplainlog'
     form: |
       Analyze the following logs.
 
@@ -173,8 +236,6 @@ matches:
 
       [[cause]]
     form_fields:
-      code:
-        multiline: true
       cause:
         multiline: true
   - trigger: ':cdtrans'
@@ -183,7 +244,7 @@ matches:
 
       [[text]]
 
-      It should be translated into the following language, keep the tone.
+      It should be translated into the following langage, keep the tone.
 
       [[languages]]
     form_fields:
