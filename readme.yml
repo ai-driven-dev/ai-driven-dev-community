@@ -1,5 +1,5 @@
 matches:
-  - trigger: gprompteval
+  - trigger: ':gprompteval'
     replace: |
       This is the prompt I made (surrounded with """) for an a generative artificial intelligence like ChatGPT.
 
@@ -14,10 +14,7 @@ matches:
       Use good english, fix text mistakes.
 
       Please also acknowledge that AI can access URL, documents and generate images.
-    form_fields:
-      '[[prompt_you_have_made]]':
-        multiline: true
-  - trigger: ganswereval
+  - trigger: ':ganswereval'
     replace: |
       Can you be self-critical of your answer?
 
@@ -28,14 +25,14 @@ matches:
       5) Ask me if I'd like to repeat the process. We'll do this until your work is marked 20/20.
 
       Thank you for you professionalism.
-  - trigger: prtsme
+  - trigger: ':prtsme'
     replace: |
       I am a senior software engineer on JavaScript but I prefer to use TypeScript.
 
       The libraries I am using are: React, NextJS, Zod, React-Hook-Form, Tailwind.
 
       I need help to write 100% working and clean code.
-  - trigger: prproject
+  - trigger: ':prproject'
     replace: |
       I need help for my current project and I need you to help me as an experimented mentor, developer and agile coach.
 
@@ -55,9 +52,7 @@ matches:
     form_fields:
       '[[fully_detailed_explanation]]':
         multiline: true
-      '[[package.json_or_equivalent]]':
-        multiline: true
-  - trigger: prackfeat
+  - trigger: ':prackfeat'
     replace: |
       I need to code this feature, as a developer.
 
@@ -71,13 +66,10 @@ matches:
     form_fields:
       '[[feature_to_build]]':
         multiline: true
-  - trigger: prdrivefeat
+  - trigger: ':prdrivefeat'
     replace: |
       Please help me step by step to write the code for "[[step_to_do]]".
-    form_fields:
-      '[[step_to_do]]':
-        multiline: true
-  - trigger: prsumfeat
+  - trigger: ':prsumfeat'
     replace: |
       I need your help about a feature I am trying to make.
 
@@ -90,10 +82,7 @@ matches:
       Use a bullet list grouped by sections (if necessary), you do not need that much details, just give the required information.
 
       "[[feature_to_summarize]]"
-    form_fields:
-      '[[feature_to_summarize]]':
-        multiline: true
-  - trigger: prfeat
+  - trigger: ':prfeat'
     replace: |
       I am building a new feature for my project.
 
@@ -109,7 +98,7 @@ matches:
         multiline: true
       '[[result]]':
         multiline: true
-  - trigger: prcode
+  - trigger: ':prcode'
     replace: |
       You did understand the feature I want to code.
       Now, I need your to write the code following my projects requirements (both technical and from a user view).
@@ -119,7 +108,7 @@ matches:
       * Spit files (only if needed, respecting clean code principles and other good practices)
       * Not put into comment
       * Function / Variables names must be short, in english and really matching the expected outcome
-  - trigger: prrecode
+  - trigger: ':prrecode'
     replace: |
       Your code does not work as excepted.
 
@@ -137,7 +126,7 @@ matches:
     form_fields:
       '[[explanation_why_it_is_failing]]':
         multiline: true
-  - trigger: prdebug
+  - trigger: ':prdebug'
     replace: |
       For this bugfix I am responsible of, here his the context of what I want to do:
 
@@ -155,7 +144,7 @@ matches:
         multiline: true
       '[[what_the_bug_is_doing]]':
         multiline: true
-  - trigger: prfix
+  - trigger: ':prfix'
     replace: |
       The following code is not working the way I want it to.
 
@@ -173,13 +162,11 @@ matches:
 
       Do not hesitate to ask me if you have need more information to understand the issue.
     form_fields:
-      '[[code]]':
-        multiline: true
       '[[error]]':
         multiline: true
       '[[action]]':
         multiline: true
-  - trigger: prpretest
+  - trigger: ':prpretest'
     replace: |
       I want you to write a test for the this feature:
 
@@ -193,7 +180,7 @@ matches:
     form_fields:
       '[[feature_you_talked_about_previously]]':
         multiline: true
-  - trigger: prunittests
+  - trigger: ':prunittests'
     replace: |
       For the following list of test cases:
 
@@ -207,9 +194,7 @@ matches:
     form_fields:
       '[[your_test_cases_and_the_ones_gave_by_ai]]':
         multiline: true
-      '[[copy_paste_your_component_here]]':
-        multiline: true
-  - trigger: prsearchdoc
+  - trigger: ':prsearchdoc'
     replace: |
       I need you to read the following documentation.
 
@@ -225,29 +210,23 @@ matches:
         multiline: true
       '[[want_you_want_to_do]]':
         multiline: true
-  - trigger: cdtsconv
+  - trigger: ':cdtsconv'
     replace: |
       Here is my JSON object:
 
       "[[code]]"
 
       Convert it to a TypeScript Type.
-    form_fields:
-      '[[code]]':
-        multiline: true
-  - trigger: cdopt
+  - trigger: ':cdopt'
     replace: |
       Please optimize the following code for readability.
       It must produce the same output.
 
       "[[code]]"
-    form_fields:
-      '[[code]]':
-        multiline: true
-  - trigger: cdstepslog
+  - trigger: ':cdstepslog'
     replace: |
       Add logging on every steps in order to identify bugs.
-  - trigger: cdexplainlog
+  - trigger: ':cdexplainlog'
     replace: |
       Analyze the following logs.
 
@@ -257,11 +236,9 @@ matches:
 
       [[cause]]
     form_fields:
-      '[[code]]':
-        multiline: true
       '[[cause]]':
         multiline: true
-  - trigger: cdtrans
+  - trigger: ':cdtrans'
     replace: |
       I need you to translate the following text:
 

@@ -4,7 +4,7 @@ describe('generateYaml', () => {
   it('should generate valid YAML with multi-line strings and variables', () => {
     const espansoConfig = [
       {
-        trigger: ':prproject',
+        trigger: 'prproject',
         form: `I need help for my current project and I need you to help me as an experimented mentor, developer and agile coach.
 
 My project is about:
