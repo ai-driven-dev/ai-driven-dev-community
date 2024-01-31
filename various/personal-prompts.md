@@ -22,9 +22,9 @@ Peux-tu faire l'autocritique de ta réponse ?
 
 At the end of you image generated prompt.
 
-```text
+````text
 Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw```
-```
+````
 
 ## Writing
 

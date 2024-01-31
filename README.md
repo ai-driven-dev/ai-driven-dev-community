@@ -4,7 +4,7 @@ Every good software engineer needs good prompts!
 
 This repo is filled of **amazing prompt for developers**, mapped with my favorite text expander, [Espanso](https://espanso.org).
 
-👉 *You are not forced to use a text expander tool but this is highly recommended!*
+👉 _You are not forced to use a text expander tool but this is highly recommended!_
 
 ♻️ This is a WIP one, do not hesitate to contribute kicking errors and improving prompts!
 
@@ -20,8 +20,8 @@ Join a group of french software engineers that are using AI.
 
 I prompted two AI to act like the best software engineers.
 
-* [AI programming expert](https://chat.openai.com/g/g-S1wfMarvA-ai-programming-expert) - [(source)](./agents/mentor-developer.md)
-* [AI project manager](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt) - [(source)](./agents/agile.md)
+- [AI programming expert](https://chat.openai.com/g/g-S1wfMarvA-ai-programming-expert) - [(source)](./agents/mentor-developer.md)
+- [AI project manager](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt) - [(source)](./agents/agile.md)
 
 > It is working much better that the original version and works even better with the prompts under.
 
@@ -29,40 +29,40 @@ I prompted two AI to act like the best software engineers.
 
 Quick jump into the section you want.
 
-* [A tailored list of developer prompts 📋](#a-tailored-list-of-developer-prompts-)
-  * [A french community](#a-french-community)
-  * [Do not use ChatGPT standalone](#do-not-use-chatgpt-standalone)
-  * [Table of Contents](#table-of-contents)
-  * [Text expansion](#text-expansion)
-    * [Installation](#installation)
-    * [Updates](#updates)
-    * [Usage](#usage)
-      * [Quick demo](#quick-demo)
-  * [Contribution](#contribution)
-  * [Prompts list](#prompts-list)
-    * [Global prompts](#global-prompts)
-      * [Prompt evaluation `:gprompteval`](#prompt-evaluation-gprompteval)
-      * [Answer evaluation with iteration `:ganswereval`](#answer-evaluation-with-iteration-ganswereval)
-    * [Global dev prompts](#global-dev-prompts)
-      * [Who am I? `:prtsme`](#who-am-i-prtsme)
-      * [My project configuration `:prproject`](#my-project-configuration-prproject)
-      * [Help to summarize a feature `:prsumfeat`](#help-to-summarize-a-feature-prsumfeat)
-      * [Ask for a feature `:prfeat`](#ask-for-a-feature-prfeat)
-      * [Code the feature `:prcode`](#code-the-feature-prcode)
-      * [Recode the feature `:prrecode`](#recode-the-feature-prrecode)
-      * [Debug issue `:prdebug`](#debug-issue-prdebug)
-      * [Fix my error `:prfix`](#fix-my-error-prfix)
-      * [Test my feature `:prpretest`](#test-my-feature-prpretest)
-      * [Test my feature `:prunittests`](#test-my-feature-prunittests)
-      * [Search in the documentation `:prsearchdoc`](#search-in-the-documentation-prsearchdoc)
-    * [Code related prompts](#code-related-prompts)
-      * [Convert this type into `:cdtsconv`](#convert-this-type-into-cdtsconv)
-      * [Convert this type into `:cdopt`](#convert-this-type-into-cdopt)
-      * [Log every steps of this code `:cdstepslog`](#log-every-steps-of-this-code-cdstepslog)
-      * [Convert this type into `:cdexplainlog`](#convert-this-type-into-cdexplainlog)
-      * [Convert this type into `:cdtrans`](#convert-this-type-into-cdtrans)
-  * [Bonus](#bonus)
-    * [Coming Soon](#coming-soon)
+- [A tailored list of developer prompts 📋](#a-tailored-list-of-developer-prompts-)
+  - [A french community](#a-french-community)
+  - [Do not use ChatGPT standalone](#do-not-use-chatgpt-standalone)
+  - [Table of Contents](#table-of-contents)
+  - [Text expansion](#text-expansion)
+    - [Installation](#installation)
+    - [Updates](#updates)
+    - [Usage](#usage)
+      - [Quick demo](#quick-demo)
+  - [Contribution](#contribution)
+  - [Prompts list](#prompts-list)
+    - [Global prompts](#global-prompts)
+      - [Prompt evaluation `:gprompteval`](#prompt-evaluation-gprompteval)
+      - [Answer evaluation with iteration `:ganswereval`](#answer-evaluation-with-iteration-ganswereval)
+    - [Global dev prompts](#global-dev-prompts)
+      - [Who am I? `:prtsme`](#who-am-i-prtsme)
+      - [My project configuration `:prproject`](#my-project-configuration-prproject)
+      - [Help to summarize a feature `:prsumfeat`](#help-to-summarize-a-feature-prsumfeat)
+      - [Ask for a feature `:prfeat`](#ask-for-a-feature-prfeat)
+      - [Code the feature `:prcode`](#code-the-feature-prcode)
+      - [Recode the feature `:prrecode`](#recode-the-feature-prrecode)
+      - [Debug issue `:prdebug`](#debug-issue-prdebug)
+      - [Fix my error `:prfix`](#fix-my-error-prfix)
+      - [Test my feature `:prpretest`](#test-my-feature-prpretest)
+      - [Test my feature `:prunittests`](#test-my-feature-prunittests)
+      - [Search in the documentation `:prsearchdoc`](#search-in-the-documentation-prsearchdoc)
+    - [Code related prompts](#code-related-prompts)
+      - [Convert this type into `:cdtsconv`](#convert-this-type-into-cdtsconv)
+      - [Convert this type into `:cdopt`](#convert-this-type-into-cdopt)
+      - [Log every steps of this code `:cdstepslog`](#log-every-steps-of-this-code-cdstepslog)
+      - [Convert this type into `:cdexplainlog`](#convert-this-type-into-cdexplainlog)
+      - [Convert this type into `:cdtrans`](#convert-this-type-into-cdtrans)
+  - [Bonus](#bonus)
+    - [Coming Soon](#coming-soon)
 
 ## Text expansion
 
@@ -89,8 +89,8 @@ In combination with ChatGPT (or another generative AI).
 
 Use this timeline to find and fix bugs.
 
-* Either by using a keyboard shortcut (like `:cd...`)
-* Or by using the dialog box (`⌥ + SPACE` or `ALT + SPACE`)
+- Either by using a keyboard shortcut (like `:cd...`)
+- Or by using the dialog box (`⌥ + SPACE` or `ALT + SPACE`)
 
 #### Quick demo
 
@@ -100,17 +100,17 @@ It saved hours.
 
 ## Contribution
 
-* Community prompt list, so create a PR with your needs ❤️
-* Report prompting issues / improvements at [hello@alexsoyes.com](mailto:hello@alexsoyes.com)
+- Community prompt list, so create a PR with your needs ❤️
+- Report prompting issues / improvements at [hello@alexsoyes.com](mailto:hello@alexsoyes.com)
 
 ## Prompts list
 
 I tried to respect the following convention.
 
-* `:{group}` : Either code related or prompt related.
-* `{optionalLanguageShort}` : Like `ts` for TypeScript related things.
-* `{type}` : What we are talking about.
-* `{action}` : A verb, a wish or an actions suite.
+- `:{group}` : Either code related or prompt related.
+- `{optionalLanguageShort}` : Like `ts` for TypeScript related things.
+- `{type}` : What we are talking about.
+- `{action}` : A verb, a wish or an actions suite.
 
 ### Global prompts
 
@@ -185,9 +185,13 @@ Technically speaking, here are the libs we are using for our project:
 #### Acknowledge new feature `:prackfeat`
 
 ```text
-Here is the feature that I want to code as a developer, can you acknowledge it?
+I need to code this feature, as a developer.
 
-Then, reformulate in bullet point grouped by section to show me that you understood what to do:
+1. Please acknowledge it
+2. Reformulate in bullet point grouped by section to show me that you understood what to do
+3. Draw me the development steps to code, grouped by sections
+
+Here is the feature:
 
 [[feature to build]]
 ```
@@ -195,7 +199,7 @@ Then, reformulate in bullet point grouped by section to show me that you underst
 #### Acknowledge new feature `:prdrivefeat`
 
 ```text
-Please help me step by step to write the code for "[[step to do]]" with "[[tech]]".
+Please help me step by step to write the code for "[[step to do]]".
 ```
 
 #### Help to summarize a feature `:prsumfeat`
@@ -398,5 +402,5 @@ More prompts will be released in the following next weeks.
 
 Here are some more prompts you might want to check about:
 
-* <https://doc.clickup.com/36022947/d/h/12ban3-7144/106554999066a43>
-* <https://doc.clickup.com/36022947/d/h/12ban3-7042/bb657cd40f843e7>
+- <https://doc.clickup.com/36022947/d/h/12ban3-7144/106554999066a43>
+- <https://doc.clickup.com/36022947/d/h/12ban3-7042/bb657cd40f843e7>

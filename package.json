@@ -6,15 +6,22 @@
   "directories": {
     "doc": "docs"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "scripts": {
-    "test": "jest"
+    "start": "node index.js",
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jest": "^29.7.0",
     "markdown-it": "^14.0.0",
     "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "prettier": "^3.2.4"
   }
 }
