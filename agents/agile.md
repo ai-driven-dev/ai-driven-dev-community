@@ -310,7 +310,7 @@ Regarding this task or sub-stack [[task_or_sub_stack]]:
 ### Good practices setup
 
 ```text
-Regarding my used project technologie, can you help me to endorse the following good practices in my application?
+Regarding my used project technologie, can you help me to enforce the following good practices in my application?
 
 - Code format
 - Linting
