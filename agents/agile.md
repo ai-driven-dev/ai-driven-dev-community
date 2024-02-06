@@ -320,6 +320,10 @@ Regarding my used project technologie, can you help me to enforce the following 
 - SemVer version management
 - Major updates notice (in CI)
 - Minor and security updates automatically install
+
+Then, for each steps, detail the step by step things to setup those improvements regarding my project's config.
+
+Use the latest version of tools unless I do specify otherwise.
 ```
 
 ### Readme for project setup

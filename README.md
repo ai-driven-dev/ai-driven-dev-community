@@ -46,6 +46,8 @@ Quick jump into the section you want.
     - [Global dev prompts](#global-dev-prompts)
       - [Who am I? `:prtsme`](#who-am-i-prtsme)
       - [My project configuration `:prproject`](#my-project-configuration-prproject)
+      - [Acknowledge new feature `:prackfeat`](#acknowledge-new-feature-prackfeat)
+      - [Acknowledge new feature `:prdrivefeat`](#acknowledge-new-feature-prdrivefeat)
       - [Help to summarize a feature `:prsumfeat`](#help-to-summarize-a-feature-prsumfeat)
       - [Ask for a feature `:prfeat`](#ask-for-a-feature-prfeat)
       - [Code the feature `:prcode`](#code-the-feature-prcode)
@@ -57,10 +59,10 @@ Quick jump into the section you want.
       - [Search in the documentation `:prsearchdoc`](#search-in-the-documentation-prsearchdoc)
     - [Code related prompts](#code-related-prompts)
       - [Convert this type into `:cdtsconv`](#convert-this-type-into-cdtsconv)
-      - [Convert this type into `:cdopt`](#convert-this-type-into-cdopt)
+      - [Improve code readability `:cdopt`](#improve-code-readability-cdopt)
       - [Log every steps of this code `:cdstepslog`](#log-every-steps-of-this-code-cdstepslog)
-      - [Convert this type into `:cdexplainlog`](#convert-this-type-into-cdexplainlog)
-      - [Convert this type into `:cdtrans`](#convert-this-type-into-cdtrans)
+      - [Log analyzer `:cdexplainlog`](#log-analyzer-cdexplainlog)
+      - [Translation `:cdtrans`](#translation-cdtrans)
   - [Bonus](#bonus)
     - [Coming Soon](#coming-soon)
 
@@ -355,11 +357,11 @@ Here is my JSON object:
 Convert it to a TypeScript Type.
 ```
 
-#### Convert this type into `:cdopt`
+#### Improve code readability `:cdopt`
 
 ```text
 Please optimize the following code for readability.
-It must produce the same output.
+It must produce the same output, behavior must not change.
 
 "[[code]]"
 ```
@@ -370,7 +372,7 @@ It must produce the same output.
 Add logging on every steps in order to identify bugs.
 ```
 
-#### Convert this type into `:cdexplainlog`
+#### Log analyzer `:cdexplainlog`
 
 ```text
 Analyze the following logs.
@@ -382,7 +384,7 @@ Give me a list of top 5 possibilities that explain why:
 [[cause]]
 ```
 
-#### Convert this type into `:cdtrans`
+#### Translation `:cdtrans`
 
 ```text
 I need you to translate the following text:
