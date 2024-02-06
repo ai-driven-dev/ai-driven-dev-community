@@ -220,7 +220,7 @@ matches:
   - trigger: ':cdopt'
     form: |
       Please optimize the following code for readability.
-      It must produce the same output.
+      It must produce the same output, behavior must not change.
 
       "[[code]]"
   - trigger: ':cdstepslog'
