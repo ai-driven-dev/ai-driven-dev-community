@@ -222,7 +222,10 @@ matches:
       Please optimize the following code for readability.
       It must produce the same output, behavior must not change.
 
-      "[[code]]"
+      [[code]]
+    form_fields:
+      code:
+        multiline: true
   - trigger: ':cdstepslog'
     form: |
       Add logging on every steps in order to identify bugs.

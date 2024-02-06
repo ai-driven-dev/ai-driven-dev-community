@@ -363,7 +363,7 @@ Convert it to a TypeScript Type.
 Please optimize the following code for readability.
 It must produce the same output, behavior must not change.
 
-"[[code]]"
+[[code]]
 ```
 
 #### Log every steps of this code `:cdstepslog`
