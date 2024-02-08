@@ -29,8 +29,8 @@ I prompted 2 AIs to act like the best software engineers.
 
 Instruction sources used to fine-tune the LLM to act as...
 
-- [Agile Coach (PO, PM...)](./agents/agile.md)
-- [Senior Developer](./agents/mentor-developer.md)
+- [Agile Coach (PO, PM...)](./agents/agile-coach.md)
+- [Senior Developer](./agents/senior-developer.md)
 
 ## Snippets 🧑‍💻
 
@@ -40,10 +40,10 @@ But sometimes, when you exactly know what you need, you do not necessary need a 
 
 Thus, AI can be mistaken, as a developer, you are the master of your code structure.
 
-- [VSCode Snippets](./vscode/)
-  - [TypeScript](./vscode/typescript.json)
-  - [React](./vscode/typescriptreact.json)
-- JetBrains Snippets (Not available, want to add yours? [Contribute!](../CONTRIBUTING.md))
+- [VSCode Snippets](./snippets/vscode/)
+  - [TypeScript](./snippets/vscode/typescript.json)
+  - [React](./snippets/vscode/typescriptreact.json)
+- JetBrains Snippets (Not available, want to add yours? [Contribute!](./CONTRIBUTING.md))
 
 ## Text expansion ⚡️
 
