@@ -45,7 +45,6 @@ matches:
       languages:
         multiline: true
 
-matches:
   - trigger: ':prtsme'
     form: |
       I am a senior software engineer on JavaScript but I prefer to use TypeScript.
@@ -232,7 +231,6 @@ matches:
       want_you_want_to_do:
         multiline: true
 
-matches:
   - trigger: ':llmimproveprompt'
     form: |
       This is the prompt I made (surrounded with """) for an a generative artificial intelligence like ChatGPT.
@@ -260,7 +258,6 @@ matches:
 
       Thank you for you professionalism.
 
-matches:
   - trigger: ':ltstypeobj'
     form: |
       Here is my object:
