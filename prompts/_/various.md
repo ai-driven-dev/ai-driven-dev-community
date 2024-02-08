@@ -1,6 +1,15 @@
 # Various side prompts
 
-Some prompt we can use sometimes, tech related.
+Some prompt we can use sometimes, tech related, or not :)
+
+- [Various side prompts](#various-side-prompts)
+  - [Entrepreneurship](#entrepreneurship)
+    - [Self criticize 🇫🇷](#self-criticize-)
+  - [MidJourney](#midjourney)
+    - [Post realistic picture prompt](#post-realistic-picture-prompt)
+  - [Writing](#writing)
+    - [Tech writing](#tech-writing)
+
 
 ## Entrepreneurship
 

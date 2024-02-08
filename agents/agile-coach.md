@@ -1,23 +1,24 @@
-# Custom AI Project Manager GPT
+# AI Driven Dev - Agents (Agile Coach)
 
 This agent has been created in order to help you writing specs and docs about your project.
 
 It acts like an Agile Coach, a stakeholder, a product designer, a friend that is helping you to build your product.
 
-- [Agile coach agent (in a GPT)](#agile-coach-agent-in-a-gpt)
-  - [Access](#access)
-  - [Prompts](#prompts)
+- [AI Driven Dev - Agents (Agile Coach)](#ai-driven-dev---agents-agile-coach)
+  - [Custom GPT Access](#custom-gpt-access)
+  - [Prompts for specification writing](#prompts-for-specification-writing)
     - [Instructions](#instructions)
     - [Template filling](#template-filling)
     - [Start](#start)
     - [Continue](#continue)
-  - [Project management prompts](#project-management-prompts)
+  - [Prompts for Project Management](#prompts-for-project-management)
     - [Milestones generation](#milestones-generation)
     - [User-stories (US)](#user-stories-us)
     - [Gherkin generation](#gherkin-generation)
     - [Technologies selection](#technologies-selection)
-    - [Readme for project setup](#readme-for-project-setup)
     - [Ticketing template](#ticketing-template)
+    - [Good practices setup](#good-practices-setup)
+    - [Readme for project setup](#readme-for-project-setup)
 
 ## Custom GPT Access
 

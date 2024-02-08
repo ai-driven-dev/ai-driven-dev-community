@@ -1,7 +1,7 @@
 {
-  "name": "prompts-dev",
+  "name": "ai-driven-dev-community",
   "version": "1.0.0",
-  "description": "Every good software engineer needs good prompts!",
+  "description": "From prompts in Readme to Espanso text expander!",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -13,9 +13,15 @@
     "start": "node index.js",
     "test": "jest --watchAll"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "espanso",
+    "developers",
+    "prompts",
+    "ai",
+    "gen-ai",
+    "ai-driven-dev"
+  ],
+  "author": "alexsoyes",
   "dependencies": {
     "markdown-it": "^14.0.0",
     "yaml": "^2.3.4"

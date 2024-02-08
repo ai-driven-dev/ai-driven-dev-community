@@ -1,0 +1,64 @@
+{
+  "useEffect": {
+    "prefix": "uef",
+    "body": [
+      "useEffect(() => {",
+      "  $1",
+      "}, [$2]);"
+    ],
+    "description": "useEffect"
+  },
+  "useCallback": {
+    "prefix": "ucb",
+    "body": [
+      "useCallback(() => {",
+      "  $1",
+      "}, [$2]);"
+    ],
+    "description": "useCallback"
+  },
+  "useMemo": {
+    "prefix": "umo",
+    "body": [
+      "useMemo(() => {",
+      "  $1",
+      "}, [$2]);"
+    ],
+    "description": "useMemo"
+  },
+  "useRef": {
+    "prefix": "ure",
+    "body": [
+      "useRef($1);"
+    ],
+    "description": "useRef"
+  },
+  "React FC": {
+    "prefix": "rfc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "interface $1Props {",
+      "  $2",
+      "}",
+      "",
+      "const $1: React.FC<$1Props> = ({ $3 }) => {",
+      "  return (",
+      "    $4",
+      "  );",
+      "};",
+      "",
+      "export default $1;"
+    ],
+    "description": "React FC"
+  },
+  "Export default function": {
+    "prefix": "edf",
+    "body": [
+      "export default function $1($2): React.ReactNode | null {",
+      "  $3",
+      "}"
+    ],
+    "description": "Export default function"
+  }
+}

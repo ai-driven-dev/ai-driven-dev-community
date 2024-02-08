@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-node index.js && git add prompts-dev/package.yml
+cd src/ && npm start && git add ../ai-driven-dev-prompts/package.yml
