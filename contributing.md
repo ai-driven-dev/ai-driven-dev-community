@@ -13,29 +13,29 @@ I am thrilled that you're interested in contributing to our project! Your contri
 
 ### Title Structure
 
-* Prompts
-  * Code (`:c`)
-  * Instruct (`:instruct`)
-  * LLM (`:llm`)
-  * Languages (`:l`)
-    * TypeScript (`:lts`)
+- Prompts
+  - Code (`:c`)
+  - Instruct (`:instruct`)
+  - LLM (`:llm`)
+  - Languages (`:l`)
+    - TypeScript (`:lts`)
 
 ### Action Structure
 
 Use a verb to describe the action you want to perform.
 
-* `improve`
-* `convert`
-* `optimize`
-* `log`
+- `improve`
+- `convert`
+- `optimize`
+- `log`
 
 ### Target Structure
 
 The element you want to interact with.
 
-* `object`
-* `answer`
-* `code`
+- `object`
+- `answer`
+- `code`
 
 ### Examples
 
