@@ -42,3 +42,12 @@ Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a qu
 ```text
 “Act as a tech writer. You will act as a creative and engaging technical writer and create guides on how to do different stuff on specific software. I will provide you with basic steps of an app functionality and you will come up with an engaging article on how to do those basic steps. You can ask for screenshots. Just add (screenshot) to where you think there should be one and I will add those later. These are the first basic steps of the app functionality”
 ```
+
+## Coming Soon
+
+More prompts will be released in the following next weeks.
+
+Here are some more prompts you might want to check about:
+
+- <https://doc.clickup.com/36022947/d/h/12ban3-7144/106554999066a43>
+- <https://doc.clickup.com/36022947/d/h/12ban3-7042/bb657cd40f843e7>
