@@ -2,17 +2,15 @@
 
 Every good software engineer needs good prompts!
 
-- [AI Driven Dev](#ai-driven-dev)
-  - [Prompts](#prompts)
-  - [Agents](#agents)
-  - [Snippets](#snippets)
-  - [Text expansion](#text-expansion)
-  - [Contribution](#contribution)
-  - [A french community](#a-french-community)
-  - [Bonus](#bonus)
-    - [Coming Soon](#coming-soon)
+- [AI Driven Dev Community](#ai-driven-dev-community)
+  - [Prompts 📝](#prompts-)
+  - [Agents 🤖](#agents-)
+  - [Snippets 🧑‍💻](#snippets-)
+  - [Text expansion ⚡️](#text-expansion-️)
+  - [Community Contribution 🚀](#community-contribution-)
+    - [A French community](#a-french-community)
 
-## Prompts
+## Prompts 📝
 
 The best list of software engineering prompts for AI you can find.
 
@@ -20,7 +18,7 @@ The best list of software engineering prompts for AI you can find.
 - [For instructions](./prompts/instruct.md)
 - [For LLM optimizations](./prompts//llm.md)
 
-## Agents
+## Agents 🤖
 
 I prompted 2 AIs to act like the best software engineers.
 
@@ -34,7 +32,7 @@ Instruction sources used to fine-tune the LLM to act as...
 - [Agile Coach (PO, PM...)](./agents/agile.md)
 - [Senior Developer](./agents/mentor-developer.md)
 
-## Snippets
+## Snippets 🧑‍💻
 
 AI makes way much easier code generation.
 
@@ -47,7 +45,7 @@ Thus, AI can be mistaken, as a developer, you are the master of your code struct
   - [React](./vscode/typescriptreact.json)
 - JetBrains Snippets (Not available, want to add yours? [Contribute!](../CONTRIBUTING.md))
 
-## Text expansion
+## Text expansion ⚡️
 
 This repo is filled of **amazing prompt for developers**, mapped with my favorite text expander, [Espanso](https://espanso.org).
 
@@ -71,31 +69,18 @@ espanso package update all # or if you want to update all your packages at once 
 
 Finally, just:
 
-- Use a keyboard shortcut (like `:ltstypeobject`)
+- Use a keyboard shortcut (like `:ltstypeobj`)
 - Or by using the dialog box (`⌥ + SPACE` or `ALT + SPACE`)
-  
 
+## Community Contribution 🚀
 
-## Contribution
-
-🚀 Contribution are welcomed, [check the guide](./contributing.md)
+Contribution are welcomed, [check the guide](./contributing.md)
 
 - Community prompt list, so create a PR with your needs ❤️
 - Report prompting issues / improvements at [hello@alexsoyes.com](mailto:hello@alexsoyes.com)
 
-## A french community
+### A French community
 
 Join a group of french software engineers that are using AI.
 
 [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC)
-
-## Bonus
-
-### Coming Soon
-
-More prompts will be released in the following next weeks.
-
-Here are some more prompts you might want to check about:
-
-- <https://doc.clickup.com/36022947/d/h/12ban3-7144/106554999066a43>
-- <https://doc.clickup.com/36022947/d/h/12ban3-7042/bb657cd40f843e7>
