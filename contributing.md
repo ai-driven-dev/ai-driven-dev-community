@@ -9,6 +9,42 @@ I am thrilled that you're interested in contributing to our project! Your contri
 - Update any relevant documentation or tests to reflect your changes.
 - Follow the project's guidelines on formatting and style for prompts.
 
+### Naming Conventions
+
+### Title Structure
+
+* Prompts
+  * Code (`:c`)
+  * Instruct (`:instruct`)
+  * LLM (`:llm`)
+  * Languages (`:l`)
+    * TypeScript (`:lts`)
+
+### Action Structure
+
+Use a verb to describe the action you want to perform.
+
+* `improve`
+* `convert`
+* `optimize`
+* `log`
+
+### Target Structure
+
+The element you want to interact with.
+
+* `object`
+* `answer`
+* `code`
+
+### Examples
+
+```text
+:ltstypeobj
+:llmevalanswer
+:llmimproveprompt
+```
+
 ## Rules
 
 - Always add a title, it can be a title 2 to 6 (`##` to `######`)
