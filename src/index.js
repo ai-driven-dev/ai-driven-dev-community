@@ -5,7 +5,7 @@ const glob = require('glob');
 
 const promptDirectories = ['../prompts/*', '../prompts/languages/*'];
 
-let yamlContent = '';
+let yamlContent = 'matches:\n';
 
 for (const promptDirectory of promptDirectories) {
   const markdownFiles = glob.sync(promptDirectory + '.md');
@@ -13,7 +13,8 @@ for (const promptDirectory of promptDirectories) {
   for (const markdownFile of markdownFiles) {
     const markdownText = fs.readFileSync(markdownFile, 'utf8');
     const espansoConfig = parseMarkdown(markdownText);
-    yamlContent += generateYaml(espansoConfig) + '\n';
+    yamlContent +=
+      generateYaml(espansoConfig).split('\n').slice(1).join('\n') + '\n';
   }
 }
 

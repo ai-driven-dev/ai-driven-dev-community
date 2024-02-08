@@ -1,6 +1,6 @@
 {
   "name": "ai-driven-dev-community",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "From prompts in Readme to Espanso text expander!",
   "main": "index.js",
   "directories": {
@@ -11,7 +11,8 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "jest --watchAll"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "keywords": [
     "espanso",
