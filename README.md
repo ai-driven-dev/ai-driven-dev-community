@@ -43,7 +43,7 @@ Thus, AI can be mistaken, as a developer, you are the master of your code struct
 - [VSCode Snippets](./snippets/vscode/)
   - [TypeScript](./snippets/vscode/typescript.json)
   - [React](./snippets/vscode/typescriptreact.json)
-- JetBrains Snippets (Not available, want to add yours? [Contribute!](./CONTRIBUTING.md))
+- JetBrains Snippets (Not available, want to add yours? [Contribute!](./contributing.md))
 
 ## Text expansion ⚡️
 
