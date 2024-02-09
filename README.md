@@ -2,13 +2,12 @@
 
 Every good software engineer needs good prompts!
 
-- [AI Driven Dev Community](#ai-driven-dev-community)
-  - [Prompts 📝](#prompts-)
-  - [Agents 🤖](#agents-)
-  - [Snippets 🧑‍💻](#snippets-)
-  - [Text expansion ⚡️](#text-expansion-️)
-  - [Community Contribution 🚀](#community-contribution-)
-    - [A French community](#a-french-community)
+- [Prompts 📝](#prompts-)
+- [Agents 🤖](#agents-)
+- [Snippets 🧑‍💻](#snippets-)
+- [Text expansion ⚡️](#text-expansion-️)
+- [Community Contribution 🚀](#community-contribution-)
+  - [A French community](#a-french-community)
 
 ## Prompts 📝
 

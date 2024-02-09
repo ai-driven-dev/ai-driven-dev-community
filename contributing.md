@@ -2,6 +2,16 @@
 
 I am thrilled that you're interested in contributing to our project! Your contributions are vital to making this project great and we welcome contributions from everyone.
 
+- [Guidelines](#guidelines)
+  - [Naming Conventions](#naming-conventions)
+  - [Title Structure](#title-structure)
+  - [Action Structure](#action-structure)
+  - [Target Structure](#target-structure)
+  - [Examples](#examples)
+- [Rules](#rules)
+- [Adding New Prompts](#adding-new-prompts)
+- [Need Help?](#need-help)
+
 ## Guidelines
 
 - Ensure they are clear, concise, and relevant to the project.
@@ -15,7 +25,7 @@ I am thrilled that you're interested in contributing to our project! Your contri
 
 - Prompts
   - Code (`:c`)
-  - Instruct (`:instruct`)
+  - Instruct (`:ins`)
   - LLM (`:llm`)
   - Languages (`:l`)
     - TypeScript (`:lts`)

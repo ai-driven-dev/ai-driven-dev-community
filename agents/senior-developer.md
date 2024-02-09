@@ -1,17 +1,14 @@
 # AI Driven Dev - Agents (Senior Developer)
 
-- [AI Mentor Developer (as a GPT)](#ai-mentor-developer-as-a-gpt)
-  - [Access](#access)
-  - [Prompts](#prompts)
-    - [Instructions](#instructions)
+- [Access](#access)
+- [Prompts](#prompts)
+  - [Instructions](#instructions)
 
 ## Access
 
 - [AI programming expert](https://chat.openai.com/g/g-S1wfMarvA-ai-programming-expert)
 
-## Prompts
-
-### Instructions
+## Instructions
 
 Already included in the custom GPT programmer.
 

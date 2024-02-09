@@ -1,13 +1,12 @@
-# AI Driven Dev - Prompts (Code)
+# AI Driven Dev - Prompts (Code `:c`)
 
 Related to code interaction (eg: with Copilot).
 
-- [AI Driven Dev - Prompts (Code)](#ai-driven-dev---prompts-code)
-  - [Convert this type into `:cdtsconv`](#convert-this-type-into-cdtsconv)
-  - [Improve code readability `:cdopt`](#improve-code-readability-cdopt)
-  - [Log every steps of this code `:cdstepslog`](#log-every-steps-of-this-code-cdstepslog)
-  - [Log analyzer `:cdexplainlog`](#log-analyzer-cdexplainlog)
-  - [Translation `:cdtrans`](#translation-cdtrans)
+- [Convert this type into `:cdtsconv`](#convert-this-type-into-cdtsconv)
+- [Improve code readability `:cdopt`](#improve-code-readability-cdopt)
+- [Log every steps of this code `:cdstepslog`](#log-every-steps-of-this-code-cdstepslog)
+- [Log analyzer `:cdexplainlog`](#log-analyzer-cdexplainlog)
+- [Translation `:cdtrans`](#translation-cdtrans)
 
 ## Convert this type into `:cdtsconv`
 
