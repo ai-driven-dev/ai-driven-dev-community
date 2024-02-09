@@ -1,23 +1,28 @@
-# AI Driven Dev - Prompts (Instruct)
+# AI Driven Dev - Prompts (Instruct `:ins`)
 
 Those prompt are made to make your discussions with AI more easy to do.
 
-- [AI Driven Dev - Prompts (Instruct)](#ai-driven-dev---prompts-instruct)
-  - [Who am I? `:prtsme`](#who-am-i-prtsme)
-  - [My project configuration `:prproject`](#my-project-configuration-prproject)
-  - [Acknowledge new feature `:prackfeat`](#acknowledge-new-feature-prackfeat)
-  - [Acknowledge new feature `:prdrivefeat`](#acknowledge-new-feature-prdrivefeat)
-  - [Help to summarize a feature `:prsumfeat`](#help-to-summarize-a-feature-prsumfeat)
-  - [Ask for a feature `:prfeat`](#ask-for-a-feature-prfeat)
-  - [Code the feature `:prcode`](#code-the-feature-prcode)
-  - [Recode the feature `:prrecode`](#recode-the-feature-prrecode)
-  - [Debug issue `:prdebug`](#debug-issue-prdebug)
-  - [Fix my error `:prfix`](#fix-my-error-prfix)
-  - [Test my feature `:prpretest`](#test-my-feature-prpretest)
-  - [Test my feature `:prunittests`](#test-my-feature-prunittests)
-  - [Search in the documentation `:prsearchdoc`](#search-in-the-documentation-prsearchdoc)
+Drive AI to help you in your daily dev tasks.
+
+**Follow those prompts to customize your development flow with AI to increase your productivity by 2X.**
+
+- [Who am I? `:prtsme`](#who-am-i-prtsme)
+- [My project configuration `:prproject`](#my-project-configuration-prproject)
+- [Acknowledge new feature `:prackfeat`](#acknowledge-new-feature-prackfeat)
+- [Create steps `:prdrivefeat`](#create-steps-prdrivefeat)
+- [Help to summarize a feature `:prsumfeat`](#help-to-summarize-a-feature-prsumfeat)
+- [Ask for a feature `:prfeat`](#ask-for-a-feature-prfeat)
+- [Code the feature `:prcode`](#code-the-feature-prcode)
+- [Recode the feature `:prrecode`](#recode-the-feature-prrecode)
+- [Debug issue `:prdebug`](#debug-issue-prdebug)
+- [Fix my error `:prfix`](#fix-my-error-prfix)
+- [Test my feature `:prpretest`](#test-my-feature-prpretest)
+- [Test my feature `:prunittests`](#test-my-feature-prunittests)
+- [Search in the documentation `:prsearchdoc`](#search-in-the-documentation-prsearchdoc)
 
 ## Who am I? `:prtsme`
+
+This should be used to instruct your customize LLM in order to fine-tune your AI with your own data (tech used, versions, project context...).
 
 ```text
 I am a senior software engineer on JavaScript but I prefer to use TypeScript.
@@ -61,7 +66,7 @@ Here is the feature:
 [[feature to build]]
 ```
 
-## Acknowledge new feature `:prdrivefeat`
+## Create steps `:prdrivefeat`
 
 ```text
 Please help me step by step to write the code for "[[step to do]]".

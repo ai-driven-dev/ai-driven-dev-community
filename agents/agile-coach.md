@@ -4,29 +4,26 @@ This agent has been created in order to help you writing specs and docs about yo
 
 It acts like an Agile Coach, a stakeholder, a product designer, a friend that is helping you to build your product.
 
-- [AI Driven Dev - Agents (Agile Coach)](#ai-driven-dev---agents-agile-coach)
-  - [Custom GPT Access](#custom-gpt-access)
-  - [Prompts for specification writing](#prompts-for-specification-writing)
-    - [Instructions](#instructions)
-    - [Template filling](#template-filling)
-    - [Start](#start)
-    - [Continue](#continue)
-  - [Prompts for Project Management](#prompts-for-project-management)
-    - [Milestones generation](#milestones-generation)
-    - [User-stories (US)](#user-stories-us)
-    - [Gherkin generation](#gherkin-generation)
-    - [Technologies selection](#technologies-selection)
-    - [Ticketing template](#ticketing-template)
-    - [Good practices setup](#good-practices-setup)
-    - [Readme for project setup](#readme-for-project-setup)
+- [Custom GPT Access](#custom-gpt-access)
+- [Instructions](#instructions)
+- [Prompts for specification writing](#prompts-for-specification-writing)
+  - [Start](#start)
+  - [Continue](#continue)
+- [Prompts for Project Management](#prompts-for-project-management)
+  - [Milestones generation](#milestones-generation)
+  - [User-stories (US)](#user-stories-us)
+  - [Gherkin generation](#gherkin-generation)
+  - [Technologies selection](#technologies-selection)
+  - [Ticketing template](#ticketing-template)
+  - [Good practices setup](#good-practices-setup)
+  - [Readme for project setup](#readme-for-project-setup)
 
 ## Custom GPT Access
 
 - [AI project manager](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt)
 
-## Prompts for specification writing
 
-### Instructions
+## Instructions
 
 ```text
 I need your to endorse those role in order to achieve my goal of writing the best specifications.
@@ -43,7 +40,7 @@ I need your to endorse those role in order to achieve my goal of writing the bes
 If I did not specified my project's name and what it is about, please ask me as you do need those to respond correctly.
 ```
 
-### Template filling
+## Prompts for specification writing
 
 ### Start
 

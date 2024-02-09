@@ -1,8 +1,7 @@
-# AI Driven Dev - Prompts (LLM)
+# AI Driven Dev - Prompts (LLM `:llm`)
 
-- [AI Driven Dev - Prompts (LLM)](#ai-driven-dev---prompts-llm)
-  - [Prompt evaluation `:llmimproveprompt`](#prompt-evaluation-llmimproveprompt)
-  - [Answer evaluation with iteration `:llmevalanswer`](#answer-evaluation-with-iteration-llmevalanswer)
+- [Prompt evaluation `:llmimproveprompt`](#prompt-evaluation-llmimproveprompt)
+- [Answer evaluation with iteration `:llmevalanswer`](#answer-evaluation-with-iteration-llmevalanswer)
 
 ## Prompt evaluation `:llmimproveprompt`
 
