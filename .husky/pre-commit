@@ -1,4 +1,24 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-cd src/ && npm run test && npm start && git add ../ai-driven-dev-prompts/package.yml
+cd src/ && npm run test && npm start
+
+cd ..
+
+# Check if package.yml has changed since the last commit
+if git diff --cached --name-only | grep -q "ai-driven-dev-prompts/package.yml"; then
+
+  # Extract the version from manifest.yml
+  version=$(grep 'version' "ai-driven-dev-prompts/_manifest.yml" | cut -d ' ' -f 2)
+
+  # Increment the version
+  version_parts=(${version//./ })
+  version_parts[2]=$((version_parts[2] + 1))
+  new_version="${version_parts[0]}.${version_parts[1]}.${version_parts[2]}"
+
+  # Replace the version in _manifest.yml
+  sed -i "" "s/version: $version/version: $new_version/" "ai-driven-dev-prompts/_manifest.yml"
+fi
+
+git add ai-driven-dev-prompts/
+

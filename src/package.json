@@ -12,7 +12,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "pre-commit": "cd ../ && bash .husky/pre-commit"
   },
   "keywords": [
     "espanso",
