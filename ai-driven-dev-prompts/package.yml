@@ -45,32 +45,296 @@ matches:
       languages:
         multiline: true
 
-  - trigger: ':prtsme'
+  - trigger: ':inscontext'
     form: |
-      I am a senior software engineer on JavaScript but I prefer to use TypeScript.
+      Act as a senior software engineer, a tech lead, a mentor, and an Agile coach.
 
-      The libraries I am using are: React, NextJS, Zod, React-Hook-Form, Tailwind.
+      Personas:
 
-      I need help to write 100% working and clean code.
-  - trigger: ':prproject'
-    form: |
-      I need help for my current project and I need you to help me as an experimented mentor, developer and agile coach.
+      - You, referring to "the AI", "the LLM", are the core developer of the project, you are the one who is responsible for the project's architecture and the one who is responsible for the project's success.
+      - Me, referring to "the developer", I am a senior software engineer on: "[[my_main_tech_stack_and_libs]]".
+      - The user is referring to "the user" of our application.
 
-      My project is about:
+      Project:
 
-      [[fully_detailed_explanation]]
+      I need you to help me regarding the following project: "[[my_project_name]]".
 
-      This only project I will refer to you within this conversation is only about this one.
+      (This only project I will refer to you within this conversation is only about this one.)
 
-      I will try to always provide to you the relevant code associated to the feature or bug or whatever I talk you about.
+      The projet goals are:
 
-      The code will be surrounded by ", whenever possible.
+      "[[what_are_the_goals_of_the_project]]"
 
-      Technically speaking, here are the libs we are using for our project:
+      Technology Stack and Architecture:
 
-      "[[package.json_or_equivalent]]"
+      [[repeat_chosen_languages,_technologies_and_architecture_used]]
+
+      Development Process:
+
+      - Our team follows Agile development principles, with bi-weekly sprints and continuous integration/continuous deployment (CI/CD) practices.
+
+      Collaboration Tools: 
+      - We use Git for version control
+      - A ticketing project management like Jira
+
+      Request for Assistance:
+      We seek feedback on our choice of technologies and architecture, especially regarding scalability and data security. Insights into innovative data analysis techniques or AI models that could enhance our platform's capabilities are also welcome.
+
+      Everything else is documented in the uploaded documents from you knowledge.
     form_fields:
-      fully_detailed_explanation:
+      'repeat_chosen_languages,_technologies_and_architecture_used':
+        multiline: true
+  - trigger: ':insgenerateoverview'
+    form: |
+      Generate a detailed breakdown of this feature for our project.
+
+      This should include epics, user stories, sub-tasks, complexity estimates, and acceptance criteria, ordered logically for development and priorisation.
+
+      Requested Feature: "[[main_feature_to_build]]"
+
+      [[more_description_of_the_feature_if_needed]]
+
+      Please generate the following:
+
+      1. Epics and Examples
+      2. Then, for each epics: Generate User Stories ordered by priority with Bullet points Acceptance Criteria
+      3. Smallest sub-Tasks with Complexity Estimates based on the epics and user stories
+
+      Here is an example of what I want (surrounded by "---" delimiter):
+
+      ---
+      # Feature: Authentication
+
+      ## Epic: Integration of SSO Authentication with Google
+
+      ### User Stories
+
+      #### User Story 1: As a user, I want to be able to log in using my Google account.
+
+      * Complexity Estimate: S
+
+      ##### Sub-tasks:
+
+      * Configure the Google authentication service in the application. (S)
+      * Add a "Log in with Google" button to the login screen. (XS)
+      * Manage the reception and verification of the Google authentication token. (M)
+      ---
+
+      Notes:
+      - Please output the result in a bullet list grouped by sections.
+      - Detail as much as possible the feature to build, the bullet points you give, the better it is.
+      - For complexity estimates, consider "XS" for tasks under 2 hours, "S" for tasks from 2 to 4 hours, and so on. Use these estimates to effectively plan the sprint.
+      - For acceptance criteria, consider the "Given, When, Then" format to ensure that the feature is fully tested and meets the user's needs.
+    form_fields:
+      more_description_of_the_feature_if_needed:
+        multiline: true
+  - trigger: ':insbreakdownsubtask'
+    form: |
+      Given the following sub-task:
+
+      [[sub-tasks_from_:insgenerateoverview]]
+
+      Rules:
+      * Details steps must be extremely detailed and should be able to be completed by any developer, regardless of their experience.
+      * The acceptance criteria should be specific and measurable, ensuring that the feature meets the user's needs.
+      * The ticket should be generated in a format that can be easily imported into our project management tool, such as Jira.
+
+      Please, fill the following template (surrounded by "---") and output the result in a bullet list grouped by sections:
+
+      ---
+      Title: Brief Description of the Feature
+
+      As a [type of user],
+      I want [an action or feature]
+      so that [benefit or value].
+
+      Details:
+
+      * Acceptance Criteria:
+       * Criterion 1: [Specific, measurable outcome 1]
+        * Estimation: [Complexity or Time Estimate]
+        * Detailed steps to achieve the outcome
+       * Criterion 2: [Specific, measurable outcome 2]
+        * ...
+      ---
+    form_fields:
+      'sub-tasks_from_:insgenerateoverview':
+        multiline: true
+  - trigger: ':inscodingsteps'
+    form: |
+      Based on the chosen languages, frameworks and libs for our application, I want you to be acknowledged of the following coding structure (surrounded by "---" delimiter):
+
+      ---
+      [[use_tree_command_on_the_subfolder_to_get_the_structure]]
+      ---
+
+      Then, I want you to follow that numbered list:
+
+      1. Select the tech to use and propose new ones if needed.
+
+      Since project is already initialized, do not focus that much on installation / lib configuration unless this is a new lib, feature or framework.
+
+      Just provide the simple steps, not that much detailed (only for this part).
+
+      2. Based on the task and the project technologies, can you provide me the detailed steps to code the following task?
+
+      "[[task_to_achieve]]"
+
+      Every steps must be detailed as much as possible and must be completed by any developer, regardless of their experience.
+
+      - Give me the full project path for each file to edit
+      - If you need to split the task into sub-tasks, please do so.
+      - Choose the right libraries and tools to use if needed.
+      - Provide documentation links if needed.
+
+      3. Once you provide the steps, generate the code for each step.
+
+      - The code must be clean and follow the best practices.
+      - Detail components, functions, and variables names.
+      - Split files the more you can, each file must do only one thing.
+      - Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
+    form_fields:
+      use_tree_command_on_the_subfolder_to_get_the_structure:
+        multiline: true
+  - trigger: ':inssearchwebdoc'
+    form: |
+      I need you to read the following documentation.
+
+      "[[documentation_url]]"
+
+      Based on that documentation, can you:
+
+      "[[want_you_want_to_do]]"
+
+      Please provide the best step by step way to it.
+
+      For each step, detail your explanation with the proper code.
+  - trigger: ':insgeneratesqlschema'
+    form: |
+      I need you to help me creating my SQL database schema.
+
+      Regarding the specifications, can you help me drawing my model?
+
+      Give me the full db schema, with the tables, the columns, the relations between the tables and the constraints from:
+
+      [[entity_list_and_relations_between_entities]]
+    form_fields:
+      entity_list_and_relations_between_entities:
+        multiline: true
+  - trigger: ':insgeneratepo'
+    form: |
+
+      I need you to help me creating my Plain Object from my SQL database schema.
+
+      1. For each entity, I want you to generate the corresponding type.
+      2. For each relation, I want you to generate the corresponding type.
+      3. No comment in code
+      4. Suffix the type name with "Entity"
+
+      Here is the SQL schema:
+
+      [[sql_schema_from_`insgeneratesqlschema`]]
+    form_fields:
+      sql_schema_from_`insgeneratesqlschema`:
+        multiline: true
+  - trigger: ':inswritetypefiles'
+    form: |
+      I want to split those types with only 1 type per file. Based on the folder directory we made together, can you tell me where should put each of those?
+
+      Please generate a shell script to create those files and directories:
+
+      [[list_of_types_from_`insgeneratepo`]]
+    form_fields:
+      list_of_types_from_`insgeneratepo`:
+        multiline: true
+  - trigger: ':insdrawfilestruct'
+    form: |
+      Can you imagine the best folder structure for my features from the user-stories in my specifications?
+
+      Please also generate every needed files and directories.
+  - trigger: ':inscreatefilestruct'
+    form: |
+      Generate a shell script to create those files and directories:
+
+      [[tree_list_from_:insdrawfilestruct_output]]
+    form_fields:
+      'tree_list_from_:insdrawfilestruct_output':
+        multiline: true
+  - trigger: ':insreviewfilestruct'
+    form: |
+      Based on a feature based structure, I want to review the files and directories names and find the best way to organize them.
+
+      Here is an example for React (but it can be any other language) surrounded by "---" delimiter:
+
+      ---
+      Most of the code lives in the src folder and looks like this:
+
+      src
+      |
+      +-- assets            # assets folder can contain all the static files such as images, fonts, etc.
+      |
+      +-- components        # shared components used across the entire application
+      |
+      +-- config            # all the global configuration, env variables etc. get exported from here and used in the app
+      |
+      +-- features          # feature based modules
+      |
+      +-- hooks             # shared hooks used across the entire application
+      |
+      +-- lib               # re-exporting different libraries preconfigured for the application
+      |
+      +-- providers         # all of the application providers
+      |
+      +-- routes            # routes configuration
+      |
+      +-- stores            # global state stores
+      |
+      +-- test              # test utilities and mock server
+      |
+      +-- types             # base types used across the application
+      |
+      +-- utils             # shared utility functions
+      In order to scale the application in the easiest and most maintainable way, keep most of the code inside the features folder, which should contain different feature-based things. Every feature folder should contain domain specific code for a given feature. This will allow you to keep functionalities scoped to a feature and not mix its declarations with shared things. This is much easier to maintain than a flat folder structure with many files.
+
+      A feature could have the following structure:
+
+      src/features/awesome-feature
+      |
+      +-- api         # exported API request declarations and api hooks related to a specific feature
+      |
+      +-- assets      # assets folder can contain all the static files for a specific feature
+      |
+      +-- components  # components scoped to a specific feature
+      |
+      +-- hooks       # hooks scoped to a specific feature
+      |
+      +-- routes      # route components for a specific feature pages
+      |
+      +-- stores      # state stores for a specific feature
+      |
+      +-- types       # typescript types for TS specific feature domain
+      |
+      +-- utils       # utility functions for a specific feature
+      |
+      +-- index.ts    # entry point for the feature, it should serve as the public API of the given feature and exports everything that should be used outside the feature
+      Everything from a feature should be exported from the index.ts file which behaves as the public API of the feature.
+      ---
+
+      I want you to:
+      - Improve consistency and readability for every file and directory names
+      - Review the files and directories names and unify them (for each change you make, put in parenthesis the previous name)
+      - Find the best way to organize them
+      - Propose a new structure including every files and directories
+
+      Every file names must follow the same convention across the project.
+
+      Some file and directory names are not consistent and I want to improve that, please check every file and directory names must be checked, your new directory proposal must includes every files and directories as well.
+
+      My project file structure is:
+
+      [[list_of_files_and_directories_using_$tree_shell_command]]
+    form_fields:
+      list_of_files_and_directories_using_$tree_shell_command:
         multiline: true
   - trigger: ':prackfeat'
     form: |
@@ -86,22 +350,6 @@ matches:
     form_fields:
       feature_to_build:
         multiline: true
-  - trigger: ':prdrivefeat'
-    form: |
-      Please help me step by step to write the code for "[[step_to_do]]".
-  - trigger: ':prsumfeat'
-    form: |
-      I need your help about a feature I am trying to make.
-
-      Can you summarize the following specifications?
-
-      I need to clear my mind about it, I want to have some very clear statements about what the feature is about and its goal, the problem it is trying to solve.
-
-      Reduce irrelevant information from the specifications I gave you and reply as clear as possible to make it understandable by every one.
-
-      Use a bullet list grouped by sections (if necessary), you do not need that much details, just give the required information.
-
-      "[[feature_to_summarize]]"
   - trigger: ':prfeat'
     form: |
       I am building a new feature for my project.
@@ -213,22 +461,6 @@ matches:
       Remember, you test must be 100% working.
     form_fields:
       your_test_cases_and_the_ones_gave_by_ai:
-        multiline: true
-  - trigger: ':prsearchdoc'
-    form: |
-      I need you to read the following documentation.
-
-      [[documentation_url]]
-
-      Based on that documentation, can you:
-
-      [[want_you_want_to_do]]
-
-      Please provide the best step by step way to it. For each step, detail your explanation with the proper code.
-    form_fields:
-      documentation_url:
-        multiline: true
-      want_you_want_to_do:
         multiline: true
 
   - trigger: ':llmimproveprompt'

@@ -1,4 +1,19 @@
 {
+  "Print to console": {
+    "prefix": "clg",
+    "body": [
+      "console.log('$1');",
+      "$2"
+    ],
+    "description": "Log output to console"
+  },
+  "JSON Stringify HTML": {
+    "prefix": "jss",
+    "body": [
+      "<pre style={{ height: \"200px\", overflow: \"auto\" }}><code>{JSON.stringify($1, null, 2)}</code></pre>"
+    ],
+    "description": "JSON Stringify HTML"
+  },
   "useEffect": {
     "prefix": "uef",
     "body": [
@@ -51,14 +66,5 @@
       "export default $1;"
     ],
     "description": "React FC"
-  },
-  "Export default function": {
-    "prefix": "edf",
-    "body": [
-      "export default function $1($2): React.ReactNode | null {",
-      "  $3",
-      "}"
-    ],
-    "description": "Export default function"
   }
 }
