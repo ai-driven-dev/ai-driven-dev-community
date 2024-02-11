@@ -1,19 +1,16 @@
-# Various side prompts
+# Various side prompts (`:v`)
 
 Some prompt we can use sometimes, tech related, or not :)
 
-- [Various side prompts](#various-side-prompts)
-  - [Entrepreneurship](#entrepreneurship)
-    - [Self criticize 🇫🇷](#self-criticize-)
-  - [MidJourney](#midjourney)
-    - [Post realistic picture prompt](#post-realistic-picture-prompt)
-  - [Writing](#writing)
-    - [Tech writing](#tech-writing)
-
+- [Entrepreneurship](#entrepreneurship)
+  - [Self criticize 🇫🇷 `:vcritizeprevious`](#self-criticize--vcritizeprevious)
+- [Images](#images)
+  - [MidJourney for Post realistic picture prompt `:vgenerateimagehighres`](#midjourney-for-post-realistic-picture-prompt-vgenerateimagehighres)
+- [Coming Soon](#coming-soon)
 
 ## Entrepreneurship
 
-### Self criticize 🇫🇷
+### Self criticize 🇫🇷 `:vcritizeprevious`
 
 ```text
 Peux-tu faire l'autocritique de ta réponse ?
@@ -25,22 +22,14 @@ Peux-tu faire l'autocritique de ta réponse ?
 5) Demande-moi si je veux répéter le processus. Nous le ferons jusqu'à ce que votre travail soit noté 20/20.
 ```
 
-## MidJourney
+## Images
 
-### Post realistic picture prompt
+### MidJourney realistic picture `:vgenerateimagehighres`
 
 At the end of you image generated prompt.
 
-````text
-Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw```
-````
-
-## Writing
-
-### Tech writing
-
 ```text
-“Act as a tech writer. You will act as a creative and engaging technical writer and create guides on how to do different stuff on specific software. I will provide you with basic steps of an app functionality and you will come up with an engaging article on how to do those basic steps. You can ask for screenshots. Just add (screenshot) to where you think there should be one and I will add those later. These are the first basic steps of the app functionality”
+Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw.
 ```
 
 ## Coming Soon

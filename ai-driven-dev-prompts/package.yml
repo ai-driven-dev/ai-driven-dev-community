@@ -490,6 +490,19 @@ matches:
 
       Thank you for you professionalism.
 
+  - trigger: ':vcritizeprevious'
+    form: |
+      Peux-tu faire l'autocritique de ta réponse ?
+
+      1) Évalue ton propre travail. Dresse la liste de ses points forts et de ses points faibles.
+      2) Attribue-lui une note comprise entre 0 et 20. Justifie ta note en fonction des règles que tu devais respecter.
+      3) Fais-toi une liste de suggestions qui te permettront d'atteindre la note 20, toujours par rapport à ces règles. Numérote chaque proposition.
+      4) Réécris ton travail en suivant les recommandations du point 3).
+      5) Demande-moi si je veux répéter le processus. Nous le ferons jusqu'à ce que votre travail soit noté 20/20.
+  - trigger: ':vgenerateimagehighres'
+    form: |
+      Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw.
+
   - trigger: ':ltstypeobj'
     form: |
       Here is my object:
