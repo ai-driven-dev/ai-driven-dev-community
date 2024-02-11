@@ -3,7 +3,11 @@ const parseMarkdown = require('./espanso-generation/parseMarkdown');
 const generateYaml = require('./espanso-generation/generateYaml');
 const glob = require('glob');
 
-const promptDirectories = ['../prompts/*', '../prompts/languages/*'];
+const promptDirectories = [
+  '../prompts/*',
+  '../prompts/_/*',
+  '../prompts/languages/*',
+];
 
 let yamlContent = 'matches:\n';
 
