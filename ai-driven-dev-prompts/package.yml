@@ -492,7 +492,7 @@ matches:
 
   - trigger: ':vcritizeprevious'
     form: |
-      Peux-tu faire l'autocritique de ta réponse ?
+      Merci, peux-tu faire l'autocritique de ta réponse ?
 
       1) Évalue ton propre travail. Dresse la liste de ses points forts et de ses points faibles.
       2) Attribue-lui une note comprise entre 0 et 20. Justifie ta note en fonction des règles que tu devais respecter.

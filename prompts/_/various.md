@@ -5,7 +5,7 @@ Some prompt we can use sometimes, tech related, or not :)
 - [Entrepreneurship](#entrepreneurship)
   - [Self criticize 🇫🇷 `:vcritizeprevious`](#self-criticize--vcritizeprevious)
 - [Images](#images)
-  - [MidJourney for Post realistic picture prompt `:vgenerateimagehighres`](#midjourney-for-post-realistic-picture-prompt-vgenerateimagehighres)
+  - [MidJourney realistic picture `:vgenerateimagehighres`](#midjourney-realistic-picture-vgenerateimagehighres)
 - [Coming Soon](#coming-soon)
 
 ## Entrepreneurship
@@ -13,7 +13,7 @@ Some prompt we can use sometimes, tech related, or not :)
 ### Self criticize 🇫🇷 `:vcritizeprevious`
 
 ```text
-Peux-tu faire l'autocritique de ta réponse ?
+Merci, peux-tu faire l'autocritique de ta réponse ?
 
 1) Évalue ton propre travail. Dresse la liste de ses points forts et de ses points faibles.
 2) Attribue-lui une note comprise entre 0 et 20. Justifie ta note en fonction des règles que tu devais respecter.
