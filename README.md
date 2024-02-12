@@ -44,7 +44,18 @@ Thus, AI can be mistaken, as a developer, you are the master of your code struct
   - [React](./snippets/vscode/typescriptreact.json)
 - JetBrains Snippets (Not available, want to add yours? [Contribute!](./contributing.md))
 
-## Text expansion ⚡️
+## Installation
+
+### Project installation 🚀
+
+If you want to contribute or use the available snippets.
+
+- [Fork the repository](https://github.com/alexsoyes/ai-driven-dev-community/fork), then clone it.
+- After project installation, run `npx husky-init ` if you want to:
+  - Automatically generate Espanso package and manifest (**on commit**)
+  - Automatically replace VSCode snippets (**on pull**)
+
+### Text expansion ⚡️
 
 This repo is filled of **amazing prompt for developers**, mapped with my favorite text expander, [Espanso](https://espanso.org).
 

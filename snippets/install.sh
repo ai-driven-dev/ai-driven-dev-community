@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PATH_SOURCE=~/Projects/ai-driven-dev-community/snippets/vscode
+PATH_SOURCE=./vscode
 PATH_DESTINATION=~/Library/Application\ Support/Code/User/snippets
 
 # For each file in source, copy it in the destination, but if exists, rename it with a .bak extension and current date
