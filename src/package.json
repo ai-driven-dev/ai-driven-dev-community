@@ -13,7 +13,8 @@
     "start": "node index.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "pre-commit": "cd ../ && bash .husky/pre-commit"
+    "pre-commit": "cd ../ && bash .husky/pre-commit",
+    "post-merge": "cd ../ && bash .husky/post-merge"
   },
   "keywords": [
     "espanso",
