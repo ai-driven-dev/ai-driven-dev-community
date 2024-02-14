@@ -23,36 +23,46 @@ I am thrilled that you're interested in contributing to our project! Your contri
 
 ### Title Structure
 
+The main files of the repo. They are fixed:
+
 - Prompts
-  - Code (`:c`)
-  - Instruct (`:ins`)
+  - Code (`:code`)
+  - Instruct (`:instruct`)
   - LLM (`:llm`)
-  - Languages (`:l`)
-    - TypeScript (`:lts`)
+  - Languages (`:language`)
+    - TypeScript (`:languageTS`)
+
+### Section structure
+
+The section where the prompt is in the doc. Example:
+
+- `Flow`
+- `Database`
+- `Image`
 
 ### Action Structure
 
-Use a verb to describe the action you want to perform.
+Use a verb to describe the action you want to perform. Example:
 
-- `improve`
-- `convert`
-- `optimize`
-- `log`
+- `Improve`
+- `Convert`
+- `Optimize`
+- `Log`
 
 ### Target Structure
 
-The element you want to interact with.
+The element you want to interact with. Example:
 
-- `object`
-- `answer`
-- `code`
+- `Object`
+- `Answer`
+- `Code`
 
 ### Examples
 
 ```text
-:ltstypeobj
-:llmevalanswer
-:llmimproveprompt
+:insFlow1ContextualizeProject
+:insDocSearchURL
+:languageTSTypeCreateFromObject
 ```
 
 ## Rules

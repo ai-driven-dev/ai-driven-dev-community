@@ -1,24 +1,24 @@
-# AI Driven Dev - Prompts (Instruct `:ins`)
+# AI Driven Dev - Prompts (Instruct `:instruct`)
 
 Those prompt are made to make your discussions with AI more easy to do.
 
 Drive AI to help you in your daily dev tasks.
 
 - [Development flow](#development-flow)
-  - [Contextualization (LLM instructions) `:inscontext`](#contextualization-llm-instructions-inscontext)
-  - [Generate feature with user-stories `:insgenerateoverview`](#generate-feature-with-user-stories-insgenerateoverview)
-  - [Breakdown details for a sub-task `:insbreakdownsubtask`](#breakdown-details-for-a-sub-task-insbreakdownsubtask)
-  - [Coding steps detailed `:inscodingsteps`](#coding-steps-detailed-inscodingsteps)
+  - [Contextualization (LLM instructions) `:instructFlow1ContextualizeProject`](#contextualization-llm-instructions-instructflow1contextualizeproject)
+  - [Generate feature with user-stories `:instructFlow2GenerateFeature`](#generate-feature-with-user-stories-instructflow2generatefeature)
+  - [Breakdown details for a sub-task `:instructFlow3BreakdownSubtask`](#breakdown-details-for-a-sub-task-instructflow3breakdownsubtask)
+  - [Coding steps detailed `:instructFlow4DetailCodingSteps`](#coding-steps-detailed-instructflow4detailcodingsteps)
 - [Documentation](#documentation)
-  - [Search in the documentation `:inssearchwebdoc`](#search-in-the-documentation-inssearchwebdoc)
-- [Database](#database)
-  - [SQL Schema Generation `:insgeneratesqlschema`](#sql-schema-generation-insgeneratesqlschema)
-  - [Plain Object Generation from Schema `:insgeneratepo`](#plain-object-generation-from-schema-insgeneratepo)
-  - [Write type files `:inswritetypefiles`](#write-type-files-inswritetypefiles)
+  - [Search in the documentation `:instructDocSearchURL`](#search-in-the-documentation-instructdocsearchurl)
+- [Image](#image)
+  - [Visualize Image Structure to Code `:instructImageVisualizeHTMLStructure`](#visualize-image-structure-to-code-instructimagevisualizehtmlstructure)
+  - [Plain Object Generation from Schema `:instructgeneratepo`](#plain-object-generation-from-schema-instructgeneratepo)
+  - [Write type files `:instructwritetypefiles`](#write-type-files-instructwritetypefiles)
 - [Refactoring](#refactoring)
-  - [Draw my folder structure from specifications `:insdrawfilestruct`](#draw-my-folder-structure-from-specifications-insdrawfilestruct)
-  - [Create files structure  `:inscreatefilestruct`](#create-files-structure--inscreatefilestruct)
-  - [Review project files structures `:insreviewfilestruct`](#review-project-files-structures-insreviewfilestruct)
+  - [Draw my folder structure from specifications `:instructdrawfilestruct`](#draw-my-folder-structure-from-specifications-instructdrawfilestruct)
+  - [Create files structure  `:instructcreatefilestruct`](#create-files-structure--instructcreatefilestruct)
+  - [Review project files structures `:instructreviewfilestruct`](#review-project-files-structures-instructreviewfilestruct)
 - [Old Prompts (WIP)](#old-prompts-wip)
   - [Acknowledge new feature `:prackfeat`](#acknowledge-new-feature-prackfeat)
   - [Ask for a feature `:prfeat`](#ask-for-a-feature-prfeat)
@@ -33,7 +33,7 @@ Drive AI to help you in your daily dev tasks.
 
 Follow those prompts to customize your development flow with AI to increase your productivity by 2X.
 
-### Contextualization (LLM instructions) `:inscontext`
+### Contextualization (LLM instructions) `:instructFlow1ContextualizeProject`
 
 This should help the LLM to act as you would expect it to do endorsing your own knowledge and experience.
 
@@ -45,7 +45,6 @@ That way, every times you will use the AI, it will remember your preferences and
 Act as a senior software engineer, a tech lead, a mentor, and an Agile coach.
 
 Personas:
-
 - You, referring to "the AI", "the LLM", are the core developer of the project, you are the one who is responsible for the project's architecture and the one who is responsible for the project's success.
 - Me, referring to "the developer", I am a senior software engineer on: "[[my main tech stack and libs]]".
 - The user is referring to "the user" of our application.
@@ -57,16 +56,24 @@ I need you to help me regarding the following project: "[[my project name]]".
 (This only project I will refer to you within this conversation is only about this one.)
 
 The projet goals are:
-
 "[[What are the goals of the project]]"
 
 Technology Stack and Architecture:
-
 [[Repeat chosen languages, technologies and architecture used]]
 
-Development Process:
+Lib versions are (surrounded by "---" delimiter):
+---
+[[Versions of used libs, eg: package.json or requirements.txt]]
+---
 
+Project structure is (surrounded by "---" delimiter):
+---
+[[Project / domain structure: eg `tree -I "node_modules"`]]
+---
+
+Development Process:
 - Our team follows Agile development principles, with bi-weekly sprints and continuous integration/continuous deployment (CI/CD) practices.
+- Always use latest stable version of the chosen technologies and libs unless I specify otherwise.
 
 Collaboration Tools: 
 - We use Git for version control
@@ -74,11 +81,11 @@ Collaboration Tools:
 
 Request for Assistance:
 We seek feedback on our choice of technologies and architecture, especially regarding scalability and data security. Insights into innovative data analysis techniques or AI models that could enhance our platform's capabilities are also welcome.
-
 Everything else is documented in the uploaded documents from you knowledge.
+Very important: In your responses, always give the more fresh and up-to-date information.
 ```
 
-### Generate feature with user-stories `:insgenerateoverview`
+### Generate feature with user-stories `:instructFlow2GenerateFeature`
 
 ```text
 Generate a detailed breakdown of this feature for our project.
@@ -116,25 +123,28 @@ Here is an example of what I want (surrounded by "---" delimiter):
 ---
 
 Notes:
+- If the output is too long, please inform me and ask me if I want to continue.
 - Please output the result in a bullet list grouped by sections.
 - Detail as much as possible the feature to build, the bullet points you give, the better it is.
 - For complexity estimates, consider "XS" for tasks under 2 hours, "S" for tasks from 2 to 4 hours, and so on. Use these estimates to effectively plan the sprint.
 - For acceptance criteria, consider the "Given, When, Then" format to ensure that the feature is fully tested and meets the user's needs.
 ```
 
-### Breakdown details for a sub-task `:insbreakdownsubtask`
+### Breakdown details for a sub-task `:instructFlow3BreakdownSubtask`
 
 Ask the LLM to generate fully detailed ticket based on the user stories for an individual sub-task.
 
 ```text
 Given the following sub-task:
 
-[[sub-tasks from :insgenerateoverview]]
+[[subtasks from features list]]
 
 Rules:
 * Details steps must be extremely detailed and should be able to be completed by any developer, regardless of their experience.
 * The acceptance criteria should be specific and measurable, ensuring that the feature meets the user's needs.
 * The ticket should be generated in a format that can be easily imported into our project management tool, such as Jira.
+* Do not go into the details of the code, only the steps to achieve the outcome.
+* If the output is too long, please inform me and ask me if I want to continue.
 
 Please, fill the following template (surrounded by "---") and output the result in a bullet list grouped by sections:
 
@@ -156,7 +166,7 @@ Details:
 ---
 ```
 
-### Coding steps detailed `:inscodingsteps`
+### Coding steps detailed `:instructFlow4DetailCodingSteps`
 
 Ask the AI to provide detailed coding steps for a given task.
 
@@ -164,7 +174,7 @@ Ask the AI to provide detailed coding steps for a given task.
 Based on the chosen languages, frameworks and libs for our application, I want you to be acknowledged of the following coding structure (surrounded by "---" delimiter):
 
 ---
-[[Use tree command on the subfolder to get the structure]]
+[[Project / domain structure: eg `tree -I "node_modules"`]]
 ---
 
 Then, I want you to follow that numbered list:
@@ -196,7 +206,7 @@ Every steps must be detailed as much as possible and must be completed by any de
 
 ## Documentation
 
-### Search in the documentation `:inssearchwebdoc`
+### Search in the documentation `:instructDocSearchURL`
 
 ```text
 I need you to read the following documentation.
@@ -212,9 +222,23 @@ Please provide the best step by step way to it.
 For each step, detail your explanation with the proper code.
 ```
 
+## Image
+
+### Visualize Image Structure to Code `:instructImageVisualizeHTMLStructure`
+
+```text
+Please remember the frontend tech I am using for this project.
+
+For this image, I need you to:
+
+1. Carefully summarize what you see from it, in small not detailed bullet points.
+2. Print the structure of the image as you see it.
+3. Propose an HTML structure of it based on my frontend tech.
+```
+
 ## Database
 
-### SQL Schema Generation `:insgeneratesqlschema`
+### SQL Schema Generation `:instructDBGenerateSchema`
 
 ```text
 I need you to help me creating my SQL database schema.
@@ -226,7 +250,7 @@ Give me the full db schema, with the tables, the columns, the relations between 
 [[Entity list and relations between entities]]
 ```
 
-### Plain Object Generation from Schema `:insgeneratepo`
+### Plain Object Generation from Schema `:instructgeneratepo`
 
 When you want to create the types from the SQL schema.
 
@@ -244,7 +268,7 @@ Here is the SQL schema:
 [[SQL schema from `insgeneratesqlschema`]]
 ```
 
-### Write type files `:inswritetypefiles`
+### Write type files `:instructwritetypefiles`
 
 ```text
 I want to split those types with only 1 type per file. Based on the folder directory we made together, can you tell me where should put each of those?
@@ -256,7 +280,7 @@ Please generate a shell script to create those files and directories:
 
 ## Refactoring
 
-### Draw my folder structure from specifications `:insdrawfilestruct`
+### Draw my folder structure from specifications `:instructdrawfilestruct`
 
 ```text
 Can you imagine the best folder structure for my features from the user-stories in my specifications?
@@ -264,15 +288,15 @@ Can you imagine the best folder structure for my features from the user-stories 
 Please also generate every needed files and directories.
 ```
 
-### Create files structure  `:inscreatefilestruct`
+### Create files structure  `:instructcreatefilestruct`
 
 ```text
 Generate a shell script to create those files and directories:
 
-[[tree list from :insdrawfilestruct output]]
+[[tree list from :instructdrawfilestruct output]]
 ```
 
-### Review project files structures `:insreviewfilestruct`
+### Review project files structures `:instructreviewfilestruct`
 
 - 💡 **Description** : Before starting a refactoring, ask AI to review the project files structures and names.
 - 🤖 **AI Agent to use**: [AI Senior Developer](../agents/senior-developer.md)

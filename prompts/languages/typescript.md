@@ -1,17 +1,16 @@
-# AI Driven Dev - Prompts (TypeScript)
+# AI Driven Dev - Prompts (TypeScript `:languageTS`)
 
 A list of TypeScript related prompts that I use quite often in my IDE.
 
 WIP 😇
 
-- [Create a Type for this object `:ltstypeobj`](#create-a-type-for-this-object-ltstypeobj)
+- [Types](#types)
+  - [Create a Type from Object `:languageTSTypeCreateFromObject`](#create-a-type-from-object-languagetstypecreatefromobject)
 
-## Create a Type for this object `:ltstypeobj`
+## Types
+
+### Create a Type from Object `:languageTSTypeCreateFromObject`
 
 ```text
-Here is my object:
-
-[[code]]
-
-Create a TypeScript Type for it using Type keyword.
+Create a TypeScript Type for this Object using Type keyword.
 ```

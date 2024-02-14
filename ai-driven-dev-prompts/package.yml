@@ -1,12 +1,12 @@
 matches:
-  - trigger: ':cdtsconv'
+  - trigger: ':codedtsconv'
     form: |
       Here is my JSON object:
 
       "[[code]]"
 
       Convert it to a TypeScript Type.
-  - trigger: ':cdopt'
+  - trigger: ':codedopt'
     form: |
       Please optimize the following code for readability.
       It must produce the same output, behavior must not change.
@@ -15,10 +15,10 @@ matches:
     form_fields:
       code:
         multiline: true
-  - trigger: ':cdstepslog'
+  - trigger: ':codedstepslog'
     form: |
       Add logging on every steps in order to identify bugs.
-  - trigger: ':cdexplainlog'
+  - trigger: ':codedexplainlog'
     form: |
       Analyze the following logs.
 
@@ -30,7 +30,7 @@ matches:
     form_fields:
       cause:
         multiline: true
-  - trigger: ':cdtrans'
+  - trigger: ':codedtrans'
     form: |
       I need you to translate the following text:
 
@@ -45,12 +45,11 @@ matches:
       languages:
         multiline: true
 
-  - trigger: ':inscontext'
+  - trigger: ':instructFlow1ContextualizeProject'
     form: |
       Act as a senior software engineer, a tech lead, a mentor, and an Agile coach.
 
       Personas:
-
       - You, referring to "the AI", "the LLM", are the core developer of the project, you are the one who is responsible for the project's architecture and the one who is responsible for the project's success.
       - Me, referring to "the developer", I am a senior software engineer on: "[[my_main_tech_stack_and_libs]]".
       - The user is referring to "the user" of our application.
@@ -62,16 +61,24 @@ matches:
       (This only project I will refer to you within this conversation is only about this one.)
 
       The projet goals are:
-
       "[[what_are_the_goals_of_the_project]]"
 
       Technology Stack and Architecture:
-
       [[repeat_chosen_languages,_technologies_and_architecture_used]]
 
-      Development Process:
+      Lib versions are (surrounded by "---" delimiter):
+      ---
+      [[versions_of_used_libs,_eg:_package.json_or_requirements.txt]]
+      ---
 
+      Project structure is (surrounded by "---" delimiter):
+      ---
+      [[project_/_domain_structure:_eg_`tree_-i_"node_modules"`]]
+      ---
+
+      Development Process:
       - Our team follows Agile development principles, with bi-weekly sprints and continuous integration/continuous deployment (CI/CD) practices.
+      - Always use latest stable version of the chosen technologies and libs unless I specify otherwise.
 
       Collaboration Tools: 
       - We use Git for version control
@@ -79,12 +86,16 @@ matches:
 
       Request for Assistance:
       We seek feedback on our choice of technologies and architecture, especially regarding scalability and data security. Insights into innovative data analysis techniques or AI models that could enhance our platform's capabilities are also welcome.
-
       Everything else is documented in the uploaded documents from you knowledge.
+      Very important: In your responses, always give the more fresh and up-to-date information.
     form_fields:
       'repeat_chosen_languages,_technologies_and_architecture_used':
         multiline: true
-  - trigger: ':insgenerateoverview'
+      'versions_of_used_libs,_eg:_package.json_or_requirements.txt':
+        multiline: true
+      'project_/_domain_structure:_eg_`tree_-i_"node_modules"`':
+        multiline: true
+  - trigger: ':instructFlow2GenerateFeature'
     form: |
       Generate a detailed breakdown of this feature for our project.
 
@@ -121,6 +132,7 @@ matches:
       ---
 
       Notes:
+      - If the output is too long, please inform me and ask me if I want to continue.
       - Please output the result in a bullet list grouped by sections.
       - Detail as much as possible the feature to build, the bullet points you give, the better it is.
       - For complexity estimates, consider "XS" for tasks under 2 hours, "S" for tasks from 2 to 4 hours, and so on. Use these estimates to effectively plan the sprint.
@@ -128,16 +140,18 @@ matches:
     form_fields:
       more_description_of_the_feature_if_needed:
         multiline: true
-  - trigger: ':insbreakdownsubtask'
+  - trigger: ':instructFlow3BreakdownSubtask'
     form: |
       Given the following sub-task:
 
-      [[sub-tasks_from_:insgenerateoverview]]
+      [[subtasks_from_features_list]]
 
       Rules:
       * Details steps must be extremely detailed and should be able to be completed by any developer, regardless of their experience.
       * The acceptance criteria should be specific and measurable, ensuring that the feature meets the user's needs.
       * The ticket should be generated in a format that can be easily imported into our project management tool, such as Jira.
+      * Do not go into the details of the code, only the steps to achieve the outcome.
+      * If the output is too long, please inform me and ask me if I want to continue.
 
       Please, fill the following template (surrounded by "---") and output the result in a bullet list grouped by sections:
 
@@ -158,14 +172,14 @@ matches:
         * ...
       ---
     form_fields:
-      'sub-tasks_from_:insgenerateoverview':
+      subtasks_from_features_list:
         multiline: true
-  - trigger: ':inscodingsteps'
+  - trigger: ':instructFlow4DetailCodingSteps'
     form: |
       Based on the chosen languages, frameworks and libs for our application, I want you to be acknowledged of the following coding structure (surrounded by "---" delimiter):
 
       ---
-      [[use_tree_command_on_the_subfolder_to_get_the_structure]]
+      [[project_/_domain_structure:_eg_`tree_-i_"node_modules"`]]
       ---
 
       Then, I want you to follow that numbered list:
@@ -194,9 +208,9 @@ matches:
       - Split files the more you can, each file must do only one thing.
       - Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
     form_fields:
-      use_tree_command_on_the_subfolder_to_get_the_structure:
+      'project_/_domain_structure:_eg_`tree_-i_"node_modules"`':
         multiline: true
-  - trigger: ':inssearchwebdoc'
+  - trigger: ':instructDocSearchURL'
     form: |
       I need you to read the following documentation.
 
@@ -209,7 +223,16 @@ matches:
       Please provide the best step by step way to it.
 
       For each step, detail your explanation with the proper code.
-  - trigger: ':insgeneratesqlschema'
+  - trigger: ':instructImageVisualizeHTMLStructure'
+    form: |
+      Please remember the frontend tech I am using for this project.
+
+      For this image, I need you to:
+
+      1. Carefully summarize what you see from it, in small not detailed bullet points.
+      2. Print the structure of the image as you see it.
+      3. Propose an HTML structure of it based on my frontend tech.
+  - trigger: ':instructDBGenerateSchema'
     form: |
       I need you to help me creating my SQL database schema.
 
@@ -221,7 +244,7 @@ matches:
     form_fields:
       entity_list_and_relations_between_entities:
         multiline: true
-  - trigger: ':insgeneratepo'
+  - trigger: ':instructgeneratepo'
     form: |
 
       I need you to help me creating my Plain Object from my SQL database schema.
@@ -237,7 +260,7 @@ matches:
     form_fields:
       sql_schema_from_`insgeneratesqlschema`:
         multiline: true
-  - trigger: ':inswritetypefiles'
+  - trigger: ':instructwritetypefiles'
     form: |
       I want to split those types with only 1 type per file. Based on the folder directory we made together, can you tell me where should put each of those?
 
@@ -247,20 +270,20 @@ matches:
     form_fields:
       list_of_types_from_`insgeneratepo`:
         multiline: true
-  - trigger: ':insdrawfilestruct'
+  - trigger: ':instructdrawfilestruct'
     form: |
       Can you imagine the best folder structure for my features from the user-stories in my specifications?
 
       Please also generate every needed files and directories.
-  - trigger: ':inscreatefilestruct'
+  - trigger: ':instructcreatefilestruct'
     form: |
       Generate a shell script to create those files and directories:
 
-      [[tree_list_from_:insdrawfilestruct_output]]
+      [[tree_list_from_:instructdrawfilestruct_output]]
     form_fields:
-      'tree_list_from_:insdrawfilestruct_output':
+      'tree_list_from_:instructdrawfilestruct_output':
         multiline: true
-  - trigger: ':insreviewfilestruct'
+  - trigger: ':instructreviewfilestruct'
     form: |
       Based on a feature based structure, I want to review the files and directories names and find the best way to organize them.
 
@@ -503,14 +526,7 @@ matches:
     form: |
       Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw.
 
-  - trigger: ':ltstypeobj'
+  - trigger: ':languageTSTypeCreateFromObject'
     form: |
-      Here is my object:
-
-      [[code]]
-
-      Create a TypeScript Type for it using Type keyword.
-    form_fields:
-      code:
-        multiline: true
+      Create a TypeScript Type for this Object using Type keyword.
 
