@@ -8,11 +8,13 @@ Drive AI to help you in your daily dev tasks.
   - [Contextualization (LLM instructions) `:instructFlow1ContextualizeProject`](#contextualization-llm-instructions-instructflow1contextualizeproject)
   - [Generate feature with user-stories `:instructFlow2GenerateFeature`](#generate-feature-with-user-stories-instructflow2generatefeature)
   - [Breakdown details for a sub-task `:instructFlow3BreakdownSubtask`](#breakdown-details-for-a-sub-task-instructflow3breakdownsubtask)
-  - [Coding steps detailed `:instructFlow4DetailCodingSteps`](#coding-steps-detailed-instructflow4detailcodingsteps)
+  - [🚧 Coding steps detailed `:instructFlow4DetailCodingSteps`](#-coding-steps-detailed-instructflow4detailcodingsteps)
 - [Documentation](#documentation)
   - [Search in the documentation `:instructDocSearchURL`](#search-in-the-documentation-instructdocsearchurl)
 - [Image](#image)
   - [Visualize Image Structure to Code `:instructImageVisualizeHTMLStructure`](#visualize-image-structure-to-code-instructimagevisualizehtmlstructure)
+- [Database](#database)
+  - [SQL Schema Generation `:instructDBGenerateSchema`](#sql-schema-generation-instructdbgenerateschema)
   - [Plain Object Generation from Schema `:instructgeneratepo`](#plain-object-generation-from-schema-instructgeneratepo)
   - [Write type files `:instructwritetypefiles`](#write-type-files-instructwritetypefiles)
 - [Refactoring](#refactoring)
@@ -41,93 +43,67 @@ This should help the LLM to act as you would expect it to do endorsing your own 
 
 That way, every times you will use the AI, it will remember your preferences and your project config.
 
-```makefile
-Act as a senior software engineer, a tech lead, a mentor, and an Agile coach.
+```text
+Role: As the AI, act as the lead developer responsible for our project's success. I am a senior software engineer specializing in "[[specific tech stack and libraries]]". Our users are the application end-users.
 
-Personas:
-- You, referring to "the AI", "the LLM", are the core developer of the project, you are the one who is responsible for the project's architecture and the one who is responsible for the project's success.
-- Me, referring to "the developer", I am a senior software engineer on: "[[my main tech stack and libs]]".
-- The user is referring to "the user" of our application.
+Guidelines:
+- Provide last to date info.
+- Always be very concise in your answers.
+- Enhance readability with bold, italic, and lists as needed.
+- Adjust based on my feedback.
+- When in doubt, ask me for more details.
+- Code generation must be clean, follow the best practices and always provide full code needed with no comments.
+- Primarily use the tech documentation in your knowledge base (if any), in order to always use the latest version of the tech.
 
-Project:
+Project: We are working on "[project name]", focusing on "[project goals]".
 
-I need you to help me regarding the following project: "[[my project name]]".
+Language used: "[[programming language with particular version or info]]"
 
-(This only project I will refer to you within this conversation is only about this one.)
+Tech Stack (from package.json or equivalent):
+[[technologies, libraries, and versions]]
 
-The projet goals are:
-"[[What are the goals of the project]]"
+Project Structure (eg `tree -I "node_modules"`): 
+[[Describe or attach the project structure]]
 
-Technology Stack and Architecture:
-[[Repeat chosen languages, technologies and architecture used]]
+Development Process: We adhere to Agile, with bi-weekly sprints and CI/CD.
 
-Lib versions are (surrounded by "---" delimiter):
----
-[[Versions of used libs, eg: package.json or requirements.txt]]
----
-
-Project structure is (surrounded by "---" delimiter):
----
-[[Project / domain structure: eg `tree -I "node_modules"`]]
----
-
-Development Process:
-- Our team follows Agile development principles, with bi-weekly sprints and continuous integration/continuous deployment (CI/CD) practices.
-- Always use latest stable version of the chosen technologies and libs unless I specify otherwise.
-
-Collaboration Tools: 
-- We use Git for version control
-- A ticketing project management like Jira
-
-Request for Assistance:
-We seek feedback on our choice of technologies and architecture, especially regarding scalability and data security. Insights into innovative data analysis techniques or AI models that could enhance our platform's capabilities are also welcome.
-Everything else is documented in the uploaded documents from you knowledge.
-Very important: In your responses, always give the more fresh and up-to-date information.
+Collaboration Tools: Git and Ticketing tool like Jira or Linear.
 ```
 
 ### Generate feature with user-stories `:instructFlow2GenerateFeature`
 
 ```text
-Generate a detailed breakdown of this feature for our project.
+Goal:
+Generate a concise but full breakdown of this feature for our project.
 
-This should include epics, user stories, sub-tasks, complexity estimates, and acceptance criteria, ordered logically for development and priorisation.
+Rules:
+- If user-story is too big, group features the more you can.
+- You MUST provide every required steps, do not forget anything.
+- Do not generate code or command line instructions, focus on precise steps to achieve the outcome.
+- It should include epics, user stories with acceptance criteria, sub-tasks.
 
-Requested Feature: "[[Main feature to build]]"
+Requested Feature:
+[[Feature to build, be as detailed as possible]]
 
-[[More description of the feature if needed]]
 
-Please generate the following:
-
-1. Epics and Examples
-2. Then, for each epics: Generate User Stories ordered by priority with Bullet points Acceptance Criteria
-3. Smallest sub-Tasks with Complexity Estimates based on the epics and user stories
-
-Here is an example of what I want (surrounded by "---" delimiter):
-
+Here is a styled markdown template example you can inspire yourself with (surrounded by "---" delimiter):
 ---
-# Feature: Authentication
+# Feature's name with Epic
 
-## Epic: Integration of SSO Authentication with Google
+## "User Story 1"
 
-### User Stories
+* Acceptance Criteria:
+  * Given: ...
+  * When: ...
+  * Then: ...
+  * And: ...
 
-#### User Story 1: As a user, I want to be able to log in using my Google account.
+### Sub-tasks
 
-* Complexity Estimate: S
-
-##### Sub-tasks:
-
-* Configure the Google authentication service in the application. (S)
-* Add a "Log in with Google" button to the login screen. (XS)
-* Manage the reception and verification of the Google authentication token. (M)
+* "Sub-task title 1.1"
+  * Full step to achieve the outcome
+  * ...
 ---
-
-Notes:
-- If the output is too long, please inform me and ask me if I want to continue.
-- Please output the result in a bullet list grouped by sections.
-- Detail as much as possible the feature to build, the bullet points you give, the better it is.
-- For complexity estimates, consider "XS" for tasks under 2 hours, "S" for tasks from 2 to 4 hours, and so on. Use these estimates to effectively plan the sprint.
-- For acceptance criteria, consider the "Given, When, Then" format to ensure that the feature is fully tested and meets the user's needs.
 ```
 
 ### Breakdown details for a sub-task `:instructFlow3BreakdownSubtask`
@@ -135,9 +111,9 @@ Notes:
 Ask the LLM to generate fully detailed ticket based on the user stories for an individual sub-task.
 
 ```text
-Given the following sub-task:
+Given the following sub-task: "[[subtask from features list]]"
 
-[[subtasks from features list]]
+Please, fill the following template (surrounded by "---") and output the result in a list grouped by sections.
 
 Rules:
 * Details steps must be extremely detailed and should be able to be completed by any developer, regardless of their experience.
@@ -145,8 +121,15 @@ Rules:
 * The ticket should be generated in a format that can be easily imported into our project management tool, such as Jira.
 * Do not go into the details of the code, only the steps to achieve the outcome.
 * If the output is too long, please inform me and ask me if I want to continue.
+* If the task need a specific configuration that is required to be done before, please detail it and put your response in bold.
+* Every steps must be detailed as much as possible and must be completed by any developer, regardless of their experience.
 
-Please, fill the following template (surrounded by "---") and output the result in a bullet list grouped by sections:
+Code generation rules:
+- The code must be clean and follow the best practices.
+- Always provide all the code, never skip a part of it.
+- Detail components, functions, and variables names.
+- Split files the more you can, each file must do only one thing.
+- Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
 
 ---
 Title: Brief Description of the Feature
@@ -155,31 +138,24 @@ As a [type of user],
 I want [an action or feature]
 so that [benefit or value].
 
-Details:
+Detailed steps to achieve the outcome (with code if needed):
 
-* Acceptance Criteria:
- * Criterion 1: [Specific, measurable outcome 1]
-  * Estimation: [Complexity or Time Estimate]
-  * Detailed steps to achieve the outcome
- * Criterion 2: [Specific, measurable outcome 2]
-  * ...
+1. ...
+2. ...
+3. ...
 ---
 ```
 
-### Coding steps detailed `:instructFlow4DetailCodingSteps`
+### 🚧 Coding steps detailed `:instructFlow4DetailCodingSteps`
 
 Ask the AI to provide detailed coding steps for a given task.
 
 ```text
-Based on the chosen languages, frameworks and libs for our application, I want you to be acknowledged of the following coding structure (surrounded by "---" delimiter):
-
----
-[[Project / domain structure: eg `tree -I "node_modules"`]]
----
+Remember the current programming languages used, the frameworks and libs for our application's package.json or equivalent.
 
 Then, I want you to follow that numbered list:
 
-1. Select the tech to use and propose new ones if needed.
+1. Select the tech (with the version) to use and propose new ones if needed.
 
 Since project is already initialized, do not focus that much on installation / lib configuration unless this is a new lib, feature or framework.
 
@@ -199,6 +175,7 @@ Every steps must be detailed as much as possible and must be completed by any de
 3. Once you provide the steps, generate the code for each step.
 
 - The code must be clean and follow the best practices.
+- Always provide all the code, never skip a part of it.
 - Detail components, functions, and variables names.
 - Split files the more you can, each file must do only one thing.
 - Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
