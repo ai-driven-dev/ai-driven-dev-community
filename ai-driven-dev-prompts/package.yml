@@ -47,104 +47,76 @@ matches:
 
   - trigger: ':instructFlow1ContextualizeProject'
     form: |
-      Act as a senior software engineer, a tech lead, a mentor, and an Agile coach.
+      Role: As the AI, act as the lead developer responsible for our project's success. I am a senior software engineer specializing in "[[specific_tech_stack_and_libraries]]". Our users are the application end-users.
 
-      Personas:
-      - You, referring to "the AI", "the LLM", are the core developer of the project, you are the one who is responsible for the project's architecture and the one who is responsible for the project's success.
-      - Me, referring to "the developer", I am a senior software engineer on: "[[my_main_tech_stack_and_libs]]".
-      - The user is referring to "the user" of our application.
+      Guidelines:
+      - Provide last to date info.
+      - Always be very concise in your answers.
+      - Enhance readability with bold, italic, and lists as needed.
+      - Adjust based on my feedback.
+      - When in doubt, ask me for more details.
+      - Code generation must be clean, follow the best practices and always provide full code needed with no comments.
+      - Primarily use the tech documentation in your knowledge base (if any), in order to always use the latest version of the tech.
 
-      Project:
+      Project: We are working on "[project name]", focusing on "[project goals]".
 
-      I need you to help me regarding the following project: "[[my_project_name]]".
+      Language used: "[[programming_language_with_particular_version_or_info]]"
 
-      (This only project I will refer to you within this conversation is only about this one.)
+      Tech Stack (from package.json or equivalent):
+      [[technologies,_libraries,_and_versions]]
 
-      The projet goals are:
-      "[[what_are_the_goals_of_the_project]]"
+      Project Structure (eg `tree -I "node_modules"`): 
+      [[describe_or_attach_the_project_structure]]
 
-      Technology Stack and Architecture:
-      [[repeat_chosen_languages,_technologies_and_architecture_used]]
+      Development Process: We adhere to Agile, with bi-weekly sprints and CI/CD.
 
-      Lib versions are (surrounded by "---" delimiter):
-      ---
-      [[versions_of_used_libs,_eg:_package.json_or_requirements.txt]]
-      ---
-
-      Project structure is (surrounded by "---" delimiter):
-      ---
-      [[project_/_domain_structure:_eg_`tree_-i_"node_modules"`]]
-      ---
-
-      Development Process:
-      - Our team follows Agile development principles, with bi-weekly sprints and continuous integration/continuous deployment (CI/CD) practices.
-      - Always use latest stable version of the chosen technologies and libs unless I specify otherwise.
-
-      Collaboration Tools: 
-      - We use Git for version control
-      - A ticketing project management like Jira
-
-      Request for Assistance:
-      We seek feedback on our choice of technologies and architecture, especially regarding scalability and data security. Insights into innovative data analysis techniques or AI models that could enhance our platform's capabilities are also welcome.
-      Everything else is documented in the uploaded documents from you knowledge.
-      Very important: In your responses, always give the more fresh and up-to-date information.
+      Collaboration Tools: Git and Ticketing tool like Jira or Linear.
     form_fields:
-      'repeat_chosen_languages,_technologies_and_architecture_used':
+      'technologies,_libraries,_and_versions':
         multiline: true
-      'versions_of_used_libs,_eg:_package.json_or_requirements.txt':
-        multiline: true
-      'project_/_domain_structure:_eg_`tree_-i_"node_modules"`':
+      describe_or_attach_the_project_structure:
         multiline: true
   - trigger: ':instructFlow2GenerateFeature'
     form: |
-      Generate a detailed breakdown of this feature for our project.
+      Goal:
+      Generate a concise but full breakdown of this feature for our project.
 
-      This should include epics, user stories, sub-tasks, complexity estimates, and acceptance criteria, ordered logically for development and priorisation.
+      Rules:
+      - If user-story is too big, group features the more you can.
+      - You MUST provide every required steps, do not forget anything.
+      - Do not generate code or command line instructions, focus on precise steps to achieve the outcome.
+      - It should include epics, user stories with acceptance criteria, sub-tasks.
 
-      Requested Feature: "[[main_feature_to_build]]"
+      Requested Feature:
+      [[feature_to_build,_be_as_detailed_as_possible]]
 
-      [[more_description_of_the_feature_if_needed]]
 
-      Please generate the following:
-
-      1. Epics and Examples
-      2. Then, for each epics: Generate User Stories ordered by priority with Bullet points Acceptance Criteria
-      3. Smallest sub-Tasks with Complexity Estimates based on the epics and user stories
-
-      Here is an example of what I want (surrounded by "---" delimiter):
-
+      Here is a styled markdown template example you can inspire yourself with (surrounded by "---" delimiter):
       ---
-      # Feature: Authentication
+      # Feature's name with Epic
 
-      ## Epic: Integration of SSO Authentication with Google
+      ## "User Story 1"
 
-      ### User Stories
+      * Acceptance Criteria:
+        * Given: ...
+        * When: ...
+        * Then: ...
+        * And: ...
 
-      #### User Story 1: As a user, I want to be able to log in using my Google account.
+      ### Sub-tasks
 
-      * Complexity Estimate: S
-
-      ##### Sub-tasks:
-
-      * Configure the Google authentication service in the application. (S)
-      * Add a "Log in with Google" button to the login screen. (XS)
-      * Manage the reception and verification of the Google authentication token. (M)
+      * "Sub-task title 1.1"
+        * Full step to achieve the outcome
+        * ...
       ---
-
-      Notes:
-      - If the output is too long, please inform me and ask me if I want to continue.
-      - Please output the result in a bullet list grouped by sections.
-      - Detail as much as possible the feature to build, the bullet points you give, the better it is.
-      - For complexity estimates, consider "XS" for tasks under 2 hours, "S" for tasks from 2 to 4 hours, and so on. Use these estimates to effectively plan the sprint.
-      - For acceptance criteria, consider the "Given, When, Then" format to ensure that the feature is fully tested and meets the user's needs.
     form_fields:
-      more_description_of_the_feature_if_needed:
+      'feature_to_build,_be_as_detailed_as_possible':
         multiline: true
   - trigger: ':instructFlow3BreakdownSubtask'
     form: |
-      Given the following sub-task:
+      Given the following sub-task: "[[subtask_from_features_list]]"
 
-      [[subtasks_from_features_list]]
+      Please, fill the following template (surrounded by "---") and output the result in a list grouped by sections.
 
       Rules:
       * Details steps must be extremely detailed and should be able to be completed by any developer, regardless of their experience.
@@ -152,8 +124,15 @@ matches:
       * The ticket should be generated in a format that can be easily imported into our project management tool, such as Jira.
       * Do not go into the details of the code, only the steps to achieve the outcome.
       * If the output is too long, please inform me and ask me if I want to continue.
+      * If the task need a specific configuration that is required to be done before, please detail it and put your response in bold.
+      * Every steps must be detailed as much as possible and must be completed by any developer, regardless of their experience.
 
-      Please, fill the following template (surrounded by "---") and output the result in a bullet list grouped by sections:
+      Code generation rules:
+      - The code must be clean and follow the best practices.
+      - Always provide all the code, never skip a part of it.
+      - Detail components, functions, and variables names.
+      - Split files the more you can, each file must do only one thing.
+      - Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
 
       ---
       Title: Brief Description of the Feature
@@ -162,29 +141,19 @@ matches:
       I want [an action or feature]
       so that [benefit or value].
 
-      Details:
+      Detailed steps to achieve the outcome (with code if needed):
 
-      * Acceptance Criteria:
-       * Criterion 1: [Specific, measurable outcome 1]
-        * Estimation: [Complexity or Time Estimate]
-        * Detailed steps to achieve the outcome
-       * Criterion 2: [Specific, measurable outcome 2]
-        * ...
+      1. ...
+      2. ...
+      3. ...
       ---
-    form_fields:
-      subtasks_from_features_list:
-        multiline: true
   - trigger: ':instructFlow4DetailCodingSteps'
     form: |
-      Based on the chosen languages, frameworks and libs for our application, I want you to be acknowledged of the following coding structure (surrounded by "---" delimiter):
-
-      ---
-      [[project_/_domain_structure:_eg_`tree_-i_"node_modules"`]]
-      ---
+      Remember the current programming languages used, the frameworks and libs for our application's package.json or equivalent.
 
       Then, I want you to follow that numbered list:
 
-      1. Select the tech to use and propose new ones if needed.
+      1. Select the tech (with the version) to use and propose new ones if needed.
 
       Since project is already initialized, do not focus that much on installation / lib configuration unless this is a new lib, feature or framework.
 
@@ -204,12 +173,10 @@ matches:
       3. Once you provide the steps, generate the code for each step.
 
       - The code must be clean and follow the best practices.
+      - Always provide all the code, never skip a part of it.
       - Detail components, functions, and variables names.
       - Split files the more you can, each file must do only one thing.
       - Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
-    form_fields:
-      'project_/_domain_structure:_eg_`tree_-i_"node_modules"`':
-        multiline: true
   - trigger: ':instructDocSearchURL'
     form: |
       I need you to read the following documentation.
