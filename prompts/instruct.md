@@ -35,7 +35,7 @@ Drive AI to help you in your daily dev tasks.
 
 Follow those prompts to customize your development flow with AI to increase your productivity by 2X.
 
-### Contextualization (LLM instructions) `:instructFlow1ContextualizeProject`
+### 1.0) Contextualization (LLM instructions) `:instructContextualizeProject`
 
 This should help the LLM to act as you would expect it to do endorsing your own knowledge and experience.
 
@@ -70,7 +70,9 @@ Development Process: We adhere to Agile, with bi-weekly sprints and CI/CD.
 Collaboration Tools: Git and Ticketing tool like Jira or Linear.
 ```
 
-### Generate feature with user-stories `:instructFlow2GenerateFeature`
+## Create new features
+
+### 2.0) Generate feature with user-stories `:instructGenerateFeature`
 
 ```text
 Goal:
@@ -106,12 +108,15 @@ Here is a styled markdown template example you can inspire yourself with (surrou
 ---
 ```
 
-### Breakdown details for a sub-task `:instructFlow3BreakdownSubtask`
+### 2.1) Breakdown details for a sub-task `:instructGetSteps`
 
 Ask the LLM to generate fully detailed ticket based on the user stories for an individual sub-task.
 
 ```text
-Given the following sub-task: "[[subtask from features list]]"
+Given the following sub-task (surrounded by "---" delimiter):
+---
+[[subtask from features list]]
+---
 
 Please, fill the following template (surrounded by "---") and output the result in a list grouped by sections.
 
@@ -123,6 +128,10 @@ Rules:
 * If the output is too long, please inform me and ask me if I want to continue.
 * If the task need a specific configuration that is required to be done before, please detail it and put your response in bold.
 * Every steps must be detailed as much as possible and must be completed by any developer, regardless of their experience.
+- Give me the full project path for each file to edit
+- If you need to split the task into sub-tasks, please do so.
+- Choose the right libraries and tools to use if needed.
+- Provide documentation links if needed.
 
 Code generation rules:
 - The code must be clean and follow the best practices.
@@ -146,39 +155,57 @@ Detailed steps to achieve the outcome (with code if needed):
 ---
 ```
 
-### 🚧 Coding steps detailed `:instructFlow4DetailCodingSteps`
+## Existing features
 
-Ask the AI to provide detailed coding steps for a given task.
+### 3.0) Acknowledge specification `:instructSpecsAcknowledge`
+  
+```text
+Here are the specifications of the feature I need to code (surrounded by "---" delimiters).
+
+Now, can you:
+
+1. Acknowledge it
+2. Reformulate in bullet point grouped by section to show me that you understood what to do
+3. Generate development steps (based on an existing projet you do not know nothing about)
+
+Finally, ask me the relevant questions about implementing the feature in my project regarding my project's tech stack and libraries.
+
+Ask anything you need to know, like existing code, libraries, mockups available, logics, etc.
+
+---
+[[Copy and paste the specifications here]]
+---
+```
+
+### 3.1) Iterate over acknowledgment `:instructSpecsIterate`
 
 ```text
-Remember the current programming languages used, the frameworks and libs for our application's package.json or equivalent.
+Here are some answers about your previous questions.
 
-Then, I want you to follow that numbered list:
+Note that I cannot provide you with the full code, nor answer every details of the question.
 
-1. Select the tech (with the version) to use and propose new ones if needed.
+Can you merge this new information together with the previous ones, and then:
 
-Since project is already initialized, do not focus that much on installation / lib configuration unless this is a new lib, feature or framework.
+- If there is not absolute need for more details, only give me the required development steps involved in coding the functionality?
+- If you definitely need more details, please only ask me the crippling questions.
 
-Just provide the simple steps, not that much detailed (only for this part).
+Here are my answers:
 
-2. Based on the task and the project technologies, can you provide me the detailed steps to code the following task?
+[[Your answers to the previous questions]]
+```
 
-"[[Task to achieve]]"
+### 3.2) Drive coding steps `:instructSpecsDriving`
 
-Every steps must be detailed as much as possible and must be completed by any developer, regardless of their experience.
+Rewrite coding steps:
 
-- Give me the full project path for each file to edit
-- If you need to split the task into sub-tasks, please do so.
-- Choose the right libraries and tools to use if needed.
-- Provide documentation links if needed.
+- [ ] Removing those you do not need
+- [ ] Adding those you need (should not occur if the previous steps were detailed enough)
+- [ ] Give details about coding implementations (where, how, etc.)
 
-3. Once you provide the steps, generate the code for each step.
+```text
+Please rewrite the coding steps that way:
 
-- The code must be clean and follow the best practices.
-- Always provide all the code, never skip a part of it.
-- Detail components, functions, and variables names.
-- Split files the more you can, each file must do only one thing.
-- Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
+[[Fixes from LLM's answer]]
 ```
 
 ## Documentation
