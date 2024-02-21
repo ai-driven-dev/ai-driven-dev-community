@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Update Espanso from GitHub to have latest prompts avaiable in it
+espanso package update ai-driven-dev-prompts
