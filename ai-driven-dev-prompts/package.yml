@@ -1,49 +1,49 @@
 matches:
-  - trigger: ':codedtsconv'
+  - trigger: ':codeGenerateUnitTest'
     form: |
-      Here is my JSON object:
+      generate vitest test for the 4 use cases here, please use the items as a base for every tests. items : [
+        {
+          "type": "bundle",
+          "id": "649f7fbf-143a-47e7-9009-e928c8b19a5e",
+          "name": "Houmous + Chawarma poulet",
+          "description": " ",
+          "price": 1350,
+          "rank": 1,
+          "isDisabled": false,
+          "isReset": false,
+          "isDeleted": false,
+          "isFineTuned": false,
+          "modifierGroups": []
+        },
+        {
+          "type": "bundle",
+          "id": "f681305c-25d9-42b0-94fe-c4acab6174a7",
+          "name": "Houmous + Taouk Sandwich",
+          "description": " ",
+          "price": 1350,
+          "rank": 2,
+          "isDisabled": false,
+          "isReset": false,
+          "isDeleted": false,
+          "isFineTuned": false,
+          "modifierGroups": []
+        },
+        {
+          "type": "bundle",
+          "id": "adfc034d-24c3-48a8-b62c-a821188c3f5b",
+          "name": "Houmous + Falafel sandwich",
+          "description": " ",
+          "price": 1350,
+          "rank": 3,
+          "isDisabled": false,
+          "isReset": false,
+          "isDeleted": false,
+          "isFineTuned": false,
+          "modifierGroups": []
+        }
+      ]
 
-      "[[code]]"
-
-      Convert it to a TypeScript Type.
-  - trigger: ':codedopt'
-    form: |
-      Please optimize the following code for readability.
-      It must produce the same output, behavior must not change.
-
-      [[code]]
-    form_fields:
-      code:
-        multiline: true
-  - trigger: ':codedstepslog'
-    form: |
-      Add logging on every steps in order to identify bugs.
-  - trigger: ':codedexplainlog'
-    form: |
-      Analyze the following logs.
-
-      "[[code]]"
-
-      Give me a list of top 5 possibilities that explain why:
-
-      [[cause]]
-    form_fields:
-      cause:
-        multiline: true
-  - trigger: ':codedtrans'
-    form: |
-      I need you to translate the following text:
-
-      [[text]]
-
-      It should be translated into the following langage, keep the tone.
-
-      [[languages]]
-    form_fields:
-      text:
-        multiline: true
-      languages:
-        multiline: true
+      Please make 'expect' readable so I do not see the fully returned object, check only price or name accordingly
 
   - trigger: ':instructContextualizeProject'
     form: |
