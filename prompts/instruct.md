@@ -5,10 +5,14 @@ Those prompt are made to make your discussions with AI more easy to do.
 Drive AI to help you in your daily dev tasks.
 
 - [Development flow](#development-flow)
-  - [Contextualization (LLM instructions) `:instructFlow1ContextualizeProject`](#contextualization-llm-instructions-instructflow1contextualizeproject)
-  - [Generate feature with user-stories `:instructFlow2GenerateFeature`](#generate-feature-with-user-stories-instructflow2generatefeature)
-  - [Breakdown details for a sub-task `:instructFlow3BreakdownSubtask`](#breakdown-details-for-a-sub-task-instructflow3breakdownsubtask)
-  - [🚧 Coding steps detailed `:instructFlow4DetailCodingSteps`](#-coding-steps-detailed-instructflow4detailcodingsteps)
+  - [1.0) Contextualization (LLM instructions) `:instructContextualizeProject`](#10-contextualization-llm-instructions-instructcontextualizeproject)
+- [Create new features](#create-new-features)
+  - [2.0) Generate feature with user-stories `:instructGenerateFeature`](#20-generate-feature-with-user-stories-instructgeneratefeature)
+  - [2.1) Breakdown details for a sub-task `:instructGetSteps`](#21-breakdown-details-for-a-sub-task-instructgetsteps)
+- [Existing features](#existing-features)
+  - [3.0) Acknowledge specification `:instructSpecsAcknowledge`](#30-acknowledge-specification-instructspecsacknowledge)
+  - [3.1) Iterate over acknowledgment `:instructSpecsIterate`](#31-iterate-over-acknowledgment-instructspecsiterate)
+  - [3.2) Drive coding steps `:instructSpecsDriving`](#32-drive-coding-steps-instructspecsdriving)
 - [Documentation](#documentation)
   - [Search in the documentation `:instructDocSearchURL`](#search-in-the-documentation-instructdocsearchurl)
 - [Image](#image)
