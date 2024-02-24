@@ -1,5 +1,64 @@
 matches:
-  - trigger: ':codeGenerateUnitTest'
+  - trigger: ':codeHelpMeThinking'
+    form: |
+      The current code is "[[what_the_code_is_doing]]". 
+
+      I need you to help me think about the best way to implement this new functionality "[[new_functionality]]".
+
+      Please provide the best coding steps.
+  - trigger: ':codeFixFromTestResults'
+    form: |
+      The test output the following error (surrounded by "---" delimiters): 
+
+      ---
+      [[test_results]]
+      ---
+
+      Follow those steps:
+
+      1. Summarize in 1 sentence what the issue is.
+      2. Check the code implementation to find the issue, not the test.
+      3. Traverse the whole code used in the function, because the issue could be located elsewhere
+        - in a external type
+        - in a constant variable defined above in the file
+        - in a function called in the function
+        - from an incorrect copy/paste in names
+        - etc
+      4. Detail what the function is doing, be precise if other part of the code is involved.
+      5. List all inconsistencies (minimum 3) you find regarding the issue, sorted by relevance.
+      6. Once you analyze all source code in this file, fix the issue first issue from your inconsistencies list.
+    form_fields:
+      test_results:
+        multiline: true
+  - trigger: ':codeFakeData'
+    form: |+
+      Create fake data for testing purposes. The data should be in the same format as the original data, but with fake values. 
+
+  - trigger: ':codeGenerateScratchUnitTestPerFunction'
+    form: |
+      Based on this test and the opened files ("[[opened_file_to_use]]"), I need you to create unit tests to describe "[[feature_section_to_describe]]".
+
+      Please:
+
+      - Keep same testing structure
+      - Import necessary files if needed
+      - Use proper naming and types depending of the variable to test
+      - Continue unit tests generation for the following functions: "[[functions_to_test]]"
+  - trigger: ':codeGenerateScratchUnitTestPerSteps'
+    form: |
+      Here are the following steps to test a function. Please create a unit test for each step.
+
+      1. 
+
+      Based on this test and the opened files ("[[opened_file_to_use]]"), I need you to create unit tests to describe "[[feature_section_to_describe]]".
+
+      Please:
+
+      - Keep same testing structure
+      - Import necessary files if needed
+      - Use proper naming and types depending of the variable to test
+      - Continue unit tests generation for the following functions: "[[functions_to_test]]"
+  - trigger: ':codeGenerateScratchUnitTest'
     form: |
       generate vitest test for the 4 use cases here, please use the items as a base for every tests. items : [
         {
@@ -44,6 +103,9 @@ matches:
       ]
 
       Please make 'expect' readable so I do not see the fully returned object, check only price or name accordingly
+  - trigger: ':codeDocMatchingCode'
+    form: |
+      Does this code match the comments?
 
   - trigger: ':instructContextualizeProject'
     form: |
@@ -60,22 +122,16 @@ matches:
 
       Project: We are working on "[project name]", focusing on "[project goals]".
 
-      Language used: "[[programming_language_with_particular_version_or_info]]"
+      Main languages used: "[[programming_language_with_particular_version_or_info]]"
 
-      Tech Stack (from package.json or equivalent):
-      [[technologies,_libraries,_and_versions]]
-
-      Project Structure (eg `tree -I "node_modules"`): 
-      [[describe_or_attach_the_project_structure]]
+      From your knowledge base, get:
+      - Tech Stack versions
+      - Project Structure
+      - Mockups or pages design in order for you to understand the project, with fake data (if any)
 
       Development Process: We adhere to Agile, with bi-weekly sprints and CI/CD.
 
       Collaboration Tools: Git and Ticketing tool like Jira or Linear.
-    form_fields:
-      'technologies,_libraries,_and_versions':
-        multiline: true
-      describe_or_attach_the_project_structure:
-        multiline: true
   - trigger: ':instructGenerateFeature'
     form: |
       Goal:
@@ -505,7 +561,41 @@ matches:
 
       Thank you for you professionalism.
 
-  - trigger: ':vcritizeprevious'
+  - trigger: ':variousSituationsAndBenefitsListing'
+    form: |
+      Dans ma formation Coder avec l'IA, j'ai créé un module "[[nom_du_module]]".
+
+      Le but de ce module est d'apprendre aux développeurs à "[[objectif_du_module]]".
+
+      J'aimerais faire le parallèle entre "avant l'IA" où les développeurs n'avaient pas d'autocomplétion précises ni de génération de code et maintenant, où l'IA nous aide énormément à coder plus vite et plus précisément.
+
+      Règles :
+
+      - Limite-toi uniquement au thème du module.
+      - Repropose moi des éléments déjà listé en les améliorant
+      - Trouve de nouveaux éléments
+
+      1. Peux-tu lister les situations d'avant, où les développeurs devaient coder sans IA (par ordre d'importance) ?
+
+      Voici une liste des éléments que j'ai déjà identifiés (délimité par des "---"):
+
+      ---
+      [[liste_des_situations]]
+      ---
+
+      2. Peux-tu lister les bénéfices que les développeurs ont maintenant grâce à l'IA (par ordre d'importance) ?
+
+      Voici une liste des éléments que j'ai déjà identifiés (délimité par des "---"):
+
+      ---
+      [[liste_des_bénéfices]]
+      ---
+    form_fields:
+      liste_des_situations:
+        multiline: true
+      liste_des_bénéfices:
+        multiline: true
+  - trigger: ':variousCriticizeAnswer'
     form: |
       Merci, peux-tu faire l'autocritique de ta réponse ?
 
@@ -514,8 +604,16 @@ matches:
       3) Fais-toi une liste de suggestions qui te permettront d'atteindre la note 20, toujours par rapport à ces règles. Numérote chaque proposition.
       4) Réécris ton travail en suivant les recommandations du point 3).
       5) Demande-moi si je veux répéter le processus. Nous le ferons jusqu'à ce que votre travail soit noté 20/20.
-  - trigger: ':vgenerateimagehighres'
+  - trigger: ':variousOptimizePDF'
     form: |
+      # replace output.pdf and input.pdf with the correct file names
+      gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[output.pdf]]" "[[input.pdf]]"
+  - trigger: ':variousCreateMidJourneyRealisticPicture'
+    form: |
+
+      At the end of you image generated prompt.
+
+      ```text
       Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw.
 
   - trigger: ':languageTSTypeCreateFromObject'

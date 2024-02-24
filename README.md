@@ -17,6 +17,10 @@ The best list of software engineering prompts for AI you can find.
 - [For instructions](./prompts/instruct.md)
 - [For LLM optimizations](./prompts//llm.md)
 
+## LLM Custom Instructions
+
+- [Custom Instructions in ChatGPT for Developers](./llm/chatgpt-custom-instructions-developer.md)
+
 ## Agents 🤖
 
 I prompted 2 AIs to act like the best software engineers.

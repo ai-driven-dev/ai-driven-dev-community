@@ -1,16 +1,51 @@
-# Various side prompts (`:v`)
+# Various side prompts (`:various`)
 
 Some prompt we can use sometimes, tech related, or not :)
 
 - [Entrepreneurship](#entrepreneurship)
-  - [Self criticize 🇫🇷 `:vcritizeprevious`](#self-criticize--vcritizeprevious)
+  - [Self criticize 🇫🇷 `:variousCriticizeAnswer`](#self-criticize--variouscriticizeanswer)
 - [Images](#images)
-  - [MidJourney realistic picture `:vgenerateimagehighres`](#midjourney-realistic-picture-vgenerateimagehighres)
+  - [PDF optimization with ghostscript `:variousOptimizePDF`](#pdf-optimization-with-ghostscript-variousoptimizepdf)
+  - [MidJourney realistic picture `:variousCreateMidJourneyRealisticPicture`](#midjourney-realistic-picture-variouscreatemidjourneyrealisticpicture)
 - [Coming Soon](#coming-soon)
+
+## Copywriting
+
+### Benefits of a method `:variousSituationsAndBenefitsListing`
+
+```text
+Dans ma formation Coder avec l'IA, j'ai créé un module "[[nom du module]]".
+
+Le but de ce module est d'apprendre aux développeurs à "[[objectif du module]]".
+
+J'aimerais faire le parallèle entre "avant l'IA" où les développeurs n'avaient pas d'autocomplétion précises ni de génération de code et maintenant, où l'IA nous aide énormément à coder plus vite et plus précisément.
+
+Règles :
+
+- Limite-toi uniquement au thème du module.
+- Repropose moi des éléments déjà listé en les améliorant
+- Trouve de nouveaux éléments
+
+1. Peux-tu lister les situations d'avant, où les développeurs devaient coder sans IA (par ordre d'importance) ?
+
+Voici une liste des éléments que j'ai déjà identifiés (délimité par des "---"):
+
+---
+[[Liste des situations]]
+---
+
+2. Peux-tu lister les bénéfices que les développeurs ont maintenant grâce à l'IA (par ordre d'importance) ?
+
+Voici une liste des éléments que j'ai déjà identifiés (délimité par des "---"):
+
+---
+[[Liste des bénéfices]]
+---
+```
 
 ## Entrepreneurship
 
-### Self criticize 🇫🇷 `:vcritizeprevious`
+### Self criticize 🇫🇷 `:variousCriticizeAnswer`
 
 ```text
 Merci, peux-tu faire l'autocritique de ta réponse ?
@@ -24,7 +59,16 @@ Merci, peux-tu faire l'autocritique de ta réponse ?
 
 ## Images
 
-### MidJourney realistic picture `:vgenerateimagehighres`
+### PDF optimization with ghostscript `:variousOptimizePDF`
+
+```text
+# replace output.pdf and input.pdf with the correct file names
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[output.pdf]]" "[[input.pdf]]"
+```
+
+### MidJourney realistic picture `:variousCreateMidJourneyRealisticPicture`
+
+```text
 
 At the end of you image generated prompt.
 

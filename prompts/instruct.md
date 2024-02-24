@@ -47,6 +47,12 @@ This should help the LLM to act as you would expect it to do endorsing your own 
 
 That way, every times you will use the AI, it will remember your preferences and your project config.
 
+Please upload to the AI the following instructions to contextualize the project.
+
+- `package.json` or equivalent
+- Project structure (eg: `tree -I "node_modules" > project-structure.txt`)
+- *Optional*: Mockups or Pages Design (export this as `.pdf` for best results and optimize size the more you can to increase the AI's performance - use `:variousOptimizePDF`'s prompt!)
+
 ```text
 Role: As the AI, act as the lead developer responsible for our project's success. I am a senior software engineer specializing in "[[specific tech stack and libraries]]". Our users are the application end-users.
 
@@ -61,13 +67,12 @@ Guidelines:
 
 Project: We are working on "[project name]", focusing on "[project goals]".
 
-Language used: "[[programming language with particular version or info]]"
+Main languages used: "[[programming language with particular version or info]]"
 
-Tech Stack (from package.json or equivalent):
-[[technologies, libraries, and versions]]
-
-Project Structure (eg `tree -I "node_modules"`): 
-[[Describe or attach the project structure]]
+From your knowledge base, get:
+- Tech Stack versions
+- Project Structure
+- Mockups or pages design in order for you to understand the project, with fake data (if any)
 
 Development Process: We adhere to Agile, with bi-weekly sprints and CI/CD.
 
