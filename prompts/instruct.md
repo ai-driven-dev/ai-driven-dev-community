@@ -8,7 +8,7 @@ Drive AI to help you in your daily dev tasks.
   - [1.0) Contextualization (LLM instructions) `:instructContextualizeProject`](#10-contextualization-llm-instructions-instructcontextualizeproject)
 - [Create new features](#create-new-features)
   - [2.0) Generate feature with user-stories `:instructGenerateFeature`](#20-generate-feature-with-user-stories-instructgeneratefeature)
-  - [2.1) Breakdown details for a sub-task `:instructGetSteps`](#21-breakdown-details-for-a-sub-task-instructgetsteps)
+  - [2.1) Coding steps for a sub-task `:instructGetCodingSteps`](#21-coding-steps-for-a-sub-task-instructgetcodingsteps)
 - [Existing features](#existing-features)
   - [3.0) Acknowledge specification `:instructSpecsAcknowledge`](#30-acknowledge-specification-instructspecsacknowledge)
   - [3.1) Iterate over acknowledgment `:instructSpecsIterate`](#31-iterate-over-acknowledgment-instructspecsiterate)
@@ -16,15 +16,17 @@ Drive AI to help you in your daily dev tasks.
 - [Documentation](#documentation)
   - [Search in the documentation `:instructDocSearchURL`](#search-in-the-documentation-instructdocsearchurl)
 - [Image](#image)
+  - [Extract info from mockups `:instructImageExtractMockupInfo`](#extract-info-from-mockups-instructimageextractmockupinfo)
+  - [Detail coding steps from the image `:instructImageDetailCodingSteps`](#detail-coding-steps-from-the-image-instructimagedetailcodingsteps)
   - [Visualize Image Structure to Code `:instructImageVisualizeHTMLStructure`](#visualize-image-structure-to-code-instructimagevisualizehtmlstructure)
 - [Database](#database)
   - [SQL Schema Generation `:instructDBGenerateSchema`](#sql-schema-generation-instructdbgenerateschema)
-  - [Plain Object Generation from Schema `:instructgeneratepo`](#plain-object-generation-from-schema-instructgeneratepo)
-  - [Write type files `:instructwritetypefiles`](#write-type-files-instructwritetypefiles)
-- [Refactoring](#refactoring)
-  - [Draw my folder structure from specifications `:instructdrawfilestruct`](#draw-my-folder-structure-from-specifications-instructdrawfilestruct)
-  - [Create files structure  `:instructcreatefilestruct`](#create-files-structure--instructcreatefilestruct)
-  - [Review project files structures `:instructreviewfilestruct`](#review-project-files-structures-instructreviewfilestruct)
+  - [Plain Object Generation from Schema `:instructDBGeneratePO`](#plain-object-generation-from-schema-instructdbgeneratepo)
+- [Project structure](#project-structure)
+  - [Folder structure locations for types `:instructStructureWriteTypes`](#folder-structure-locations-for-types-instructstructurewritetypes)
+  - [Draw my folder structure from specifications `:instructStructureDrawNewFiles`](#draw-my-folder-structure-from-specifications-instructstructuredrawnewfiles)
+  - [Existing project structure acknowledgement `:instructStructureProjectAcknowledge`](#existing-project-structure-acknowledgement-instructstructureprojectacknowledge)
+  - [Review project files structures `:instructStructureReviewFilesAndDirectories`](#review-project-files-structures-instructstructurereviewfilesanddirectories)
 - [Old Prompts (WIP)](#old-prompts-wip)
   - [Acknowledge new feature `:prackfeat`](#acknowledge-new-feature-prackfeat)
   - [Ask for a feature `:prfeat`](#ask-for-a-feature-prfeat)
@@ -62,8 +64,21 @@ Guidelines:
 - Enhance readability with bold, italic, and lists as needed.
 - Adjust based on my feedback.
 - When in doubt, ask me for more details.
-- Code generation must be clean, follow the best practices and always provide full code needed with no comments.
 - Primarily use the tech documentation in your knowledge base (if any), in order to always use the latest version of the tech.
+
+Code generation rules:
+- Provide documentation links if needed.
+- Choose the best libraries and tools to use, if needed.
+- Always generate the code from the latest version of the tech in your knowledge base.
+- Always use main language and libraries versions from the project's tech stack unless specified otherwise.
+- Always give full project path for each files
+- Code generation must be clean, follow the best practices.
+- Do not comment the code.
+- Always provide full code, never skip a part of it.
+- Use very explicit components, functions, and variables names.
+- Split files the more you can, each file must do only one thing.
+- Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
+- Always give the full props and the full code, never use comments.
 
 Project: We are working on "[project name]", focusing on "[project goals]".
 
@@ -117,38 +132,19 @@ Here is a styled markdown template example you can inspire yourself with (surrou
 ---
 ```
 
-### 2.1) Breakdown details for a sub-task `:instructGetSteps`
+### 2.1) Coding steps for a sub-task `:instructGetCodingSteps`
 
 Ask the LLM to generate fully detailed ticket based on the user stories for an individual sub-task.
 
 ```text
-Given the following sub-task (surrounded by "---" delimiter):
----
-[[subtask from features list]]
----
+Based on the project structure and given the following sub-task, fill this template (surrounded by "---") and output the result in a list grouped by sections:
 
-Please, fill the following template (surrounded by "---") and output the result in a list grouped by sections.
+[[sub task full description]]
 
 Rules:
-* Details steps must be extremely detailed and should be able to be completed by any developer, regardless of their experience.
-* The acceptance criteria should be specific and measurable, ensuring that the feature meets the user's needs.
-* The ticket should be generated in a format that can be easily imported into our project management tool, such as Jira.
-* Do not go into the details of the code, only the steps to achieve the outcome.
-* If the output is too long, please inform me and ask me if I want to continue.
-* If the task need a specific configuration that is required to be done before, please detail it and put your response in bold.
-* Every steps must be detailed as much as possible and must be completed by any developer, regardless of their experience.
-- Give me the full project path for each file to edit
-- If you need to split the task into sub-tasks, please do so.
-- Choose the right libraries and tools to use if needed.
-- Provide documentation links if needed.
-
-Code generation rules:
-- The code must be clean and follow the best practices.
-- Always provide all the code, never skip a part of it.
-- Detail components, functions, and variables names.
-- Split files the more you can, each file must do only one thing.
-- Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
-
+* Only focus on the sub-task scope.
+* Review the sub-tasks to spot any prerequisites or missing configuration and details if necessary.
+* Details steps must be detailed and should to be completed by any developer, regardless of their experience.
 ---
 Title: Brief Description of the Feature
 
@@ -237,6 +233,29 @@ For each step, detail your explanation with the proper code.
 
 ## Image
 
+### Extract info from mockups `:instructImageExtractMockupInfo`
+
+```text
+Here is a mockup image of the feature I have to do as a developer.
+
+Can you detail everything you see on the image? Please group your answer by delimited sections.
+```
+
+### Detail coding steps from the image `:instructImageDetailCodingSteps`
+
+```text
+Based on the description you made from the image, can you provide me the coding steps to achieve the outcome?
+
+Be as much detailed as possible, do not forget anything.
+
+1. List my current tech stack and libraries for the frontend.
+2. Propose new libraries if needed, only focus on frontend integration (no data-fetching).
+3. Draw the full folder structure.
+4. List components to create in their respective folders.
+5. Define styling to use.
+6. Create each components, always give the full props and the full code, never use comments.
+```
+
 ### Visualize Image Structure to Code `:instructImageVisualizeHTMLStructure`
 
 ```text
@@ -263,12 +282,11 @@ Give me the full db schema, with the tables, the columns, the relations between 
 [[Entity list and relations between entities]]
 ```
 
-### Plain Object Generation from Schema `:instructgeneratepo`
+### Plain Object Generation from Schema `:instructDBGeneratePO`
 
 When you want to create the types from the SQL schema.
 
 ```text
-
 I need you to help me creating my Plain Object from my SQL database schema.
 
 1. For each entity, I want you to generate the corresponding type.
@@ -278,43 +296,49 @@ I need you to help me creating my Plain Object from my SQL database schema.
 
 Here is the SQL schema:
 
-[[SQL schema from `insgeneratesqlschema`]]
+[[SQL schema]]
 ```
 
-### Write type files `:instructwritetypefiles`
+## Project structure
+
+### Folder structure locations for types `:instructStructureWriteTypes`
 
 ```text
-I want to split those types with only 1 type per file. Based on the folder directory we made together, can you tell me where should put each of those?
+I want to split those types with only 1 type per file.
+
+Based on the folder directory we made together, can you tell me where should put each of those?
 
 Please generate a shell script to create those files and directories:
 
-[[List of types from `insgeneratepo`]]
+[[List of types]]
 ```
 
-## Refactoring
-
-### Draw my folder structure from specifications `:instructdrawfilestruct`
+### Draw my folder structure from specifications `:instructStructureDrawNewFiles`
 
 ```text
 Can you imagine the best folder structure for my features from the user-stories in my specifications?
 
-Please also generate every needed files and directories.
+Generate every needed files and directories in a shell script.
 ```
 
-### Create files structure  `:instructcreatefilestruct`
+### Existing project structure acknowledgement `:instructStructureProjectAcknowledge`
+
+In order to help the LLM to generate the best code possible in new and existing files.
+
+- Generate project structure as a file (eg: `tree -I "node_modules" > project-structure.txt`)
+- Upload it with the following prompt
 
 ```text
-Generate a shell script to create those files and directories:
-
-[[tree list from :instructdrawfilestruct output]]
+Here is the last up to update project structure, please keep it in my for the next instructions and code generation.
 ```
 
-### Review project files structures `:instructreviewfilestruct`
+### Review project files structures `:instructStructureReviewFilesAndDirectories`
 
 - 💡 **Description** : Before starting a refactoring, ask AI to review the project files structures and names.
-- 🤖 **AI Agent to use**: [AI Senior Developer](../agents/senior-developer.md)
+- 🤖 **AI Agent to use**: [AI Senior Developer](../agents/senior-developer.md).
+- ⚠️ **You must change the following template** surrounded by "---" delimiter with YOUR chosen code structure.
 
-```markdown
+```text
 Based on a feature based structure, I want to review the files and directories names and find the best way to organize them.
 
 Here is an example for React (but it can be any other language) surrounded by "---" delimiter:
@@ -387,7 +411,6 @@ My project file structure is:
 
 [[list of files and directories using $tree shell command]]
 ```
-
 
 ## Old Prompts (WIP)
 
@@ -517,3 +540,4 @@ Can you generate the corresponding code to test the following file:
 
 Remember, you test must be 100% working.
 ```
+

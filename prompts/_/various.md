@@ -2,6 +2,8 @@
 
 Some prompt we can use sometimes, tech related, or not :)
 
+- [Copywriting](#copywriting)
+  - [Benefits of a method `:variousSituationsAndBenefitsListing`](#benefits-of-a-method-varioussituationsandbenefitslisting)
 - [Entrepreneurship](#entrepreneurship)
   - [Self criticize 🇫🇷 `:variousCriticizeAnswer`](#self-criticize--variouscriticizeanswer)
 - [Images](#images)
@@ -18,29 +20,24 @@ Dans ma formation Coder avec l'IA, j'ai créé un module "[[nom du module]]".
 
 Le but de ce module est d'apprendre aux développeurs à "[[objectif du module]]".
 
-J'aimerais faire le parallèle entre "avant l'IA" où les développeurs n'avaient pas d'autocomplétion précises ni de génération de code et maintenant, où l'IA nous aide énormément à coder plus vite et plus précisément.
+J'aimerais faire le parallèle entre "avant l'IA" où les développeurs n'avaient pas d'autocomplétion précises ni de génération de code etc, et maintenant, où l'IA nous aide énormément à coder plus vite et plus précisément.
 
 Règles :
 
 - Limite-toi uniquement au thème du module.
-- Repropose moi des éléments déjà listé en les améliorant
-- Trouve de nouveaux éléments
+- Reformule les éléments déjà identifiés (dans AVANT IA et dans APRES IA) pour les rendre plus percutants.
+- Rajoute également des éléments que tu penses pertinents pour AVANT IA et APRES IA (indique entre parenthèse "nouveau" pour ceux-ci).
+- Utilise un copywriting simple et efficace pour rendre cet avant / après motivant, sans faire de métaphore, en te concentrant sur les bénéfices pour les développeurs.
 
-1. Peux-tu lister les situations d'avant, où les développeurs devaient coder sans IA (par ordre d'importance) ?
+Demande : Aide-moi à reformuler, trouver de nouveaux éléments et à les mettre en forme.
 
-Voici une liste des éléments que j'ai déjà identifiés (délimité par des "---"):
+Voici les éléments déjà identifiés (entouré par des "---") :
 
----
-[[Liste des situations]]
----
+Avant IA:
+[[Liste des éléments avant IA]]
 
-2. Peux-tu lister les bénéfices que les développeurs ont maintenant grâce à l'IA (par ordre d'importance) ?
-
-Voici une liste des éléments que j'ai déjà identifiés (délimité par des "---"):
-
----
-[[Liste des bénéfices]]
----
+Après IA:
+[[Liste des éléments après IA]]
 ```
 
 ## Entrepreneurship
