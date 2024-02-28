@@ -45,6 +45,13 @@ function parseMarkdown(markdownText) {
       const variableMatches = token.content.match(/\[\[(.*?)\]\]/g);
       if (variableMatches) {
         variableMatches.forEach((variable) => {
+          /**
+           * Transform the variable into a valid espanso variable name.
+           * @example
+           *  const variable = '[[Variable Name]]';
+           *  const variableName = 'variable_name';
+           * @type {string}
+           */
           const variableName = variable
             .replace('[[', '')
             .replace(']]', '')

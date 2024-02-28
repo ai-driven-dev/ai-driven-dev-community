@@ -117,8 +117,21 @@ matches:
       - Enhance readability with bold, italic, and lists as needed.
       - Adjust based on my feedback.
       - When in doubt, ask me for more details.
-      - Code generation must be clean, follow the best practices and always provide full code needed with no comments.
       - Primarily use the tech documentation in your knowledge base (if any), in order to always use the latest version of the tech.
+
+      Code generation rules:
+      - Provide documentation links if needed.
+      - Choose the best libraries and tools to use, if needed.
+      - Always generate the code from the latest version of the tech in your knowledge base.
+      - Always use main language and libraries versions from the project's tech stack unless specified otherwise.
+      - Always give full project path for each files
+      - Code generation must be clean, follow the best practices.
+      - Do not comment the code.
+      - Always provide full code, never skip a part of it.
+      - Use very explicit components, functions, and variables names.
+      - Split files the more you can, each file must do only one thing.
+      - Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
+      - Always give the full props and the full code, never use comments.
 
       Project: We are working on "[project name]", focusing on "[project goals]".
 
@@ -168,35 +181,16 @@ matches:
     form_fields:
       'feature_to_build,_be_as_detailed_as_possible':
         multiline: true
-  - trigger: ':instructGetSteps'
+  - trigger: ':instructGetCodingSteps'
     form: |
-      Given the following sub-task (surrounded by "---" delimiter):
-      ---
-      [[subtask_from_features_list]]
-      ---
+      Based on the project structure and given the following sub-task, fill this template (surrounded by "---") and output the result in a list grouped by sections:
 
-      Please, fill the following template (surrounded by "---") and output the result in a list grouped by sections.
+      [[sub_task_full_description]]
 
       Rules:
-      * Details steps must be extremely detailed and should be able to be completed by any developer, regardless of their experience.
-      * The acceptance criteria should be specific and measurable, ensuring that the feature meets the user's needs.
-      * The ticket should be generated in a format that can be easily imported into our project management tool, such as Jira.
-      * Do not go into the details of the code, only the steps to achieve the outcome.
-      * If the output is too long, please inform me and ask me if I want to continue.
-      * If the task need a specific configuration that is required to be done before, please detail it and put your response in bold.
-      * Every steps must be detailed as much as possible and must be completed by any developer, regardless of their experience.
-      - Give me the full project path for each file to edit
-      - If you need to split the task into sub-tasks, please do so.
-      - Choose the right libraries and tools to use if needed.
-      - Provide documentation links if needed.
-
-      Code generation rules:
-      - The code must be clean and follow the best practices.
-      - Always provide all the code, never skip a part of it.
-      - Detail components, functions, and variables names.
-      - Split files the more you can, each file must do only one thing.
-      - Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
-
+      * Only focus on the sub-task scope.
+      * Review the sub-tasks to spot any prerequisites or missing configuration and details if necessary.
+      * Details steps must be detailed and should to be completed by any developer, regardless of their experience.
       ---
       Title: Brief Description of the Feature
 
@@ -211,7 +205,7 @@ matches:
       3. ...
       ---
     form_fields:
-      subtask_from_features_list:
+      sub_task_full_description:
         multiline: true
   - trigger: ':instructSpecsAcknowledge'
     form: |
@@ -271,6 +265,23 @@ matches:
       Please provide the best step by step way to it.
 
       For each step, detail your explanation with the proper code.
+  - trigger: ':instructImageExtractMockupInfo'
+    form: |
+      Here is a mockup image of the feature I have to do as a developer.
+
+      Can you detail everything you see on the image? Please group your answer by delimited sections.
+  - trigger: ':instructImageDetailCodingSteps'
+    form: |
+      Based on the description you made from the image, can you provide me the coding steps to achieve the outcome?
+
+      Be as much detailed as possible, do not forget anything.
+
+      1. List my current tech stack and libraries for the frontend.
+      2. Propose new libraries if needed, only focus on frontend integration (no data-fetching).
+      3. Draw the full folder structure.
+      4. List components to create in their respective folders.
+      5. Define styling to use.
+      6. Create each components, always give the full props and the full code, never use comments.
   - trigger: ':instructImageVisualizeHTMLStructure'
     form: |
       Please remember the frontend tech I am using for this project.
@@ -292,9 +303,8 @@ matches:
     form_fields:
       entity_list_and_relations_between_entities:
         multiline: true
-  - trigger: ':instructgeneratepo'
+  - trigger: ':instructDBGeneratePO'
     form: |
-
       I need you to help me creating my Plain Object from my SQL database schema.
 
       1. For each entity, I want you to generate the corresponding type.
@@ -304,34 +314,31 @@ matches:
 
       Here is the SQL schema:
 
-      [[sql_schema_from_`insgeneratesqlschema`]]
+      [[sql_schema]]
     form_fields:
-      sql_schema_from_`insgeneratesqlschema`:
+      sql_schema:
         multiline: true
-  - trigger: ':instructwritetypefiles'
+  - trigger: ':instructStructureWriteTypes'
     form: |
-      I want to split those types with only 1 type per file. Based on the folder directory we made together, can you tell me where should put each of those?
+      I want to split those types with only 1 type per file.
+
+      Based on the folder directory we made together, can you tell me where should put each of those?
 
       Please generate a shell script to create those files and directories:
 
-      [[list_of_types_from_`insgeneratepo`]]
+      [[list_of_types]]
     form_fields:
-      list_of_types_from_`insgeneratepo`:
+      list_of_types:
         multiline: true
-  - trigger: ':instructdrawfilestruct'
+  - trigger: ':instructStructureDrawNewFiles'
     form: |
       Can you imagine the best folder structure for my features from the user-stories in my specifications?
 
-      Please also generate every needed files and directories.
-  - trigger: ':instructcreatefilestruct'
+      Generate every needed files and directories in a shell script.
+  - trigger: ':instructStructureProjectAcknowledge'
     form: |
-      Generate a shell script to create those files and directories:
-
-      [[tree_list_from_:instructdrawfilestruct_output]]
-    form_fields:
-      'tree_list_from_:instructdrawfilestruct_output':
-        multiline: true
-  - trigger: ':instructreviewfilestruct'
+      Here is the last up to update project structure, please keep it in my for the next instructions and code generation.
+  - trigger: ':instructStructureReviewFilesAndDirectories'
     form: |
       Based on a feature based structure, I want to review the files and directories names and find the best way to organize them.
 
@@ -567,33 +574,28 @@ matches:
 
       Le but de ce module est d'apprendre aux développeurs à "[[objectif_du_module]]".
 
-      J'aimerais faire le parallèle entre "avant l'IA" où les développeurs n'avaient pas d'autocomplétion précises ni de génération de code et maintenant, où l'IA nous aide énormément à coder plus vite et plus précisément.
+      J'aimerais faire le parallèle entre "avant l'IA" où les développeurs n'avaient pas d'autocomplétion précises ni de génération de code etc, et maintenant, où l'IA nous aide énormément à coder plus vite et plus précisément.
 
       Règles :
 
       - Limite-toi uniquement au thème du module.
-      - Repropose moi des éléments déjà listé en les améliorant
-      - Trouve de nouveaux éléments
+      - Reformule les éléments déjà identifiés (dans AVANT IA et dans APRES IA) pour les rendre plus percutants.
+      - Rajoute également des éléments que tu penses pertinents pour AVANT IA et APRES IA (indique entre parenthèse "nouveau" pour ceux-ci).
+      - Utilise un copywriting simple et efficace pour rendre cet avant / après motivant, sans faire de métaphore, en te concentrant sur les bénéfices pour les développeurs.
 
-      1. Peux-tu lister les situations d'avant, où les développeurs devaient coder sans IA (par ordre d'importance) ?
+      Demande : Aide-moi à reformuler, trouver de nouveaux éléments et à les mettre en forme.
 
-      Voici une liste des éléments que j'ai déjà identifiés (délimité par des "---"):
+      Voici les éléments déjà identifiés (entouré par des "---") :
 
-      ---
-      [[liste_des_situations]]
-      ---
+      Avant IA:
+      [[liste_des_éléments_avant_ia]]
 
-      2. Peux-tu lister les bénéfices que les développeurs ont maintenant grâce à l'IA (par ordre d'importance) ?
-
-      Voici une liste des éléments que j'ai déjà identifiés (délimité par des "---"):
-
-      ---
-      [[liste_des_bénéfices]]
-      ---
+      Après IA:
+      [[liste_des_éléments_après_ia]]
     form_fields:
-      liste_des_situations:
+      liste_des_éléments_avant_ia:
         multiline: true
-      liste_des_bénéfices:
+      liste_des_éléments_après_ia:
         multiline: true
   - trigger: ':variousCriticizeAnswer'
     form: |

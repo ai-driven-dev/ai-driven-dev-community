@@ -15,6 +15,7 @@ for (const promptDirectory of promptDirectories) {
   const markdownFiles = glob.sync(promptDirectory + '.md');
 
   for (const markdownFile of markdownFiles) {
+    // Write the markdown file
     const markdownText = fs.readFileSync(markdownFile, 'utf8');
     const espansoConfig = parseMarkdown(markdownText);
     yamlContent +=

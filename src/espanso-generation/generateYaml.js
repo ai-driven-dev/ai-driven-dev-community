@@ -1,5 +1,25 @@
+/**
+ * @module generateYaml
+ *
+ * @description This module contains a function that transforms an espanso configuration into a YAML string.
+ *
+ */
 const yaml = require('js-yaml');
 
+/**
+ * Transforms an espanso configuration into a YAML string.
+ * @param {import('./parseMarkdown').EspansoConfig} espansoConfig
+ * @example
+ * const espansoConfig = [{
+ *    trigger: 'trigger',
+ *    form: 'form',
+ *    variables: ['variable1', 'variable2']
+ * }];
+ *
+ * const yamlString = generateYaml(espansoConfig);
+ *
+ * @returns {string} The YAML string.
+ */
 function generateYaml(espansoConfig) {
   const yamlConfig = {
     matches: espansoConfig.map((configItem) => {
