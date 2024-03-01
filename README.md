@@ -30,8 +30,8 @@ Custom instructions for developers to use with ChatGPT.
 
 **If you need to ask a question, or need help, do not use ChatGPT directly, use the agents instead.**
 
-- GPT Access : [Agile Coach (PO, PM...)](https://chat.openai.com/g/g-S1wfMarvA-ai-programming-expert) (WIP) - ([Source](./agents/agile-coach.md))
-- GPT Access : [Senior Developer](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt) ([Source](./agents/senior-developer.md))
+- GPT Access : [AI Project Manager (Agile Coach, PO, PM...)](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt) (WIP) - ([Source](./agents/agile-coach.md))
+- GPT Access : [AI Programming Expert](https://chat.openai.com/g/g-S1wfMarvA-ai-programming-expert) ([Source](./agents/senior-developer.md))
 
 ## Snippets (to code faster) 🧑‍💻
 

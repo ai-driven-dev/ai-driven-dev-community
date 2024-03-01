@@ -46,5 +46,37 @@
       "}"
     ],
     "description": "Export default function"
+  },
+  "Export default graphql const": {
+    "prefix": "edgc",
+    "body": [
+      "import { graphql } from \"@/lib/gql\";",
+      "",
+      "export const $1 = graphql(`",
+      "  $2",
+      "`);",
+      "",
+    ],
+    "description": "Export default graphql const"
+  },
+  "Export default graphql hook": {
+    "prefix": "edgh",
+    "body": [
+      "import { useGqlQuery } from \"@/lib/gql\";",
+      "",
+      "type Props = {",
+      "  $2",
+      "};",
+      "",
+      "export const $1 = ({ $3 }: Props) => {",
+      "const query = useGqlQuery({",
+      "document: $4,",
+      "variables: undefined",
+      "});",
+      "",
+      "return { ...query };",
+      "};",
+    ],
+    "description": "Export default graphql hook"
   }
 }

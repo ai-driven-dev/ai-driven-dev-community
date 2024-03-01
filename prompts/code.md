@@ -10,7 +10,6 @@ Related to code interaction (eg: with Copilot).
   - [Generate fake testing data `:codeFakeData`](#generate-fake-testing-data-codefakedata)
   - [Unit Testing `:codeGenerateScratchUnitTestPerFunction`](#unit-testing-codegeneratescratchunittestperfunction)
   - [Unit Testing `:codeGenerateScratchUnitTestPerSteps`](#unit-testing-codegeneratescratchunittestpersteps)
-  - [Unit Testing (from scratch) `:codeGenerateScratchUnitTest`](#unit-testing-from-scratch-codegeneratescratchunittest)
 - [Documentation](#documentation)
   - [Check for comments to match written code `:codeDocMatchingCode`](#check-for-comments-to-match-written-code-codedocmatchingcode)
 
@@ -88,8 +87,6 @@ Please:
 ```text
 Here are the following steps to test a function. Please create a unit test for each step.
 
-1. 
-
 Based on this test and the opened files ("[[Opened file to use]]"), I need you to create unit tests to describe "[[Feature section to describe]]".
 
 Please:
@@ -100,59 +97,10 @@ Please:
 - Continue unit tests generation for the following functions: "[[functions to test]]"
 ```
 
-### Unit Testing (from scratch) `:codeGenerateScratchUnitTest`
-
-```text
-generate vitest test for the 4 use cases here, please use the items as a base for every tests. items : [
-  {
-    "type": "bundle",
-    "id": "649f7fbf-143a-47e7-9009-e928c8b19a5e",
-    "name": "Houmous + Chawarma poulet",
-    "description": " ",
-    "price": 1350,
-    "rank": 1,
-    "isDisabled": false,
-    "isReset": false,
-    "isDeleted": false,
-    "isFineTuned": false,
-    "modifierGroups": []
-  },
-  {
-    "type": "bundle",
-    "id": "f681305c-25d9-42b0-94fe-c4acab6174a7",
-    "name": "Houmous + Taouk Sandwich",
-    "description": " ",
-    "price": 1350,
-    "rank": 2,
-    "isDisabled": false,
-    "isReset": false,
-    "isDeleted": false,
-    "isFineTuned": false,
-    "modifierGroups": []
-  },
-  {
-    "type": "bundle",
-    "id": "adfc034d-24c3-48a8-b62c-a821188c3f5b",
-    "name": "Houmous + Falafel sandwich",
-    "description": " ",
-    "price": 1350,
-    "rank": 3,
-    "isDisabled": false,
-    "isReset": false,
-    "isDeleted": false,
-    "isFineTuned": false,
-    "modifierGroups": []
-  }
-]
-
-Please make 'expect' readable so I do not see the fully returned object, check only price or name accordingly
-```
-
 ## Documentation
-
 
 ### Check for comments to match written code `:codeDocMatchingCode`
 
 ```text
-Does this code match the comments?
+Check that comments are matching code actions.
 ```

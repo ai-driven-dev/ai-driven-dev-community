@@ -48,8 +48,6 @@ matches:
     form: |
       Here are the following steps to test a function. Please create a unit test for each step.
 
-      1. 
-
       Based on this test and the opened files ("[[opened_file_to_use]]"), I need you to create unit tests to describe "[[feature_section_to_describe]]".
 
       Please:
@@ -58,54 +56,9 @@ matches:
       - Import necessary files if needed
       - Use proper naming and types depending of the variable to test
       - Continue unit tests generation for the following functions: "[[functions_to_test]]"
-  - trigger: ':codeGenerateScratchUnitTest'
-    form: |
-      generate vitest test for the 4 use cases here, please use the items as a base for every tests. items : [
-        {
-          "type": "bundle",
-          "id": "649f7fbf-143a-47e7-9009-e928c8b19a5e",
-          "name": "Houmous + Chawarma poulet",
-          "description": " ",
-          "price": 1350,
-          "rank": 1,
-          "isDisabled": false,
-          "isReset": false,
-          "isDeleted": false,
-          "isFineTuned": false,
-          "modifierGroups": []
-        },
-        {
-          "type": "bundle",
-          "id": "f681305c-25d9-42b0-94fe-c4acab6174a7",
-          "name": "Houmous + Taouk Sandwich",
-          "description": " ",
-          "price": 1350,
-          "rank": 2,
-          "isDisabled": false,
-          "isReset": false,
-          "isDeleted": false,
-          "isFineTuned": false,
-          "modifierGroups": []
-        },
-        {
-          "type": "bundle",
-          "id": "adfc034d-24c3-48a8-b62c-a821188c3f5b",
-          "name": "Houmous + Falafel sandwich",
-          "description": " ",
-          "price": 1350,
-          "rank": 3,
-          "isDisabled": false,
-          "isReset": false,
-          "isDeleted": false,
-          "isFineTuned": false,
-          "modifierGroups": []
-        }
-      ]
-
-      Please make 'expect' readable so I do not see the fully returned object, check only price or name accordingly
   - trigger: ':codeDocMatchingCode'
     form: |
-      Does this code match the comments?
+      Check that comments are matching code actions.
 
   - trigger: ':instructContextualizeProject'
     form: |
@@ -548,7 +501,7 @@ matches:
       your_test_cases_and_the_ones_gave_by_ai:
         multiline: true
 
-  - trigger: ':llmimproveprompt'
+  - trigger: ':llmImprovePrompt'
     form: |
       This is the prompt I made (surrounded with """) for an a generative artificial intelligence like ChatGPT.
 
@@ -563,7 +516,7 @@ matches:
       Use good english, fix text mistakes.
 
       Please also acknowledge that AI can access URL, documents and generate images.
-  - trigger: ':llmevalanswer'
+  - trigger: ':llmEvalAnswer'
     form: |
       Can you be self-critical of your answer?
 
