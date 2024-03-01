@@ -1,41 +1,39 @@
 # AI Driven Dev Community
 
-Every good software engineer needs good prompts!
+A collection of tools, prompts, snippets and agents for developers that use AI, daily.
 
-- [Prompts 📝](#prompts-)
-- [Agents 🤖](#agents-)
-- [Snippets 🧑‍💻](#snippets-)
-- [Text expansion ⚡️](#text-expansion-️)
-- [Community Contribution 🚀](#community-contribution-)
-  - [A French community](#a-french-community)
+- [Prompts (for developers) 📝](#prompts-for-developers-)
+- [LLM Instructions (for better responses) 💡](#llm-instructions-for-better-responses-)
+- [Agents (for tech team) 🤖](#agents-for-tech-team-)
+- [Snippets (to code faster) 🧑‍💻](#snippets-to-code-faster-)
+- [Installation (Add your prompts) ✍️](#installation-add-your-prompts-️)
+- [Text Expander (prompts available in you computer) ⚡️](#text-expander-prompts-available-in-you-computer-️)
+- [French Community 🇫🇷](#french-community-)
 
-## Prompts 📝
+## Prompts (for developers) 📝
 
-The best list of software engineering prompts for AI you can find.
+A list of tailored prompts for developers, including instructions, coding and LLM optimizations.
 
 - [For coding](./prompts/code.md)
 - [For instructions](./prompts/instruct.md)
 - [For LLM optimizations](./prompts//llm.md)
 
-## LLM Custom Instructions
+## LLM Instructions (for better responses) 💡
+
+Custom instructions for developers to use with ChatGPT.
 
 - [Custom Instructions in ChatGPT for Developers](./llm/chatgpt-custom-instructions-developer.md)
 
-## Agents 🤖
+## Agents (for tech team) 🤖
 
-I prompted 2 AIs to act like the best software engineers.
+2 fine-tuned AIs to work with you, as a tech team members, filled with knowledge and experience about their specific role.
 
-> It is working much better that the original version and works even better with the prompts under.
+**If you need to ask a question, or need help, do not use ChatGPT directly, use the agents instead.**
 
-- GPT Access : [Agile Coach (PO, PM...)](https://chat.openai.com/g/g-S1wfMarvA-ai-programming-expert)
-- GPT Access : [Senior Developer](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt)
+- GPT Access : [Agile Coach (PO, PM...)](https://chat.openai.com/g/g-S1wfMarvA-ai-programming-expert) (WIP) - ([Source](./agents/agile-coach.md))
+- GPT Access : [Senior Developer](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt) ([Source](./agents/senior-developer.md))
 
-Instruction sources used to fine-tune the LLM to act as...
-
-- [Agile Coach (PO, PM...)](./agents/agile-coach.md)
-- [Senior Developer](./agents/senior-developer.md)
-
-## Snippets 🧑‍💻
+## Snippets (to code faster) 🧑‍💻
 
 AI makes way much easier code generation.
 
@@ -48,18 +46,18 @@ Thus, AI can be mistaken, as a developer, you are the master of your code struct
   - [React](./snippets/vscode/typescriptreact.json)
 - JetBrains Snippets (Not available, want to add yours? [Contribute!](./contributing.md))
 
-## Installation
-
-### Project installation 🚀
+## Installation (Add your prompts) ✍️
 
 If you want to contribute or use the available snippets.
 
 - [Fork the repository](https://github.com/alexsoyes/ai-driven-dev-community/fork), then clone it.
-- After project installation, run `npx husky-init ` if you want to:
+- After project installation, run `npx husky-init` if you want to:
   - Automatically generate Espanso package and manifest (**on commit**)
   - Automatically replace VSCode snippets (**on pull**)
+  - Automatically update Espanso's prompts (**post push**)
+- Update Readmes to automatically generate the available prompts!
 
-### Text expansion ⚡️
+## Text Expander (prompts available in you computer) ⚡️
 
 This repo is filled of **amazing prompt for developers**, mapped with my favorite text expander, [Espanso](https://espanso.org).
 
@@ -83,18 +81,16 @@ espanso package update all # or if you want to update all your packages at once 
 
 Finally, just:
 
-- Use a keyboard shortcut (like `:ltstypeobj`)
+- Use a keyboard shortcut (like `:codeHelpMeThinking`)
 - Or by using the dialog box (`⌥ + SPACE` or `ALT + SPACE`)
 
-## Community Contribution 🚀
+## French Community 🇫🇷
+
+Join a group of french software engineers that are using AI.
+
+[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC)
 
 Contribution are welcomed, [check the guide](./contributing.md)
 
 - Community prompt list, so create a PR with your needs ❤️
 - Report prompting issues / improvements at [hello@alexsoyes.com](mailto:hello@alexsoyes.com)
-
-### A French community
-
-Join a group of french software engineers that are using AI.
-
-[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC)
