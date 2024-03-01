@@ -341,79 +341,34 @@ Here is the last up to update project structure, please keep it in my for the ne
 - 💡 **Description** : Before starting a refactoring, ask AI to review the project files structures and names.
 - 🤖 **AI Agent to use**: [AI Senior Developer](../agents/senior-developer.md).
 - ⚠️ **You must change the following template** surrounded by "---" delimiter with YOUR chosen code structure.
+- 🗂️ **Project structure** to upload with the prompt (eg: `tree -I "node_modules" > project-structure.txt`).
 
 ```text
-Based on a feature based structure, I want to review the files and directories names and find the best way to organize them.
+Here is an example of project file structure that I like, please get its content from this URL, I will refer it as a "template": "[[url of the gist of the project structure]]"
 
-Here is an example for React (but it can be any other language) surrounded by "---" delimiter:
+Based on this "template" feature based structure, I want to review my current files and directories names from my app (surrounded by "---" delimiter), and find the best places to organize them.
 
 ---
-Most of the code lives in the src folder and looks like this:
-
-src
-|
-+-- assets            # assets folder can contain all the static files such as images, fonts, etc.
-|
-+-- components        # shared components used across the entire application
-|
-+-- config            # all the global configuration, env variables etc. get exported from here and used in the app
-|
-+-- features          # feature based modules
-|
-+-- hooks             # shared hooks used across the entire application
-|
-+-- lib               # re-exporting different libraries preconfigured for the application
-|
-+-- providers         # all of the application providers
-|
-+-- routes            # routes configuration
-|
-+-- stores            # global state stores
-|
-+-- test              # test utilities and mock server
-|
-+-- types             # base types used across the application
-|
-+-- utils             # shared utility functions
-In order to scale the application in the easiest and most maintainable way, keep most of the code inside the features folder, which should contain different feature-based things. Every feature folder should contain domain specific code for a given feature. This will allow you to keep functionalities scoped to a feature and not mix its declarations with shared things. This is much easier to maintain than a flat folder structure with many files.
-
-A feature could have the following structure:
-
-src/features/awesome-feature
-|
-+-- api         # exported API request declarations and api hooks related to a specific feature
-|
-+-- assets      # assets folder can contain all the static files for a specific feature
-|
-+-- components  # components scoped to a specific feature
-|
-+-- hooks       # hooks scoped to a specific feature
-|
-+-- routes      # route components for a specific feature pages
-|
-+-- stores      # state stores for a specific feature
-|
-+-- types       # typescript types for TS specific feature domain
-|
-+-- utils       # utility functions for a specific feature
-|
-+-- index.ts    # entry point for the feature, it should serve as the public API of the given feature and exports everything that should be used outside the feature
-Everything from a feature should be exported from the index.ts file which behaves as the public API of the feature.
+[[Copy and paste the project structure here]]
 ---
 
-I want you to:
-- Improve consistency and readability for every file and directory names
-- Review the files and directories names and unify them (for each change you make, put in parenthesis the previous name)
-- Find the best way to organize them
-- Propose a new structure including every files and directories
+What I ask you to do is to:
 
-Every file names must follow the same convention across the project.
-
-Some file and directory names are not consistent and I want to improve that, please check every file and directory names must be checked, your new directory proposal must includes every files and directories as well.
-
-My project file structure is:
-
-[[list of files and directories using $tree shell command]]
+1. List all the features you understood from my project structure
+  - Format it with bullet points
+  - If there is a hierarchy, please respect it.
+  - Use existing names from my app
+2. Remind my the "template" file structure you will use to compare with my current one.
+3. List necessary steps to convert my current file structure to the new one, with the best practices and clean code principles. 
+4. Identify files that:
+  - Need to be merged together if they have close naming (like "user" and "users" or "category" and "categories", for example).
+  - Need to be renamed if their name is not consistent.
+  - Need to be moved to another directory if they are not in the right place.
+4. Based on the features you listed from my app, apply the "template" file structure on my app file structure, generate a new file structure proposal with these rules:
+  - Do not use comments
+  - Do not indicate the kind of file
+  - Provide the full path for each file
+5. Check that every files from my app are existing in your new directory proposal
 ```
 
 ## Old Prompts (WIP)
