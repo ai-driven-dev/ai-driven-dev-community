@@ -14,7 +14,8 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "pre-commit": "cd ../ && bash .husky/pre-commit",
-    "post-merge": "cd ../ && bash .husky/post-merge"
+    "post-merge": "cd ../ && bash .husky/post-merge",
+    "post-push": "cd ../ && bash .husky/post-push"
   },
   "keywords": [
     "espanso",

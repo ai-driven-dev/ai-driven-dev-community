@@ -20,24 +20,18 @@ Dans ma formation Coder avec l'IA, j'ai créé un module "[[nom du module]]".
 
 Le but de ce module est d'apprendre aux développeurs à "[[objectif du module]]".
 
-J'aimerais faire le parallèle entre "avant l'IA" où les développeurs n'avaient pas d'autocomplétion précises ni de génération de code etc, et maintenant, où l'IA nous aide énormément à coder plus vite et plus précisément.
+J'aimerais faire le parallèle entre "avant l'IA" où les développeurs n'avaient pas d'autocomplétion précises ni de génération de code etc, et maintenant, "après ia", où l'IA nous aide énormément à coder plus vite et mieux.
+Le but est de montrer que pour les développeurs, nous sommes bien mieux à utiliser l'IA au quotidien pour développer.
 
-Règles :
-
-- Limite-toi uniquement au thème du module.
-- Reformule les éléments déjà identifiés (dans AVANT IA et dans APRES IA) pour les rendre plus percutants.
-- Rajoute également des éléments que tu penses pertinents pour AVANT IA et APRES IA (indique entre parenthèse "nouveau" pour ceux-ci).
-- Utilise un copywriting simple et efficace pour rendre cet avant / après motivant, sans faire de métaphore, en te concentrant sur les bénéfices pour les développeurs.
-
-Demande : Aide-moi à reformuler, trouver de nouveaux éléments et à les mettre en forme.
-
-Voici les éléments déjà identifiés (entouré par des "---") :
+Voici les éléments déjà identifiés:
 
 Avant IA:
 [[Liste des éléments avant IA]]
 
 Après IA:
 [[Liste des éléments après IA]]
+
+Merci de reformuler ces éléments pour les rendre plus percutants et de rajouter des éléments qui n'existent pas déjà.
 ```
 
 ## Entrepreneurship
