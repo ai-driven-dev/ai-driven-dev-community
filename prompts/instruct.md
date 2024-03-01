@@ -18,7 +18,7 @@ Drive AI to help you in your daily dev tasks.
 - [Image](#image)
   - [Extract info from mockups `:instructImageExtractMockupInfo`](#extract-info-from-mockups-instructimageextractmockupinfo)
   - [Detail coding steps from the image `:instructImageDetailCodingSteps`](#detail-coding-steps-from-the-image-instructimagedetailcodingsteps)
-  - [Visualize Image Structure to Code `:instructImageVisualizeHTMLStructure`](#visualize-image-structure-to-code-instructimagevisualizehtmlstructure)
+  - [Create actions from image  `:instructImageCreateActions`](#create-actions-from-image--instructimagecreateactions)
 - [Database](#database)
   - [SQL Schema Generation `:instructDBGenerateSchema`](#sql-schema-generation-instructdbgenerateschema)
   - [Plain Object Generation from Schema `:instructDBGeneratePO`](#plain-object-generation-from-schema-instructdbgeneratepo)
@@ -238,7 +238,9 @@ For each step, detail your explanation with the proper code.
 ```text
 Here is a mockup image of the feature I have to do as a developer.
 
-Can you detail everything you see on the image? Please group your answer by delimited sections.
+First, can you detail everything you see on the image? Please group your answer by delimited sections.
+
+Then, ask me the relevant questions about sections you did not understand.
 ```
 
 ### Detail coding steps from the image `:instructImageDetailCodingSteps`
@@ -256,16 +258,18 @@ Be as much detailed as possible, do not forget anything.
 6. Create each components, always give the full props and the full code, never use comments.
 ```
 
-### Visualize Image Structure to Code `:instructImageVisualizeHTMLStructure`
+### Create actions from image  `:instructImageCreateActions`
 
 ```text
-Please remember the frontend tech I am using for this project.
+Based on this image, can you identify actions?
 
-For this image, I need you to:
+Here are the actions I want you to identify:
 
-1. Carefully summarize what you see from it, in small not detailed bullet points.
-2. Print the structure of the image as you see it.
-3. Propose an HTML structure of it based on my frontend tech.
+[[List of actions to identify]]
+
+1) Quickly detail what you understand from the actions in the image.
+2) Remember the tech stack and libraries for the frontend.
+3) Create components to execute the actions, in their respective folders, based on the image and the actions.
 ```
 
 ## Database

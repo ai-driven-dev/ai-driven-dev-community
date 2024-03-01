@@ -269,7 +269,9 @@ matches:
     form: |
       Here is a mockup image of the feature I have to do as a developer.
 
-      Can you detail everything you see on the image? Please group your answer by delimited sections.
+      First, can you detail everything you see on the image? Please group your answer by delimited sections.
+
+      Then, ask me the relevant questions about sections you did not understand.
   - trigger: ':instructImageDetailCodingSteps'
     form: |
       Based on the description you made from the image, can you provide me the coding steps to achieve the outcome?
@@ -282,15 +284,20 @@ matches:
       4. List components to create in their respective folders.
       5. Define styling to use.
       6. Create each components, always give the full props and the full code, never use comments.
-  - trigger: ':instructImageVisualizeHTMLStructure'
+  - trigger: ':instructImageCreateActions'
     form: |
-      Please remember the frontend tech I am using for this project.
+      Based on this image, can you identify actions?
 
-      For this image, I need you to:
+      Here are the actions I want you to identify:
 
-      1. Carefully summarize what you see from it, in small not detailed bullet points.
-      2. Print the structure of the image as you see it.
-      3. Propose an HTML structure of it based on my frontend tech.
+      [[list_of_actions_to_identify]]
+
+      1) Quickly detail what you understand from the actions in the image.
+      2) Remember the tech stack and libraries for the frontend.
+      3) Create components to execute the actions, in their respective folders, based on the image and the actions.
+    form_fields:
+      list_of_actions_to_identify:
+        multiline: true
   - trigger: ':instructDBGenerateSchema'
     form: |
       I need you to help me creating my SQL database schema.
@@ -574,24 +581,18 @@ matches:
 
       Le but de ce module est d'apprendre aux développeurs à "[[objectif_du_module]]".
 
-      J'aimerais faire le parallèle entre "avant l'IA" où les développeurs n'avaient pas d'autocomplétion précises ni de génération de code etc, et maintenant, où l'IA nous aide énormément à coder plus vite et plus précisément.
+      J'aimerais faire le parallèle entre "avant l'IA" où les développeurs n'avaient pas d'autocomplétion précises ni de génération de code etc, et maintenant, "après ia", où l'IA nous aide énormément à coder plus vite et mieux.
+      Le but est de montrer que pour les développeurs, nous sommes bien mieux à utiliser l'IA au quotidien pour développer.
 
-      Règles :
-
-      - Limite-toi uniquement au thème du module.
-      - Reformule les éléments déjà identifiés (dans AVANT IA et dans APRES IA) pour les rendre plus percutants.
-      - Rajoute également des éléments que tu penses pertinents pour AVANT IA et APRES IA (indique entre parenthèse "nouveau" pour ceux-ci).
-      - Utilise un copywriting simple et efficace pour rendre cet avant / après motivant, sans faire de métaphore, en te concentrant sur les bénéfices pour les développeurs.
-
-      Demande : Aide-moi à reformuler, trouver de nouveaux éléments et à les mettre en forme.
-
-      Voici les éléments déjà identifiés (entouré par des "---") :
+      Voici les éléments déjà identifiés:
 
       Avant IA:
       [[liste_des_éléments_avant_ia]]
 
       Après IA:
       [[liste_des_éléments_après_ia]]
+
+      Merci de reformuler ces éléments pour les rendre plus percutants et de rajouter des éléments qui n'existent pas déjà.
     form_fields:
       liste_des_éléments_avant_ia:
         multiline: true
