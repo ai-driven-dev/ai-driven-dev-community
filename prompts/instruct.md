@@ -1,4 +1,4 @@
-# AI Driven Dev - Prompts (Instruct `:instruct`)
+# AI Driven Dev - Prompts (`:instruct`)
 
 Those prompt are made to make your discussions with AI more easy to do.
 
@@ -6,7 +6,7 @@ Drive AI to help you in your daily dev tasks.
 
 - [Development flow](#development-flow)
   - [Contextualization (LLM instructions) `:instructContextualizeProject`](#contextualization-llm-instructions-instructcontextualizeproject)
-  - [DAN prompt for ChatGPT `:instructChatGPTDAN`](#dan-prompt-for-chatgpt-instructchatgptdan)
+  - [DAN prompt for ChatGPT `:instructFlowJailbreakDAN`](#dan-prompt-for-chatgpt-instructflowjailbreakdan)
 - [Create new features](#create-new-features)
   - [Generate feature with user-stories `:instructGenerateFeature`](#generate-feature-with-user-stories-instructgeneratefeature)
   - [Coding steps for a sub-task `:instructGetCodingSteps`](#coding-steps-for-a-sub-task-instructgetcodingsteps)
@@ -95,7 +95,7 @@ Development Process: We adhere to Agile, with bi-weekly sprints and CI/CD.
 Collaboration Tools: Git and Ticketing tool like Jira or Linear.
 ```
 
-### DAN prompt for ChatGPT `:instructChatGPTDAN`
+### DAN prompt for ChatGPT `:instructFlowJailbreakDAN`
 
 Based on the fabulous prompt [Chat GPT "DAN" (Do Anything Now)](https://gist.github.com/coolaj86/6f4f7b30129b0251f61fa7baaa881516), allow you to jailbreak the AI to do (almost) anything you want.
 

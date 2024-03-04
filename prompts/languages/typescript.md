@@ -1,4 +1,4 @@
-# AI Driven Dev - Prompts (TypeScript `:languageTS`)
+# AI Driven Dev - Prompts (`:languageTS`)
 
 A list of TypeScript related prompts that I use quite often in my IDE.
 
