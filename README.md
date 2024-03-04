@@ -6,17 +6,17 @@ A collection of tools, prompts, snippets and agents for developers that use AI, 
 - [LLM Instructions (for better responses) 💡](#llm-instructions-for-better-responses-)
 - [Agents (for tech team) 🤖](#agents-for-tech-team-)
 - [Snippets (to code faster) 🧑‍💻](#snippets-to-code-faster-)
-- [Installation (Add your prompts) ✍️](#installation-add-your-prompts-️)
-- [Text Expander (prompts available in you computer) ⚡️](#text-expander-prompts-available-in-you-computer-️)
+- [Install the prompts (in you computer) ⚡️](#install-the-prompts-in-you-computer-️)
+- [Contribution (add your prompts) ✍️](#contribution-add-your-prompts-️)
 - [French Community 🇫🇷](#french-community-)
 
 ## Prompts (for developers) 📝
 
 A list of tailored prompts for developers, including instructions, coding and LLM optimizations.
 
-- [For coding](./prompts/code.md)
-- [For instructions](./prompts/instruct.md)
-- [For LLM optimizations](./prompts//llm.md)
+- [Coding](./prompts/code.md)
+- [Instructions](./prompts/instruct.md)
+- [LLM optimizations](./prompts//llm.md)
 
 ## LLM Instructions (for better responses) 💡
 
@@ -30,8 +30,8 @@ Custom instructions for developers to use with ChatGPT.
 
 **If you need to ask a question, or need help, do not use ChatGPT directly, use the agents instead.**
 
-- GPT Access : [AI Project Manager (Agile Coach, PO, PM...)](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt) (WIP) - ([Source](./agents/agile-coach.md))
-- GPT Access : [AI Programming Expert](https://chat.openai.com/g/g-S1wfMarvA-ai-programming-expert) ([Source](./agents/senior-developer.md))
+- Custom GPT Access : [AI Project Manager (Agile Coach, PO, PM...)](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt) (*WIP*) - ([Source](./agents/agile-coach.md))
+- Custom GPT Access : [AI Programming Expert](https://chat.openai.com/g/g-S1wfMarvA-ai-programming-expert) ([Source](./agents/senior-developer.md))
 
 ## Snippets (to code faster) 🧑‍💻
 
@@ -46,18 +46,7 @@ Thus, AI can be mistaken, as a developer, you are the master of your code struct
   - [React](./snippets/vscode/typescriptreact.json)
 - JetBrains Snippets (Not available, want to add yours? [Contribute!](./contributing.md))
 
-## Installation (Add your prompts) ✍️
-
-If you want to contribute or use the available snippets.
-
-- [Fork the repository](https://github.com/alexsoyes/ai-driven-dev-community/fork), then clone it.
-- After project installation, run `npx husky-init` if you want to:
-  - Automatically generate Espanso package and manifest (**on commit**)
-  - Automatically replace VSCode snippets (**on pull**)
-  - Automatically update Espanso's prompts (**post push**)
-- Update Readmes to automatically generate the available prompts!
-
-## Text Expander (prompts available in you computer) ⚡️
+## Install the prompts (in you computer) ⚡️
 
 This repo is filled of **amazing prompt for developers**, mapped with my favorite text expander, [Espanso](https://espanso.org).
 
@@ -84,13 +73,25 @@ Finally, just:
 - Use a keyboard shortcut (like `:codeHelpMeThinking`)
 - Or by using the dialog box (`⌥ + SPACE` or `ALT + SPACE`)
 
+## Contribution (add your prompts) ✍️
+
+Contribution are welcomed, [check the guide](./contributing.md)!
+
+This list is community based, feel free to improve it!
+
+❤️ **2 minutes contribution guide:**
+
+1. [Fork the repository](https://github.com/alexsoyes/ai-driven-dev-community/fork), then clone it.
+2. After project installation, run `npx husky-init` if you want to **automatically**:
+   - Generate [Espanso package](./ai-driven-dev-prompts/package.yml) and manifest (*on commit*)
+   - Replace VSCode snippets (*on pull*)
+   - Update Espanso's prompts (*post push*)
+3. Update a Readme to automatically generate the prompts!
+
+Report prompting issues / improvements at [hello@alexsoyes.com](mailto:hello@alexsoyes.com)
+
 ## French Community 🇫🇷
 
 Join a group of french software engineers that are using AI.
 
 [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC)
-
-Contribution are welcomed, [check the guide](./contributing.md)
-
-- Community prompt list, so create a PR with your needs ❤️
-- Report prompting issues / improvements at [hello@alexsoyes.com](mailto:hello@alexsoyes.com)

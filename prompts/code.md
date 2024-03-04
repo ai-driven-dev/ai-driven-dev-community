@@ -1,20 +1,19 @@
-# AI Driven Dev - Prompts (Code `:code`)
+# AI Driven Dev - Prompts (`:code`)
 
 Related to code interaction (eg: with Copilot).
 
-- [Coding](#coding)
+- [Code](#code)
   - [Help me thinking `:codeHelpMeThinking`](#help-me-thinking-codehelpmethinking)
-- [Fixing](#fixing)
+- [Fix](#fix)
   - [Fixing code from test results `:codeFixFromTestResults`](#fixing-code-from-test-results-codefixfromtestresults)
 - [Testing](#testing)
-  - [Generate fake testing data `:codeFakeData`](#generate-fake-testing-data-codefakedata)
-  - [Unit Testing `:codeGenerateScratchUnitTestPerFunction`](#unit-testing-codegeneratescratchunittestperfunction)
-  - [Unit Testing `:codeGenerateScratchUnitTestPerSteps`](#unit-testing-codegeneratescratchunittestpersteps)
-- [Documentation](#documentation)
-  - [Check for comments to match written code `:codeDocMatchingCode`](#check-for-comments-to-match-written-code-codedocmatchingcode)
+  - [Generate fake testing data `:codeTestingFakeDataGeneration`](#generate-fake-testing-data-codetestingfakedatageneration)
+  - [Unit Testing `:codeUnitTestPerFunctionScratchGeneration`](#unit-testing-codeunittestperfunctionscratchgeneration)
+  - [Unit Testing `:codeUnitTestPerStepsScratchGeneration`](#unit-testing-codeunittestperstepsscratchgeneration)
+- [Comments](#comments)
+  - [Check for comments to match written code `:codeCommentsMatchingCodeChecking`](#check-for-comments-to-match-written-code-codecommentsmatchingcodechecking)
 
-
-## Coding
+## Code
 
 ### Help me thinking `:codeHelpMeThinking`
 
@@ -26,8 +25,7 @@ I need you to help me think about the best way to implement this new functionali
 Please provide the best coding steps.
 ```
 
-
-## Fixing
+## Fix
 
 ### Fixing code from test results `:codeFixFromTestResults`
 
@@ -59,16 +57,16 @@ Follow those steps:
 
 ## Testing
 
-### Generate fake testing data `:codeFakeData`
+### Generate fake testing data `:codeTestingFakeDataGeneration`
 
-* Highlight the object, type or schema you want generate fake data for
+- Highlight the object, type or schema you want generate fake data for
 
 ```text
 Create fake data for testing purposes. The data should be in the same format as the original data, but with fake values. 
 
 ```
 
-### Unit Testing `:codeGenerateScratchUnitTestPerFunction`
+### Unit Testing `:codeUnitTestPerFunctionScratchGeneration`
 
 ```text
 Based on this test and the opened files ("[[Opened file to use]]"), I need you to create unit tests to describe "[[Feature section to describe]]".
@@ -81,8 +79,7 @@ Please:
 - Continue unit tests generation for the following functions: "[[functions to test]]"
 ```
 
-
-### Unit Testing `:codeGenerateScratchUnitTestPerSteps`
+### Unit Testing `:codeUnitTestPerStepsScratchGeneration`
 
 ```text
 Here are the following steps to test a function. Please create a unit test for each step.
@@ -97,9 +94,9 @@ Please:
 - Continue unit tests generation for the following functions: "[[functions to test]]"
 ```
 
-## Documentation
+## Comments
 
-### Check for comments to match written code `:codeDocMatchingCode`
+### Check for comments to match written code `:codeCommentsMatchingCodeChecking`
 
 ```text
 Check that comments are matching code actions.

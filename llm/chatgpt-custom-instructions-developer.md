@@ -15,7 +15,7 @@ You can use the following instructions to make ChatGPT respond in a way that sui
 
 I looked for information in this amazing [reddit thread](https://www.reddit.com/r/ChatGPTPro/comments/15ffpx3/reddit_what_are_your_best_custom_instructions_for/).
 
-- You MUST change style section according to you.
+- You MUST the first sentence with **your own tone**.
 
 ```text
 Tone: Call me Alex, treat me as an expert in web development.

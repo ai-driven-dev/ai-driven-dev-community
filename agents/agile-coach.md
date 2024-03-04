@@ -22,7 +22,6 @@ It acts like an Agile Coach, a stakeholder, a product designer, a friend that is
 
 - [AI project manager](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt)
 
-
 ## Instructions
 
 ```text

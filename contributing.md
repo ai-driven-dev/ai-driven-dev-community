@@ -3,11 +3,12 @@
 I am thrilled that you're interested in contributing to our project! Your contributions are vital to making this project great and we welcome contributions from everyone.
 
 - [Guidelines](#guidelines)
-  - [Naming Conventions](#naming-conventions)
-  - [Title Structure](#title-structure)
-  - [Action Structure](#action-structure)
-  - [Target Structure](#target-structure)
+- [Naming Conventions](#naming-conventions)
   - [Examples](#examples)
+  - [Title](#title)
+  - [Section (optional)](#section-optional)
+  - [Action](#action)
+  - [Target (optional)](#target-optional)
 - [Rules](#rules)
 - [Adding New Prompts](#adding-new-prompts)
 - [Need Help?](#need-help)
@@ -19,9 +20,23 @@ I am thrilled that you're interested in contributing to our project! Your contri
 - Update any relevant documentation or tests to reflect your changes.
 - Follow the project's guidelines on formatting and style for prompts.
 
-### Naming Conventions
+## Naming Conventions
 
-### Title Structure
+Triggers are named using the following structure:
+
+```text
+$title / ($section) / $action / ($target)
+```
+
+### Examples
+
+```text
+:instructFlowJailbreakDAN
+:codeTestingFakeDataGeneration
+:languageTSTypeCreateFromObject
+```
+
+### Title
 
 The main files of the repo. They are fixed:
 
@@ -32,15 +47,17 @@ The main files of the repo. They are fixed:
   - Languages (`:language`)
     - TypeScript (`:languageTS`)
 
-### Section structure
+### Section (optional)
 
 The section where the prompt is in the doc. Example:
 
 - `Flow`
+- `Documentation`
 - `Database`
 - `Image`
+- `Test`
 
-### Action Structure
+### Action
 
 Use a verb to describe the action you want to perform. Example:
 
@@ -48,22 +65,15 @@ Use a verb to describe the action you want to perform. Example:
 - `Convert`
 - `Optimize`
 - `Log`
+- `Jailbreak`
 
-### Target Structure
+### Target (optional)
 
 The element you want to interact with. Example:
 
 - `Object`
 - `Answer`
 - `Code`
-
-### Examples
-
-```text
-:insFlow1ContextualizeProject
-:insDocSearchURL
-:languageTSTypeCreateFromObject
-```
 
 ## Rules
 
@@ -72,26 +82,29 @@ The element you want to interact with. Example:
 
 ## Adding New Prompts
 
-Important to note: **Not specifying (`:trigger`) in the title will not trigger Espanso config change.**
+Important to note: **Not specifying (`:trigger`) in the title will not trigger Espanso config changes.**
 
-1. Fork the repository and create a new PR.
+1. [Fork the repository](https://github.com/alexsoyes/ai-driven-dev-community/fork) and create a new PR.
 2. Open the main [Readme](./README.md) file (or one of the [agents](./agents/)) you want to change.
 3. Add and commit your new prompt following this exact structure.
 
 ```text
-#### My title for my awesome prompt `:myPrompt`
+#### My title for my awesome prompt \`:myPrompt\`
 
-I am a very good prompt for software engineers specialized in [var_1].
+Here is a description of my prompt.
 
-Here are some more typings:
+\```text
 
-[[var_2_multiline]]
+This prompt took 1 variable here: "[[var_1]]".
 
-And a simple one again to close the prompt.
+And another (multiline) here:
 
-[var_with_a_fancy_name]
+[[var_2]]
+\```
 ```
 
 ## Need Help?
 
 If you need help or have any questions, feel free to open an issue for discussion or reach out to the project maintainers.
+
+**[Join our Discord 🇫🇷](https://discord.gg/mcNwacZCvC) to discuss your ideas and get help from the community.**

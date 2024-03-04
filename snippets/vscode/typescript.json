@@ -55,7 +55,7 @@
       "export const $1 = graphql(`",
       "  $2",
       "`);",
-      "",
+      ""
     ],
     "description": "Export default graphql const"
   },
@@ -75,7 +75,7 @@
       "});",
       "",
       "return { ...query };",
-      "};",
+      "};"
     ],
     "description": "Export default graphql hook"
   }
