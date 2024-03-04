@@ -8,7 +8,7 @@ A collection of tools, prompts, snippets and agents for developers that use AI, 
 - [Snippets (to code faster) 🧑‍💻](#snippets-to-code-faster-)
 - [Install the prompts (in you computer) ⚡️](#install-the-prompts-in-you-computer-️)
 - [Contribution (add your prompts) ✍️](#contribution-add-your-prompts-️)
-- [French Community 🇫🇷](#french-community-)
+- [Demo for French Community 🇫🇷](#demo-for-french-community-)
 
 ## Prompts (for developers) 📝
 
@@ -90,8 +90,10 @@ This list is community based, feel free to improve it!
 
 Report prompting issues / improvements at [hello@alexsoyes.com](mailto:hello@alexsoyes.com)
 
-## French Community 🇫🇷
+## Demo for French Community 🇫🇷
 
-Join a group of french software engineers that are using AI.
+[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC) Join a group of french software engineers that are using AI.
 
-[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC)
+Presentation of the community and the repository:
+
+[![AI Driven Dev Community présentation dépôt](docs/images/AIDDC-yt.png)](http://www.youtube.com/watch?v=1YvECxOn2_Q)
