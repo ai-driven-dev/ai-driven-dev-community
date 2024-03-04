@@ -5,7 +5,7 @@
 
 ## Access
 
-- [AI programming expert](https://chat.openai.com/g/g-S1wfMarvA-ai-programming-expert)
+- [AI programming expert](https://chat.openai.com/g/g-RmIJzZYzS-developpeur-ia)
 
 ## Instructions
 
