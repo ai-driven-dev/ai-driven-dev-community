@@ -1,4 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-cd ./snippets && ./install.sh
+echo "Installing snippets..."
+
+./snippets/install.sh
