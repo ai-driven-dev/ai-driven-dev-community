@@ -83,7 +83,7 @@ Code generation rules:
 
 Project: We are working on "[[project name]]", focusing on "[[project goals]]".
 
-Main languages used and particular things to note: "[[programming language with particular version or info]]"
+Main languages used and focus point: "[[programming language with particular version or info]]"
 
 From your knowledge base, get:
 - Tech Stack versions
