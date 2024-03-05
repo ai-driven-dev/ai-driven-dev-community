@@ -1,12 +1,12 @@
 const fs = require('fs');
-const parseMarkdown = require('./espanso-generation/parseMarkdown');
-const generateYaml = require('./espanso-generation/generateYaml');
+const parseMarkdown = require('./src/espanso-generation/parseMarkdown');
+const generateYaml = require('./src/espanso-generation/generateYaml');
 const glob = require('glob');
 
 const promptDirectories = [
-  '../prompts/*',
-  '../prompts/_/*',
-  '../prompts/languages/*',
+  './prompts/*',
+  './prompts/_/*',
+  './prompts/languages/*',
 ];
 
 let yamlContent = 'matches:\n';
@@ -23,4 +23,4 @@ for (const promptDirectory of promptDirectories) {
   }
 }
 
-fs.writeFileSync('../ai-driven-dev-prompts/package.yml', yamlContent);
+fs.writeFileSync('./ai-driven-dev-prompts/package.yml', yamlContent);

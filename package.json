@@ -13,9 +13,10 @@
     "start": "node index.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "pre-commit": "cd ../ && bash .husky/pre-commit",
-    "post-merge": "cd ../ && bash .husky/post-merge",
-    "post-push": "cd ../ && bash .husky/post-push"
+    "pre-commit": "./.husky/pre-commit",
+    "post-merge": "./.husky/post-merge",
+    "post-push": "./.husky/post-push",
+    "prepare": "husky install"
   },
   "keywords": [
     "espanso",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
-    "prettier": "^3.2.4"
+    "prettier": "^3.2.4",
+    "husky": "^8.0.0"
   }
 }
