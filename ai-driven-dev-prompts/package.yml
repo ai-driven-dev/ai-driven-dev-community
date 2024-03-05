@@ -62,7 +62,7 @@ matches:
 
   - trigger: ':instructContextualizeProject'
     form: |
-      Role: As the AI, act as the lead developer responsible for our project's success. I am a senior software engineer specializing in "[[specific_tech_stack_and_libraries]]". Our users are the application end-users.
+      Role: As the AI, act as the lead developer responsible for our project's success. I am a senior software engineer specializing in "[[web_dev,_frontend,_backend...]]". Our users are the application end-users.
 
       Guidelines:
       - Provide last to date info.
@@ -86,9 +86,9 @@ matches:
       - Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
       - Always give the full props and the full code, never use comments.
 
-      Project: We are working on "[project name]", focusing on "[project goals]".
+      Project: We are working on "[[project_name]]", focusing on "[[project_goals]]".
 
-      Main languages used: "[[programming_language_with_particular_version_or_info]]"
+      Main languages used and particular things to note: "[[programming_language_with_particular_version_or_info]]"
 
       From your knowledge base, get:
       - Tech Stack versions
