@@ -1,11 +1,13 @@
 matches:
   - trigger: ':codeCodingHelpThinking'
     form: |
-      The current code is "[[what_the_code_is_doing]]". 
+      I need you to help me think about the best way to implement this new functionality:
+      [[new_functionality]]
 
-      I need you to help me think about the best way to implement this new functionality "[[new_functionality]]".
-
-      Please provide the best coding steps.
+      Please provide the best coding steps regarding my existing code.
+    form_fields:
+      new_functionality:
+        multiline: true
   - trigger: ':codeTestingFixFailedTest'
     form: |
       The test output the following error (surrounded by "---" delimiters): 
@@ -44,9 +46,27 @@ matches:
       - Import necessary files if needed
       - Use proper naming and types depending of the variable to test
       - Continue unit tests generation for the following functions: "[[functions_to_test]]"
+  - trigger: ':codeTestFirstRewriteFunction'
+    form: |
+      1. Based on this test and its expectations, please acknowledge the tested function.
+      2. List the necessary steps to change in the code to make the test pass.
+      3. Rewrite the function to make the test pass but keep its logic.
+
+      Here is the test that should pass:
+      [[test_that_should_pass]]
+    form_fields:
+      test_that_should_pass:
+        multiline: true
   - trigger: ':codeTestFirstImplementFunction'
     form: |
-      Based on this test, please write the function to implement in order to make the test pass.
+      Based on this test (surrounded by "---" delimiters), please write the function to implement in order to make the test pass.
+
+      ---
+      [[test_to_implement]]
+      ---
+    form_fields:
+      test_to_implement:
+        multiline: true
   - trigger: ':codeCommentsCheckCodeIsMatching'
     form: |
       Check that following comments are matching code actions.
@@ -103,6 +123,7 @@ matches:
       Requested Feature:
       [[feature_to_build_be_as_detailed_as_possible]]
 
+      [[project_and_lib_setup_have_already_been_done_____project_and_lib_setup_might_not_have_been_done]]
 
       Here is a styled markdown template example you can inspire yourself with (surrounded by "---" delimiter):
       ---
@@ -125,6 +146,11 @@ matches:
     form_fields:
       feature_to_build_be_as_detailed_as_possible:
         multiline: true
+      project_and_lib_setup_have_already_been_done_____project_and_lib_setup_might_not_have_been_done:
+        type: choice
+        values: |-
+          Project and lib setup have already been done
+          Project and lib setup might not have been done
   - trigger: ':instructFeatureExtractCodingSteps'
     form: |
       Based on the project structure and given the following sub-task, fill this template (surrounded by "---") and output the result in a list grouped by sections:

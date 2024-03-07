@@ -32,15 +32,27 @@ My project is about:
 I am a senior software engineer on JavaScript but I prefer to use TypeScript.
 
 [[My tech stack, e.g. Node.js, React, TypeScript]]
+
+[[I am focus on frontend | I am focus on backend]]
 \`\`\`
 `;
 
     const result = parseMarkdown(markdownText);
+
     expect(result).toEqual([
       {
         trigger: 'prtsme',
-        form: 'I am a senior software engineer on JavaScript but I prefer to use TypeScript.\n\n[[my_tech_stack_eg_nodejs_react_typescript]]\n',
-        variables: ['my_tech_stack_eg_nodejs_react_typescript'],
+        form: 'I am a senior software engineer on JavaScript but I prefer to use TypeScript.\n\n[[my_tech_stack_eg_nodejs_react_typescript]]\n\n[[i_am_focus_on_frontend_____i_am_focus_on_backend]]\n',
+        variables: [
+          'my_tech_stack_eg_nodejs_react_typescript',
+          'i_am_focus_on_frontend_____i_am_focus_on_backend',
+        ],
+        choices: {
+          i_am_focus_on_frontend_____i_am_focus_on_backend: [
+            'I am focus on frontend',
+            'I am focus on backend',
+          ],
+        },
       },
     ]);
   });

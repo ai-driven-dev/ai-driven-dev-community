@@ -10,19 +10,18 @@ const mdParser = new MarkdownIt();
  * @property {string} trigger - The trigger text
  * @property {string} form - The expanded form text
  * @property {string[]} variables - Template variables
+ * @property {Object.<string, string[]>} choices - Choices for the variables
  *
  * @returns {EspansoConfig[]} The extracted espanso configuration.
  */
 function parseMarkdown(markdownText) {
   const tokens = mdParser.parse(markdownText, {});
   let currentTrigger = null;
-
   const espansoConfig = [];
 
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i];
 
-    // Check for heading tokens with the trigger pattern
     if (token.type === 'heading_open' && token.tag.match(/^h[2-6]$/)) {
       const inlineToken = tokens[i + 1];
       if (inlineToken.type === 'inline') {
@@ -33,13 +32,13 @@ function parseMarkdown(markdownText) {
             trigger: triggerMatch[2].trim(),
             form: '',
             variables: [],
+            choices: {},
           };
           espansoConfig.push(currentTrigger);
         }
       }
     }
 
-    // Check for code block tokens
     if (token.type === 'fence' && currentTrigger) {
       let newContentWithReplacedVars = token.content;
       const variableMatches = token.content.match(/\[\[(.*?)\]\]/g);
@@ -48,17 +47,24 @@ function parseMarkdown(markdownText) {
           /**
            * Transform the variable into a valid espanso variable name.
            * @example
-           *  const variable = '[[Variable Name]]';
-           *  const variableName = 'variable_name';
+           * const variable = '[[Variable's Name]]';
+           * const variableName = 'variable_name';
+           *
+           * @example
+           * const variable = '[[Variable|Choice 1|Choice 2]]';
+           * const variableName = 'variable___choice_1___choice_2';
+           *
            * @type {string}
            */
-            const variableName = variable
-              .replace('[[', '')
-              .replace(']]', '')
-              .trim()
-              .replace(/\s+/g, '_')
-              .replace(/[^\w\s]/g, '')
-              .toLowerCase();
+          const variableName = variable
+            .replace('[[', '')
+            .replace(']]', '')
+            .replace(/\|/g, '___')
+            .trim()
+            .replace(/\s+/g, '_')
+            .replace(/[^\w\s]/g, '')
+            .toLowerCase();
+
           if (!currentTrigger.variables.includes(variableName)) {
             currentTrigger.variables.push(variableName);
             newContentWithReplacedVars = newContentWithReplacedVars.replace(
@@ -66,9 +72,17 @@ function parseMarkdown(markdownText) {
               `[[${variableName}]]`
             );
           }
+
+          if (variable.includes('|')) {
+            const choices = variable
+              .replace('[[', '')
+              .replace(']]', '')
+              .split('|')
+              .map((choice) => choice.trim());
+            currentTrigger.choices[variableName] = choices;
+          }
         });
       }
-
       currentTrigger.form = newContentWithReplacedVars;
     }
   }

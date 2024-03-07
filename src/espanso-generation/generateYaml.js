@@ -13,7 +13,8 @@ const yaml = require('js-yaml');
  * const espansoConfig = [{
  *    trigger: 'trigger',
  *    form: 'form',
- *    variables: ['variable1', 'variable2']
+ *    variables: ['variable1', 'variable2'],
+ *    choices: { 'variable1': ['choice1', 'choice2'] },
  * }];
  *
  * const yamlString = generateYaml(espansoConfig);
@@ -35,10 +36,21 @@ function generateYaml(espansoConfig) {
           // Construct the pattern to search for the variable enclosed in double quotes
           const pattern = `"[[${variable}]]"`;
           // Check if the pattern is not included in the replace string
-          if (!matchItem.form.includes(pattern)) {
+          if (!variable.includes('___') && !matchItem.form.includes(pattern)) {
             // Add the variable to form_fields with multiline set to true
             matchItem.form_fields[variable] = { multiline: true };
           }
+        });
+      }
+
+      // If there are choices, add them to form_fields
+      if (configItem.choices && Object.keys(configItem.choices).length > 0) {
+        matchItem.form_fields = matchItem.form_fields || {};
+        Object.entries(configItem.choices).forEach(([variable, choices]) => {
+          matchItem.form_fields[variable] = {
+            type: 'choice',
+            values: choices.join('\n'),
+          };
         });
       }
 

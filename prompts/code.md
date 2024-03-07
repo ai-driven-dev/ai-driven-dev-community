@@ -18,11 +18,10 @@ Related to code interaction (eg: with Copilot).
 ### Help me thinking `:codeCodingHelpThinking`
 
 ```text
-The current code is "[[What the code is doing]]". 
+I need you to help me think about the best way to implement this new functionality:
+[[new functionality]]
 
-I need you to help me think about the best way to implement this new functionality "[[new functionality]]".
-
-Please provide the best coding steps.
+Please provide the best coding steps regarding my existing code.
 ```
 
 ## 🧪 Testing (WIP)
@@ -79,10 +78,29 @@ Please:
 
 ## 🎯 Test-First (WIP)
 
+### Rewrite function based on a test expectations `:codeTestFirstRewriteFunction`
+
+- `Where`: Navigate to the file where your function to change is located.
+  - `Annotations`: In Copilot, use the `@workspace` annotation.
+- `Variables`: "Test to implement" is the test with the expectations you want your function be changed with.
+
+```text
+1. Based on this test and its expectations, please acknowledge the tested function.
+2. List the necessary steps to change in the code to make the test pass.
+3. Rewrite the function to make the test pass but keep its logic.
+
+Here is the test that should pass:
+[[test that should pass]]
+```
+
 ### Function implementation based on a test `:codeTestFirstImplementFunction`
 
 ```text
-Based on this test, please write the function to implement in order to make the test pass.
+Based on this test (surrounded by "---" delimiters), please write the function to implement in order to make the test pass.
+
+---
+[[Test to implement]]
+---
 ```
 
 ## 💬 Comments
