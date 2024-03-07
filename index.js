@@ -7,6 +7,7 @@ const promptDirectories = [
   './prompts/*',
   './prompts/_/*',
   './prompts/languages/*',
+  './llm/*',
 ];
 
 let yamlContent = 'matches:\n';

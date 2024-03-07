@@ -25,7 +25,7 @@ I am thrilled that you're interested in contributing to our project! Your contri
 Triggers are named using the following structure:
 
 ```text
-$title / ($section) / $action / ($target)
+$title / $section / $action / ($target)
 ```
 
 ### Examples
@@ -47,7 +47,7 @@ The main files of the repo. They are fixed:
   - Languages (`:language`)
     - TypeScript (`:languageTS`)
 
-### Section (optional)
+### Section
 
 The section where the prompt is in the doc. Example:
 

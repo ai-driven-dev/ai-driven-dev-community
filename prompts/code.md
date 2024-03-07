@@ -2,18 +2,20 @@
 
 Related to code interaction (eg: with Copilot).
 
-- [Code](#code)
+- [🧑‍💻 Code](#-code)
   - [Help me thinking `:codeHelpMeThinking`](#help-me-thinking-codehelpmethinking)
-- [Fix](#fix)
+- [💉 Fix](#-fix)
   - [Fixing code from test results `:codeFixFromTestResults`](#fixing-code-from-test-results-codefixfromtestresults)
-- [Testing](#testing)
+- [🧪 Testing (WIP)](#-testing-wip)
   - [Generate fake testing data `:codeTestingFakeDataGeneration`](#generate-fake-testing-data-codetestingfakedatageneration)
   - [Unit Testing `:codeUnitTestPerFunctionScratchGeneration`](#unit-testing-codeunittestperfunctionscratchgeneration)
   - [Unit Testing `:codeUnitTestPerStepsScratchGeneration`](#unit-testing-codeunittestperstepsscratchgeneration)
-- [Comments](#comments)
-  - [Check for comments to match written code `:codeCommentsMatchingCodeChecking`](#check-for-comments-to-match-written-code-codecommentsmatchingcodechecking)
+- [🎯 Test-First (WIP)](#-test-first-wip)
+  - [Function implementation based on a test `:codeTestFirstFunctionImplementation`](#function-implementation-based-on-a-test-codetestfirstfunctionimplementation)
+- [💬 Comments](#-comments)
+  - [Comments must match code actions `:codeCommentsMatchingCode`](#comments-must-match-code-actions-codecommentsmatchingcode)
 
-## Code
+## 🧑‍💻 Code
 
 ### Help me thinking `:codeHelpMeThinking`
 
@@ -25,7 +27,7 @@ I need you to help me think about the best way to implement this new functionali
 Please provide the best coding steps.
 ```
 
-## Fix
+## 💉 Fix
 
 ### Fixing code from test results `:codeFixFromTestResults`
 
@@ -55,7 +57,7 @@ Follow those steps:
 6. Once you analyze all source code in this file, fix the issue first issue from your inconsistencies list.
 ```
 
-## Testing
+## 🧪 Testing (WIP)
 
 ### Generate fake testing data `:codeTestingFakeDataGeneration`
 
@@ -94,10 +96,18 @@ Please:
 - Continue unit tests generation for the following functions: "[[functions to test]]"
 ```
 
-## Comments
+## 🎯 Test-First (WIP)
 
-### Check for comments to match written code `:codeCommentsMatchingCodeChecking`
+### Function implementation based on a test `:codeTestFirstFunctionImplementation`
 
 ```text
-Check that comments are matching code actions.
+Based on this test, please write the function to implement in order to make the test pass.
+```
+
+## 💬 Comments
+
+### Comments must match code actions `:codeCommentsMatchingCode`
+
+```text
+Check that following comments are matching code actions.
 ```
