@@ -3,21 +3,19 @@
 Related to code interaction (eg: with Copilot).
 
 - [🧑‍💻 Code](#-code)
-  - [Help me thinking `:codeHelpMeThinking`](#help-me-thinking-codehelpmethinking)
-- [💉 Fix](#-fix)
-  - [Fixing code from test results `:codeFixFromTestResults`](#fixing-code-from-test-results-codefixfromtestresults)
+  - [Help me thinking `:codeCodingHelpThinking`](#help-me-thinking-codecodinghelpthinking)
 - [🧪 Testing (WIP)](#-testing-wip)
-  - [Generate fake testing data `:codeTestingFakeDataGeneration`](#generate-fake-testing-data-codetestingfakedatageneration)
-  - [Unit Testing `:codeUnitTestPerFunctionScratchGeneration`](#unit-testing-codeunittestperfunctionscratchgeneration)
-  - [Unit Testing `:codeUnitTestPerStepsScratchGeneration`](#unit-testing-codeunittestperstepsscratchgeneration)
+  - [Fixing code from test results `:codeTestingFixFailedTest`](#fixing-code-from-test-results-codetestingfixfailedtest)
+  - [Generate fake testing data `:codeTestingGenerateFakeData`](#generate-fake-testing-data-codetestinggeneratefakedata)
+  - [Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature`](#generate-unit-tests-from-a-feature-request-codetestinggeneratefromfeature)
 - [🎯 Test-First (WIP)](#-test-first-wip)
-  - [Function implementation based on a test `:codeTestFirstFunctionImplementation`](#function-implementation-based-on-a-test-codetestfirstfunctionimplementation)
+  - [Function implementation based on a test `:codeTestFirstImplementFunction`](#function-implementation-based-on-a-test-codetestfirstimplementfunction)
 - [💬 Comments](#-comments)
-  - [Comments must match code actions `:codeCommentsMatchingCode`](#comments-must-match-code-actions-codecommentsmatchingcode)
+  - [Comments must match code actions `:codeCommentsCheckCodeIsMatching`](#comments-must-match-code-actions-codecommentscheckcodeismatching)
 
 ## 🧑‍💻 Code
 
-### Help me thinking `:codeHelpMeThinking`
+### Help me thinking `:codeCodingHelpThinking`
 
 ```text
 The current code is "[[What the code is doing]]". 
@@ -27,9 +25,9 @@ I need you to help me think about the best way to implement this new functionali
 Please provide the best coding steps.
 ```
 
-## 💉 Fix
+## 🧪 Testing (WIP)
 
-### Fixing code from test results `:codeFixFromTestResults`
+### Fixing code from test results `:codeTestingFixFailedTest`
 
 - Open the required file to fix the code.
 - Select the code to fix.
@@ -57,9 +55,7 @@ Follow those steps:
 6. Once you analyze all source code in this file, fix the issue first issue from your inconsistencies list.
 ```
 
-## 🧪 Testing (WIP)
-
-### Generate fake testing data `:codeTestingFakeDataGeneration`
+### Generate fake testing data `:codeTestingGenerateFakeData`
 
 - Highlight the object, type or schema you want generate fake data for
 
@@ -68,24 +64,9 @@ Create fake data for testing purposes. The data should be in the same format as 
 
 ```
 
-### Unit Testing `:codeUnitTestPerFunctionScratchGeneration`
+### Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature`
 
 ```text
-Based on this test and the opened files ("[[Opened file to use]]"), I need you to create unit tests to describe "[[Feature section to describe]]".
-
-Please:
-
-- Keep same testing structure
-- Import necessary files if needed
-- Use proper naming and types depending of the variable to test
-- Continue unit tests generation for the following functions: "[[functions to test]]"
-```
-
-### Unit Testing `:codeUnitTestPerStepsScratchGeneration`
-
-```text
-Here are the following steps to test a function. Please create a unit test for each step.
-
 Based on this test and the opened files ("[[Opened file to use]]"), I need you to create unit tests to describe "[[Feature section to describe]]".
 
 Please:
@@ -98,7 +79,7 @@ Please:
 
 ## 🎯 Test-First (WIP)
 
-### Function implementation based on a test `:codeTestFirstFunctionImplementation`
+### Function implementation based on a test `:codeTestFirstImplementFunction`
 
 ```text
 Based on this test, please write the function to implement in order to make the test pass.
@@ -106,7 +87,7 @@ Based on this test, please write the function to implement in order to make the 
 
 ## 💬 Comments
 
-### Comments must match code actions `:codeCommentsMatchingCode`
+### Comments must match code actions `:codeCommentsCheckCodeIsMatching`
 
 ```text
 Check that following comments are matching code actions.

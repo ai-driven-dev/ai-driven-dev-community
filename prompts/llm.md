@@ -1,9 +1,9 @@
 # AI Driven Dev - Prompts (`:llm`)
 
-- [Prompt evaluation `:llmImprovePrompt`](#prompt-evaluation-llmimproveprompt)
-- [Answer evaluation with iteration `:llmEvalAnswer`](#answer-evaluation-with-iteration-llmevalanswer)
+- [📜 Prompt evaluation `:llmPromptImprove`](#-prompt-evaluation-llmpromptimprove)
+- [🤔 Answer evaluation with iteration `:llmAnswerEvaluate`](#-answer-evaluation-with-iteration-llmanswerevaluate)
 
-## Prompt evaluation `:llmImprovePrompt`
+## 📜 Prompt evaluation `:llmPromptImprove`
 
 In order to improve and reduce prompt's size and improve efficiency.
 
@@ -23,7 +23,7 @@ Use good english, fix text mistakes.
 Please also acknowledge that AI can access URL, documents and generate images.
 ```
 
-## Answer evaluation with iteration `:llmEvalAnswer`
+## 🤔 Answer evaluation with iteration `:llmAnswerEvaluate`
 
 ```text
 Can you be self-critical of your answer?

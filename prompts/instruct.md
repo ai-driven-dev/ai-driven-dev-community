@@ -8,11 +8,11 @@ Drive AI to help you in your daily dev tasks.
   - [Contextualization (LLM instructions) `:instructContextualizeProject`](#contextualization-llm-instructions-instructcontextualizeproject)
 - [🆕 Create new features](#-create-new-features)
   - [Generate feature user-stories from request `:instructFeatureGenerateUS`](#generate-feature-user-stories-from-request-instructfeaturegenerateus)
-  - [Extract coding steps for a sub-task `:instructCodingStepsExtract`](#extract-coding-steps-for-a-sub-task-instructcodingstepsextract)
-  - [Rewrite coding steps `:instructCodingStepsRewrite`](#rewrite-coding-steps-instructcodingstepsrewrite)
+  - [Extract coding steps for a sub-task `:instructFeatureExtractCodingSteps`](#extract-coding-steps-for-a-sub-task-instructfeatureextractcodingsteps)
+  - [Rewrite coding steps `:instructFeatureRewriteCodingSteps`](#rewrite-coding-steps-instructfeaturerewritecodingsteps)
 - [👌 Existing features](#-existing-features)
-  - [Acknowledge existing specification from your feature `:instructExistingFeatureAcknowledge`](#acknowledge-existing-specification-from-your-feature-instructExistingFeatureacknowledge)
-  - [Answer LLM's questions about your feature (if needed) `:instructExistingFeatureIterate`](#answer-llms-questions-about-your-feature-if-needed-instructExistingFeatureiterate)
+  - [Acknowledge existing specification from your feature `:instructExistingFeatureAcknowledgements`](#acknowledge-existing-specification-from-your-feature-instructexistingfeatureacknowledgements)
+  - [Answer LLM's questions about your feature (if needed) `:instructExistingFeatureIterate`](#answer-llms-questions-about-your-feature-if-needed-instructexistingfeatureiterate)
 - [📄 Documentation](#-documentation)
   - [Search in the documentation `:instructDocSearchURL`](#search-in-the-documentation-instructdocsearchurl)
 - [🏞️ Image](#️-image)
@@ -26,10 +26,10 @@ Drive AI to help you in your daily dev tasks.
 - [📦 Project structure](#-project-structure)
   - [Folder structure locations for types `:instructStructureWriteTypes`](#folder-structure-locations-for-types-instructstructurewritetypes)
   - [Draw my folder structure from specifications `:instructStructureDrawNewFiles`](#draw-my-folder-structure-from-specifications-instructstructuredrawnewfiles)
-  - [Existing project structure acknowledgement `:instructStructureProjectAcknowledge`](#existing-project-structure-acknowledgement-instructstructureprojectacknowledge)
+  - [Existing project structure acknowledgement `:instructStructureAcknowledgeProject`](#existing-project-structure-acknowledgement-instructstructureacknowledgeproject)
   - [Review project files structures `:instructStructureReviewFilesAndDirectories`](#review-project-files-structures-instructstructurereviewfilesanddirectories)
 - [🧪 Testing](#-testing)
-  - [Acceptance Criteria as Gherkin `:instructTestingAcceptanceCriteriaIntoGherkin`](#acceptance-criteria-as-gherkin-instructtestingacceptancecriteriaintogherkin)
+  - [Acceptance Criteria as Gherkin `:instructTestingConvertAcceptanceCriteriaIntoGherkin`](#acceptance-criteria-as-gherkin-instructtestingconvertacceptancecriteriaintogherkin)
 
 ## 🎨 Personalize the AI as a developer from YOUR team
 
@@ -329,7 +329,7 @@ Can you imagine the best folder structure for my features from the user-stories 
 Generate every needed files and directories in a shell script.
 ```
 
-### Existing project structure acknowledgement `:instructStructureProjectAcknowledge`
+### Existing project structure acknowledgement `:instructStructureAcknowledgeProject`
 
 In order to help the LLM to generate the best code possible in new and existing files.
 
@@ -377,8 +377,7 @@ What I ask you to do is to:
 
 ## 🧪 Testing
 
-### Acceptance Criteria as Gherkin `:instructTestingAcceptanceCriteriaIntoGherkin`
-
+### Acceptance Criteria as Gherkin `:instructTestingConvertAcceptanceCriteriaIntoGherkin`
 
 Transforms some acceptance criteria into Gherkin syntax.
 

@@ -1,12 +1,12 @@
 matches:
-  - trigger: ':codeHelpMeThinking'
+  - trigger: ':codeCodingHelpThinking'
     form: |
       The current code is "[[what_the_code_is_doing]]". 
 
       I need you to help me think about the best way to implement this new functionality "[[new_functionality]]".
 
       Please provide the best coding steps.
-  - trigger: ':codeFixFromTestResults'
+  - trigger: ':codeTestingFixFailedTest'
     form: |
       The test output the following error (surrounded by "---" delimiters): 
 
@@ -30,11 +30,11 @@ matches:
     form_fields:
       test_results:
         multiline: true
-  - trigger: ':codeTestingFakeDataGeneration'
+  - trigger: ':codeTestingGenerateFakeData'
     form: |+
       Create fake data for testing purposes. The data should be in the same format as the original data, but with fake values. 
 
-  - trigger: ':codeUnitTestPerFunctionScratchGeneration'
+  - trigger: ':codeTestingGenerateFromFeature'
     form: |
       Based on this test and the opened files ("[[opened_file_to_use]]"), I need you to create unit tests to describe "[[feature_section_to_describe]]".
 
@@ -44,22 +44,10 @@ matches:
       - Import necessary files if needed
       - Use proper naming and types depending of the variable to test
       - Continue unit tests generation for the following functions: "[[functions_to_test]]"
-  - trigger: ':codeUnitTestPerStepsScratchGeneration'
-    form: |
-      Here are the following steps to test a function. Please create a unit test for each step.
-
-      Based on this test and the opened files ("[[opened_file_to_use]]"), I need you to create unit tests to describe "[[feature_section_to_describe]]".
-
-      Please:
-
-      - Keep same testing structure
-      - Import necessary files if needed
-      - Use proper naming and types depending of the variable to test
-      - Continue unit tests generation for the following functions: "[[functions_to_test]]"
-  - trigger: ':codeTestFirstFunctionImplementation'
+  - trigger: ':codeTestFirstImplementFunction'
     form: |
       Based on this test, please write the function to implement in order to make the test pass.
-  - trigger: ':codeCommentsMatchingCode'
+  - trigger: ':codeCommentsCheckCodeIsMatching'
     form: |
       Check that following comments are matching code actions.
 
@@ -314,7 +302,7 @@ matches:
       Can you imagine the best folder structure for my features from the user-stories in my specifications?
 
       Generate every needed files and directories in a shell script.
-  - trigger: ':instructStructureProjectAcknowledge'
+  - trigger: ':instructStructureAcknowledgeProject'
     form: |
       Here is the last up to update project structure, please keep it in my for the next instructions and code generation.
   - trigger: ':instructStructureReviewFilesAndDirectories'
@@ -347,7 +335,7 @@ matches:
     form_fields:
       copy_and_paste_the_project_structure_here:
         multiline: true
-  - trigger: ':instructTestingAcceptanceCriteriaIntoGherkin'
+  - trigger: ':instructTestingConvertAcceptanceCriteriaIntoGherkin'
     form: |
       From this acceptance criteria, can you transform it into Gherkin syntax?
 
@@ -356,7 +344,7 @@ matches:
       acceptance_criteria:
         multiline: true
 
-  - trigger: ':llmImprovePrompt'
+  - trigger: ':llmPromptImprove'
     form: |
       This is the prompt I made (surrounded with """) for an a generative artificial intelligence like ChatGPT.
 
@@ -371,7 +359,7 @@ matches:
       Use good english, fix text mistakes.
 
       Please also acknowledge that AI can access URL, documents and generate images.
-  - trigger: ':llmEvalAnswer'
+  - trigger: ':llmAnswerEvaluate'
     form: |
       Can you be self-critical of your answer?
 
@@ -427,13 +415,13 @@ matches:
       ```text
       Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw.
 
-  - trigger: ':languageTSTypeCreateFromObject'
+  - trigger: ':languageTSTypeCreate'
     form: |
       Create a TypeScript Type for this Object using Type keyword.
   - trigger: ':languageTSTypeExtract'
     form: |
       Extract the type of the variable and create a new type for it.
-  - trigger: ':languageTSCodeTestingFakeDataGeneration'
+  - trigger: ':languageTSDataFakeDataGenerate'
     form: |
       From this type, generate fake data for testing purposes. The data should be in the same format as the original data, but with fake values.
 
@@ -447,7 +435,7 @@ matches:
         multiline: true
       type:
         multiline: true
-  - trigger: ':languageTSTypeCreateZodSchema'
+  - trigger: ':languageTSValidationZodGenerate'
     form: |
       Create zod schema for this type.
 
