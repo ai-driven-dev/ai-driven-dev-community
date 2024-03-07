@@ -86,9 +86,11 @@ Rewrite the function to make the test pass, and keep its logic.
 
 **Usage**:
 
-- 🎯 `Where`: Navigate to the file where your function to change is located.
-- ＠ `Annotations`: In Copilot, use the `@workspace` annotation.
-- 🫴 `Variables`: "Test to implement" is the test with the expectations you want your function be changed with.
+| Context | Description |
+| ----- | ----------- |
+| 🎯 Where | Navigate to the file where your function to change is located. |
+| ＠ Annotations | `@workspace` annotation in Copilot might be used. |
+| 🫴 Variables | *"Test that should pass"* is the test with the expectations you want your function be changed with. |
 
 **Prompt**:
 
@@ -98,7 +100,7 @@ Rewrite the function to make the test pass, and keep its logic.
 3. Rewrite the function to make the test pass but keep its logic.
 
 Here is the test that should pass:
-[[test that should pass]]
+[[Test that should pass]]
 ```
 
 ### Function implementation based on a test `:codeTestFirstImplementFunction`
