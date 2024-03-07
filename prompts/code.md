@@ -80,11 +80,19 @@ Please:
 
 ### Rewrite function based on a test expectations `:codeTestFirstRewriteFunction`
 
-- `Where`: Navigate to the file where your function to change is located.
-  - `Annotations`: In Copilot, use the `@workspace` annotation.
-- `Variables`: "Test to implement" is the test with the expectations you want your function be changed with.
+**Description**:
 
-```text
+Rewrite the function to make the test pass, and keep its logic.
+
+**Usage**:
+
+- 🎯 `Where`: Navigate to the file where your function to change is located.
+- ＠ `Annotations`: In Copilot, use the `@workspace` annotation.
+- 🫴 `Variables`: "Test to implement" is the test with the expectations you want your function be changed with.
+
+**Prompt**:
+
+```markdown
 1. Based on this test and its expectations, please acknowledge the tested function.
 2. List the necessary steps to change in the code to make the test pass.
 3. Rewrite the function to make the test pass but keep its logic.
