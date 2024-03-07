@@ -50,8 +50,17 @@ Thus, AI can be mistaken, as a developer, you are the master of your code struct
 
 This repo is filled of **amazing prompt for developers**, mapped with my favorite text expander, [Espanso](https://espanso.org).
 
-![Text expander with AI](docs/images/espanso-code-gpt.gif)
-In combination with ChatGPT (or another generative AI).
+**Basically, all prompts in the repository are available as an Espanso package.**
+
+This make it easy for every developer to use the prompts in their daily work.
+
+| ![Text expander with AI](docs/images/espanso-code-gpt.gif) |
+|:--:|
+| *PROMPT TYPING EXPANSION : Pasting a prompt using Espanso 🔥* |
+
+| ![Text expander form with Select and Input](docs/images/espanso-form-with-select.gif) |
+|:--:|
+| *SEARCHING PROMPTS: Combination of prompt pasting using Input + Select ✨* |
 
 Follow the [Espanso installation guide here](https://espanso.org/install/) for your operating system.
 
@@ -92,8 +101,8 @@ Report prompting issues / improvements at [hello@alexsoyes.com](mailto:hello@ale
 
 ## Demo for French Community 🇫🇷
 
-[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC) Join a group of french software engineers that are using AI.
+Join a group of french software engineers that are using AI.
 
-Presentation of the community and the repository:
+[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC)
 
 [![AI Driven Dev Community présentation dépôt](docs/images/AIDDC-yt.png)](http://www.youtube.com/watch?v=1YvECxOn2_Q)
