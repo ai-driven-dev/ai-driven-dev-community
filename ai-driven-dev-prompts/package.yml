@@ -65,7 +65,7 @@ matches:
 
   - trigger: ':instructContextualizeProject'
     form: |
-      Role: As the AI, act as the lead developer responsible for our project's success. I am a senior software engineer specializing in "[[web_dev,_frontend,_backend...]]". Our users are the application end-users.
+      Role: As the AI, act as the lead developer responsible for our project's success. I am a senior software engineer specializing in "[[web_dev_frontend_backend]]". Our users are the application end-users.
 
       Guidelines:
       - Provide last to date info.
@@ -113,7 +113,7 @@ matches:
       - It should include epics, user stories with acceptance criteria, sub-tasks.
 
       Requested Feature:
-      [[feature_to_build,_be_as_detailed_as_possible]]
+      [[feature_to_build_be_as_detailed_as_possible]]
 
 
       Here is a styled markdown template example you can inspire yourself with (surrounded by "---" delimiter):
@@ -135,7 +135,7 @@ matches:
         * ...
       ---
     form_fields:
-      'feature_to_build,_be_as_detailed_as_possible':
+      feature_to_build_be_as_detailed_as_possible:
         multiline: true
   - trigger: ':instructFeatureExtractCodingSteps'
     form: |
@@ -174,9 +174,9 @@ matches:
       ```text
       Please rewrite the coding steps that way:
 
-      [[fixes_from_llm's_answer]]
+      [[fixes_from_llms_answer]]
     form_fields:
-      fixes_from_llm's_answer:
+      fixes_from_llms_answer:
         multiline: true
   - trigger: ':instructExistingFeatureAcknowledgements'
     form: |
@@ -395,16 +395,16 @@ matches:
       Voici les éléments déjà identifiés:
 
       Avant IA:
-      [[liste_des_éléments_avant_ia]]
+      [[liste_des_lments_avant_ia]]
 
       Après IA:
-      [[liste_des_éléments_après_ia]]
+      [[liste_des_lments_aprs_ia]]
 
       Merci de reformuler ces éléments pour les rendre plus percutants et de rajouter des éléments qui n'existent pas déjà.
     form_fields:
-      liste_des_éléments_avant_ia:
+      liste_des_lments_avant_ia:
         multiline: true
-      liste_des_éléments_après_ia:
+      liste_des_lments_aprs_ia:
         multiline: true
   - trigger: ':variousCriticizeAnswer'
     form: |
@@ -418,7 +418,7 @@ matches:
   - trigger: ':variousOptimizePDF'
     form: |
       # replace output.pdf and input.pdf with the correct file names
-      gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[output.pdf]]" "[[input.pdf]]"
+      gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[outputpdf]]" "[[inputpdf]]"
   - trigger: ':variousCreateMidJourneyRealisticPicture'
     form: |
 

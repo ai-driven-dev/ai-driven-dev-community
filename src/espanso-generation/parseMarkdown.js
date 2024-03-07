@@ -52,12 +52,13 @@ function parseMarkdown(markdownText) {
            *  const variableName = 'variable_name';
            * @type {string}
            */
-          const variableName = variable
-            .replace('[[', '')
-            .replace(']]', '')
-            .trim()
-            .replace(/\s+/g, '_')
-            .toLowerCase();
+            const variableName = variable
+              .replace('[[', '')
+              .replace(']]', '')
+              .trim()
+              .replace(/\s+/g, '_')
+              .replace(/[^\w\s]/g, '')
+              .toLowerCase();
           if (!currentTrigger.variables.includes(variableName)) {
             currentTrigger.variables.push(variableName);
             newContentWithReplacedVars = newContentWithReplacedVars.replace(
