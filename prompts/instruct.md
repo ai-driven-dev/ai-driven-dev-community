@@ -105,6 +105,7 @@ Rules:
 Requested Feature:
 [[Feature to build, be as detailed as possible]]
 
+[[Project and lib setup have already been done | Project and lib setup might not have been done]]
 
 Here is a styled markdown template example you can inspire yourself with (surrounded by "---" delimiter):
 ---

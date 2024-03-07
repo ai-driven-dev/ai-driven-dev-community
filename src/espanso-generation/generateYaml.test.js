@@ -19,8 +19,16 @@ The code will be surrounded by ", whenever possible.
 
 Technically speaking, here are the libs we are using for our project:
 
-"[[package_json_or_equivalent]]"`,
+"[[package_json_or_equivalent]]"
+
+[[i_am_focus_on_frontend_____i_am_focus_on_backend]]`,
         variables: ['fully_detailed_explanation', 'package_json_or_equivalent'],
+        choices: {
+          i_am_focus_on_frontend_____i_am_focus_on_backend: [
+            'I am focus on frontend',
+            'I am focus on backend',
+          ],
+        },
       },
     ];
 
@@ -42,9 +50,16 @@ Technically speaking, here are the libs we are using for our project:
       Technically speaking, here are the libs we are using for our project:
 
       "[[package_json_or_equivalent]]"
+
+      [[i_am_focus_on_frontend_____i_am_focus_on_backend]]
     form_fields:
       fully_detailed_explanation:
         multiline: true
+      i_am_focus_on_frontend_____i_am_focus_on_backend:
+        type: choice
+        values: |-
+          I am focus on frontend
+          I am focus on backend
 `;
 
     const yamlContent = generateYaml(espansoConfig);
