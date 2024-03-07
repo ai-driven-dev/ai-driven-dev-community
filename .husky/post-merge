@@ -3,4 +3,4 @@
 
 echo "Installing snippets..."
 
-./snippets/install.sh
+cd ./snippets/ && ./install.sh
