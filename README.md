@@ -4,8 +4,8 @@ A collection of tools, prompts, snippets and agents for developers that use AI, 
 
 - [Prompts (for developers) 📝](#prompts-for-developers-)
 - [LLM Instructions (for better responses) 💡](#llm-instructions-for-better-responses-)
-- [Agents (for tech team) 🤖](#agents-for-tech-team-)
 - [Snippets (to code faster) 🧑‍💻](#snippets-to-code-faster-)
+- [Custom GPTs list 🖌️](./docs/ressources-list/gpt.md)
 - [Install the prompts (in you computer) ⚡️](#install-the-prompts-in-you-computer-️)
 - [Contribution (add your prompts) ✍️](#contribution-add-your-prompts-️)
 - [Demo for French Community 🇫🇷](#demo-for-french-community-)
@@ -23,15 +23,6 @@ A list of tailored prompts for developers, including instructions, coding and LL
 Custom instructions for developers to use with ChatGPT.
 
 - [Custom Instructions in ChatGPT for Developers](./llm/chatgpt-custom-instructions-developer.md)
-
-## Agents (for tech team) 🤖
-
-2 fine-tuned AIs to work with you, as a tech team members, filled with knowledge and experience about their specific role.
-
-**If you need to ask a question, or need help, do not use ChatGPT directly, use the agents instead.**
-
-- Custom GPT Access : [AI Project Manager (Agile Coach, PO, PM...)](https://chat.openai.com/g/g-KbmBiVnyq-agile-gpt) (*WIP*) - ([Source](./agents/agile-coach.md))
-- Custom GPT Access : [AI Programming Expert](https://chat.openai.com/g/g-RmIJzZYzS-developpeur-ia) ([Source](./agents/senior-developer.md))
 
 ## Snippets (to code faster) 🧑‍💻
 
@@ -54,13 +45,16 @@ This repo is filled of **amazing prompt for developers**, mapped with my favorit
 
 This make it easy for every developer to use the prompts in their daily work.
 
-| ![Text expander with AI](docs/images/espanso-code-gpt.gif) |
-|:--:|
-| *PROMPT TYPING EXPANSION : Pasting a prompt using Espanso 🔥* |
-
-| ![Text expander form with Select and Input](docs/images/espanso-form-with-select.gif) |
-|:--:|
-| *SEARCHING PROMPTS: Combination of prompt pasting using Input + Select ✨* |
+<table>
+  <tr>
+    <td><img src="docs/images/espanso-code-gpt.gif" alt="Text expander with AI" width="400"/></td>
+    <td><img src="docs/images/espanso-form-with-select.gif" alt="Text expander form with Select and Input" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center">PROMPT TYPING EXPANSION : Pasting a prompt using Espanso 🔥</td>
+    <td align="center">SEARCHING PROMPTS: Combination of prompt pasting using Input + Select ✨</td>
+  </tr>
+</table>
 
 Follow the [Espanso installation guide here](https://espanso.org/install/) for your operating system.
 
@@ -103,6 +97,9 @@ Report prompting issues / improvements at [hello@alexsoyes.com](mailto:hello@ale
 
 Join a group of french software engineers that are using AI.
 
-[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC)
+- [Demo](http://www.youtube.com/watch?v=1YvECxOn2_Q)
+- [Discord](https://discord.gg/mcNwacZCvC)
 
-[![AI Driven Dev Community présentation dépôt](docs/images/AIDDC-yt.png)](http://www.youtube.com/watch?v=1YvECxOn2_Q)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1YvECxOn2_Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC)

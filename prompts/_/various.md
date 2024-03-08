@@ -66,12 +66,3 @@ At the end of you image generated prompt.
 ```text
 Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw.
 ```
-
-## Coming Soon
-
-More prompts will be released in the following next weeks.
-
-Here are some more prompts you might want to check about:
-
-- <https://doc.clickup.com/36022947/d/h/12ban3-7144/106554999066a43>
-- <https://doc.clickup.com/36022947/d/h/12ban3-7042/bb657cd40f843e7>
