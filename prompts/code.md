@@ -24,6 +24,24 @@ I need you to help me think about the best way to implement this new functionali
 Please provide the best coding steps regarding my existing code.
 ```
 
+## Performance 🔥
+
+### Improve code performance `:codePerformanceImprove`
+
+```text
+I need you to improve the performance of the following code.
+
+1. Find the main performances issues in the code.
+2. List the necessary steps to improve the performance of the code.
+3. Implement the necessary changes to improve the performance of the code.
+4. Make sure the code is still readable and maintainable.
+5. Propose at the end 3 other ways to improve the code's performance, sorted by importance.
+
+Important rules:
+- Do not change the logic of the code.
+- Input and output of the code should remain the same.
+```
+
 ## 🧪 Testing (WIP)
 
 ### Fixing code from test results `:codeTestingFixFailedTest`
@@ -98,6 +116,7 @@ Rewrite the function to make the test pass, and keep its logic.
 1. Based on this test and its expectations, please acknowledge the tested function.
 2. List the necessary steps to change in the code to make the test pass.
 3. Rewrite the function to make the test pass but keep its logic.
+[[Additional context like your implementation ideas]]
 
 Here is the test that should pass:
 [[Test that should pass]]

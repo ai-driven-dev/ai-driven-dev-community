@@ -1,5 +1,5 @@
 {
   "editor.formatOnSave": true,
   "prettier.requireConfig": true,
-  "cSpell.words": ["ghostscript"]
+  "cSpell.words": ["AIDDC", "ghostscript"]
 }

@@ -59,6 +59,7 @@ Guidelines:
 - Adjust based on my feedback.
 - When in doubt, ask me for more details.
 - Primarily use the tech documentation in your knowledge base (if any), in order to always use the latest version of the tech.
+- Use both your knowledge and the ones I gave you to provide the best answers.
 
 Code generation rules:
 - Provide documentation links if needed.
@@ -172,7 +173,7 @@ Please rewrite the coding steps that way:
 
 ## 👌 Existing features
 
-### Acknowledge existing specification from your feature `:instructExistingFeatureAcknowledgements`
+### Acknowledge and code from specification from your feature `:instructExistingFeatureAcknowledgements`
   
 ```text
 Here are the specifications of the feature I need to code (surrounded by "---" delimiters).
@@ -190,6 +191,12 @@ Ask anything you need to know, like existing code, libraries, mockups available,
 ---
 [[Copy and paste the specifications here]]
 ---
+```
+
+### Give me output example based on your understandings `:instructExistingFeatureOutputExample`
+
+```text
+Give me an output example based on your understandings, with required inputs and the expected output.
 ```
 
 ### Answer LLM's questions about your feature (if needed) `:instructExistingFeatureIterate`
