@@ -5,7 +5,6 @@ A collection of tools, prompts, snippets and agents for developers that use AI, 
 - [Prompts (for developers) 📝](#prompts-for-developers-)
 - [LLM Instructions (for better responses) 💡](#llm-instructions-for-better-responses-)
 - [Snippets (to code faster) 🧑‍💻](#snippets-to-code-faster-)
-- [Custom GPTs list 🖌️](./docs/ressources-list/gpt.md)
 - [Install the prompts (in you computer) ⚡️](#install-the-prompts-in-you-computer-️)
 - [Contribution (add your prompts) ✍️](#contribution-add-your-prompts-️)
 - [Demo for French Community 🇫🇷](#demo-for-french-community-)
@@ -99,7 +98,5 @@ Join a group of french software engineers that are using AI.
 
 - [Demo](http://www.youtube.com/watch?v=1YvECxOn2_Q)
 - [Discord](https://discord.gg/mcNwacZCvC)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1YvECxOn2_Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC)
