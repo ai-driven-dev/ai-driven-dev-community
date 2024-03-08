@@ -5,7 +5,6 @@ A collection of tools, prompts, snippets and agents for developers that use AI, 
 - [Prompts (for developers) 📝](#prompts-for-developers-)
 - [LLM Instructions (for better responses) 💡](#llm-instructions-for-better-responses-)
 - [Snippets (to code faster) 🧑‍💻](#snippets-to-code-faster-)
-- [Custom GPTs list 🖌️](./docs/ressources-list/gpt.md)
 - [Install the prompts (in you computer) ⚡️](#install-the-prompts-in-you-computer-️)
 - [Contribution (add your prompts) ✍️](#contribution-add-your-prompts-️)
 - [Demo for French Community 🇫🇷](#demo-for-french-community-)
