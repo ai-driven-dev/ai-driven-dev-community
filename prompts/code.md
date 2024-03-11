@@ -4,7 +4,7 @@ Related to code interaction (eg: with Copilot).
 
 - [🧑‍💻 Code](#-code)
   - [Help me thinking `:codeCodingHelpThinking`](#help-me-thinking-codecodinghelpthinking)
-- [Performance 🔥](#performance-)
+- [🔥 Performance](#-performance)
   - [Improve code performance `:codePerformanceImprove`](#improve-code-performance-codeperformanceimprove)
 - [🧪 Testing (WIP)](#-testing-wip)
   - [Fixing code from test results `:codeTestingFixFailedTest`](#fixing-code-from-test-results-codetestingfixfailedtest)
@@ -27,7 +27,7 @@ I need you to help me think about the best way to implement this new functionali
 Please provide the best coding steps regarding my existing code.
 ```
 
-## Performance 🔥
+## 🔥 Performance
 
 ### Improve code performance `:codePerformanceImprove`
 
