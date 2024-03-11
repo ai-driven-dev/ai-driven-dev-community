@@ -9,7 +9,7 @@ Drive AI to help you in your daily dev tasks.
 - [🆕 Create new features](#-create-new-features)
   - [Generate feature user-stories from request `:instructFeatureGenerateUS`](#generate-feature-user-stories-from-request-instructfeaturegenerateus)
   - [Extract coding steps for a sub-task `:instructFeatureExtractCodingSteps`](#extract-coding-steps-for-a-sub-task-instructfeatureextractcodingsteps)
-  - [Rewrite coding steps `:instructFeatureRewriteCodingSteps`](#rewrite-coding-steps-instructfeaturerewritecodingsteps)
+  - [Create coding steps from development steps `:instructFeatureCreateCodingSteps`](#create-coding-steps-from-development-steps-instructfeaturecreatecodingsteps)
 - [👌 Existing features](#-existing-features)
   - [Acknowledge and code from specification from your feature `:instructExistingFeatureAcknowledgements`](#acknowledge-and-code-from-specification-from-your-feature-instructexistingfeatureacknowledgements)
   - [Give me output example based on your understandings `:instructExistingFeatureOutputExample`](#give-me-output-example-based-on-your-understandings-instructexistingfeatureoutputexample)
@@ -88,6 +88,8 @@ From your knowledge base, get:
 Development Process: We adhere to Agile, with bi-weekly sprints and CI/CD.
 
 Collaboration Tools: Git and Ticketing tool like Jira or Linear.
+
+For each question I asked, first check your knowledge base, then answer also using your personal knowledge.
 ```
 
 ## 🆕 Create new features
@@ -134,42 +136,32 @@ Here is a styled markdown template example you can inspire yourself with (surrou
 Ask the LLM to generate fully detailed ticket based on the user stories for an individual sub-task.
 
 ```text
-Based on the project structure and given the following sub-task, fill this template (surrounded by "---") and output the result in a list grouped by sections:
+Given the coding task detailed below:
 
+"""
 [[sub task full description]]
+"""
 
-Rules:
-* Only focus on the sub-task scope.
-* Review the sub-tasks to spot any prerequisites or missing configuration and details if necessary.
-* Details steps must be detailed and should to be completed by any developer, regardless of their experience.
----
-Title: Brief Description of the Feature
-
-As a [type of user],
-I want [an action or feature]
-so that [benefit or value].
-
-Detailed steps to achieve the outcome (with code if needed):
-
-1. ...
-2. ...
-3. ...
----
+1. Recall name, tech stack and libraries from [[package.json | composer.json | requirements.txt]] in your documents knowledge.
+2. Concentrate solely on the task at hand.
+3. Identify any potential missing sub-tasks.
+4. Reformulate tasks in one line.
+5. Remind the project structure from you knowledge.
+6. Provide one-line action steps, specifying new or existing file paths without generating code.
 ```
 
-### Rewrite coding steps `:instructFeatureRewriteCodingSteps`
+### Create coding steps from development steps `:instructFeatureCreateCodingSteps`
 
 ```text
-Rewrite coding steps:
+Recalling our earlier discussion about the project tasks:
 
-- [ ] Removing those you do not need
-- [ ] Adding those you need (should not occur if the previous steps were detailed enough)
-- [ ] Give details about coding implementations (where, how, etc.)
+[[List of development steps if not specified above]]
 
-```text
-Please rewrite the coding steps that way:
-
-[[Fixes from LLM's answer]]
+1. For required libraries, list their versions for code generation.
+2. Examine each sub-task for prerequisites or missing configurations, providing details as needed.
+3. Consult the project structure information and advise on whether to create new files or modify existing ones.
+4. Outline detailed coding steps.
+5. Produce code using the most recent tech versions from our discussions, adhering to best practices.
 ```
 
 ## 👌 Existing features
