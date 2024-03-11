@@ -2,28 +2,28 @@
 
 A collection of tools, prompts, snippets and agents for developers that use AI, daily.
 
-- [Prompts (for developers) 📝](#prompts-for-developers-)
-- [LLM Instructions (for better responses) 💡](#llm-instructions-for-better-responses-)
-- [Snippets (to code faster) 🧑‍💻](#snippets-to-code-faster-)
-- [Install the prompts (in you computer) ⚡️](#install-the-prompts-in-you-computer-️)
-- [Contribution (add your prompts) ✍️](#contribution-add-your-prompts-️)
-- [Demo for French Community 🇫🇷](#demo-for-french-community-)
+- [📝 Prompts (for developers)](#-prompts-for-developers)
+- [💡 LLM Instructions (for better responses)](#-llm-instructions-for-better-responses)
+- [🧑‍💻 Snippets (to code faster)](#-snippets-to-code-faster)
+- [⚡️ List of the best GPTs (for coding)](#️-list-of-the-best-gpts-for-coding)
+- [💻 Install the prompts (in you computer)](#-install-the-prompts-in-you-computer)
+- [✍️ Contribution (add your prompts)](#️-contribution-add-your-prompts)
+- [🇫🇷 Demo for French Community](#-demo-for-french-community)
 
-## Prompts (for developers) 📝
+## 📝 Prompts (for developers)
 
 A list of tailored prompts for developers, including instructions, coding and LLM optimizations.
 
-- [Coding](./prompts/code.md)
-- [Instructions](./prompts/instruct.md)
-- [LLM optimizations](./prompts//llm.md)
+- [Coding](./prompts/code.md) - Specific short coding prompts.
+- [Instructions](./prompts/instruct.md) - Development flow to write better features.
 
-## LLM Instructions (for better responses) 💡
+## 💡 LLM Instructions (for better responses)
 
 Custom instructions for developers to use with ChatGPT.
 
 - [Custom Instructions in ChatGPT for Developers](./llm/chatgpt-custom-instructions-developer.md)
 
-## Snippets (to code faster) 🧑‍💻
+## 🧑‍💻 Snippets (to code faster)
 
 AI makes way much easier code generation.
 
@@ -36,7 +36,13 @@ Thus, AI can be mistaken, as a developer, you are the master of your code struct
   - [React](./snippets/vscode/typescriptreact.json)
 - JetBrains Snippets (Not available, want to add yours? [Contribute!](./contributing.md))
 
-## Install the prompts (in you computer) ⚡️
+## ⚡️ List of the best GPTs (for coding)
+
+Fine-tuned GPTs for developers help you to get the best out of your AI.
+
+- [GPTs source list for developers 📋](./docs/ressources-list/gpt.md) (Include prompt source when available)
+
+## 💻 Install the prompts (in you computer)
 
 This repo is filled of **amazing prompt for developers**, mapped with my favorite text expander, [Espanso](https://espanso.org).
 
@@ -75,7 +81,7 @@ Finally, just:
 - Use a keyboard shortcut (like `:codeHelpMeThinking`)
 - Or by using the dialog box (`⌥ + SPACE` or `ALT + SPACE`)
 
-## Contribution (add your prompts) ✍️
+## ✍️ Contribution (add your prompts)
 
 Contribution are welcomed, [check the guide](./contributing.md)!
 
@@ -92,7 +98,7 @@ This list is community based, feel free to improve it!
 
 Report prompting issues / improvements at [hello@alexsoyes.com](mailto:hello@alexsoyes.com)
 
-## Demo for French Community 🇫🇷
+## 🇫🇷 Demo for French Community
 
 Join a group of french software engineers that are using AI.
 
