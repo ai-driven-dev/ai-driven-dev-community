@@ -2,16 +2,18 @@
 
 Some prompt we can use sometimes, tech related, or not :)
 
-- [Copywriting](#copywriting)
+- [🖋️ Copywriting](#️-copywriting)
   - [Benefits of a method `:variousSituationsAndBenefitsListing`](#benefits-of-a-method-varioussituationsandbenefitslisting)
-- [Entrepreneurship](#entrepreneurship)
+- [👔 Entrepreneurship](#-entrepreneurship)
   - [Self criticize 🇫🇷 `:variousCriticizeAnswer`](#self-criticize--variouscriticizeanswer)
-- [Images](#images)
+- [🌄 Images](#-images)
   - [PDF optimization with ghostscript `:variousOptimizePDF`](#pdf-optimization-with-ghostscript-variousoptimizepdf)
   - [MidJourney realistic picture `:variousCreateMidJourneyRealisticPicture`](#midjourney-realistic-picture-variouscreatemidjourneyrealisticpicture)
-- [Coming Soon](#coming-soon)
+- [LLM 💽](#llm-)
+  - [Prompt evaluation `:llmPromptImprove`](#prompt-evaluation-llmpromptimprove)
+  - [Answer evaluation with iteration `:llmAnswerEvaluate`](#answer-evaluation-with-iteration-llmanswerevaluate)
 
-## Copywriting
+## 🖋️ Copywriting
 
 ### Benefits of a method `:variousSituationsAndBenefitsListing`
 
@@ -34,7 +36,7 @@ Après IA:
 Merci de reformuler ces éléments pour les rendre plus percutants et de rajouter des éléments qui n'existent pas déjà.
 ```
 
-## Entrepreneurship
+## 👔 Entrepreneurship
 
 ### Self criticize 🇫🇷 `:variousCriticizeAnswer`
 
@@ -48,7 +50,7 @@ Merci, peux-tu faire l'autocritique de ta réponse ?
 5) Demande-moi si je veux répéter le processus. Nous le ferons jusqu'à ce que votre travail soit noté 20/20.
 ```
 
-## Images
+## 🌄 Images
 
 ### PDF optimization with ghostscript `:variousOptimizePDF`
 
@@ -65,4 +67,40 @@ At the end of you image generated prompt.
 
 ```text
 Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw.
+```
+
+## 💽 LLM
+
+### Prompt evaluation `:llmPromptImprove`
+
+In order to improve and reduce prompt's size and improve efficiency.
+
+```text
+This is the prompt I made (surrounded with """) for an a generative artificial intelligence like ChatGPT.
+
+I need you to help me to make it better in order for the AI to better understand what I am asking about.
+
+"""[[Prompt you have made]]"""
+
+Please reformulate it to be clearer for the AI, do not hesitate to change complexe words with easy ones.
+Merge duplication and remove not necessary instructions.
+Be clear and specific.
+Avoid ambiguity.
+Use good english, fix text mistakes.
+
+Please also acknowledge that AI can access URL, documents and generate images.
+```
+
+### Answer evaluation with iteration `:llmAnswerEvaluate`
+
+```text
+Can you be self-critical of your answer?
+
+1) Evaluate your own work. List its strengths and weaknesses.
+2) Give it a mark between 0 and 20. Justify your score in terms of the rules you had to respect.
+3) Make a list of suggestions that will enable you to achieve a score of 20, again in relation to these rules. Number each suggestion.
+4) Rewrite your work following the recommendations in point 3).
+5) Ask me if I'd like to repeat the process. We'll do this until your work is marked 20/20.
+
+Thank you for you professionalism.
 ```
