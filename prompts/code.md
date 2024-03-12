@@ -13,6 +13,7 @@ Related to code interaction (eg: with Copilot).
 - [🎯 Test-First (WIP)](#-test-first-wip)
   - [Rewrite function based on a test expectations `:codeTestFirstRewriteFunction`](#rewrite-function-based-on-a-test-expectations-codetestfirstrewritefunction)
   - [Function implementation based on a test `:codeTestFirstImplementFunction`](#function-implementation-based-on-a-test-codetestfirstimplementfunction)
+  - [Check function implementation based on unit testings `:codeTestingCheckFunctionImplementation`](#check-function-implementation-based-on-unit-testings-codetestingcheckfunctionimplementation)
 - [💬 Comments](#-comments)
   - [Comments must match code actions `:codeCommentsCheckCodeIsMatching`](#comments-must-match-code-actions-codecommentscheckcodeismatching)
 
@@ -133,6 +134,12 @@ Based on this test (surrounded by "---" delimiters), please write the function t
 ---
 [[Test to implement]]
 ---
+```
+
+### Check function implementation based on unit testings `:codeTestingCheckFunctionImplementation`
+
+```text
+Check if this test is correctly implemented in the highlighted function.
 ```
 
 ## 💬 Comments
