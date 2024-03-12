@@ -11,8 +11,8 @@ Drive AI to help you in your daily dev tasks.
   - [Extract coding steps for a sub-task `:instructFeatureExtractCodingSteps`](#extract-coding-steps-for-a-sub-task-instructfeatureextractcodingsteps)
   - [Create coding steps from development steps `:instructFeatureCreateCodingSteps`](#create-coding-steps-from-development-steps-instructfeaturecreatecodingsteps)
 - [👌 Existing features](#-existing-features)
-  - [Acknowledge and code from specification from your feature `:instructExistingFeatureAcknowledgements`](#acknowledge-and-code-from-specification-from-your-feature-instructexistingfeatureacknowledgements)
-  - [Give me output example based on your understandings `:instructExistingFeatureOutputExample`](#give-me-output-example-based-on-your-understandings-instructexistingfeatureoutputexample)
+  - [Acknowledge specs and code from specification from your feature `:instructExistingFeatureAcknowledgements`](#acknowledge-specs-and-code-from-specification-from-your-feature-instructexistingfeatureacknowledgements)
+  - [Give me output example based on your understandings `:instructExistingFeatureOutputExample` WIP](#give-me-output-example-based-on-your-understandings-instructexistingfeatureoutputexample-wip)
   - [Answer LLM's questions about your feature (if needed) `:instructExistingFeatureIterate`](#answer-llms-questions-about-your-feature-if-needed-instructexistingfeatureiterate)
 - [📄 Documentation](#-documentation)
   - [Search in the documentation `:instructDocSearchURL`](#search-in-the-documentation-instructdocsearchurl)
@@ -166,7 +166,7 @@ Recalling our earlier discussion about the project tasks:
 
 ## 👌 Existing features
 
-### Acknowledge and code from specification from your feature `:instructExistingFeatureAcknowledgements`
+### Acknowledge specs and code from specification from your feature `:instructExistingFeatureAcknowledgements`
   
 ```text
 Here are the specifications of the feature I need to code (surrounded by "---" delimiters).
@@ -186,7 +186,7 @@ Ask anything you need to know, like existing code, libraries, mockups available,
 ---
 ```
 
-### Give me output example based on your understandings `:instructExistingFeatureOutputExample`
+### Give me output example based on your understandings `:instructExistingFeatureOutputExample` WIP
 
 ```text
 Give me an output example based on your understandings, with required inputs and the expected output.

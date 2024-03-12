@@ -83,6 +83,9 @@ matches:
     form_fields:
       test_to_implement:
         multiline: true
+  - trigger: ':codeTestingCheckFunctionImplementation'
+    form: |
+      Check if this test is correctly implemented in the highlighted function.
   - trigger: ':codeCommentsCheckCodeIsMatching'
     form: |
       Check that following comments are matching code actions.
@@ -209,27 +212,10 @@ matches:
         multiline: true
   - trigger: ':instructExistingFeatureAcknowledgements'
     form: |
-      Here are the specifications of the feature I need to code (surrounded by "---" delimiters).
-
-      Now, can you:
-
-      1. Acknowledge it
-      2. Reformulate in bullet point grouped by section to show me that you understood what to do
-      3. Generate development steps (based on an existing projet you do not know nothing about)
-
-      Finally, ask me the relevant questions about implementing the feature in my project regarding my project's tech stack and libraries.
-
-      Ask anything you need to know, like existing code, libraries, mockups available, logics, etc.
-
-      ---
-      [[copy_and_paste_the_specifications_here]]
-      ---
+      Give me an output example based on your understandings, with required inputs and the expected output.
     form_fields:
       copy_and_paste_the_specifications_here:
         multiline: true
-  - trigger: ':instructExistingFeatureOutputExample'
-    form: |
-      Give me an output example based on your understandings, with required inputs and the expected output.
   - trigger: ':instructExistingFeatureIterate'
     form: |
       Here are some answers about your previous questions.
