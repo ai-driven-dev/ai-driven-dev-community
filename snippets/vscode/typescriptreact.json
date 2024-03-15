@@ -7,6 +7,14 @@
     ],
     "description": "Log output to console"
   },
+  "Print to error": {
+    "prefix": "cle",
+    "body": [
+      "console.error('$1');",
+      "$2"
+    ],
+    "description": "Log output to error"
+  },
   "JSON Stringify HTML": {
     "prefix": "jss",
     "body": [
@@ -66,5 +74,18 @@
       "export default $1;"
     ],
     "description": "React FC"
-  }
+  },
+  "React function component": {
+    "prefix": "edf",
+    "body": [
+      "type Props = {}",
+      "",
+      "export default function $1(props: Props): React.ReactElement {",
+      "  return (",
+      "    <>$2</>",
+      "  );",
+      "}",
+    ],
+    "description": "React function component"
+  },
 }
