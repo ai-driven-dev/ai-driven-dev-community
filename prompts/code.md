@@ -4,6 +4,9 @@ Related to code interaction (eg: with Copilot).
 
 - [🧑‍💻 Code](#-code)
   - [Help me thinking `:codeCodingHelpThinking`](#help-me-thinking-codecodinghelpthinking)
+  - [Improve code readability `:codeCodingImproveReadability` (WIP 🚧)](#improve-code-readability-codecodingimprovereadability-wip-)
+  - [Give me an example of the usage of this function `:codeCodingProvideExampleUsage` (WIP 🚧)](#give-me-an-example-of-the-usage-of-this-function-codecodingprovideexampleusage-wip-)
+  - [Detect code inconsistencies `:codeCodingDetectInconsistencies`](#detect-code-inconsistencies-codecodingdetectinconsistencies)
 - [🔥 Performance](#-performance)
   - [Improve code performance `:codePerformanceImprove`](#improve-code-performance-codeperformanceimprove)
 - [🧪 Testing (WIP)](#-testing-wip)
@@ -16,6 +19,7 @@ Related to code interaction (eg: with Copilot).
   - [Check function implementation based on unit testings `:codeTestingCheckFunctionImplementation`](#check-function-implementation-based-on-unit-testings-codetestingcheckfunctionimplementation)
 - [💬 Comments](#-comments)
   - [Comments must match code actions `:codeCommentsCheckCodeIsMatching`](#comments-must-match-code-actions-codecommentscheckcodeismatching)
+  - [Comment the code to make the hard part easier `:codeCommentsCommentHardParts`](#comment-the-code-to-make-the-hard-part-easier-codecommentscommenthardparts)
 
 ## 🧑‍💻 Code
 
@@ -26,6 +30,28 @@ I need you to help me think about the best way to implement this new functionali
 [[new functionality]]
 
 Please provide the best coding steps regarding my existing code.
+```
+
+### Improve code readability `:codeCodingImproveReadability` (WIP 🚧)
+
+```text
+I need you to improve the readability of the following code.
+
+Result should remain the same, but the code should be easier to read and understand.
+```
+
+### Give me an example of the usage of this function `:codeCodingProvideExampleUsage` (WIP 🚧)
+
+```text
+Provide an example of the usage of this function, input and output.
+```
+
+### Detect code inconsistencies `:codeCodingDetectInconsistencies`
+
+```text
+I need you to detect inconsistencies in the code.
+
+Check for variable names, function names, and other inconsistencies in the code.
 ```
 
 ## 🔥 Performance
@@ -147,5 +173,11 @@ Check if this test is correctly implemented in the highlighted function.
 ### Comments must match code actions `:codeCommentsCheckCodeIsMatching`
 
 ```text
-Check that following comments are matching code actions.
+Check that following function name and comments if any are matching code actions.
+```
+
+### Comment the code to make the hard part easier `:codeCommentsCommentHardParts`
+
+```text
+Comment the code to make the hard parts easier to understand.
 ```

@@ -1,13 +1,15 @@
 matches:
   - trigger: ':codeCodingHelpThinking'
     form: |
-      I need you to help me think about the best way to implement this new functionality:
-      [[new_functionality]]
-
-      Please provide the best coding steps regarding my existing code.
+      Provide an example of the usage of this function, input and output.
     form_fields:
       new_functionality:
         multiline: true
+  - trigger: ':codeCodingDetectInconsistencies'
+    form: |
+      I need you to detect inconsistencies in the code.
+
+      Check for variable names, function names, and other inconsistencies in the code.
   - trigger: ':codePerformanceImprove'
     form: |
       I need you to improve the performance of the following code.
@@ -88,13 +90,17 @@ matches:
       Check if this test is correctly implemented in the highlighted function.
   - trigger: ':codeCommentsCheckCodeIsMatching'
     form: |
-      Check that following comments are matching code actions.
+      Check that following function name and comments if any are matching code actions.
+  - trigger: ':codeCommentsCommentHardParts'
+    form: |
+      Comment the code to make the hard parts easier to understand.
 
   - trigger: ':instructContextualizeProject'
     form: |
       Role: As the AI, act as the lead developer responsible for our project's success. I am a senior software engineer specializing in "[[web_dev_frontend_backend]]". Our users are the application end-users.
 
       Guidelines:
+      - For each question I asked, first check your knowledge base with my uploaded documents, then answer also using your personal knowledge.
       - Provide last to date info.
       - Always be very concise in your answers.
       - Enhance readability with bold, italic, and lists as needed.
@@ -104,6 +110,7 @@ matches:
       - Use both your knowledge and the ones I gave you to provide the best answers.
 
       Code generation rules:
+      - No code placeholders
       - Provide documentation links if needed.
       - Choose the best libraries and tools to use, if needed.
       - Always generate the code from the latest version of the tech in your knowledge base.
@@ -129,8 +136,6 @@ matches:
       Development Process: We adhere to Agile, with bi-weekly sprints and CI/CD.
 
       Collaboration Tools: Git and Ticketing tool like Jira or Linear.
-
-      For each question I asked, first check your knowledge base, then answer also using your personal knowledge.
   - trigger: ':instructFeatureGenerateUS'
     form: |
       Goal:
@@ -181,7 +186,8 @@ matches:
       [[sub_task_full_description]]
       """
 
-      1. Recall name, tech stack and libraries from [[packagejson_____composerjson_____requirementstxt]] in your documents knowledge.
+      0. For each question, search into knowledge base.
+      1. Recall name, tech stack and libraries from [[packagejson_____composerjson_____requirementstxt]] in the knowledge base.
       2. Concentrate solely on the task at hand.
       3. Identify any potential missing sub-tasks.
       4. Reformulate tasks in one line.
