@@ -1,3 +1,6 @@
+# custom config
+preserve_clipboard: false
+
 matches:
   - trigger: ':codeCodingHelpThinking'
     form: |

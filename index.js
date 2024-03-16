@@ -10,7 +10,7 @@ const promptDirectories = [
   './llm/*',
 ];
 
-let yamlContent = 'matches:\n';
+let yamlContent = '# custom config\npreserve_clipboard: false\n\nmatches:\n';
 
 for (const promptDirectory of promptDirectories) {
   const markdownFiles = glob.sync(promptDirectory + '.md');
