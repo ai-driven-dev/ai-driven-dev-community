@@ -30,4 +30,5 @@ if git diff --cached --name-only | grep -q "ai-driven-dev-prompts/package.yml"; 
   npm install
 fi
 
+git add package*
 git add ai-driven-dev-prompts/
