@@ -16,6 +16,8 @@ A list of tailored prompts for developers, including instructions, coding and LL
 
 - [Coding](./prompts/code.md) - Specific short coding prompts.
 - [Instructions](./prompts/instruct.md) - Development flow to write better features.
+- [Dev](./prompts/dev.md) - Help to use AI in your daily work as a dev (but not specifically AI prompts).
+- [Various](./prompts/_/various.md) - Various and personals prompts that do not fit in other categories.
 
 ## 💡 LLM Instructions (for better responses)
 
