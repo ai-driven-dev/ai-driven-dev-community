@@ -22,7 +22,7 @@ if git diff --cached --name-only | grep -q "ai-driven-dev-prompts/package.yml"; 
   sed -i "" "s/version: $version/version: $new_version/" "ai-driven-dev-prompts/_manifest.yml"
 
   # Replace the version in package.json
-  sed -i "" "s/\"version\": \"$version\"/\"version\": \"$new_version\"/" "package.json"
+  sed -i "" "s/\"version\": \".*\"/\"version\": \"$new_version\"/" "package.json"
 
   echo "🆙 Version $version upgrade to $new_version"
 
@@ -30,4 +30,5 @@ if git diff --cached --name-only | grep -q "ai-driven-dev-prompts/package.yml"; 
   npm install
 fi
 
+git add package*
 git add ai-driven-dev-prompts/
