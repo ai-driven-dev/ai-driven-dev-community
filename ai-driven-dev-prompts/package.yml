@@ -98,6 +98,10 @@ matches:
     form: |
       Comment the code to make the hard parts easier to understand.
 
+  - trigger: ':devMergeDocumentation'
+    form: |
+      find . -type f -name '*.md' -o -name '*.mdx' -exec cat {} + > documentation.txt
+
   - trigger: ':instructContextualizeProject'
     form: |
       Role: As the AI, act as the lead developer responsible for our project's success. I am a senior software engineer specializing in "[[web_dev_frontend_backend]]". Our users are the application end-users.
