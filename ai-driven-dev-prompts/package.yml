@@ -387,6 +387,9 @@ matches:
       acceptance_criteria:
         multiline: true
 
+  - trigger: ':variousLinkedInProfileOptimization'
+    form: |
+      "Act like a Marketing manager expert in LinkedIn and give me tips for an engaging summary, effective use of keywords, and strategies for showcasing my accomplishments. Also, advise on increasing meaningful connections and engaging with industry-related content to boost my profile's reach."
   - trigger: ':variousSituationsAndBenefitsListing'
     form: |
       Dans ma formation Coder avec l'IA, j'ai créé un module "[[nom_du_module]]".
@@ -425,10 +428,6 @@ matches:
       gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[outputpdf]]" "[[inputpdf]]"
   - trigger: ':variousCreateMidJourneyRealisticPicture'
     form: |
-
-      At the end of you image generated prompt.
-
-      ```text
       Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw.
   - trigger: ':llmPromptImprove'
     form: |

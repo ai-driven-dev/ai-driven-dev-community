@@ -3,17 +3,24 @@
 Some prompt we can use sometimes, tech related, or not :)
 
 - [🖋️ Copywriting](#️-copywriting)
+  - [LinkedIn profile optimization `:variousLinkedInProfileOptimization`](#linkedin-profile-optimization-variouslinkedinprofileoptimization)
   - [Benefits of a method `:variousSituationsAndBenefitsListing`](#benefits-of-a-method-varioussituationsandbenefitslisting)
 - [👔 Entrepreneurship](#-entrepreneurship)
   - [Self criticize 🇫🇷 `:variousCriticizeAnswer`](#self-criticize--variouscriticizeanswer)
 - [🌄 Images](#-images)
   - [PDF optimization with ghostscript `:variousOptimizePDF`](#pdf-optimization-with-ghostscript-variousoptimizepdf)
   - [MidJourney realistic picture `:variousCreateMidJourneyRealisticPicture`](#midjourney-realistic-picture-variouscreatemidjourneyrealisticpicture)
-- [LLM 💽](#llm-)
+- [💽 LLM](#-llm)
   - [Prompt evaluation `:llmPromptImprove`](#prompt-evaluation-llmpromptimprove)
   - [Answer evaluation with iteration `:llmAnswerEvaluate`](#answer-evaluation-with-iteration-llmanswerevaluate)
 
 ## 🖋️ Copywriting
+
+### LinkedIn profile optimization `:variousLinkedInProfileOptimization`
+
+```text
+"Act like a Marketing manager expert in LinkedIn and give me tips for an engaging summary, effective use of keywords, and strategies for showcasing my accomplishments. Also, advise on increasing meaningful connections and engaging with industry-related content to boost my profile's reach."
+```
 
 ### Benefits of a method `:variousSituationsAndBenefitsListing`
 
@@ -60,8 +67,6 @@ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -d
 ```
 
 ### MidJourney realistic picture `:variousCreateMidJourneyRealisticPicture`
-
-```text
 
 At the end of you image generated prompt.
 
