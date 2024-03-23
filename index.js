@@ -3,25 +3,78 @@ const parseMarkdown = require('./src/espanso-generation/parseMarkdown');
 const generateYaml = require('./src/espanso-generation/generateYaml');
 const glob = require('glob');
 
-const promptDirectories = [
+// @todo check this path
+// const espansoConfigPath = `"$HOME/Library/Application Support/espanso/match/packages/"`;
+
+const espansoConfigPath = `${process.env.HOME}/Library/Application Support/espanso/match/packages/ai-driven-dev-prompts-private`;
+
+// @todo use fs to create the directory if it does not exist
+if (!fs.existsSync(espansoConfigPath)) {
+  fs.mkdirSync(espansoConfigPath, { recursive: true });
+}
+
+const PRIVATE_PROMPTS = ['./prompts/private/*'];
+
+const PUBLIC_PROMPTS = [
   './prompts/*',
   './prompts/_/*',
   './prompts/languages/*',
   './llm/*',
 ];
 
-let yamlContent = '# custom config\npreserve_clipboard: false\n\nmatches:\n';
+fs.writeFileSync(
+  './ai-driven-dev-prompts/package.yml',
+  getPromptsContentForEspanso(PUBLIC_PROMPTS)
+);
 
-for (const promptDirectory of promptDirectories) {
-  const markdownFiles = glob.sync(promptDirectory + '.md');
+fs.writeFileSync(
+  `${espansoConfigPath}/package.yml`,
+  getPromptsContentForEspanso(PRIVATE_PROMPTS)
+);
 
-  for (const markdownFile of markdownFiles) {
-    // Write the markdown file
-    const markdownText = fs.readFileSync(markdownFile, 'utf8');
-    const espansoConfig = parseMarkdown(markdownText);
-    yamlContent +=
-      generateYaml(espansoConfig).split('\n').slice(1).join('\n') + '\n';
+fs.writeFileSync(
+  `${espansoConfigPath}/_manifest.yml`,
+  `name: 'ai-driven-dev-prompts-private'
+title: 'AI Driven Dev Prompts (Private)'
+description: A collection of your private prompts (not committed onto GitHub).
+version: 0.1.0
+author: alexsoyes ()
+website: https://github.com/alexsoyes/ai-driven-dev-community`
+);
+
+fs.writeFileSync(`${espansoConfigPath}/README.md`, `Your custom prompts!`);
+
+
+
+/**
+ *
+ * @param {string[]} directories
+ *
+ * @returns {string} The content to be written in the package.yml
+ */
+function getPromptsContentForEspanso(directories) {
+  const header = '# custom config\npreserve_clipboard: false\n\nmatches:\n';
+
+  let yamlContent = header;
+
+  for (const promptDirectory of directories) {
+    const markdownFiles = glob.sync(promptDirectory + '.md');
+
+    for (const markdownFile of markdownFiles) {
+      yamlContent += getPrompts(markdownFile);
+    }
   }
+
+  return yamlContent;
 }
 
-fs.writeFileSync('./ai-driven-dev-prompts/package.yml', yamlContent);
+/**
+ *
+ * @param {string} filePath
+ * @returns {string} The yml content for the given file path.
+ */
+function getPrompts(filePath) {
+  const markdownText = fs.readFileSync(filePath, 'utf8');
+  const espansoConfig = parseMarkdown(markdownText);
+  return generateYaml(espansoConfig).split('\n').slice(1).join('\n') + '\n';
+}

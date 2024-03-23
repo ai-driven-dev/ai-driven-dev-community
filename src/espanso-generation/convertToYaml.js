@@ -17,21 +17,26 @@ function convertToYaml(espansoConfig) {
         /**
          * Get the multiline variables.
          *
+         * @description This object will be used to create the form_fields object.
          * @type {Object.<string, {multiline: boolean}>}
-         * @example
-         * Input:
+         *
+         * @example input
+         * ```js
          * {
          *  variable1: {multiline: true},
          *  variable2: {multiline: true}
          * }
+         * ```
+         *
+         * @example output
+         * ```yml
          * Output:
          *  form_fields:
          *   variable1:
          *    multiline: true
          *  variable2:
          *   multiline: true
-         *
-         * @description This object will be used to create the form_fields object.
+         * ```
          */
         match.form_fields = item.variables.reduce((fields, variable) => {
           fields[variable] = { multiline: true };
