@@ -4,9 +4,8 @@ I am thrilled that you're interested in contributing to our project! Your contri
 
 - [Guidelines](#guidelines)
 - [Naming Conventions](#naming-conventions)
-  - [Examples](#examples)
   - [Title](#title)
-  - [Section (optional)](#section-optional)
+  - [Section](#section)
   - [Action](#action)
   - [Target (optional)](#target-optional)
 - [Rules](#rules)
@@ -24,17 +23,11 @@ I am thrilled that you're interested in contributing to our project! Your contri
 
 Triggers are named using the following structure:
 
-```text
-$title / $section / $action / ($target)
-```
-
-### Examples
-
-```text
-:instructFlowJailbreakDAN
-:codeTestingFakeDataGeneration
-:languageTSTypeCreateFromObject
-```
+| #1 Title | #2 Section | #3 Action | #4 Target | Result |
+| ------ | -------- | ------- | ------- | ------ |
+| `:instruct` | Image | ExtractInfo | Mockup | `:instructImageExtractInfoMockup` |
+| `:code` | Test | Fix | FailedTest | `:codeTestFixFailedTest` |
+| `:language` | Documentation | Convert | Object | `:languageDocumentationConvertObject` |
 
 ### Title
 
@@ -43,9 +36,10 @@ The main files of the repo. They are fixed:
 - Prompts
   - Code (`:code`)
   - Instruct (`:instruct`)
-  - LLM (`:llm`)
   - Languages (`:language`)
     - TypeScript (`:languageTS`)
+  - Dev (`:dev`) (*unrelated to AI*)
+  - Various (`:various`) (*unrelated to AI*)
 
 ### Section
 

@@ -246,6 +246,12 @@ matches:
     form_fields:
       your_answers_to_the_previous_questions:
         multiline: true
+  - trigger: ':instructRAGKnowledgeBase'
+    form: |
+      Search your knowledge to find: [[what_you_are_looking_for]].
+    form_fields:
+      what_you_are_looking_for:
+        multiline: true
   - trigger: ':instructDocSearchURL'
     form: |
       I need you to read the following documentation.
@@ -259,7 +265,7 @@ matches:
       Please provide the best step by step way to it.
 
       For each step, detail your explanation with the proper code.
-  - trigger: ':instructImageExtractMockupInfo'
+  - trigger: ':instructImageExtractWhatYouSee'
     form: |
       Here is a mockup image of the feature I have to do as a developer.
 
@@ -276,7 +282,7 @@ matches:
       2. Propose new libraries if needed, only focus on frontend integration (no data-fetching).
       3. Draw the full folder structure.
       4. List components to create in their respective folders.
-  - trigger: ':instructImageGenerateCode'
+  - trigger: ':instructImageGenerateCodeFromStructure'
     form: |
       From the structure we defined together, can you generate the code for each components?
 

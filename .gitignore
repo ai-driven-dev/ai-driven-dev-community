@@ -1,1 +1,6 @@
 node_modules
+
+
+# Ignore everything in prompts/private except .gitkeep
+prompts/private/*
+!prompts/private/.gitkeep

@@ -210,9 +210,19 @@ Here are my answers:
 [[Your answers to the previous questions]]
 ```
 
+## 💽 RAG
+
+Custom GPTs have for example the ability to be filled with documents as RAGs.
+
+### Search in RAG knowledge base `:instructRAGKnowledgeBase`
+
+```text
+Search your knowledge to find: [[what you are looking for]].
+```
+
 ## 📄 Documentation
 
-### Search in the documentation `:instructDocSearchURL`
+### Search in the documentation from URL `:instructDocSearchURL`
 
 ```text
 I need you to read the following documentation.
@@ -230,7 +240,7 @@ For each step, detail your explanation with the proper code.
 
 ## 🏞️ Image
 
-### Extract info from mockups `:instructImageExtractMockupInfo`
+### Extract info from mockups `:instructImageExtractWhatYouSee`
 
 ```text
 Here is a mockup image of the feature I have to do as a developer.
@@ -253,7 +263,7 @@ Be as much detailed as possible, do not forget anything.
 4. List components to create in their respective folders.
 ```
 
-### Generate code from image  `:instructImageGenerateCode`
+### Generate code from image  `:instructImageGenerateCodeFromStructure`
 
 ```text
 From the structure we defined together, can you generate the code for each components?

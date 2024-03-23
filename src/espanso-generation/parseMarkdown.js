@@ -46,15 +46,17 @@ function parseMarkdown(markdownText) {
         variableMatches.forEach((variable) => {
           /**
            * Transform the variable into a valid espanso variable name.
-           * @example
-           * const variable = '[[Variable's Name]]';
-           * const variableName = 'variable_name';
            *
            * @example
-           * const variable = '[[Variable|Choice 1|Choice 2]]';
-           * const variableName = 'variable___choice_1___choice_2';
+           * ```js
+           * const variableName = 'variable_name'; // if variable = '[[Variable's Name]]';
+           * const variableName = 'variable___choice_1___choice_2'; // if variable = '[[Variable|Choice 1|Choice 2]]';
+           * ```
            *
-           * @type {string}
+           * @param {string} variable - The variable to transform.
+           * @returns {string} The transformed variable.
+           * @private
+           * @ignore
            */
           const variableName = variable
             .replace('[[', '')
