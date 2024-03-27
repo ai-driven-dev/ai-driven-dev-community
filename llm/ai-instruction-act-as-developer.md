@@ -1,4 +1,4 @@
-# LLM instructions for developers
+# Transforming an AI into a developer (from your team)
 
 Fine-tune the LLM to act as a developer in your project.
 
