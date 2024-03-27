@@ -26,7 +26,7 @@ And more:
 
 Custom instructions for developers to use with ChatGPT.
 
-- [Instruct an AI as a developer from your Team!](./llm/ai-instruction-act-as-developer) 🆕
+- [Instruct an AI as a developer from your Team!](./llm/ai-instruction-act-as-developer.md) 🆕
 - [Custom Instructions in ChatGPT for Developers](./llm/chatgpt-custom-instructions-developer.md)
 
 ## 🧑‍💻 Snippets (to code faster)
