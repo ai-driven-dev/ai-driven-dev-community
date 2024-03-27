@@ -23,7 +23,7 @@ I am thrilled that you're interested in contributing to our project! Your contri
 
 Triggers are named using the following structure:
 
-| #1 Title | #2 Section | #3 Action | #4 Target | Result |
+| #1 Title | #2 Section | #3 Action | #4 Target (*optional*) | Result |
 | ------ | -------- | ------- | ------- | ------ |
 | `:instruct` | Image | ExtractInfo | Mockup | `:instructImageExtractInfoMockup` |
 | `:code` | Test | Fix | FailedTest | `:codeTestFixFailedTest` |

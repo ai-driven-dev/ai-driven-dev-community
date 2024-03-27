@@ -4,8 +4,6 @@ Those prompt are made to make your discussions with AI more easy to do.
 
 Drive AI to help you in your daily dev tasks.
 
-- [🎨 Personalize the AI as a developer from YOUR team](#-personalize-the-ai-as-a-developer-from-your-team)
-  - [Contextualization (LLM instructions) `:instructContextualizeProject`](#contextualization-llm-instructions-instructcontextualizeproject)
 - [🆕 Create new features](#-create-new-features)
   - [Generate feature user-stories from request `:instructFeatureGenerateUS`](#generate-feature-user-stories-from-request-instructfeaturegenerateus)
   - [Extract coding steps for a sub-task `:instructFeatureExtractCodingSteps`](#extract-coding-steps-for-a-sub-task-instructfeatureextractcodingsteps)
@@ -14,13 +12,17 @@ Drive AI to help you in your daily dev tasks.
   - [Acknowledge specs and code from specification from your feature `:instructExistingFeatureAcknowledgements`](#acknowledge-specs-and-code-from-specification-from-your-feature-instructexistingfeatureacknowledgements)
   - [Give me output example based on your understandings `:instructExistingFeatureOutputExample` WIP](#give-me-output-example-based-on-your-understandings-instructexistingfeatureoutputexample-wip)
   - [Answer LLM's questions about your feature (if needed) `:instructExistingFeatureIterate`](#answer-llms-questions-about-your-feature-if-needed-instructexistingfeatureiterate)
+- [💽 RAG](#-rag)
+  - [Search in RAG knowledge base `:instructRAGKnowledgeBase`](#search-in-rag-knowledge-base-instructragknowledgebase)
 - [📄 Documentation](#-documentation)
-  - [Search in the documentation `:instructDocSearchURL`](#search-in-the-documentation-instructdocsearchurl)
+  - [Search in the documentation from URL `:instructDocSearchURL`](#search-in-the-documentation-from-url-instructdocsearchurl)
 - [🏞️ Image](#️-image)
-  - [Extract info from mockups `:instructImageExtractMockupInfo`](#extract-info-from-mockups-instructimageextractmockupinfo)
-  - [Detail coding structure from the image `:instructImageDetailCodingStructure`](#detail-coding-structure-from-the-image-instructimagedetailcodingstructure)
-  - [Generate code from image  `:instructImageGenerateCode`](#generate-code-from-image--instructimagegeneratecode)
-  - [Create actions from image  `:instructImageCreateActions`](#create-actions-from-image--instructimagecreateactions)
+  - [Extract details from image `:instructImageDetail`](#extract-details-from-image-instructimagedetail)
+  - [Identify image section actions `:instructImageIdentifyActions`](#identify-image-section-actions-instructimageidentifyactions)
+  - [Match existing code from knowledge base `:instructImageCheckMatchingCode`](#match-existing-code-from-knowledge-base-instructimagecheckmatchingcode)
+  - [Match existing UI components in image `:instructImageCheckExistingUIComponents`](#match-existing-ui-components-in-image-instructimagecheckexistinguicomponents)
+  - [Generate code for image section `:instructImageSectionGenerateCode`](#generate-code-for-image-section-instructimagesectiongeneratecode)
+  - [Create template layout from image `:instructImageCreateTemplate`](#create-template-layout-from-image-instructimagecreatetemplate)
 - [📀 Database](#-database)
   - [SQL Schema Generation `:instructDBGenerateSchema`](#sql-schema-generation-instructdbgenerateschema)
   - [Plain Object Generation from Schema `:instructDBGeneratePO`](#plain-object-generation-from-schema-instructdbgeneratepo)
@@ -31,66 +33,6 @@ Drive AI to help you in your daily dev tasks.
   - [Review project files structures `:instructStructureReviewFilesAndDirectories`](#review-project-files-structures-instructstructurereviewfilesanddirectories)
 - [🧪 Testing](#-testing)
   - [Acceptance Criteria as Gherkin `:instructTestingConvertAcceptanceCriteriaIntoGherkin`](#acceptance-criteria-as-gherkin-instructtestingconvertacceptancecriteriaintogherkin)
-
-## 🎨 Personalize the AI as a developer from YOUR team
-
-Follow those prompts to customize your development flow with AI to increase your productivity by 2X.
-
-### Contextualization (LLM instructions) `:instructContextualizeProject`
-
-This should help the LLM to act as you would expect it to do endorsing your own knowledge and experience.
-
-> **This should be part of a custom agent, like [a personalized GPT](https://chat.openai.com/gpts).**
-
-That way, every times you will use the AI, it will remember your preferences and your project config.
-
-Please upload to the AI the following instructions to contextualize the project.
-
-- `package.json` or equivalent
-- Project structure (eg: `tree -I "node_modules" > project-structure.txt`)
-- *Optional*: Mockups or Pages Design (export this as `.pdf` for best results and optimize size the more you can to increase the AI's performance - use `:variousOptimizePDF`'s prompt!)
-
-```text
-Role: As the AI, act as the lead developer responsible for our project's success. I am a senior software engineer specializing in "[[web dev, frontend, backend...]]". Our users are the application end-users.
-
-Guidelines:
-- For each question I asked, first check your knowledge base with my uploaded documents, then answer also using your personal knowledge.
-- Provide last to date info.
-- Always be very concise in your answers.
-- Enhance readability with bold, italic, and lists as needed.
-- Adjust based on my feedback.
-- When in doubt, ask me for more details.
-- Primarily use the tech documentation in your knowledge base (if any), in order to always use the latest version of the tech.
-- Use both your knowledge and the ones I gave you to provide the best answers.
-
-Code generation rules:
-- No code placeholders
-- Provide documentation links if needed.
-- Choose the best libraries and tools to use, if needed.
-- Always generate the code from the latest version of the tech in your knowledge base.
-- Always use main language and libraries versions from the project's tech stack unless specified otherwise.
-- Always give full project path for each files
-- Code generation must be clean, follow the best practices.
-- Do not comment the code.
-- Always provide full code, never skip a part of it.
-- Use very explicit components, functions, and variables names.
-- Split files the more you can, each file must do only one thing.
-- Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
-- Always give the full props and the full code, never use comments.
-
-Project: We are working on "[[project name]]", focusing on "[[project goals]]".
-
-Main languages used and focus point: "[[programming language with particular version or info]]"
-
-From your knowledge base, get:
-- Tech Stack versions
-- Project Structure
-- Mockups or pages design in order for you to understand the project, with fake data (if any)
-
-Development Process: We adhere to Agile, with bi-weekly sprints and CI/CD.
-
-Collaboration Tools: Git and Ticketing tool like Jira or Linear.
-```
 
 ## 🆕 Create new features
 
@@ -240,52 +182,82 @@ For each step, detail your explanation with the proper code.
 
 ## 🏞️ Image
 
-### Extract info from mockups `:instructImageExtractWhatYouSee`
+### Extract details from image `:instructImageDetail`
 
 ```text
-Here is a mockup image of the feature I have to do as a developer.
+Here is an image of the feature I have to code.
 
-First, can you detail everything you see on the image? Please group your answer by delimited sections.
-
-Then, ask me the relevant questions about sections you did not understand.
+Identify sections in bullet points (group the more you can).
 ```
 
-### Detail coding structure from the image `:instructImageDetailCodingStructure`
+### Identify image section actions `:instructImageIdentifyActions`
 
 ```text
-Based on the description you made from the image, can you provide me the coding structure to achieve the outcome?
+Identify image section actions, I need you to focus only on this image section I have to code (surrounded by "---" delimiters):
 
-Be as much detailed as possible, do not forget anything.
+---
+[[image section with title and description]]
+---
 
-1. List my current tech stack and libraries for the frontend.
-2. Propose new libraries if needed, only focus on frontend integration (no data-fetching).
-3. Draw the full folder structure.
-4. List components to create in their respective folders.
+Every time I refer to the image, we will focus on this section.
+
+Determine every actions in a bullet list:
+
+1. Identify: simple text, state that need to be dynamic and actions.
+2. Describe those with a few word.
+
+Note for you:
+- If you are not sure about what you identified, ask me the relevant questions.
+- For actions and states, we will get the info from the existing codebase afterward.
 ```
 
-### Generate code from image  `:instructImageGenerateCodeFromStructure`
+### Match existing code from knowledge base `:instructImageCheckMatchingCode`
 
 ```text
-From the structure we defined together, can you generate the code for each components?
+Match existing code from knowledge base based on those actions and states:
 
-[[Additional information if needed]]
+1. Check the documentation.md file in the knowledge base
+2. For each actions and states: look up for existing code that can be re-used (find the more relevant using: variable and function names, file names, files paths etc).
 
-1. Define styling to use.
-2. Create each components, always give the full props and the full code, never use comments.
+Note for you:
+- If you find a match: provide the function path.
+- If you do not find a match or if you are not sure: find the 3 closest possible code.
 ```
 
-### Create actions from image  `:instructImageCreateActions`
+### Match existing UI components in image `:instructImageCheckExistingUIComponents`
 
 ```text
-Based on this image, can you identify actions?
+Match existing UI components in image:
 
-Here are the actions I want you to identify:
+1. Check the documentation.md file in the knowledge base
+2. Locate global UI components directory from documentation.md in the knowledge base (containing Button, Table etc), and give the path.
+3. Identify needed elements, what kind of components are they? (Title, button, paragraph, etc)
+4. Same basic elements (like paragraph, headings, links) might not required a component but rather a simple HTML tag, list them.
+5. Based on the elements that need components, check if there is a match of potential use with the existing components from global UI components dir.
+```
 
-[[List of actions to identify]]
+### Generate code for image section `:instructImageSectionGenerateCode`
 
-1) Quickly detail what you understand from the actions in the image.
-2) Remember the tech stack and libraries for the frontend.
-3) Create components with proper functions to execute the actions, in their respective folders, based on the image and the actions.
+```text
+Prepare to code:
+- Check the documentation.md file in the knowledge base
+- From the documentation, suggest the best place to create the new files.
+- Do not create components that are not reusable.
+- Identity states and props.
+- Remind the actions and functions you identified.
+- Remind the existing UI components to use and the ones we need to create.
+
+Code the feature from the image with the following rules:
+- Never suggest code from libs not listed in [[package.json | requirements.txt | composer.json]].
+- Remember our tech stack.
+- Use the best practices and clean code principles.
+- Provide the full code, never skip a part of it.
+```
+
+### Create template layout from image `:instructImageCreateTemplate`
+
+```text
+Use [[Tailwind CSS | Only CSS | Material UI]], create the template layout only (with no content) using the [[flexbox | grid]] layout.
 ```
 
 ## 📀 Database

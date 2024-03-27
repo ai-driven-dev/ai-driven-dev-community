@@ -8,7 +8,6 @@ Some prompt we can use sometimes, tech related, or not :)
 - [👔 Entrepreneurship](#-entrepreneurship)
   - [Self criticize 🇫🇷 `:variousCriticizeAnswer`](#self-criticize--variouscriticizeanswer)
 - [🌄 Images](#-images)
-  - [PDF optimization with ghostscript `:variousOptimizePDF`](#pdf-optimization-with-ghostscript-variousoptimizepdf)
   - [MidJourney realistic picture `:variousCreateMidJourneyRealisticPicture`](#midjourney-realistic-picture-variouscreatemidjourneyrealisticpicture)
 - [💽 LLM](#-llm)
   - [Prompt evaluation `:llmPromptImprove`](#prompt-evaluation-llmpromptimprove)
@@ -58,13 +57,6 @@ Merci, peux-tu faire l'autocritique de ta réponse ?
 ```
 
 ## 🌄 Images
-
-### PDF optimization with ghostscript `:variousOptimizePDF`
-
-```text
-# replace output.pdf and input.pdf with the correct file names
-gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[output.pdf]]" "[[input.pdf]]"
-```
 
 ### MidJourney realistic picture `:variousCreateMidJourneyRealisticPicture`
 
