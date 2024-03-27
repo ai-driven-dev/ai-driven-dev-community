@@ -1,6 +1,6 @@
 # AI Driven Dev Community
 
-A collection of tools, prompts, snippets and agents for developers that use AI, daily.
+**A collection of tools, prompts, snippets and agents for developers that use AI, daily.**
 
 - [📝 Prompts (for developers)](#-prompts-for-developers)
 - [💡 LLM Instructions (for better responses)](#-llm-instructions-for-better-responses)
@@ -17,12 +17,16 @@ A list of tailored prompts for developers, including instructions, coding and LL
 - [Coding](./prompts/code.md) - Specific short coding prompts.
 - [Instructions](./prompts/instruct.md) - Development flow to write better features.
 - [Dev](./prompts/dev.md) - Help to use AI in your daily work as a dev (but not specifically AI prompts).
+
+And more:
+
 - [Various](./prompts/_/various.md) - Various and personals prompts that do not fit in other categories.
 
 ## 💡 LLM Instructions (for better responses)
 
 Custom instructions for developers to use with ChatGPT.
 
+- [Instruct an AI as a developer from your Team!](./llm/chatgpt-training-developers.md) 🆕
 - [Custom Instructions in ChatGPT for Developers](./llm/chatgpt-custom-instructions-developer.md)
 
 ## 🧑‍💻 Snippets (to code faster)
