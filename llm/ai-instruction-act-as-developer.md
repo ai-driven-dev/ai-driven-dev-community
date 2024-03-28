@@ -17,6 +17,7 @@ That way, every times you will use the AI, it will remember your preferences and
 - [🧭 Part 2: LLM instructions guidance `:llmInstructionsGuide`](#-part-2-llm-instructions-guidance-llminstructionsguide)
 - [✍️ Prompts](#️-prompts)
   - [Ask for codebase / knowledge base `:llmPromptAskCodebase`](#ask-for-codebase--knowledge-base-llmpromptaskcodebase)
+  - [Search in RAG knowledge base `:instructRAGKnowledgeBase`](#search-in-rag-knowledge-base-instructragknowledgebase)
 
 ## 📄 Documents list to make your AI learn your project better
 
@@ -85,10 +86,18 @@ Code generation rules:
 
 ## ✍️ Prompts
 
+Custom GPTs have for example the ability to be filled with documents as RAGs.
+
 ### Ask for codebase / knowledge base `:llmPromptAskCodebase`
 
 ```bash
-Check the documentation.md file in the knowledge base, then:
+Open the documentation.md file in the knowledge base, then:
 
 [[Your prompt]]
+```
+
+### Search in RAG knowledge base `:instructRAGKnowledgeBase`
+
+```text
+Search your knowledge to find: [[what you are looking for]].
 ```
