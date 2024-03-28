@@ -486,3 +486,27 @@ matches:
     form: |
       Create zod schema for this type.
 
+  - trigger: ':myExamplePrompt'
+    form: |
+      This prompt took one inline variable here: "[[var_1]]".
+
+      And multiline var here:
+
+      [[var_2]]
+
+      Depending on the context, you can select a value here:
+
+      [[var_3___option1___option2___option3]]
+
+      Enjoy!
+    form_fields:
+      var_2:
+        multiline: true
+      var_3___option1___option2___option3:
+        type: choice
+        values: |-
+          var_3
+          option1
+          option2
+          option3
+

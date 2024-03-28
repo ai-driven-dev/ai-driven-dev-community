@@ -20,6 +20,7 @@ const PUBLIC_PROMPTS = [
   './ressources/prompts/_/*',
   './ressources/prompts/languages/*',
   './llm-instructions/*',
+  './contributing*',
 ];
 
 fs.writeFileSync(
@@ -44,8 +45,6 @@ website: https://github.com/alexsoyes/ai-driven-dev-community`
 
 fs.writeFileSync(`${espansoConfigPath}/README.md`, `Your custom prompts!`);
 
-
-
 /**
  *
  * @param {string[]} directories
@@ -61,6 +60,7 @@ function getPromptsContentForEspanso(directories) {
     const markdownFiles = glob.sync(promptDirectory + '.md');
 
     for (const markdownFile of markdownFiles) {
+      console.log(`📦 Generating prompt for ${markdownFile}`);
       yamlContent += getPrompts(markdownFile);
     }
   }
