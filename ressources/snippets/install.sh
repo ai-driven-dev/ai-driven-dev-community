@@ -3,6 +3,8 @@
 PATH_SOURCE=./vscode
 PATH_DESTINATION=~/Library/Application\ Support/Code/User/snippets
 
+# @Todo this script should merge with existing files, not just replace them!
+
 # For each file in source, copy it in the destination, but if exists, rename it with a .bak extension and current date
 for file in $(ls "${PATH_SOURCE}"); do
   filename=$(basename $file)

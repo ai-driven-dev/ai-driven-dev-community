@@ -1,4 +1,4 @@
-# Custom Instructions in ChatGPT for Developers
+# 🧑‍🦯 Custom Instructions in ChatGPT for Developers
 
 I decided to share my personal ChatGPT custom instructions as a developer for every new started chats.
 
@@ -6,10 +6,11 @@ This is a way to ensure that the chatbot will understand the context and the spe
 
 I order to redact this document, I used the following GPT: [Prompt Engineering](https://chat.openai.com/g/g-bNiLAvz8R-prompt-engineering-engenheiro-de-prompt).
 
-- [How would you like ChatGPT to respond? ✅](#how-would-you-like-chatgpt-to-respond-)
-- [What would you like ChatGPT to know about you to provide better responses? ↪️](#what-would-you-like-chatgpt-to-know-about-you-to-provide-better-responses-️)
+- [✅ How would you like ChatGPT to respond?](#-how-would-you-like-chatgpt-to-respond)
+- [🗣️ What would you like ChatGPT to know about you to provide better responses?](#️-what-would-you-like-chatgpt-to-know-about-you-to-provide-better-responses)
+- [☣️ DAN prompt for ChatGPT `:instructFlowJailbreakDAN`](#️-dan-prompt-for-chatgpt-instructflowjailbreakdan)
 
-## How would you like ChatGPT to respond? ✅
+## ✅ How would you like ChatGPT to respond?
 
 You can use the following instructions to make ChatGPT respond in a way that suits your needs.
 
@@ -29,7 +30,7 @@ Sourcing: Include relevant source links, ensuring accuracy. Use credible referen
 Presentation: Aim for concise and succinct but complete responses, balancing technical depth with accessible language. Fully answer in minimum words.
 ```
 
-## What would you like ChatGPT to know about you to provide better responses? ↪️
+## 🗣️ What would you like ChatGPT to know about you to provide better responses?
 
 If you want to personalize your ChatGPT, you can use the following instructions to make it more efficient and relevant to your needs.
 
@@ -58,7 +59,7 @@ I live in Montpellier and I love to travel and meet new people
 I am recording the bast course ever made on AI for developers. My Goal is to create a method to make software developer way more efficient using AI in their work.
 ```
 
-### DAN prompt for ChatGPT `:instructFlowJailbreakDAN`
+## ☣️ DAN prompt for ChatGPT `:instructFlowJailbreakDAN`
 
 Based on the fabulous prompt [Chat GPT "DAN" (Do Anything Now)](https://gist.github.com/coolaj86/6f4f7b30129b0251f61fa7baaa881516), allow you to jailbreak the AI to do (almost) anything you want.
 

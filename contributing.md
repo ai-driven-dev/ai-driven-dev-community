@@ -1,25 +1,27 @@
-# Contributing for prompts (with text expansion)
+# 🫂 Contributing for prompts (with text expansion)
 
-I am thrilled that you're interested in contributing to our project! Your contributions are vital to making this project great and we welcome contributions from everyone.
+Your contributions are vital to making this project great and we welcome contributions from everyone.
 
-- [Guidelines](#guidelines)
-- [Naming Conventions](#naming-conventions)
+- [👮 General Guidelines](#-general-guidelines)
+- [✒️ Trigger Conventions](#️-trigger-conventions)
   - [Title](#title)
   - [Section](#section)
   - [Action](#action)
   - [Target (optional)](#target-optional)
-- [Rules](#rules)
-- [Adding New Prompts](#adding-new-prompts)
-- [Need Help?](#need-help)
+- [📜 Template Rules](#-template-rules)
+  - [Titles](#titles)
+  - [Variables](#variables)
+- [🔥 Full Example](#-full-example)
+- [😣 Need Help?](#-need-help)
 
-## Guidelines
+## 👮 General Guidelines
 
-- Ensure they are clear, concise, and relevant to the project.
-- Search for already existing one.
-- Update any relevant documentation or tests to reflect your changes.
-- Follow the project's guidelines on formatting and style for prompts.
+- [x] **Ensure your prompt** are clear, concise, and relevant to the project.
+- [x] **Search for already existing** ones.
+- [x] **Update any relevant documentation** or tests to reflect your changes.
+- [x] **Follow the project's guidelines** on formatting and style for prompts.
 
-## Naming Conventions
+## ✒️ Trigger Conventions
 
 Triggers are named using the following structure:
 
@@ -69,35 +71,49 @@ The element you want to interact with. Example:
 - `Answer`
 - `Code`
 
-## Rules
+## 📜 Template Rules
 
-- Always add a title, it can be a title 2 to 6 (`##` to `######`)
-- Use `snake_case_variables` if necessary
+### Titles
 
-## Adding New Prompts
+Always add a title, it can be a title 2 to 6 (`##` to `######`)
 
-Important to note: **Not specifying (`:trigger`) in the title will not trigger Espanso config changes.**
+```markdown
+### Extract details from image `:yourTriggerHere`
+```
 
-1. [Fork the repository](https://github.com/alexsoyes/ai-driven-dev-community/fork) and create a new PR.
-2. Open the main [Readme](./README.md) file (or one of the [agents](./agents/)) you want to change.
-3. Add and commit your new prompt following this exact structure.
+### Variables
 
-```text
-#### My title for my awesome prompt \`:myPrompt\`
+You can use variables in your prompt which make them so efficient!
+
+- Inline variable: `"[[my inline variable]]"`
+- Multi-line variable: `[[my multi-line variable]]`
+- Select variable: `[[my select variable|option1|option2]]`
+
+![Espanso Window](./images/espanso-prompt-window.png)
+
+## 🔥 Full Example
+
+Not specifying (`:trigger`) in the title will not trigger Espanso config changes.
+
+````markdown
+#### My title for my awesome prompt `:myPrompt`
 
 Here is a description of my prompt.
 
-\```text
-
+```text
 This prompt took 1 variable here: "[[var_1]]".
 
 And another (multiline) here:
 
 [[var_2]]
-\```
-```
 
-## Need Help?
+Depending on the context, you can select a value here:
+
+[[var_3|option1|option2|option3]]
+```
+````
+
+## 😣 Need Help?
 
 If you need help or have any questions, feel free to open an issue for discussion or reach out to the project maintainers.
 

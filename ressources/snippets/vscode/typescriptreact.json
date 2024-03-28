@@ -84,8 +84,8 @@
       "  return (",
       "    <>$2</>",
       "  );",
-      "}",
+      "}"
     ],
     "description": "React function component"
-  },
+  }
 }
