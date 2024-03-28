@@ -274,7 +274,7 @@ matches:
     form: |
       Match existing UI components in image section:
 
-      1. Check the "documentation.md" file in the knowledge base
+      1. Check the "documentation.md" file in the knowledge base.
       2. Locate global UI components directory from "documentation.md" in the knowledge base (containing Button, Table etc), and give the path.
       3. Identify needed elements, what kind of components are they? (Title, button, paragraph, etc)
       4. Same basic elements (like paragraph, headings, links) might not required a component but rather a simple HTML tag, list them.
