@@ -241,18 +241,15 @@ Match existing UI components in image section:
 ```text
 Generate the code for this component:
 
-- Based on project structure in "documentation.md", propose a new file path.
-- Base the import of the generated code from this new file path.
-- Do not use classes in HTML.
-- Do not comment code.
+1. Based on project structure in "documentation.md", propose a new file path.
+2. List existing full paths for functions, variables and UI components defined earlier to use.
+3. Create a single component (unless it is necessary to create more) with the following rules:
+- No HTML classes
+- No comments
 - Use only libraries listed in our project dependencies.
-- Create only the necessary components.
-- For every elements, integrate the existing components from the global UI components directory.
-- For variables and functions, use the existing code we defined earlier.
 - Fill every function with the needed logic defined earlier.
 - If you put links in the component, check that path is correct from project structure.
-
-Do not provide explanations, only the code.
+[[More rules specific to your project]]
 ```
 
 ### Implement image section design `:instructImageSectionImplementDesign`
