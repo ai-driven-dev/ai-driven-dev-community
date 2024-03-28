@@ -16,10 +16,10 @@ if (!fs.existsSync(espansoConfigPath)) {
 const PRIVATE_PROMPTS = ['./prompts/private/*'];
 
 const PUBLIC_PROMPTS = [
-  './prompts/*',
-  './prompts/_/*',
-  './prompts/languages/*',
-  './llm/*',
+  './ressources/prompts/*',
+  './ressources/prompts/_/*',
+  './ressources/prompts/languages/*',
+  './llm-instructions/*',
 ];
 
 fs.writeFileSync(
