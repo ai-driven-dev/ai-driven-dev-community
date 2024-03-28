@@ -35,17 +35,18 @@ Triggers are named using the following structure:
 
 The main files of the repo. They are fixed:
 
-- Prompts
-  - Code (`:code`)
-  - Instruct (`:instruct`)
-  - Languages (`:language`)
-    - TypeScript (`:languageTS`)
-  - Dev (`:dev`) (*unrelated to AI*)
-  - Various (`:various`) (*unrelated to AI*)
+- Code (`:code`)
+- Instruct (`:instruct`)
+- Languages (`:language`)
+  - TypeScript (`:languageTS`)
+- Dev (`:dev`) (*unrelated to AI*)
+- Various (`:various`) (*unrelated to AI*)
 
 ### Section
 
-The section where the prompt is in the doc. Example:
+The section where the prompt is in the doc.
+
+Example:
 
 - `Flow`
 - `Documentation`
@@ -55,7 +56,9 @@ The section where the prompt is in the doc. Example:
 
 ### Action
 
-Use a verb to describe the action you want to perform. Example:
+Use a verb to describe the action you want to perform.
+
+Example:
 
 - `Improve`
 - `Convert`
@@ -65,21 +68,19 @@ Use a verb to describe the action you want to perform. Example:
 
 ### Target (optional)
 
-The element you want to interact with. Example:
+The element you want to interact with.
+
+Example:
 
 - `Object`
 - `Answer`
-- `Code`
+- `CodeTemplate`
 
 ## 📜 Template Rules
 
 ### Titles
 
-Always add a title, it can be a title 2 to 6 (`##` to `######`)
-
-```markdown
-### Extract details from image `:yourTriggerHere`
-```
+Always add a title, it can be a title 2 to 6 (`##` to `######`) and end with the trigger (`:yourTriggerHere`).
 
 ### Variables
 
@@ -95,23 +96,75 @@ You can use variables in your prompt which make them so efficient!
 
 Not specifying (`:trigger`) in the title will not trigger Espanso config changes.
 
-````markdown
-#### My title for my awesome prompt `:myPrompt`
+Remove the usage section lines if it's not needed.
 
-Here is a description of my prompt.
+````markdown
+### My title for my awesome prompt `:myExamplePrompt`
+
+**Description**:
+
+What the prompt is about.
+
+**How to use the prompt**:
+
+| Usage                   | Contexte                                                   |
+|-------------------------|------------------------------------------------------------|
+| 🔁 **Follow-up prompt** | None / `:instructImage...` required before this one        |
+| 🗂️ **Requirements**     | None / `documentation.md` is needed to use this prompt     |
+| 🔍 **Contexte**         | Open 2 files side-by-side in your IDE                      |
+| 📌 **Annotations**      | None / `@workspace` annotation in Copilot might be used.   |
+| ✅ **Variables needed** | Yes                                                        |
+
+**Prompt**:
 
 ```text
-This prompt took 1 variable here: "[[var_1]]".
+This prompt took one inline variable here: "[[var_1]]".
 
-And another (multiline) here:
+And multiline var here:
 
 [[var_2]]
 
 Depending on the context, you can select a value here:
 
 [[var_3|option1|option2|option3]]
+
+Enjoy!
 ```
 ````
+
+### My title for my awesome prompt `:myExamplePrompt`
+
+> 👉 TRY ME RUNNING TRIGGER `:myExamplePrompt`
+
+**Description**:
+
+What the prompt is about.
+
+**How to use the prompt**:
+
+| Usage                   | Contexte                                                   |
+|-------------------------|------------------------------------------------------------|
+| 🔁 **Follow-up prompt** | None / `:instructImage...` required before this one        |
+| 🗂️ **Requirements**     | None / `documentation.md` is needed to use this prompt     |
+| 🔍 **Contexte**         | Open 2 files side-by-side in your IDE                      |
+| 📌 **Annotations**      | None / `@workspace` annotation in Copilot might be used.   |
+| ✅ **Variables needed** | Yes                                                        |
+
+**Prompt**:
+
+```text
+This prompt took one inline variable here: "[[var_1]]".
+
+And multiline var here:
+
+[[var_2]]
+
+Depending on the context, you can select a value here:
+
+[[var_3|option1|option2|option3]]
+
+Enjoy!
+```
 
 ## 😣 Need Help?
 
