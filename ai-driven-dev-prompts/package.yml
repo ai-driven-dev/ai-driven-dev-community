@@ -205,12 +205,6 @@ matches:
     form_fields:
       your_answers_to_the_previous_questions:
         multiline: true
-  - trigger: ':instructRAGKnowledgeBase'
-    form: |
-      Search your knowledge to find: [[what_you_are_looking_for]].
-    form_fields:
-      what_you_are_looking_for:
-        multiline: true
   - trigger: ':instructDocSearchURL'
     form: |
       I need you to read the following documentation.
@@ -228,7 +222,9 @@ matches:
     form: |
       Here is an image of the feature I have to code.
 
-      Identify sections in bullet points (group the more you can).
+      Identify main sections in the page.
+
+      For each section, give a detailed breakdown of the children elements.
   - trigger: ':instructImageIdentifyActions'
     form: |
       Identify image section actions, I need you to focus only on this image section I have to code (surrounded by "---" delimiters):
@@ -241,7 +237,7 @@ matches:
 
       Determine every actions in a bullet list:
 
-      1. Identify: simple text, state that need to be dynamic and actions.
+      1. Identify: simple text, changing state and actions that must be handled by functions.
       2. Describe those with a few word.
 
       Note for you:
@@ -252,39 +248,54 @@ matches:
         multiline: true
   - trigger: ':instructImageCheckMatchingCode'
     form: |
-      Match existing code from knowledge base based on those actions and states:
+      Match existing code (variables and functions) from knowledge base in "documentation.md" file.
 
-      1. Check the documentation.md file in the knowledge base
-      2. For each actions and states: look up for existing code that can be re-used (find the more relevant using: variable and function names, file names, files paths etc).
+      Here is the image section "[[sections_name]]" I have to code (surrounded by "---" delimiters):
+      ---
+      [[sections_description_with_your_outcomes]]
+      ---
 
-      Note for you:
-      - If you find a match: provide the function path.
-      - If you do not find a match or if you are not sure: find the 3 closest possible code.
+      For each elements, provide 2 existing functions or variables (with their paths) that can fill the needs, sorted by relevance.
+    form_fields:
+      sections_description_with_your_outcomes:
+        multiline: true
   - trigger: ':instructImageCheckExistingUIComponents'
     form: |
-      Match existing UI components in image:
+      Match existing UI components in image section:
 
-      1. Check the documentation.md file in the knowledge base
-      2. Locate global UI components directory from documentation.md in the knowledge base (containing Button, Table etc), and give the path.
+      1. Check the "documentation.md" file in the knowledge base
+      2. Locate global UI components directory from "documentation.md" in the knowledge base (containing Button, Table etc), and give the path.
       3. Identify needed elements, what kind of components are they? (Title, button, paragraph, etc)
       4. Same basic elements (like paragraph, headings, links) might not required a component but rather a simple HTML tag, list them.
       5. Based on the elements that need components, check if there is a match of potential use with the existing components from global UI components dir.
   - trigger: ':instructImageSectionGenerateCode'
     form: |
-      Prepare to code:
-      - Check the documentation.md file in the knowledge base
-      - From the documentation, suggest the best place to create the new files.
-      - Do not create components that are not reusable.
-      - Identity states and props.
-      - Remind the actions and functions you identified.
-      - Remind the existing UI components to use and the ones we need to create.
+      Generate the code for this component:
 
-      Code the feature from the image with the following rules:
-      - Never suggest code from libs not listed in [[packagejson_____requirementstxt_____composerjson]].
-      - Remember our tech stack.
-      - Use the best practices and clean code principles.
-      - Provide the full code, never skip a part of it.
+      - Based on project structure in "documentation.md", propose a new file path.
+      - Base the import of the generated code from this new file path.
+      - Do not use classes in HTML.
+      - Do not comment code.
+      - Use only libraries listed in our project dependencies.
+      - Create only the necessary components.
+      - For every elements, integrate the existing components from the global UI components directory.
+      - For variables and functions, use the existing code we defined earlier.
+      - Fill every function with the needed logic defined earlier.
+      - If you put links in the component, check that path is correct from project structure.
+
+      Do not provide explanations, only the code.
+  - trigger: ':instructImageSectionImplementDesign'
+    form: |
+      For this component, I need you to implement the design from the image section using [[tailwind_css_____only_css_____material_ui]].
+
+      Do not use any other library that is not listed in [[packagejson_____requirementstxt_____composerjson]].
     form_fields:
+      tailwind_css_____only_css_____material_ui:
+        type: choice
+        values: |-
+          Tailwind CSS
+          Only CSS
+          Material UI
       packagejson_____requirementstxt_____composerjson:
         type: choice
         values: |-
@@ -523,11 +534,17 @@ matches:
       - Always give the full props and the full code, never use comments.
   - trigger: ':llmPromptAskCodebase'
     form: |
-      Check the documentation.md file in the knowledge base, then:
+      Open the documentation.md file in the knowledge base, then:
 
       [[your_prompt]]
     form_fields:
       your_prompt:
+        multiline: true
+  - trigger: ':instructRAGKnowledgeBase'
+    form: |
+      Search your knowledge to find: [[what_you_are_looking_for]].
+    form_fields:
+      what_you_are_looking_for:
         multiline: true
 
   - trigger: ':instructFlowJailbreakDAN'

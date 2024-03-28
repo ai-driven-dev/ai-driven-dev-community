@@ -152,16 +152,6 @@ Here are my answers:
 [[Your answers to the previous questions]]
 ```
 
-## 💽 RAG
-
-Custom GPTs have for example the ability to be filled with documents as RAGs.
-
-### Search in RAG knowledge base `:instructRAGKnowledgeBase`
-
-```text
-Search your knowledge to find: [[what you are looking for]].
-```
-
 ## 📄 Documentation
 
 ### Search in the documentation from URL `:instructDocSearchURL`
@@ -184,13 +174,19 @@ For each step, detail your explanation with the proper code.
 
 ### Extract details from image `:instructImageDetail`
 
+> ⚠️ For best result you MUST re-upload the image in question before using this prompt.
+
 ```text
 Here is an image of the feature I have to code.
 
-Identify sections in bullet points (group the more you can).
+Identify main sections in the page.
+
+For each section, give a detailed breakdown of the children elements.
 ```
 
 ### Identify image section actions `:instructImageIdentifyActions`
+
+From the image sections identified, group them.
 
 ```text
 Identify image section actions, I need you to focus only on this image section I have to code (surrounded by "---" delimiters):
@@ -203,7 +199,7 @@ Every time I refer to the image, we will focus on this section.
 
 Determine every actions in a bullet list:
 
-1. Identify: simple text, state that need to be dynamic and actions.
+1. Identify: simple text, changing state and actions that must be handled by functions.
 2. Describe those with a few word.
 
 Note for you:
@@ -213,24 +209,28 @@ Note for you:
 
 ### Match existing code from knowledge base `:instructImageCheckMatchingCode`
 
+> ⚠️ For best result you MUST re-upload `documentation.md` before using this prompt.
+
+Once you specified the wanted outcome:
+
 ```text
-Match existing code from knowledge base based on those actions and states:
+Match existing code (variables and functions) from knowledge base in "documentation.md" file.
 
-1. Check the documentation.md file in the knowledge base
-2. For each actions and states: look up for existing code that can be re-used (find the more relevant using: variable and function names, file names, files paths etc).
+Here is the image section "[[section's name]]" I have to code (surrounded by "---" delimiters):
+---
+[[Section's description with your outcomes]]
+---
 
-Note for you:
-- If you find a match: provide the function path.
-- If you do not find a match or if you are not sure: find the 3 closest possible code.
+For each elements, provide 2 existing functions or variables (with their paths) that can fill the needs, sorted by relevance.
 ```
 
 ### Match existing UI components in image `:instructImageCheckExistingUIComponents`
 
 ```text
-Match existing UI components in image:
+Match existing UI components in image section:
 
-1. Check the documentation.md file in the knowledge base
-2. Locate global UI components directory from documentation.md in the knowledge base (containing Button, Table etc), and give the path.
+1. Check the "documentation.md" file in the knowledge base
+2. Locate global UI components directory from "documentation.md" in the knowledge base (containing Button, Table etc), and give the path.
 3. Identify needed elements, what kind of components are they? (Title, button, paragraph, etc)
 4. Same basic elements (like paragraph, headings, links) might not required a component but rather a simple HTML tag, list them.
 5. Based on the elements that need components, check if there is a match of potential use with the existing components from global UI components dir.
@@ -239,19 +239,28 @@ Match existing UI components in image:
 ### Generate code for image section `:instructImageSectionGenerateCode`
 
 ```text
-Prepare to code:
-- Check the documentation.md file in the knowledge base
-- From the documentation, suggest the best place to create the new files.
-- Do not create components that are not reusable.
-- Identity states and props.
-- Remind the actions and functions you identified.
-- Remind the existing UI components to use and the ones we need to create.
+Generate the code for this component:
 
-Code the feature from the image with the following rules:
-- Never suggest code from libs not listed in [[package.json | requirements.txt | composer.json]].
-- Remember our tech stack.
-- Use the best practices and clean code principles.
-- Provide the full code, never skip a part of it.
+- Based on project structure in "documentation.md", propose a new file path.
+- Base the import of the generated code from this new file path.
+- Do not use classes in HTML.
+- Do not comment code.
+- Use only libraries listed in our project dependencies.
+- Create only the necessary components.
+- For every elements, integrate the existing components from the global UI components directory.
+- For variables and functions, use the existing code we defined earlier.
+- Fill every function with the needed logic defined earlier.
+- If you put links in the component, check that path is correct from project structure.
+
+Do not provide explanations, only the code.
+```
+
+### Implement image section design `:instructImageSectionImplementDesign`
+
+```text
+For this component, I need you to implement the design from the image section using [[Tailwind CSS | Only CSS | Material UI]].
+
+Do not use any other library that is not listed in [[package.json | requirements.txt | composer.json]].
 ```
 
 ### Create template layout from image `:instructImageCreateTemplate`
