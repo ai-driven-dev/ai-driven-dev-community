@@ -1,4 +1,4 @@
-# AI Driven Dev - Prompts (`:instruct`)
+# 🏁 AI Driven Dev - Prompts (`:instruct`)
 
 Those prompt are made to make your discussions with AI more easy to do.
 
@@ -12,17 +12,16 @@ Drive AI to help you in your daily dev tasks.
   - [Acknowledge specs and code from specification from your feature `:instructExistingFeatureAcknowledgements`](#acknowledge-specs-and-code-from-specification-from-your-feature-instructexistingfeatureacknowledgements)
   - [Give me output example based on your understandings `:instructExistingFeatureOutputExample` WIP](#give-me-output-example-based-on-your-understandings-instructexistingfeatureoutputexample-wip)
   - [Answer LLM's questions about your feature (if needed) `:instructExistingFeatureIterate`](#answer-llms-questions-about-your-feature-if-needed-instructexistingfeatureiterate)
-- [💽 RAG](#-rag)
-  - [Search in RAG knowledge base `:instructRAGKnowledgeBase`](#search-in-rag-knowledge-base-instructragknowledgebase)
-- [📄 Documentation](#-documentation)
+- [� Documentation](#-documentation)
   - [Search in the documentation from URL `:instructDocSearchURL`](#search-in-the-documentation-from-url-instructdocsearchurl)
 - [🏞️ Image](#️-image)
   - [Extract details from image `:instructImageDetail`](#extract-details-from-image-instructimagedetail)
   - [Identify image section actions `:instructImageIdentifyActions`](#identify-image-section-actions-instructimageidentifyactions)
   - [Match existing code from knowledge base `:instructImageCheckMatchingCode`](#match-existing-code-from-knowledge-base-instructimagecheckmatchingcode)
+  - [Define methods to use `:instructImageDefineMethods`](#define-methods-to-use-instructimagedefinemethods)
   - [Match existing UI components in image `:instructImageCheckExistingUIComponents`](#match-existing-ui-components-in-image-instructimagecheckexistinguicomponents)
   - [Generate code for image section `:instructImageSectionGenerateCode`](#generate-code-for-image-section-instructimagesectiongeneratecode)
-  - [Create template layout from image `:instructImageCreateTemplate`](#create-template-layout-from-image-instructimagecreatetemplate)
+  - [Implement image section design `:instructImageSectionImplementDesign`](#implement-image-section-design-instructimagesectionimplementdesign)
 - [📀 Database](#-database)
   - [SQL Schema Generation `:instructDBGenerateSchema`](#sql-schema-generation-instructdbgenerateschema)
   - [Plain Object Generation from Schema `:instructDBGeneratePO`](#plain-object-generation-from-schema-instructdbgeneratepo)
@@ -177,7 +176,7 @@ For each step, detail your explanation with the proper code.
 > ⚠️ For best result you MUST re-upload the image in question before using this prompt.
 
 ```text
-Here is an image of the feature I have to code.
+Here is an image of my "[[the image you describe]]" for a feature I have to code.
 
 Identify main sections in the page.
 
@@ -221,7 +220,18 @@ Here is the image section "[[section's name]]" I have to code (surrounded by "--
 [[Section's description with your outcomes]]
 ---
 
-For each elements, provide 2 existing functions or variables (with their paths) that can fill the needs, sorted by relevance.
+For each elements, provide "[[number (default should be 2)]]" existing functions or variables (with their paths) that can fill the needs, sorted by relevance.
+```
+
+### Define methods to use `:instructImageDefineMethods`
+
+```text
+In order to code the feature, I assert the following methods to use, defined here (surrounded by "---" delimiters):
+---
+[[Variables and functions to use]]
+---
+
+Do nothing, just reply "ok" if you understood.
 ```
 
 ### Match existing UI components in image `:instructImageCheckExistingUIComponents`
@@ -255,15 +265,13 @@ Generate the code for this component:
 ### Implement image section design `:instructImageSectionImplementDesign`
 
 ```text
-For this component, I need you to implement the design from the image section using [[Tailwind CSS | Only CSS | Material UI]].
+Implement the design from the image section "[[section's name]]" using [[Tailwind CSS | Only CSS | Material UI]].
 
-Do not use any other library that is not listed in [[package.json | requirements.txt | composer.json]].
-```
-
-### Create template layout from image `:instructImageCreateTemplate`
-
-```text
-Use [[Tailwind CSS | Only CSS | Material UI]], create the template layout only (with no content) using the [[flexbox | grid]] layout.
+1. Extract positions and sizes for each UI elements in the image, look for padding, margin, alignment, font size, etc.
+2. Update the code implementation with the design from the image following the rules below:
+- Use container, row, column, flexbox, grid, etc if needed.
+- Use only libraries listed in our project dependencies.
+- No explanation needed, only code.
 ```
 
 ## 📀 Database

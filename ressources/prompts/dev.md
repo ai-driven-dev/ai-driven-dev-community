@@ -1,8 +1,8 @@
-# Dev prompts / shortcuts for developers using AI `:dev`
+# 🧑‍💻 Dev prompts / shortcuts for developers using AI `:dev`
 
 - [Create \& ¨Merge a documentation from a GitHub repository 🧙 `:devMergeDocumentation`](#create--merge-a-documentation-from-a-github-repository--devmergedocumentation)
 
-## Create & ¨Merge a documentation from a GitHub repository 🧙 `:devMergeDocumentation`
+## Create + Merge a documentation from a GitHub repository 🧙 `:devMergeDocumentation`
 
 - Use [Download GitHub Directory](https://download-directory.github.io/) to download the repository as a zip file
 - Unzip the file

@@ -1,4 +1,4 @@
-# AI Driven Dev - Prompts (`:code`)
+# 🖥️ AI Driven Dev - Prompts (`:code`)
 
 Related to code interaction (eg: with Copilot).
 

@@ -1,4 +1,4 @@
-# Transforming an AI into a developer (from your team)
+# 🧠 Transforming an AI into a developer (from your team)
 
 Fine-tune the LLM to act as a developer in your project.
 
@@ -6,7 +6,7 @@ Fine-tune the LLM to act as a developer in your project.
 
 Example using [a custom GPT](https://chat.openai.com/gpts):
 
-![Custom GPT RAG](../docs/images/custom-gpt-rag.png)
+![Custom GPT RAG](../../images/chatgpt-custom-gpt-rag.png)
 
 That way, every times you will use the AI, it will remember your preferences and your project config.
 
@@ -90,7 +90,7 @@ Custom GPTs have for example the ability to be filled with documents as RAGs.
 
 ### Ask for codebase / knowledge base `:llmPromptAskCodebase`
 
-```bash
+```text
 Open the documentation.md file in the knowledge base, then:
 
 [[Your prompt]]
