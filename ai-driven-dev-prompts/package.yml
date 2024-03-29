@@ -4,10 +4,21 @@ preserve_clipboard: false
 matches:
   - trigger: ':codeCodingHelpThinking'
     form: |
-      Provide an example of the usage of this function, input and output.
+      I need you to help me think about the best way to implement this new functionality:
+      [[new_functionality]]
+
+      Please provide the best coding steps regarding my existing code.
     form_fields:
       new_functionality:
         multiline: true
+  - trigger: ':codeCodingImproveReadability'
+    form: |
+      I need you to improve the readability of the following code.
+
+      Result should remain the same, but the code should be easier to read and understand.
+  - trigger: ':codeCodingProvideExampleUsage'
+    form: |
+      Provide an example of the usage of this function, input and output.
   - trigger: ':codeCodingDetectInconsistencies'
     form: |
       I need you to detect inconsistencies in the code.
@@ -184,10 +195,27 @@ matches:
         multiline: true
   - trigger: ':instructExistingFeatureAcknowledgements'
     form: |
-      Give me an output example based on your understandings, with required inputs and the expected output.
+      Here are the specifications of the feature I need to code (surrounded by "---" delimiters).
+
+      Now, can you:
+
+      1. Acknowledge it
+      2. Reformulate in bullet point grouped by section to show me that you understood what to do
+      3. Generate development steps (based on an existing projet you do not know nothing about)
+
+      Finally, ask me the relevant questions about implementing the feature in my project regarding my project's tech stack and libraries.
+
+      Ask anything you need to know, like existing code, libraries, mockups available, logics, etc.
+
+      ---
+      [[copy_and_paste_the_specifications_here]]
+      ---
     form_fields:
       copy_and_paste_the_specifications_here:
         multiline: true
+  - trigger: ':instructExistingFeatureOutputExample'
+    form: |
+      Give me an output example based on your understandings, with required inputs and the expected output.
   - trigger: ':instructExistingFeatureIterate'
     form: |
       Here are some answers about your previous questions.
