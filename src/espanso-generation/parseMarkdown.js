@@ -16,8 +16,8 @@ const mdParser = new MarkdownIt();
  */
 function parseMarkdown(markdownText) {
   const tokens = mdParser.parse(markdownText, {});
-  let currentTrigger = null;
-  const espansoConfig = [];
+  let triggerKey = "";
+  let triggers = {};
 
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i];
@@ -26,20 +26,21 @@ function parseMarkdown(markdownText) {
       const inlineToken = tokens[i + 1];
       if (inlineToken.type === 'inline') {
         const content = inlineToken.content;
-        const triggerMatch = content.match(/^(.*) `:(.*)`$/);
+        const triggerMatch = content.match(/^(.*) `:(.*)`(.*?)$/);
         if (triggerMatch) {
-          currentTrigger = {
-            trigger: triggerMatch[2].trim(),
+          // Start of a new trigger
+          triggerKey = triggerMatch[2].trim();
+          triggers[triggerKey] = {
+            trigger: triggerKey,
             form: '',
             variables: [],
             choices: {},
           };
-          espansoConfig.push(currentTrigger);
         }
       }
     }
 
-    if (token.type === 'fence' && currentTrigger) {
+    if (token.type === 'fence' && triggerKey) {
       let newContentWithReplacedVars = token.content;
       const variableMatches = token.content.match(/\[\[(.*?)\]\]/g);
       if (variableMatches) {
@@ -67,8 +68,8 @@ function parseMarkdown(markdownText) {
             .replace(/[^\w\s]/g, '')
             .toLowerCase();
 
-          if (!currentTrigger.variables.includes(variableName)) {
-            currentTrigger.variables.push(variableName);
+          if (!triggers[triggerKey].variables.includes(variableName)) {
+            triggers[triggerKey].variables.push(variableName);
             newContentWithReplacedVars = newContentWithReplacedVars.replace(
               variable,
               `[[${variableName}]]`
@@ -81,15 +82,15 @@ function parseMarkdown(markdownText) {
               .replace(']]', '')
               .split('|')
               .map((choice) => choice.trim());
-            currentTrigger.choices[variableName] = choices;
+            triggers[triggerKey].choices[variableName] = choices;
           }
         });
       }
-      currentTrigger.form = newContentWithReplacedVars;
+      triggers[triggerKey].form = newContentWithReplacedVars;
     }
   }
 
-  return espansoConfig;
+  return Object.values(triggers);
 }
 
 module.exports = parseMarkdown;

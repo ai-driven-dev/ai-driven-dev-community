@@ -56,4 +56,33 @@ I am a senior software engineer on JavaScript but I prefer to use TypeScript.
       },
     ]);
   });
+
+  it('should accept trigger headings ending with (WIP)', () => {
+    const markdownText = `
+### Help me thinking \`:codeCodingHelpThinking\`
+
+\`\`\`text
+I need you to help me think about the best way to implement this new functionality:
+[[new functionality]]
+
+Please provide the best coding steps regarding my existing code.
+\`\`\`
+
+### Improve code readability \`:codeCodingImproveReadability\` (WIP 🚧)
+
+\`\`\`text
+I need you to improve the readability of the following code.
+
+Result should remain the same, but the code should be easier to read and understand.
+\`\`\`
+
+### Give me an example of the usage of this function \`:codeCodingProvideExampleUsage\` (WIP 🚧)
+
+\`\`\`text
+Provide an example of the usage of this function, input and output.
+\`\`\`
+`;
+    expect(parseMarkdown(markdownText)).toMatchSnapshot();
+  });
 });
+
