@@ -17,7 +17,6 @@ That way, every times you will use the AI, it will remember your preferences and
 - [🧭 Part 2: LLM instructions guidance `:llmInstructionsGuide`](#-part-2-llm-instructions-guidance-llminstructionsguide)
 - [✍️ Prompts](#️-prompts)
   - [Ask for codebase / knowledge base `:llmPromptAskCodebase`](#ask-for-codebase--knowledge-base-llmpromptaskcodebase)
-  - [Search in RAG knowledge base `:instructRAGKnowledgeBase`](#search-in-rag-knowledge-base-instructragknowledgebase)
 
 ## 📄 Documents list to make your AI learn your project better
 
@@ -28,14 +27,17 @@ Please upload to the AI the following instructions to contextualize the project.
 | Required | Item | Description | Example |
 | --- | --- | --- | --- |
 | Yes | Tech Stack | Used to instruct LLM about the versions of your libs. | `package.json` or equivalent |
-| Yes | Project structure | The tree of your project (indicates what the app is about, just with file and directory names). | ```bash echo "# Project structure in project-structure.txt file:\n" \| tee "project-structure.txt"  && tree -I "node_modules\|docs" >> project-structure.txt``` |
+| Yes | Project structure | The tree of your project (indicates what the app is about, just with file and directory names). | Result of [Command to generate the project structure](#command-to-generate-the-project-structure-llmprojectstructuregenerate) |
 | Yes | Technical documentation | The whole architected project classes, functions | `typedoc` with markdown extract as `documentation.md` ([example](https://github.com/alexsoyes/weekly-ai-tips/blob/main/package.json#L9)) |
 | No | Mockups or Pages Design | UI exported as `.pdf` with optimized size |  Use PDF optimization prompt `:variousOptimizePDF` from this repo  |
 
 ### 📦 Command to generate the project structure `:llmProjectStructureGenerate`
 
 ```bash
-echo "# Project structure in project-structure.txt file:\n" | tee "project-structure.txt"  && tree -I "node_modules|docs" >> project-structure.txt
+CURRENT_DIR=$(basename "$(pwd)")
+FILE_NAME_STRUCTURE="project-structure-${CURRENT_DIR}.txt"
+
+echo -e "Project structure for $CURRENT_DIR directory\n" | tee "$FILE_NAME_STRUCTURE" && tree -I "node_modules|docs" >> "$FILE_NAME_STRUCTURE"
 ```
 
 ### 🗃️ Command to optimize HUGE PDFs with ghostscript `:llmPDFOptimize`
@@ -91,13 +93,7 @@ Custom GPTs have for example the ability to be filled with documents as RAGs.
 ### Ask for codebase / knowledge base `:llmPromptAskCodebase`
 
 ```text
-Open the documentation.md file in the knowledge base, then:
+Look for that information in your knowledge base to provide the best answer.
 
 [[Your prompt]]
-```
-
-### Search in RAG knowledge base `:instructRAGKnowledgeBase`
-
-```text
-Search your knowledge to find: [[what you are looking for]].
 ```

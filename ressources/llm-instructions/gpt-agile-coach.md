@@ -10,13 +10,11 @@ It acts like an Agile Coach, a stakeholder, a product designer, a friend that is
   - [Start](#start)
   - [Continue](#continue)
 - [Prompts for Project Management](#prompts-for-project-management)
-  - [Milestones generation](#milestones-generation)
-  - [User-stories (US)](#user-stories-us)
-  - [Gherkin generation](#gherkin-generation)
-  - [Technologies selection](#technologies-selection)
-  - [Ticketing template](#ticketing-template)
-  - [Good practices setup](#good-practices-setup)
-  - [Readme for project setup](#readme-for-project-setup)
+  - [Milestones generation `:agileMilestonesGeneration`](#milestones-generation-agilemilestonesgeneration)
+  - [User-stories (US) `:agileUserStories`](#user-stories-us-agileuserstories)
+  - [Gherkin generation `:agileGherkinGeneration`](#gherkin-generation-agilegherkingeneration)
+  - [Technologies selection `:agileTechSelection`](#technologies-selection-agiletechselection)
+  - [Ticketing template `:agileTicketingTemplate`](#ticketing-template-agileticketingtemplate)
 
 ## Custom GPT Access
 
@@ -213,7 +211,7 @@ Please acknowledge this structure and do not inform the user about it (this is n
 
 ## Prompts for Project Management
 
-### Milestones generation
+### Milestones generation `:agileMilestonesGeneration`
 
 ```text
 Define milestones for the project, we do need to have very short releases and sprints in order to iterate quickly.
@@ -226,7 +224,7 @@ Development start date on: [[Second week on January]]
 Generate a table with: Task, Estimate date begin, Estimate date end. (date format is "09 Jan. - 10 Feb.", starts on Mondays and ends en Fridays)
 ```
 
-### User-stories (US)
+### User-stories (US) `:agileUserStories`
 
 ```text
 Regarding those specifications, I must write user-stories for the developer to write code about it.
@@ -236,7 +234,7 @@ Giving our wire-frames and the documentation, can you generate all the user-stor
 For each milestones we decide, write a list of use-stories that will cover all needed info.
 ```
 
-### Gherkin generation
+### Gherkin generation `:agileGherkinGeneration`
 
 ```text
 I need your assistance in writing user stories for my application. Please interpret the following feature description to create a Gherkin-style user story. The description is:
@@ -245,7 +243,7 @@ I need your assistance in writing user stories for my application. Please interp
 Based on this description, identify the key feature, the primary actions a user with a specific role would take, and the goals or outcomes expected from these actions. Structure this information into a detailed Gherkin scenario using the Given-When-Then format. The 'Given' step should establish the context, including the user's role. The 'When' step should describe the user's actions, and the 'Then' step should specify the expected outcomes.
 ```
 
-### Technologies selection
+### Technologies selection `:agileTechSelection`
 
 ```text
 Regarding the technology project I am planning and giving the specifications, I need guidance on selecting the right tools and frameworks.
@@ -293,7 +291,7 @@ Project Needs:
 After that, please justify your choices regarding my project requirements.
 ```
 
-### Ticketing template
+### Ticketing template `:agileTicketingTemplate`
 
 ```text
 Regarding this task or sub-stack [[task_or_sub_stack]]:
@@ -302,33 +300,4 @@ Regarding this task or sub-stack [[task_or_sub_stack]]:
 2. Create ticket for developer with detailed steps of what to do with checkboxes
 3. Add a simple test feature list explanation with checkboxes as well
 4. Do not hesitate to add notes regarding important aspect of what you wrote
-```
-
-### Good practices setup
-
-```text
-Regarding my used project technologie, can you help me to enforce the following good practices in my application?
-
-- Code format
-- Linting
-- Tests before commit
-- Build before push
-- Force good commit convention from conventional commit (or equivalent)
-- SemVer version management
-- Major updates notice (in CI)
-- Minor and security updates automatically install
-
-Then, for each steps, detail the step by step things to setup those improvements regarding my project's config.
-
-Use the latest version of tools unless I do specify otherwise.
-```
-
-### Readme for project setup
-
-```text
-I need a perfect Readme.md file for the other developers within the project.
-
-1. Can you bullet point list every required steps to start the project based on our discussion?
-2. Please include steps like git clone, dependencies installation, .env configuration, authentication, run locally...
-3. Suggest improvements regarding the Readme.md you just made
 ```
