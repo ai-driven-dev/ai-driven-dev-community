@@ -37,6 +37,8 @@ matches:
       Important rules:
       - Do not change the logic of the code.
       - Input and output of the code should remain the same.
+  - trigger: ':codeTestingCreateNewUnitTests'
+    form: ''
   - trigger: ':codeTestingFixFailedTest'
     form: |
       The test output the following error (surrounded by "---" delimiters): 
@@ -124,10 +126,12 @@ matches:
       - Do not generate code or command line instructions, focus on precise steps to achieve the outcome.
       - It should include epics, user stories with acceptance criteria, sub-tasks.
 
-      Requested Feature:
+      Requested Feature (delimited by "---"):
+      ---
       [[feature_to_build_be_as_detailed_as_possible]]
+      ---
 
-      [[project_and_lib_setup_have_already_been_done_____project_and_lib_setup_might_not_have_been_done]]
+      [[project_and_lib_setup_have_already_been_done_____project_and_lib_setup_might_not_have_been_done]].
 
       Here is a styled markdown template example you can inspire yourself with (surrounded by "---" delimiter):
       ---
@@ -424,6 +428,51 @@ matches:
     form_fields:
       acceptance_criteria:
         multiline: true
+  - trigger: ':instructTestingListFunctionalTests'
+    form: |
+      I need you to act as a test engineer and generate a unit test prompt for my feature (surrounded by "---" delimiters):
+
+      """
+      [[functional_requirement]]
+      """
+
+      You need to generate a very concise unit test prompt for an AI that will write the unit test code.
+
+      If necessary, use those unit testing techniques:
+
+      Mocking, Stubbing, Spying, Faking, Dependency Injection, Test Parameterization, Isolation (Sandboxing)
+    form_fields:
+      functional_requirement:
+        multiline: true
+  - trigger: ':instructSetupGoodPractices'
+    form: |
+      Regarding my used project technologie, can you help me to enforce the following good practices in my application?
+
+      - Code format
+      - Linting
+      - Tests before commit
+      - Build before push
+      - Force good commit convention from conventional commit (or equivalent)
+      - SemVer version management
+      - Major updates notice (in CI)
+      - Minor and security updates automatically install
+
+      Then, for each steps, detail the step by step things to setup those improvements regarding my project's config.
+
+      Use the latest version of tools unless I do specify otherwise.
+  - trigger: ':instructReadmeProjectSetup'
+    form: |
+      I need a perfect Readme.md file for the other developers within the project.
+
+      1. Can you bullet point list every required steps to start the project based on our discussion?
+      2. Please include steps like git clone, dependencies installation, .env configuration, authentication, run locally...
+      3. Suggest improvements regarding the Readme.md you just made
+  - trigger: ':instructSetupNewLib'
+    form: |
+      Regarding my project stack, help me setup "[[lib_to_setup]]” for my current project.
+    form_fields:
+      lib_to_setup:
+        multiline: true
 
   - trigger: ':variousLinkedInProfileOptimization'
     form: |
@@ -437,20 +486,8 @@ matches:
       J'aimerais faire le parallèle entre "avant l'IA" où les développeurs n'avaient pas d'autocomplétion précises ni de génération de code etc, et maintenant, "après ia", où l'IA nous aide énormément à coder plus vite et mieux.
       Le but est de montrer que pour les développeurs, nous sommes bien mieux à utiliser l'IA au quotidien pour développer.
 
-      Voici les éléments déjà identifiés:
-
-      Avant IA:
-      [[liste_des_lments_avant_ia]]
-
-      Après IA:
-      [[liste_des_lments_aprs_ia]]
-
-      Merci de reformuler ces éléments pour les rendre plus percutants et de rajouter des éléments qui n'existent pas déjà.
-    form_fields:
-      liste_des_lments_avant_ia:
-        multiline: true
-      liste_des_lments_aprs_ia:
-        multiline: true
+      Sous forme de liste à puce, liste nos problèmes sans IA.
+      Sous forme de liste à puce, liste les bénéfices / avantages de l'IA.
   - trigger: ':variousCriticizeAnswer'
     form: |
       Merci, peux-tu faire l'autocritique de ta réponse ?

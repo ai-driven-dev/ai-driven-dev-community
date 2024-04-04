@@ -9,7 +9,8 @@ Related to code interaction (eg: with Copilot).
   - [Detect code inconsistencies `:codeCodingDetectInconsistencies`](#detect-code-inconsistencies-codecodingdetectinconsistencies)
 - [🔥 Performance](#-performance)
   - [Improve code performance `:codePerformanceImprove`](#improve-code-performance-codeperformanceimprove)
-- [🧪 Testing (WIP)](#-testing-wip)
+- [🧪 Testing](#-testing)
+  - [Create new unit tests `:codeTestingCreateNewUnitTests`](#create-new-unit-tests-codetestingcreatenewunittests)
   - [Fixing code from test results `:codeTestingFixFailedTest`](#fixing-code-from-test-results-codetestingfixfailedtest)
   - [Generate fake testing data `:codeTestingGenerateFakeData`](#generate-fake-testing-data-codetestinggeneratefakedata)
   - [Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature`](#generate-unit-tests-from-a-feature-request-codetestinggeneratefromfeature)
@@ -72,7 +73,12 @@ Important rules:
 - Input and output of the code should remain the same.
 ```
 
-## 🧪 Testing (WIP)
+## 🧪 Testing
+
+### Create new unit tests `:codeTestingCreateNewUnitTests`
+
+```text
+```
 
 ### Fixing code from test results `:codeTestingFixFailedTest`
 

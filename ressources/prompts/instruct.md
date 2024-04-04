@@ -10,9 +10,9 @@ Drive AI to help you in your daily dev tasks.
   - [Create coding steps from development steps `:instructFeatureCreateCodingSteps`](#create-coding-steps-from-development-steps-instructfeaturecreatecodingsteps)
 - [👌 Existing features](#-existing-features)
   - [Acknowledge specs and code from specification from your feature `:instructExistingFeatureAcknowledgements`](#acknowledge-specs-and-code-from-specification-from-your-feature-instructexistingfeatureacknowledgements)
-  - [Give me output example based on your understandings `:instructExistingFeatureOutputExample` WIP](#give-me-output-example-based-on-your-understandings-instructexistingfeatureoutputexample-wip)
+  - [Give me output example based on your understandings `:instructExistingFeatureOutputExample`](#give-me-output-example-based-on-your-understandings-instructexistingfeatureoutputexample)
   - [Answer LLM's questions about your feature (if needed) `:instructExistingFeatureIterate`](#answer-llms-questions-about-your-feature-if-needed-instructexistingfeatureiterate)
-- [� Documentation](#-documentation)
+- [📄 Documentation](#-documentation)
   - [Search in the documentation from URL `:instructDocSearchURL`](#search-in-the-documentation-from-url-instructdocsearchurl)
 - [🏞️ Image](#️-image)
   - [Extract details from image `:instructImageDetail`](#extract-details-from-image-instructimagedetail)
@@ -32,6 +32,8 @@ Drive AI to help you in your daily dev tasks.
   - [Review project files structures `:instructStructureReviewFilesAndDirectories`](#review-project-files-structures-instructstructurereviewfilesanddirectories)
 - [🧪 Testing](#-testing)
   - [Acceptance Criteria as Gherkin `:instructTestingConvertAcceptanceCriteriaIntoGherkin`](#acceptance-criteria-as-gherkin-instructtestingconvertacceptancecriteriaintogherkin)
+  - [Functional tests listing from user-stories `:instructTestingListFunctionalTests`](#functional-tests-listing-from-user-stories-instructtestinglistfunctionaltests)
+  - [Unit test prompt generation `:instructTestingGenerateUnitTestPrompt`](#unit-test-prompt-generation-instructtestinggenerateunittestprompt)
 
 ## 🆕 Create new features
 
@@ -47,10 +49,12 @@ Rules:
 - Do not generate code or command line instructions, focus on precise steps to achieve the outcome.
 - It should include epics, user stories with acceptance criteria, sub-tasks.
 
-Requested Feature:
+Requested Feature (delimited by "---"):
+---
 [[Feature to build, be as detailed as possible]]
+---
 
-[[Project and lib setup have already been done | Project and lib setup might not have been done]]
+[[Project and lib setup have already been done | Project and lib setup might not have been done]].
 
 Here is a styled markdown template example you can inspire yourself with (surrounded by "---" delimiter):
 ---
@@ -128,7 +132,7 @@ Ask anything you need to know, like existing code, libraries, mockups available,
 ---
 ```
 
-### Give me output example based on your understandings `:instructExistingFeatureOutputExample` WIP
+### Give me output example based on your understandings `:instructExistingFeatureOutputExample`
 
 ```text
 Give me an output example based on your understandings, with required inputs and the expected output.
@@ -383,4 +387,79 @@ Transforms some acceptance criteria into Gherkin syntax.
 From this acceptance criteria, can you transform it into Gherkin syntax?
 
 [[Acceptance criteria]]
+```
+
+### Functional tests listing from user-stories `:instructTestingListFunctionalTests`
+
+**Description**:
+
+List functional tests for a feature based on a user-story.
+
+The idea is to have an exhaustive list of tests to be done.
+
+**Prompt**:
+
+```text
+From our user-story, I need you to list all the functional tests that we need to do. 
+```
+
+### Unit test prompt generation `:instructTestingGenerateUnitTestPrompt` (WIP 🚧)
+
+**Description**:
+
+Based on a functional requirement, generate a unit test prompt for our coding AI.
+
+Before testing the function, we need to make sure first that we are using the good technique.
+
+**Prompt**:
+
+```text
+I need you to act as a test engineer and generate a unit test prompt for my feature (surrounded by "---" delimiters):
+
+"""
+[[Functional requirement]]
+"""
+
+You need to generate a very concise unit test prompt for an AI that will write the unit test code.
+
+If necessary, use those unit testing techniques:
+
+Mocking, Stubbing, Spying, Faking, Dependency Injection, Test Parameterization, Isolation (Sandboxing)
+```
+
+## 🛠️ Project setup
+
+### Good practices setup `:instructSetupGoodPractices`
+
+```text
+Regarding my used project technologie, can you help me to enforce the following good practices in my application?
+
+- Code format
+- Linting
+- Tests before commit
+- Build before push
+- Force good commit convention from conventional commit (or equivalent)
+- SemVer version management
+- Major updates notice (in CI)
+- Minor and security updates automatically install
+
+Then, for each steps, detail the step by step things to setup those improvements regarding my project's config.
+
+Use the latest version of tools unless I do specify otherwise.
+```
+
+### Readme for project setup `:instructReadmeProjectSetup`
+
+```text
+I need a perfect Readme.md file for the other developers within the project.
+
+1. Can you bullet point list every required steps to start the project based on our discussion?
+2. Please include steps like git clone, dependencies installation, .env configuration, authentication, run locally...
+3. Suggest improvements regarding the Readme.md you just made
+```
+
+### New lib setup `:instructSetupNewLib`
+
+```text
+Regarding my project stack, help me setup "[[lib to setup]]” for my current project.
 ```
