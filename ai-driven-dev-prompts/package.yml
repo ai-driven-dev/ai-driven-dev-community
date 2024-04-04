@@ -430,6 +430,9 @@ matches:
         multiline: true
   - trigger: ':instructTestingListFunctionalTests'
     form: |
+      From our user-story, I need you to list all the functional tests that we need to do. 
+  - trigger: ':instructTestingGenerateUnitTestPrompt'
+    form: |
       I need you to act as a test engineer and generate a unit test prompt for my feature (surrounded by "---" delimiters):
 
       """
