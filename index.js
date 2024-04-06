@@ -11,6 +11,7 @@ const espansoConfigPath = `${process.env.HOME}/Library/Application Support/espan
 // @todo use fs to create the directory if it does not exist
 if (!fs.existsSync(espansoConfigPath)) {
   fs.mkdirSync(espansoConfigPath, { recursive: true });
+  console.log('✅ Created espansoConfigPath directory');
 }
 
 const PRIVATE_PROMPTS = ['./prompts/private/*'];
@@ -27,11 +28,13 @@ fs.writeFileSync(
   './ai-driven-dev-prompts/package.yml',
   getPromptsContentForEspanso(PUBLIC_PROMPTS)
 );
+console.log('✅ Generated package.yml for public prompts');
 
 fs.writeFileSync(
   `${espansoConfigPath}/package.yml`,
   getPromptsContentForEspanso(PRIVATE_PROMPTS)
 );
+console.log('✅ Generated package.yml for private prompts');
 
 fs.writeFileSync(
   `${espansoConfigPath}/_manifest.yml`,
@@ -42,8 +45,10 @@ version: 0.1.0
 author: alexsoyes ()
 website: https://github.com/alexsoyes/ai-driven-dev-community`
 );
+console.log('✅ Generated _manifest.yml');
 
 fs.writeFileSync(`${espansoConfigPath}/README.md`, `Your custom prompts!`);
+console.log('✅ Generated README.md');
 
 /**
  *

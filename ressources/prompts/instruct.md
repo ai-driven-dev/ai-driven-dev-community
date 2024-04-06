@@ -33,7 +33,11 @@ Drive AI to help you in your daily dev tasks.
 - [🧪 Testing](#-testing)
   - [Acceptance Criteria as Gherkin `:instructTestingConvertAcceptanceCriteriaIntoGherkin`](#acceptance-criteria-as-gherkin-instructtestingconvertacceptancecriteriaintogherkin)
   - [Functional tests listing from user-stories `:instructTestingListFunctionalTests`](#functional-tests-listing-from-user-stories-instructtestinglistfunctionaltests)
-  - [Unit test prompt generation `:instructTestingGenerateUnitTestPrompt`](#unit-test-prompt-generation-instructtestinggenerateunittestprompt)
+  - [Unit test prompt generation `:instructTestingGenerateUnitTestPrompt` (WIP 🚧)](#unit-test-prompt-generation-instructtestinggenerateunittestprompt-wip-)
+- [🛠️ Project setup](#️-project-setup)
+  - [Good practices setup `:instructSetupGoodPractices`](#good-practices-setup-instructsetupgoodpractices)
+  - [Readme for project setup `:instructReadmeProjectSetup`](#readme-for-project-setup-instructreadmeprojectsetup)
+  - [New lib setup `:instructSetupNewLib`](#new-lib-setup-instructsetupnewlib)
 
 ## 🆕 Create new features
 
@@ -44,6 +48,7 @@ Goal:
 Generate a concise but full breakdown of this feature for our project.
 
 Rules:
+- Look for that information in your knowledge base to provide the best answer.
 - If user-story is too big, group features the more you can.
 - You MUST provide every required steps, do not forget anything.
 - Do not generate code or command line instructions, focus on precise steps to achieve the outcome.
@@ -80,6 +85,8 @@ Here is a styled markdown template example you can inspire yourself with (surrou
 
 Ask the LLM to generate fully detailed ticket based on the user stories for an individual sub-task.
 
+> ⚠️ For best result you MUST re-upload `documentation.md` before using this prompt.
+
 ```text
 Given the coding task detailed below:
 
@@ -92,7 +99,7 @@ Given the coding task detailed below:
 2. Concentrate solely on the task at hand.
 3. Identify any potential missing sub-tasks.
 4. Reformulate tasks in one line.
-5. Remind the project structure from you knowledge.
+5. Look for that information in your `documentation.md` file in your knowledge base to provide the best answer.
 6. Provide one-line action steps, specifying new or existing file paths without generating code.
 ```
 
