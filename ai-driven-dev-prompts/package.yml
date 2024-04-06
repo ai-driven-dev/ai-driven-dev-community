@@ -2,6 +2,24 @@
 preserve_clipboard: false
 
 matches:
+  - trigger: ':codeConvertType'
+    form: |
+      You goal is to code a convert function to transform a type into another.
+
+      Type to convert is:
+      [[type_to_convert_or_path]]
+
+      Type to convert into is:
+      [[type_to_convert_into_or_path]]
+
+      For each property of the type to convert, find the corresponding property in the type to convert into.
+
+      Please provide the following code.
+    form_fields:
+      type_to_convert_or_path:
+        multiline: true
+      type_to_convert_into_or_path:
+        multiline: true
   - trigger: ':codeCodingHelpThinking'
     form: |
       I need you to help me think about the best way to implement this new functionality:
@@ -19,11 +37,17 @@ matches:
   - trigger: ':codeCodingProvideExampleUsage'
     form: |
       Provide an example of the usage of this function, input and output.
-  - trigger: ':codeCodingDetectInconsistencies'
+  - trigger: ':bugCodeDetectInconsistencies'
     form: |
       I need you to detect inconsistencies in the code.
 
       Check for variable names, function names, and other inconsistencies in the code.
+  - trigger: ':codeDebugAddErrorLogging'
+    form: |
+      Add logging to debug errors.
+  - trigger: ':codeDebugAddLoggingEmojis'
+    form: |
+      Add beautiful logging steps with emojis.
   - trigger: ':codePerformanceImprove'
     form: |
       I need you to improve the performance of the following code.
@@ -121,6 +145,7 @@ matches:
       Generate a concise but full breakdown of this feature for our project.
 
       Rules:
+      - Look for that information in your knowledge base to provide the best answer.
       - If user-story is too big, group features the more you can.
       - You MUST provide every required steps, do not forget anything.
       - Do not generate code or command line instructions, focus on precise steps to achieve the outcome.
@@ -172,7 +197,7 @@ matches:
       2. Concentrate solely on the task at hand.
       3. Identify any potential missing sub-tasks.
       4. Reformulate tasks in one line.
-      5. Remind the project structure from you knowledge.
+      5. Look for that information in your `documentation.md` file in your knowledge base to provide the best answer.
       6. Provide one-line action steps, specifying new or existing file paths without generating code.
     form_fields:
       sub_task_full_description:

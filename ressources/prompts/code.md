@@ -6,7 +6,10 @@ Related to code interaction (eg: with Copilot).
   - [Help me thinking `:codeCodingHelpThinking`](#help-me-thinking-codecodinghelpthinking)
   - [Improve code readability `:codeCodingImproveReadability` (WIP 🚧)](#improve-code-readability-codecodingimprovereadability-wip-)
   - [Give me an example of the usage of this function `:codeCodingProvideExampleUsage` (WIP 🚧)](#give-me-an-example-of-the-usage-of-this-function-codecodingprovideexampleusage-wip-)
-  - [Detect code inconsistencies `:codeCodingDetectInconsistencies`](#detect-code-inconsistencies-codecodingdetectinconsistencies)
+- [🐛 Bug](#-bug)
+  - [Detect code inconsistencies `:bugCodeDetectInconsistencies`](#detect-code-inconsistencies-bugcodedetectinconsistencies)
+- [🔫 Debug](#-debug)
+  - [Add logging to debug error `:codeDebugAddLogging`](#add-logging-to-debug-error-codedebugaddlogging)
 - [🔥 Performance](#-performance)
   - [Improve code performance `:codePerformanceImprove`](#improve-code-performance-codeperformanceimprove)
 - [🧪 Testing](#-testing)
@@ -23,6 +26,38 @@ Related to code interaction (eg: with Copilot).
   - [Comment the code to make the hard part easier `:codeCommentsCommentHardParts`](#comment-the-code-to-make-the-hard-part-easier-codecommentscommenthardparts)
 
 ## 🧑‍💻 Code
+
+### Convert type into another type `:codeConvertType`
+
+**Description**:
+
+Convert a type into another type.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                  |
+|-------------------------|----------------------------------------------------------|
+| 🔁 **Follow-up prompt** | None                                                     |
+| 🗂️ **Requirements**     | None                                                     |
+| 🔍 **Context**          | None                                                     |
+| 📌 **Annotations**      | Optional `@workspace` if you decide to convert from paths|
+| ✅ **Variables needed** | Yes                                                      |
+
+**Prompt**:
+
+```text
+You goal is to code a convert function to transform a type into another.
+
+Type to convert is:
+[[Type to convert or path]]
+
+Type to convert into is:
+[[Type to convert into or path]]
+
+For each property of the type to convert, find the corresponding property in the type to convert into.
+
+Please provide the following code.
+```
 
 ### Help me thinking `:codeCodingHelpThinking`
 
@@ -47,12 +82,28 @@ Result should remain the same, but the code should be easier to read and underst
 Provide an example of the usage of this function, input and output.
 ```
 
-### Detect code inconsistencies `:codeCodingDetectInconsistencies`
+## 🐛 Bug
+
+### Detect code inconsistencies `:bugCodeDetectInconsistencies`
 
 ```text
 I need you to detect inconsistencies in the code.
 
 Check for variable names, function names, and other inconsistencies in the code.
+```
+
+## 🔫 Debug
+
+### Add logging to debug error `:codeDebugAddErrorLogging`
+
+```text
+Add logging to debug errors.
+```
+
+### Add logging with emojis `:codeDebugAddLoggingEmojis`
+
+```text
+Add beautiful logging steps with emojis.
 ```
 
 ## 🔥 Performance
