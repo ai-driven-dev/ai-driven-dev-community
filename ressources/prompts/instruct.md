@@ -396,7 +396,7 @@ From this acceptance criteria, can you transform it into Gherkin syntax?
 [[Acceptance criteria]]
 ```
 
-### Functional tests listing from user-stories `:instructTestingListFunctionalTests`
+### List test cases from user-stories `:instructTestingListTestCases`
 
 **Description**:
 
@@ -407,7 +407,15 @@ The idea is to have an exhaustive list of tests to be done.
 **Prompt**:
 
 ```text
-From our user-story, I need you to list all the functional tests that we need to do. 
+From those specifications (surrounded by --- delimiter):
+
+---
+[[User-story]]
+---
+
+List all the functional tests that we need, grouped by section, in a bullet list with small sentences.
+
+[[Do not test UI, only the logic | Test the UI if needed | Test the UI and the logic]]
 ```
 
 ### Unit test prompt generation `:instructTestingGenerateUnitTestPrompt` (WIP 🚧)
