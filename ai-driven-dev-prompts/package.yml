@@ -67,6 +67,21 @@ matches:
       Important rules:
       - Do not change the logic of the code.
       - Input and output of the code should remain the same.
+  - trigger: ':codeTestingCreateTestStructure'
+    form: |
+      @workspace Generate testing structure only using libs from "[[packagejson_____composerjson]]" file for those specs:
+
+      ---
+      [[test_cases]]
+      ---
+    form_fields:
+      test_cases:
+        multiline: true
+      packagejson_____composerjson:
+        type: choice
+        values: |-
+          package.json
+          composer.json
   - trigger: ':codeTestingSetupStructure'
     form: |
       @workspace Create a new unit test structure for 

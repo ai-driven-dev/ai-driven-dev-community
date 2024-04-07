@@ -151,6 +151,22 @@ Important rules:
 
 ## 🧪 Testing
 
+### Create test structure from test cases `:codeTestingCreateTestStructure`
+
+**Description:**
+
+Create a test structure from test cases.
+
+**Prompt**:
+
+```text
+@workspace Generate testing structure only using libs from "[[package.json | composer.json]]" file for those specs:
+
+---
+[[Test cases]]
+---
+```
+
 ### Create new unit tests `:codeTestingSetupStructure`
 
 **Description:**
