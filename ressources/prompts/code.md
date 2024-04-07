@@ -3,13 +3,16 @@
 Related to code interaction (eg: with Copilot).
 
 - [🧑‍💻 Code](#-code)
+  - [Base on file, create a new file `:codeCreateNewFile`](#base-on-file-create-a-new-file-codecreatenewfile)
+  - [Convert type into another type `:codeConvertType`](#convert-type-into-another-type-codeconverttype)
   - [Help me thinking `:codeCodingHelpThinking`](#help-me-thinking-codecodinghelpthinking)
   - [Improve code readability `:codeCodingImproveReadability` (WIP 🚧)](#improve-code-readability-codecodingimprovereadability-wip-)
   - [Give me an example of the usage of this function `:codeCodingProvideExampleUsage` (WIP 🚧)](#give-me-an-example-of-the-usage-of-this-function-codecodingprovideexampleusage-wip-)
 - [🐛 Bug](#-bug)
   - [Detect code inconsistencies `:bugCodeDetectInconsistencies`](#detect-code-inconsistencies-bugcodedetectinconsistencies)
 - [🔫 Debug](#-debug)
-  - [Add logging to debug error `:codeDebugAddLogging`](#add-logging-to-debug-error-codedebugaddlogging)
+  - [Add logging to debug error `:codeDebugAddErrorLogging`](#add-logging-to-debug-error-codedebugadderrorlogging)
+  - [Add logging with emojis `:codeDebugAddLoggingEmojis`](#add-logging-with-emojis-codedebugaddloggingemojis)
 - [🔥 Performance](#-performance)
   - [Improve code performance `:codePerformanceImprove`](#improve-code-performance-codeperformanceimprove)
 - [🧪 Testing](#-testing)
@@ -26,6 +29,28 @@ Related to code interaction (eg: with Copilot).
   - [Comment the code to make the hard part easier `:codeCommentsCommentHardParts`](#comment-the-code-to-make-the-hard-part-easier-codecommentscommenthardparts)
 
 ## 🧑‍💻 Code
+
+### Merge file with almost same content `:codeMergeFileWithAlmostSameContent`
+
+**Description**:
+
+Merge two files with almost the same content.
+
+**Prompt**:
+
+```text
+@workspace Based on those two file names "[[filename 1]]" and "[[filename 2]]", merge logic to reduce code duplication.
+```
+
+### Base on file, create a new file `:codeCreateNewFile`
+
+**Description**:
+
+Create a new file based on a current file.
+
+```text
+@workspace base of "[[source file]]" file, create a similar "[[destination file]]" file structure, adapting the content to the new file.
+```
 
 ### Convert type into another type `:codeConvertType`
 
@@ -126,9 +151,19 @@ Important rules:
 
 ## 🧪 Testing
 
-### Create new unit tests `:codeTestingCreateNewUnitTests`
+### Create new unit tests `:codeTestingSetupStructure`
+
+**Description:**
+
+Create a new unit test structure for a function.
+
+- Pre-fill test scenarios from the test cases.
+- Use `Mock`, `Stub`, `Spy`, `Fake` or `Test Parameters` if needed.
+
+**Prompt**:
 
 ```text
+@workspace Create a new unit test structure for 
 ```
 
 ### Fixing code from test results `:codeTestingFixFailedTest`

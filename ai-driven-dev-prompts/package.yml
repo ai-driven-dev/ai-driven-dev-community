@@ -2,6 +2,12 @@
 preserve_clipboard: false
 
 matches:
+  - trigger: ':codeMergeFileWithAlmostSameContent'
+    form: |
+      @workspace Based on those two file names "[[filename_1]]" and "[[filename_2]]", merge logic to reduce code duplication.
+  - trigger: ':codeCreateNewFile'
+    form: |
+      @workspace base of "[[source_file]]" file, create a similar "[[destination_file]]" file structure, adapting the content to the new file.
   - trigger: ':codeConvertType'
     form: |
       You goal is to code a convert function to transform a type into another.
@@ -61,8 +67,9 @@ matches:
       Important rules:
       - Do not change the logic of the code.
       - Input and output of the code should remain the same.
-  - trigger: ':codeTestingCreateNewUnitTests'
-    form: ''
+  - trigger: ':codeTestingSetupStructure'
+    form: |
+      @workspace Create a new unit test structure for 
   - trigger: ':codeTestingFixFailedTest'
     form: |
       The test output the following error (surrounded by "---" delimiters): 
@@ -453,9 +460,26 @@ matches:
     form_fields:
       acceptance_criteria:
         multiline: true
-  - trigger: ':instructTestingListFunctionalTests'
+  - trigger: ':instructTestingListTestCases'
     form: |
-      From our user-story, I need you to list all the functional tests that we need to do. 
+      From those specifications (surrounded by --- delimiter):
+
+      ---
+      [[userstory]]
+      ---
+
+      List all the functional tests that we need, grouped by section, in a bullet list with small sentences.
+
+      [[do_not_test_ui_only_the_logic_____test_the_ui_if_needed_____test_the_ui_and_the_logic]]
+    form_fields:
+      userstory:
+        multiline: true
+      do_not_test_ui_only_the_logic_____test_the_ui_if_needed_____test_the_ui_and_the_logic:
+        type: choice
+        values: |-
+          Do not test UI, only the logic
+          Test the UI if needed
+          Test the UI and the logic
   - trigger: ':instructTestingGenerateUnitTestPrompt'
     form: |
       I need you to act as a test engineer and generate a unit test prompt for my feature (surrounded by "---" delimiters):
