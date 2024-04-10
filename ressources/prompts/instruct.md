@@ -31,8 +31,8 @@ Drive AI to help you in your daily dev tasks.
   - [Existing project structure acknowledgement `:instructStructureAcknowledgeProject`](#existing-project-structure-acknowledgement-instructstructureacknowledgeproject)
   - [Review project files structures `:instructStructureReviewFilesAndDirectories`](#review-project-files-structures-instructstructurereviewfilesanddirectories)
 - [🧪 Testing](#-testing)
+  - [List test cases from user-stories `:instructTestingListTestCases`](#list-test-cases-from-user-stories-instructtestinglisttestcases)
   - [Acceptance Criteria as Gherkin `:instructTestingConvertAcceptanceCriteriaIntoGherkin`](#acceptance-criteria-as-gherkin-instructtestingconvertacceptancecriteriaintogherkin)
-  - [Functional tests listing from user-stories `:instructTestingListFunctionalTests`](#functional-tests-listing-from-user-stories-instructtestinglistfunctionaltests)
   - [Unit test prompt generation `:instructTestingGenerateUnitTestPrompt` (WIP 🚧)](#unit-test-prompt-generation-instructtestinggenerateunittestprompt-wip-)
 - [🛠️ Project setup](#️-project-setup)
   - [Good practices setup `:instructSetupGoodPractices`](#good-practices-setup-instructsetupgoodpractices)
@@ -189,7 +189,7 @@ For each step, detail your explanation with the proper code.
 ```text
 Here is an image of my "[[the image you describe]]" for a feature I have to code.
 
-Identify main sections in the page.
+Identify main sections.
 
 For each section, give a detailed breakdown of the children elements.
 ```
@@ -250,8 +250,8 @@ Do nothing, just reply "ok" if you understood.
 ```text
 Match existing UI components in image section:
 
-1. Check the "documentation.md" file in the knowledge base.
-2. Locate global UI components directory from "documentation.md" in the knowledge base (containing Button, Table etc), and give the path.
+1. Check the "[[documentation.md]]" file in the knowledge base.
+2. Locate global UI components directory from "[[documentation.md]]" in the knowledge base (containing Button, Table etc), and give the path.
 3. Identify needed elements, what kind of components are they? (Title, button, paragraph, etc)
 4. Same basic elements (like paragraph, headings, links) might not required a component but rather a simple HTML tag, list them.
 5. Based on the elements that need components, check if there is a match of potential use with the existing components from global UI components dir.
@@ -262,7 +262,7 @@ Match existing UI components in image section:
 ```text
 Generate the code for this component:
 
-1. Based on project structure in "documentation.md", propose a new file path.
+1. Based on project structure in "[[documentation.md]]", propose a new file path.
 2. List existing full paths for functions, variables and UI components defined earlier to use.
 3. Create a single component (unless it is necessary to create more) with the following rules:
 - No HTML classes
@@ -276,13 +276,15 @@ Generate the code for this component:
 ### Implement image section design `:instructImageSectionImplementDesign`
 
 ```text
-Implement the design from the image section "[[section's name]]" using [[Tailwind CSS | Only CSS | Material UI]].
+Implement the design from the image section "[[section's name]]" using "[[Your stack, eg: Tailwind CSS, Only CSS, Material UI]]".
 
 1. Extract positions and sizes for each UI elements in the image, look for padding, margin, alignment, font size, etc.
 2. Update the code implementation with the design from the image following the rules below:
 - Use container, row, column, flexbox, grid, etc if needed.
 - Use only libraries listed in our project dependencies.
 - No explanation needed, only code.
+
+[[Your code if not generated from above]]
 ```
 
 ## 📀 Database
@@ -386,16 +388,6 @@ What I ask you to do is to:
 
 ## 🧪 Testing
 
-### Acceptance Criteria as Gherkin `:instructTestingConvertAcceptanceCriteriaIntoGherkin`
-
-Transforms some acceptance criteria into Gherkin syntax.
-
-```text
-From this acceptance criteria, can you transform it into Gherkin syntax?
-
-[[Acceptance criteria]]
-```
-
 ### List test cases from user-stories `:instructTestingListTestCases`
 
 **Description**:
@@ -410,12 +402,25 @@ The idea is to have an exhaustive list of tests to be done.
 From those specifications (surrounded by --- delimiter):
 
 ---
-[[User-story]]
+[[Feature to build, be as detailed as possible]]
 ---
 
-List all the functional tests that we need, grouped by section, in a bullet list with small sentences.
+You have to list test cases with the following rules:
 
-[[Do not test UI, only the logic | Test the UI if needed | Test the UI and the logic]]
+- Detect edge cases and exceptions.
+- Group by distinct sections.
+- Format with bullet list with small sentences.
+- [[Do not test UI, focus the logic only | Test the UI if needed | Test the UI and the logic]].
+```
+
+### Acceptance Criteria as Gherkin `:instructTestingConvertAcceptanceCriteriaIntoGherkin`
+
+Transforms some acceptance criteria into Gherkin syntax.
+
+```text
+From this acceptance criteria, can you transform it into Gherkin syntax?
+
+[[Acceptance criteria]]
 ```
 
 ### Unit test prompt generation `:instructTestingGenerateUnitTestPrompt` (WIP 🚧)
