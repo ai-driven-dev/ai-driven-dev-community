@@ -3,6 +3,9 @@
 Related to code interaction (eg: with Copilot).
 
 - [🧑‍💻 Code](#-code)
+  - [Change code without import `:codeChangeCodeWithoutImport`](#change-code-without-import-codechangecodewithoutimport)
+  - [Create a function from specs `:codeCreateFunctionFromSpecs`](#create-a-function-from-specs-codecreatefunctionfromspecs)
+  - [Merge file with almost same content `:codeMergeFileWithAlmostSameContent`](#merge-file-with-almost-same-content-codemergefilewithalmostsamecontent)
   - [Base on file, create a new file `:codeCreateNewFile`](#base-on-file-create-a-new-file-codecreatenewfile)
   - [Convert type into another type `:codeConvertType`](#convert-type-into-another-type-codeconverttype)
   - [Help me thinking `:codeCodingHelpThinking`](#help-me-thinking-codecodinghelpthinking)
@@ -16,11 +19,15 @@ Related to code interaction (eg: with Copilot).
 - [🔥 Performance](#-performance)
   - [Improve code performance `:codePerformanceImprove`](#improve-code-performance-codeperformanceimprove)
 - [🧪 Testing](#-testing)
-  - [Create new unit tests `:codeTestingCreateNewUnitTests`](#create-new-unit-tests-codetestingcreatenewunittests)
-  - [Fixing code from test results `:codeTestingFixFailedTest`](#fixing-code-from-test-results-codetestingfixfailedtest)
-  - [Generate fake testing data `:codeTestingGenerateFakeData`](#generate-fake-testing-data-codetestinggeneratefakedata)
-  - [Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature`](#generate-unit-tests-from-a-feature-request-codetestinggeneratefromfeature)
-- [🎯 Test-First (WIP)](#-test-first-wip)
+  - [Fill with Fake data `:codeTestingNewFakeFilledEntity`](#fill-with-fake-data-codetestingnewfakefilledentity)
+  - [Create test structure from test cases `:codeTestingCreateTestStructure`](#create-test-structure-from-test-cases-codetestingcreateteststructure)
+  - [Fill tests cases `:codeTestingFillTestCase`](#fill-tests-cases-codetestingfilltestcase)
+  - [Mock inner function calls `:codeTestingMockInnerFunctionCalls`](#mock-inner-function-calls-codetestingmockinnerfunctioncalls)
+  - [Create new unit tests `:codeTestingSetupStructure` (WIP 🚧)](#create-new-unit-tests-codetestingsetupstructure-wip-)
+  - [Generate test for a specific function `:codeTestingGenerateSkeletonTest`](#generate-test-for-a-specific-function-codetestinggenerateskeletontest)
+  - [Fixing code from test results `:codeTestingFixFailedTest` (WIP 🚧)](#fixing-code-from-test-results-codetestingfixfailedtest-wip-)
+  - [Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature` (WIP 🚧)](#generate-unit-tests-from-a-feature-request-codetestinggeneratefromfeature-wip-)
+- [🎯 Test-First](#-test-first)
   - [Rewrite function based on a test expectations `:codeTestFirstRewriteFunction`](#rewrite-function-based-on-a-test-expectations-codetestfirstrewritefunction)
   - [Function implementation based on a test `:codeTestFirstImplementFunction`](#function-implementation-based-on-a-test-codetestfirstimplementfunction)
   - [Check function implementation based on unit testings `:codeTestingCheckFunctionImplementation`](#check-function-implementation-based-on-unit-testings-codetestingcheckfunctionimplementation)
@@ -29,6 +36,37 @@ Related to code interaction (eg: with Copilot).
   - [Comment the code to make the hard part easier `:codeCommentsCommentHardParts`](#comment-the-code-to-make-the-hard-part-easier-codecommentscommenthardparts)
 
 ## 🧑‍💻 Code
+
+### Change code without import `:codeChangeCodeWithoutImport`
+
+**Description**:
+
+Sometimes some AIs like GitHub Copilot are inserting import statements aside to the code. This prompt is to avoid that.
+
+**Prompt**:
+
+```text
+Do not import, just change the code to make it work.
+```
+
+### Create a function from specs `:codeCreateFunctionFromSpecs`
+
+**Description**:
+
+Create a function from specs.
+
+**Prompt**:
+
+```text
+@workspace Based on those specs (see below), create a function that returns "[[what you want to return]]".
+
+---
+Verify that creating a tip defaults its status to "draft".
+Ensure that a draft tip cannot be voted on.
+Verify that once a tip is "scheduled", it cannot receive any more votes.
+Check that "archived" tips cannot be voted on.
+---
+```
 
 ### Merge file with almost same content `:codeMergeFileWithAlmostSameContent`
 
@@ -160,14 +198,42 @@ Create a test structure from test cases.
 **Prompt**:
 
 ```text
-@workspace Generate testing structure only using libs from "[[package.json | composer.json]]" file for those specs:
+@workspace read "[[package.json | composer.json]]" file to get testing framework.
+
+Then generate testing structure only (inner tests are commented with "Arrange", "Act", "Assert" comments) from those sentences:
 
 ---
 [[Test cases]]
 ---
 ```
 
-### Create new unit tests `:codeTestingSetupStructure`
+### Fill tests cases `:codeTestingFillTestCase`
+
+```text
+@workspace for this test, fill existing test from implementation files: "vote.ts", only test logic, do not mock or stub anything.
+
+Always arrange with valid fake data generated from object type.
+```
+
+### Fill with Fake data `:codeTestingNewFakeFilledEntity`
+
+```text
+@workspace Without importing, create a new fake filled entity for testing purposes for object "[[object name]]".
+```
+
+### Mock inner function calls `:codeTestingMockInnerFunctionCalls`
+
+**Description:**
+
+Generate code to mock inner function calls for a specific highlighted `code` or `import`.
+
+**Prompt**:
+
+```text
+@workspace Mock inner function calls for testing.
+```
+
+### Create new unit tests `:codeTestingSetupStructure` (WIP 🚧)
 
 **Description:**
 
@@ -179,10 +245,38 @@ Create a new unit test structure for a function.
 **Prompt**:
 
 ```text
-@workspace Create a new unit test structure for 
+@workspace
+
+- Use GPT-4
+- Read files content from: "vote.ts".
+- List all functions.
+- For each functions in those files, list inner function calls.
 ```
 
-### Fixing code from test results `:codeTestingFixFailedTest`
+```text
+@workspace Read files "vote.ts", then list the functions, for each function list the inner function calls (including other files).
+```
+
+### Generate test for a specific function `:codeTestingGenerateSkeletonTest`
+
+**Description:**
+
+Generate a skeleton test from input/output examples based on files.
+
+**Prompt**:
+
+```text
+@workspace Based on those specs (see below), write tests for the function "canVote":
+
+---
+Verify that creating a tip defaults its status to "draft".
+Ensure that a draft tip cannot be voted on.
+Verify that once a tip is "scheduled", it cannot receive any more votes.
+Check that "archived" tips cannot be voted on.
+---
+```
+
+### Fixing code from test results `:codeTestingFixFailedTest` (WIP 🚧)
 
 - Open the required file to fix the code.
 - Select the code to fix.
@@ -210,16 +304,7 @@ Follow those steps:
 6. Once you analyze all source code in this file, fix the issue first issue from your inconsistencies list.
 ```
 
-### Generate fake testing data `:codeTestingGenerateFakeData`
-
-- Highlight the object, type or schema you want generate fake data for
-
-```text
-Create fake data for testing purposes. The data should be in the same format as the original data, but with fake values. 
-
-```
-
-### Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature`
+### Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature` (WIP 🚧)
 
 ```text
 Based on this test and the opened files ("[[Opened file to use]]"), I need you to create unit tests to describe "[[Feature section to describe]]".
@@ -232,7 +317,7 @@ Please:
 - Continue unit tests generation for the following functions: "[[functions to test]]"
 ```
 
-## 🎯 Test-First (WIP)
+## 🎯 Test-First
 
 ### Rewrite function based on a test expectations `:codeTestFirstRewriteFunction`
 
@@ -263,11 +348,7 @@ Here is the test that should pass:
 ### Function implementation based on a test `:codeTestFirstImplementFunction`
 
 ```text
-Based on this test (surrounded by "---" delimiters), please write the function to implement in order to make the test pass.
-
----
-[[Test to implement]]
----
+Write the function to implement for "getStatus" in order to make the tests pass.
 ```
 
 ### Check function implementation based on unit testings `:codeTestingCheckFunctionImplementation`

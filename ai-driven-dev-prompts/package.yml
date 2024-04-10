@@ -2,6 +2,19 @@
 preserve_clipboard: false
 
 matches:
+  - trigger: ':codeChangeCodeWithoutImport'
+    form: |
+      Do not import, just change the code to make it work.
+  - trigger: ':codeCreateFunctionFromSpecs'
+    form: |
+      @workspace Based on those specs (see below), create a function that returns "[[what_you_want_to_return]]".
+
+      ---
+      Verify that creating a tip defaults its status to "draft".
+      Ensure that a draft tip cannot be voted on.
+      Verify that once a tip is "scheduled", it cannot receive any more votes.
+      Check that "archived" tips cannot be voted on.
+      ---
   - trigger: ':codeMergeFileWithAlmostSameContent'
     form: |
       @workspace Based on those two file names "[[filename_1]]" and "[[filename_2]]", merge logic to reduce code duplication.
@@ -69,7 +82,9 @@ matches:
       - Input and output of the code should remain the same.
   - trigger: ':codeTestingCreateTestStructure'
     form: |
-      @workspace Generate testing structure only using libs from "[[packagejson_____composerjson]]" file for those specs:
+      @workspace read "[[packagejson_____composerjson]]" file to get testing framework.
+
+      Then generate testing structure only (inner tests are commented with "Arrange", "Act", "Assert" comments) from those sentences:
 
       ---
       [[test_cases]]
@@ -82,9 +97,30 @@ matches:
         values: |-
           package.json
           composer.json
+  - trigger: ':codeTestingFillTestCase'
+    form: |
+      @workspace for this test, fill existing test from implementation files: "vote.ts", only test logic, do not mock or stub anything.
+
+      Always arrange with valid fake data generated from object type.
+  - trigger: ':codeTestingNewFakeFilledEntity'
+    form: |
+      @workspace Without importing, create a new fake filled entity for testing purposes for object "[[object_name]]".
+  - trigger: ':codeTestingMockInnerFunctionCalls'
+    form: |
+      @workspace Mock inner function calls for testing.
   - trigger: ':codeTestingSetupStructure'
     form: |
-      @workspace Create a new unit test structure for 
+      @workspace Read files "vote.ts", then list the functions, for each function list the inner function calls (including other files).
+  - trigger: ':codeTestingGenerateSkeletonTest'
+    form: |
+      @workspace Based on those specs (see below), write tests for the function "canVote":
+
+      ---
+      Verify that creating a tip defaults its status to "draft".
+      Ensure that a draft tip cannot be voted on.
+      Verify that once a tip is "scheduled", it cannot receive any more votes.
+      Check that "archived" tips cannot be voted on.
+      ---
   - trigger: ':codeTestingFixFailedTest'
     form: |
       The test output the following error (surrounded by "---" delimiters): 
@@ -109,10 +145,6 @@ matches:
     form_fields:
       test_results:
         multiline: true
-  - trigger: ':codeTestingGenerateFakeData'
-    form: |+
-      Create fake data for testing purposes. The data should be in the same format as the original data, but with fake values. 
-
   - trigger: ':codeTestingGenerateFromFeature'
     form: |
       Based on this test and the opened files ("[[opened_file_to_use]]"), I need you to create unit tests to describe "[[feature_section_to_describe]]".
@@ -139,14 +171,7 @@ matches:
         multiline: true
   - trigger: ':codeTestFirstImplementFunction'
     form: |
-      Based on this test (surrounded by "---" delimiters), please write the function to implement in order to make the test pass.
-
-      ---
-      [[test_to_implement]]
-      ---
-    form_fields:
-      test_to_implement:
-        multiline: true
+      Write the function to implement for "getStatus" in order to make the tests pass.
   - trigger: ':codeTestingCheckFunctionImplementation'
     form: |
       Check if this test is correctly implemented in the highlighted function.
@@ -301,7 +326,7 @@ matches:
     form: |
       Here is an image of my "[[the_image_you_describe]]" for a feature I have to code.
 
-      Identify main sections in the page.
+      Identify main sections.
 
       For each section, give a detailed breakdown of the children elements.
   - trigger: ':instructImageIdentifyActions'
@@ -353,8 +378,8 @@ matches:
     form: |
       Match existing UI components in image section:
 
-      1. Check the "documentation.md" file in the knowledge base.
-      2. Locate global UI components directory from "documentation.md" in the knowledge base (containing Button, Table etc), and give the path.
+      1. Check the "[[documentationmd]]" file in the knowledge base.
+      2. Locate global UI components directory from "[[documentation.md]]" in the knowledge base (containing Button, Table etc), and give the path.
       3. Identify needed elements, what kind of components are they? (Title, button, paragraph, etc)
       4. Same basic elements (like paragraph, headings, links) might not required a component but rather a simple HTML tag, list them.
       5. Based on the elements that need components, check if there is a match of potential use with the existing components from global UI components dir.
@@ -362,7 +387,7 @@ matches:
     form: |
       Generate the code for this component:
 
-      1. Based on project structure in "documentation.md", propose a new file path.
+      1. Based on project structure in "[[documentationmd]]", propose a new file path.
       2. List existing full paths for functions, variables and UI components defined earlier to use.
       3. Create a single component (unless it is necessary to create more) with the following rules:
       - No HTML classes
@@ -376,20 +401,18 @@ matches:
         multiline: true
   - trigger: ':instructImageSectionImplementDesign'
     form: |
-      Implement the design from the image section "[[sections_name]]" using [[tailwind_css_____only_css_____material_ui]].
+      Implement the design from the image section "[[sections_name]]" using "[[your_stack_eg_tailwind_css_only_css_material_ui]]".
 
       1. Extract positions and sizes for each UI elements in the image, look for padding, margin, alignment, font size, etc.
       2. Update the code implementation with the design from the image following the rules below:
       - Use container, row, column, flexbox, grid, etc if needed.
       - Use only libraries listed in our project dependencies.
       - No explanation needed, only code.
+
+      [[your_code_if_not_generated_from_above]]
     form_fields:
-      tailwind_css_____only_css_____material_ui:
-        type: choice
-        values: |-
-          Tailwind CSS
-          Only CSS
-          Material UI
+      your_code_if_not_generated_from_above:
+        multiline: true
   - trigger: ':instructDBGenerateSchema'
     form: |
       I need you to help me creating my SQL database schema.
@@ -467,6 +490,29 @@ matches:
     form_fields:
       copy_and_paste_the_project_structure_here:
         multiline: true
+  - trigger: ':instructTestingListTestCases'
+    form: |
+      From those specifications (surrounded by --- delimiter):
+
+      ---
+      [[feature_to_build_be_as_detailed_as_possible]]
+      ---
+
+      You have to list test cases with the following rules:
+
+      - Detect edge cases and exceptions.
+      - Group by distinct sections.
+      - Format with bullet list with small sentences.
+      - [[do_not_test_ui_focus_the_logic_only_____test_the_ui_if_needed_____test_the_ui_and_the_logic]].
+    form_fields:
+      feature_to_build_be_as_detailed_as_possible:
+        multiline: true
+      do_not_test_ui_focus_the_logic_only_____test_the_ui_if_needed_____test_the_ui_and_the_logic:
+        type: choice
+        values: |-
+          Do not test UI, focus the logic only
+          Test the UI if needed
+          Test the UI and the logic
   - trigger: ':instructTestingConvertAcceptanceCriteriaIntoGherkin'
     form: |
       From this acceptance criteria, can you transform it into Gherkin syntax?
@@ -475,26 +521,6 @@ matches:
     form_fields:
       acceptance_criteria:
         multiline: true
-  - trigger: ':instructTestingListTestCases'
-    form: |
-      From those specifications (surrounded by --- delimiter):
-
-      ---
-      [[userstory]]
-      ---
-
-      List all the functional tests that we need, grouped by section, in a bullet list with small sentences.
-
-      [[do_not_test_ui_only_the_logic_____test_the_ui_if_needed_____test_the_ui_and_the_logic]]
-    form_fields:
-      userstory:
-        multiline: true
-      do_not_test_ui_only_the_logic_____test_the_ui_if_needed_____test_the_ui_and_the_logic:
-        type: choice
-        values: |-
-          Do not test UI, only the logic
-          Test the UI if needed
-          Test the UI and the logic
   - trigger: ':instructTestingGenerateUnitTestPrompt'
     form: |
       I need you to act as a test engineer and generate a unit test prompt for my feature (surrounded by "---" delimiters):
