@@ -5,9 +5,10 @@ matches:
   - trigger: ':codeChangeCodeWithoutImport'
     form: |
       Do not import, just change the code to make it work.
+    force_mode: clipboard
   - trigger: ':codeCreateFunctionFromSpecs'
     form: |
-      @workspace Based on those specs (see below), create a function that returns "[[what_you_want_to_return]]".
+      Based on those specs (see below), create a function that returns "[[what_you_want_to_return]]".
 
       ---
       Verify that creating a tip defaults its status to "draft".
@@ -15,12 +16,15 @@ matches:
       Verify that once a tip is "scheduled", it cannot receive any more votes.
       Check that "archived" tips cannot be voted on.
       ---
+    force_mode: clipboard
   - trigger: ':codeMergeFileWithAlmostSameContent'
     form: |
-      @workspace Based on those two file names "[[filename_1]]" and "[[filename_2]]", merge logic to reduce code duplication.
+      Based on those two file names "[[filename_1]]" and "[[filename_2]]", merge logic to reduce code duplication.
+    force_mode: clipboard
   - trigger: ':codeCreateNewFile'
     form: |
-      @workspace base on "[[source_file]]" file, create a similar "[[destination_file]]" file structure, adapting the content to the new file.
+      Based on "[[source_file]]" file, create a similar "[[destination_file]]" file structure, adapting the content to the new file.
+    force_mode: clipboard
   - trigger: ':codeConvertType'
     form: |
       You goal is to code a convert function to transform a type into another.
@@ -34,6 +38,7 @@ matches:
       For each property of the type to convert, find the corresponding property in the type to convert into.
 
       Please provide the following code.
+    force_mode: clipboard
     form_fields:
       type_to_convert_or_path:
         multiline: true
@@ -45,6 +50,7 @@ matches:
       [[new_functionality]]
 
       Please provide the best coding steps regarding my existing code.
+    force_mode: clipboard
     form_fields:
       new_functionality:
         multiline: true
@@ -53,20 +59,25 @@ matches:
       I need you to improve the readability of the following code.
 
       Result should remain the same, but the code should be easier to read and understand.
+    force_mode: clipboard
   - trigger: ':codeCodingProvideExampleUsage'
     form: |
       Provide an example of the usage of this function, input and output.
+    force_mode: clipboard
   - trigger: ':bugCodeDetectInconsistencies'
     form: |
       I need you to detect inconsistencies in the code.
 
       Check for variable names, function names, and other inconsistencies in the code.
+    force_mode: clipboard
   - trigger: ':codeDebugAddErrorLogging'
     form: |
       Add logging to debug errors.
+    force_mode: clipboard
   - trigger: ':codeDebugAddLoggingEmojis'
     form: |
       Add beautiful logging steps with emojis.
+    force_mode: clipboard
   - trigger: ':codePerformanceImprove'
     form: |
       I need you to improve the performance of the following code.
@@ -80,9 +91,11 @@ matches:
       Important rules:
       - Do not change the logic of the code.
       - Input and output of the code should remain the same.
+    force_mode: clipboard
   - trigger: ':codeTestingCreateEmptyTestStructure'
     form: |
       Use "[[testing_framework]]" to generate an empty testing structure using AAA with only comments.
+    force_mode: clipboard
   - trigger: ':codeTestingCreateTestStructure'
     form: |
       Use "[[testing_framework]]" to generate a full testing code using AAA methods for the function signature "[[function_signature]]" from those sentences:
@@ -90,6 +103,7 @@ matches:
       ---
       [[test_cases]]
       ---
+    force_mode: clipboard
     form_fields:
       test_cases:
         multiline: true
@@ -103,6 +117,7 @@ matches:
       Test for those test cases:
 
       [[more_rules]]
+    force_mode: clipboard
     form_fields:
       more_rules:
         multiline: true
@@ -111,6 +126,7 @@ matches:
       - Read files content from: "[[file]]".
       - List all functions.
       - For each functions in those files, list inner function calls.
+    force_mode: clipboard
   - trigger: ':codeTestingGenerateSkeletonTest'
     form: |
       Based on those specs (see below), write tests for the function "[[canvote]]":
@@ -118,6 +134,7 @@ matches:
       ---
       [[specifications]]
       ---
+    force_mode: clipboard
     form_fields:
       specifications:
         multiline: true
@@ -126,6 +143,7 @@ matches:
       Add a new test in the test suite following same testing structure for test cases:
 
       [[test_cases]]
+    force_mode: clipboard
     form_fields:
       test_cases:
         multiline: true
@@ -134,25 +152,29 @@ matches:
       From testing lib in the project from file "[[packagejson_____composerjson____]]", write a unit test respecting AAA rule for the function "[[function]]" based on the following feature:
 
       [[feature_request]]
+    force_mode: clipboard
     form_fields:
       feature_request:
         multiline: true
       packagejson_____composerjson____:
-        type: choice
+        type: list
         values: |
           package.json
           composer.json
   - trigger: ':codeTestingFillTestCase'
     form: |
-      @workspace for this test, fill existing tests from implementation files: "[[files]]", only test logic, do not mock or stub anything.
+      for this test, fill existing tests from implementation files: "[[files]]", only test logic, do not mock or stub anything.
 
       Always arrange with valid fake data generated from object type.
+    force_mode: clipboard
   - trigger: ':codeTestingFillComponentWithDataTestId'
     form: |
       Fill relevant component elements with "data-testid", use index number if available. 
+    force_mode: clipboard
   - trigger: ':codeTestingNewFakeFilledEntity'
     form: |
       Without importing, open "[[object_file_name]]" and create a new fake filled entity for every required properties.
+    force_mode: clipboard
   - trigger: ':codeTestingMockInnerFunctionCalls'
     form: |
       Use "[[testing_framework]]" to mock the inner function calls from this code (surrounded by "---" delimiter):
@@ -165,12 +187,14 @@ matches:
       - Provide fake mocked data
       - Do not make import
       - Do not change existing tests
+    force_mode: clipboard
     form_fields:
       code:
         multiline: true
   - trigger: ':codeTestingFillExistingTests'
     form: |
       Fill empty tests based on the file content.
+    force_mode: clipboard
   - trigger: ':codeTestingFixFailedTest'
     form: |
       The test output the following error (surrounded by "---" delimiters): 
@@ -192,6 +216,7 @@ matches:
       4. Detail what the function is doing, be precise if other part of the code is involved.
       5. List all inconsistencies (minimum 3) you find regarding the issue, sorted by relevance.
       6. Once you analyze all source code in this file, fix the issue first issue from your inconsistencies list.
+    force_mode: clipboard
     form_fields:
       test_results:
         multiline: true
@@ -204,6 +229,7 @@ matches:
 
       Here is the test that should pass:
       [[test_that_should_pass]]
+    force_mode: clipboard
     form_fields:
       additional_context_like_your_implementation_ideas:
         multiline: true
@@ -212,19 +238,24 @@ matches:
   - trigger: ':codeTestFirstImplementFunction'
     form: |
       Write the function to implement for "setPublishedTip" in order to make the tests pass.
+    force_mode: clipboard
   - trigger: ':codeTestingCheckFunctionImplementation'
     form: |
       Check if this test is correctly implemented in the highlighted function.
+    force_mode: clipboard
   - trigger: ':codeCommentsCheckCodeIsMatching'
     form: |
       Check that following function name and comments if any are matching code actions.
+    force_mode: clipboard
   - trigger: ':codeCommentsCommentHardParts'
     form: |
       Comment the code to make the hard parts easier to understand.
+    force_mode: clipboard
 
   - trigger: ':devMergeDocumentation'
     form: |
       find . -type f -name '*.md' -o -name '*.mdx' -exec cat {} + > documentation.txt
+    force_mode: clipboard
 
   - trigger: ':instructFeatureGenerateUS'
     form: |
@@ -263,11 +294,12 @@ matches:
         * Full step to achieve the outcome
         * ...
       ---
+    force_mode: clipboard
     form_fields:
       feature_to_build_be_as_detailed_as_possible:
         multiline: true
       project_and_lib_setup_have_already_been_done_____project_and_lib_setup_might_not_have_been_done:
-        type: choice
+        type: list
         values: |-
           Project and lib setup have already been done
           Project and lib setup might not have been done
@@ -286,11 +318,12 @@ matches:
       4. Reformulate tasks in one line.
       5. Look for that information in your `documentation.md` file in your knowledge base to provide the best answer.
       6. Provide one-line action steps, specifying new or existing file paths without generating code.
+    force_mode: clipboard
     form_fields:
       sub_task_full_description:
         multiline: true
       packagejson_____composerjson_____requirementstxt:
-        type: choice
+        type: list
         values: |-
           package.json
           composer.json
@@ -306,6 +339,7 @@ matches:
       3. Consult the project structure information and advise on whether to create new files or modify existing ones.
       4. Outline detailed coding steps.
       5. Produce code using the most recent tech versions from our discussions, adhering to best practices.
+    force_mode: clipboard
     form_fields:
       list_of_development_steps_if_not_specified_above:
         multiline: true
@@ -326,12 +360,14 @@ matches:
       ---
       [[copy_and_paste_the_specifications_here]]
       ---
+    force_mode: clipboard
     form_fields:
       copy_and_paste_the_specifications_here:
         multiline: true
   - trigger: ':instructExistingFeatureOutputExample'
     form: |
       Give me an output example based on your understandings, with required inputs and the expected output.
+    force_mode: clipboard
   - trigger: ':instructExistingFeatureIterate'
     form: |
       Here are some answers about your previous questions.
@@ -346,6 +382,7 @@ matches:
       Here are my answers:
 
       [[your_answers_to_the_previous_questions]]
+    force_mode: clipboard
     form_fields:
       your_answers_to_the_previous_questions:
         multiline: true
@@ -362,6 +399,7 @@ matches:
       Please provide the best step by step way to it.
 
       For each step, detail your explanation with the proper code.
+    force_mode: clipboard
   - trigger: ':instructImageDetail'
     form: |
       Here is an image of my "[[the_image_you_describe]]" for a feature I have to code.
@@ -369,6 +407,7 @@ matches:
       Identify main sections.
 
       For each section, give a detailed breakdown of the children elements.
+    force_mode: clipboard
   - trigger: ':instructImageIdentifyActions'
     form: |
       Identify image section actions, I need you to focus only on this image section I have to code (surrounded by "---" delimiters):
@@ -387,6 +426,7 @@ matches:
       Note for you:
       - If you are not sure about what you identified, ask me the relevant questions.
       - For actions and states, we will get the info from the existing codebase afterward.
+    force_mode: clipboard
     form_fields:
       image_section_with_title_and_description:
         multiline: true
@@ -400,6 +440,7 @@ matches:
       ---
 
       For each elements, provide "[[number_default_should_be_2]]" existing functions or variables (with their paths) that can fill the needs, sorted by relevance.
+    force_mode: clipboard
     form_fields:
       sections_description_with_your_outcomes:
         multiline: true
@@ -411,6 +452,7 @@ matches:
       ---
 
       Do nothing, just reply "ok" if you understood.
+    force_mode: clipboard
     form_fields:
       variables_and_functions_to_use:
         multiline: true
@@ -423,6 +465,7 @@ matches:
       3. Identify needed elements, what kind of components are they? (Title, button, paragraph, etc)
       4. Same basic elements (like paragraph, headings, links) might not required a component but rather a simple HTML tag, list them.
       5. Based on the elements that need components, check if there is a match of potential use with the existing components from global UI components dir.
+    force_mode: clipboard
   - trigger: ':instructImageSectionGenerateCode'
     form: |
       Generate the code for this component:
@@ -436,6 +479,7 @@ matches:
       - Fill every function with the needed logic defined earlier.
       - If you put links in the component, check that path is correct from project structure.
       [[more_rules_specific_to_your_project]]
+    force_mode: clipboard
     form_fields:
       more_rules_specific_to_your_project:
         multiline: true
@@ -450,6 +494,7 @@ matches:
       - No explanation needed, only code.
 
       [[your_code_if_not_generated_from_above]]
+    force_mode: clipboard
     form_fields:
       your_code_if_not_generated_from_above:
         multiline: true
@@ -462,6 +507,7 @@ matches:
       Give me the full db schema, with the tables, the columns, the relations between the tables and the constraints from:
 
       [[entity_list_and_relations_between_entities]]
+    force_mode: clipboard
     form_fields:
       entity_list_and_relations_between_entities:
         multiline: true
@@ -477,6 +523,7 @@ matches:
       Here is the SQL schema:
 
       [[sql_schema]]
+    force_mode: clipboard
     form_fields:
       sql_schema:
         multiline: true
@@ -489,6 +536,7 @@ matches:
       Please generate a shell script to create those files and directories:
 
       [[list_of_types]]
+    force_mode: clipboard
     form_fields:
       list_of_types:
         multiline: true
@@ -497,9 +545,11 @@ matches:
       Can you imagine the best folder structure for my features from the user-stories in my specifications?
 
       Generate every needed files and directories in a shell script.
+    force_mode: clipboard
   - trigger: ':instructStructureAcknowledgeProject'
     form: |
       Here is the last up to update project structure, please keep it in my for the next instructions and code generation.
+    force_mode: clipboard
   - trigger: ':instructStructureReviewFilesAndDirectories'
     form: |
       Here is an example of project file structure that I like, please get its content from this URL, I will refer it as a "template": "[[url_of_the_gist_of_the_project_structure]]"
@@ -527,6 +577,7 @@ matches:
         - Do not indicate the kind of file
         - Provide the full path for each file
       5. Check that every files from my app are existing in your new directory proposal
+    force_mode: clipboard
     form_fields:
       copy_and_paste_the_project_structure_here:
         multiline: true
@@ -544,11 +595,12 @@ matches:
       - Group by distinct sections.
       - Format with bullet list with small sentences.
       - [[do_not_test_ui_focus_the_logic_only_____test_the_ui_if_needed_____test_the_ui_and_the_logic]].
+    force_mode: clipboard
     form_fields:
       feature_to_build_be_as_detailed_as_possible:
         multiline: true
       do_not_test_ui_focus_the_logic_only_____test_the_ui_if_needed_____test_the_ui_and_the_logic:
-        type: choice
+        type: list
         values: |-
           Do not test UI, focus the logic only
           Test the UI if needed
@@ -558,6 +610,7 @@ matches:
       From this acceptance criteria, can you transform it into Gherkin syntax?
 
       [[acceptance_criteria]]
+    force_mode: clipboard
     form_fields:
       acceptance_criteria:
         multiline: true
@@ -574,6 +627,7 @@ matches:
       If necessary, use those unit testing techniques:
 
       Mocking, Stubbing, Spying, Faking, Dependency Injection, Test Parameterization, Isolation (Sandboxing)
+    force_mode: clipboard
     form_fields:
       functional_requirement:
         multiline: true
@@ -593,6 +647,7 @@ matches:
       Then, for each steps, detail the step by step things to setup those improvements regarding my project's config.
 
       Use the latest version of tools unless I do specify otherwise.
+    force_mode: clipboard
   - trigger: ':instructReadmeProjectSetup'
     form: |
       I need a perfect Readme.md file for the other developers within the project.
@@ -600,9 +655,11 @@ matches:
       1. Can you bullet point list every required steps to start the project based on our discussion?
       2. Please include steps like git clone, dependencies installation, .env configuration, authentication, run locally...
       3. Suggest improvements regarding the Readme.md you just made
+    force_mode: clipboard
   - trigger: ':instructSetupNewLib'
     form: |
       Regarding my project stack, help me setup "[[lib_to_setup]]” for my current project.
+    force_mode: clipboard
     form_fields:
       lib_to_setup:
         multiline: true
@@ -610,6 +667,7 @@ matches:
   - trigger: ':variousLinkedInProfileOptimization'
     form: |
       "Act like a Marketing manager expert in LinkedIn and give me tips for an engaging summary, effective use of keywords, and strategies for showcasing my accomplishments. Also, advise on increasing meaningful connections and engaging with industry-related content to boost my profile's reach."
+    force_mode: clipboard
   - trigger: ':variousSituationsAndBenefitsListing'
     form: |
       Dans ma formation Coder avec l'IA, j'ai créé un module "[[nom_du_module]]".
@@ -621,6 +679,7 @@ matches:
 
       Sous forme de liste à puce, liste nos problèmes sans IA.
       Sous forme de liste à puce, liste les bénéfices / avantages de l'IA.
+    force_mode: clipboard
   - trigger: ':variousCriticizeAnswer'
     form: |
       Merci, peux-tu faire l'autocritique de ta réponse ?
@@ -630,9 +689,11 @@ matches:
       3) Fais-toi une liste de suggestions qui te permettront d'atteindre la note 20, toujours par rapport à ces règles. Numérote chaque proposition.
       4) Réécris ton travail en suivant les recommandations du point 3).
       5) Demande-moi si je veux répéter le processus. Nous le ferons jusqu'à ce que votre travail soit noté 20/20.
+    force_mode: clipboard
   - trigger: ':variousCreateMidJourneyRealisticPicture'
     form: |
       Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw.
+    force_mode: clipboard
   - trigger: ':llmPromptImprove'
     form: |
       This is the prompt I made (surrounded with """) for an a generative artificial intelligence like ChatGPT.
@@ -648,6 +709,7 @@ matches:
       Use good english, fix text mistakes.
 
       Please also acknowledge that AI can access URL, documents and generate images.
+    force_mode: clipboard
   - trigger: ':llmAnswerEvaluate'
     form: |
       Can you be self-critical of your answer?
@@ -659,13 +721,16 @@ matches:
       5) Ask me if I'd like to repeat the process. We'll do this until your work is marked 20/20.
 
       Thank you for you professionalism.
+    force_mode: clipboard
 
   - trigger: ':languageTSTypeCreate'
     form: |
       Create a TypeScript Type for this Object using Type keyword.
+    force_mode: clipboard
   - trigger: ':languageTSTypeExtract'
     form: |
       Extract the type of the variable and create a new type for it.
+    force_mode: clipboard
   - trigger: ':languageTSDataFakeDataGenerate'
     form: |
       From this type, generate fake data for testing purposes. The data should be in the same format as the original data, but with fake values.
@@ -675,6 +740,7 @@ matches:
 
       Type:
       [[type]]
+    force_mode: clipboard
     form_fields:
       data:
         multiline: true
@@ -683,6 +749,7 @@ matches:
   - trigger: ':languageTSValidationZodGenerate'
     form: |
       Create zod schema for this type.
+    force_mode: clipboard
 
   - trigger: ':myExamplePrompt'
     form: |
@@ -697,11 +764,12 @@ matches:
       [[var_3___option1___option2___option3]]
 
       Enjoy!
+    force_mode: clipboard
     form_fields:
       var_2:
         multiline: true
       var_3___option1___option2___option3:
-        type: choice
+        type: list
         values: |-
           var_3
           option1
