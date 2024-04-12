@@ -68,7 +68,7 @@ Create a function from specs.
 **Prompt**:
 
 ```text
-@workspace Based on those specs (see below), create a function that returns "[[what you want to return]]".
+Based on those specs (see below), create a function that returns "[[what you want to return]]".
 
 ---
 Verify that creating a tip defaults its status to "draft".
@@ -87,7 +87,7 @@ Merge two files with almost the same content.
 **Prompt**:
 
 ```text
-@workspace Based on those two file names "[[filename 1]]" and "[[filename 2]]", merge logic to reduce code duplication.
+Based on those two file names "[[filename 1]]" and "[[filename 2]]", merge logic to reduce code duplication.
 ```
 
 ### Base on file, create a new file `:codeCreateNewFile`
@@ -97,7 +97,7 @@ Merge two files with almost the same content.
 Create a new file based on a current file.
 
 ```text
-@workspace base on "[[source file]]" file, create a similar "[[destination file]]" file structure, adapting the content to the new file.
+Based on "[[source file]]" file, create a similar "[[destination file]]" file structure, adapting the content to the new file.
 ```
 
 ### Convert type into another type `:codeConvertType`
@@ -326,7 +326,7 @@ From testing lib in the project from file "[[package.json | composer.json | ]]",
 #### Fill tests cases `:codeTestingFillTestCase`
 
 ```text
-@workspace for this test, fill existing tests from implementation files: "[[files...]]", only test logic, do not mock or stub anything.
+for this test, fill existing tests from implementation files: "[[files...]]", only test logic, do not mock or stub anything.
 
 Always arrange with valid fake data generated from object type.
 ```
@@ -382,7 +382,7 @@ Fill empty tests based on the file content.
 
 - Open the required file to fix the code.
 - Select the code to fix.
-- If using Copilot, prefix the prompt with `@workspace /fix`
+- If using Copilot, prefix the prompt with `/fix`
 
 ```text
 The test output the following error (surrounded by "---" delimiters): 
