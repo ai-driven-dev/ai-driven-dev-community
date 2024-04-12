@@ -19,14 +19,24 @@ Related to code interaction (eg: with Copilot).
 - [🔥 Performance](#-performance)
   - [Improve code performance `:codePerformanceImprove`](#improve-code-performance-codeperformanceimprove)
 - [🧪 Testing](#-testing)
-  - [Fill with Fake data `:codeTestingNewFakeFilledEntity`](#fill-with-fake-data-codetestingnewfakefilledentity)
-  - [Create test structure from test cases `:codeTestingCreateTestStructure`](#create-test-structure-from-test-cases-codetestingcreateteststructure)
-  - [Fill tests cases `:codeTestingFillTestCase`](#fill-tests-cases-codetestingfilltestcase)
-  - [Mock inner function calls `:codeTestingMockInnerFunctionCalls`](#mock-inner-function-calls-codetestingmockinnerfunctioncalls)
-  - [Create new unit tests `:codeTestingSetupStructure` (WIP 🚧)](#create-new-unit-tests-codetestingsetupstructure-wip-)
-  - [Generate test for a specific function `:codeTestingGenerateSkeletonTest`](#generate-test-for-a-specific-function-codetestinggenerateskeletontest)
-  - [Fixing code from test results `:codeTestingFixFailedTest` (WIP 🚧)](#fixing-code-from-test-results-codetestingfixfailedtest-wip-)
-  - [Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature` (WIP 🚧)](#generate-unit-tests-from-a-feature-request-codetestinggeneratefromfeature-wip-)
+  - [Structure](#structure)
+    - [Create empty test structure for function `:codeTestingCreateEmptyTestStructure`](#create-empty-test-structure-for-function-codetestingcreateemptyteststructure)
+    - [Create test structure from test cases `:codeTestingCreateTestStructure`](#create-test-structure-from-test-cases-codetestingcreateteststructure)
+  - [Generate](#generate)
+    - [Create test from another `:codeTestingCreateTestFromAnother`](#create-test-from-another-codetestingcreatetestfromanother)
+    - [Create test from test cases `:codeTestingCreateTestStructure`](#create-test-from-test-cases-codetestingcreateteststructure)
+    - [Create new unit tests `:codeTestingSetupStructure` (WIP 🚧)](#create-new-unit-tests-codetestingsetupstructure-wip-)
+    - [Generate test for a specific function `:codeTestingGenerateSkeletonTest`](#generate-test-for-a-specific-function-codetestinggenerateskeletontest)
+    - [Add new test in a test suite `:codeTestingAddNewTestInSuite`](#add-new-test-in-a-test-suite-codetestingaddnewtestinsuite)
+    - [Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature`](#generate-unit-tests-from-a-feature-request-codetestinggeneratefromfeature)
+  - [Fill](#fill)
+    - [Fill tests cases `:codeTestingFillTestCase`](#fill-tests-cases-codetestingfilltestcase)
+    - [Fill component with data-testid `:codeTestingFillComponentWithDataTestId`](#fill-component-with-data-testid-codetestingfillcomponentwithdatatestid)
+    - [Fill with Fake data `:codeTestingNewFakeFilledEntity`](#fill-with-fake-data-codetestingnewfakefilledentity)
+    - [Mock inner function calls `:codeTestingMockInnerFunctionCalls`](#mock-inner-function-calls-codetestingmockinnerfunctioncalls)
+    - [Fill empty tests (based on file) `:codeTestingFillExistingTests`](#fill-empty-tests-based-on-file-codetestingfillexistingtests)
+  - [WIP](#wip)
+    - [Fixing code from test results `:codeTestingFixFailedTest` (WIP 🚧)](#fixing-code-from-test-results-codetestingfixfailedtest-wip-)
 - [🎯 Test-First](#-test-first)
   - [Rewrite function based on a test expectations `:codeTestFirstRewriteFunction`](#rewrite-function-based-on-a-test-expectations-codetestfirstrewritefunction)
   - [Function implementation based on a test `:codeTestFirstImplementFunction`](#function-implementation-based-on-a-test-codetestfirstimplementfunction)
@@ -87,7 +97,7 @@ Merge two files with almost the same content.
 Create a new file based on a current file.
 
 ```text
-@workspace base of "[[source file]]" file, create a similar "[[destination file]]" file structure, adapting the content to the new file.
+@workspace base on "[[source file]]" file, create a similar "[[destination file]]" file structure, adapting the content to the new file.
 ```
 
 ### Convert type into another type `:codeConvertType`
@@ -189,7 +199,21 @@ Important rules:
 
 ## 🧪 Testing
 
-### Create test structure from test cases `:codeTestingCreateTestStructure`
+### Structure
+
+#### Create empty test structure for function `:codeTestingCreateEmptyTestStructure`
+
+**Description:**
+
+Create an empty test structure for a function.
+
+**Prompt**:
+
+```text
+Use "[[testing framework]]" to generate an empty testing structure using AAA with only comments.
+```
+
+#### Create test structure from test cases `:codeTestingCreateTestStructure`
 
 **Description:**
 
@@ -198,42 +222,51 @@ Create a test structure from test cases.
 **Prompt**:
 
 ```text
-@workspace read "[[package.json | composer.json]]" file to get testing framework.
-
-Then generate testing structure only (inner tests are commented with "Arrange", "Act", "Assert" comments) from those sentences:
+Use "[[testing framework]]" to generate testing structure only (inner tests are commented with "Arrange", "Act", "Assert" comments) from those sentences:
 
 ---
 [[Test cases]]
 ---
 ```
 
-### Fill tests cases `:codeTestingFillTestCase`
+### Generate
 
-```text
-@workspace for this test, fill existing test from implementation files: "vote.ts", only test logic, do not mock or stub anything.
-
-Always arrange with valid fake data generated from object type.
-```
-
-### Fill with Fake data `:codeTestingNewFakeFilledEntity`
-
-```text
-@workspace Without importing, create a new fake filled entity for testing purposes for object "[[object name]]".
-```
-
-### Mock inner function calls `:codeTestingMockInnerFunctionCalls`
+#### Create test from another `:codeTestingCreateTestFromAnother`
 
 **Description:**
 
-Generate code to mock inner function calls for a specific highlighted `code` or `import`.
+Create a test from another test.
+
+**Prompt**:
+
+````text
+Based on the file: "[[file path]]"
+And the test file: "[[file path]]"
+
+Use "[[testing framework]]" to generate a test
+Re-use import and mock if necessary
+Test for those test cases:
+
+[[more rules]]
+````
+
+#### Create test from test cases `:codeTestingCreateTestStructure`
+
+**Description:**
+
+Create a full test from test cases for a given function.
 
 **Prompt**:
 
 ```text
-@workspace Mock inner function calls for testing.
+Use "[[testing framework]]" to generate a full testing code using AAA methods for the function signature "[[function signature]]" from those sentences:
+
+---
+[[Test cases]]
+---
 ```
 
-### Create new unit tests `:codeTestingSetupStructure` (WIP 🚧)
+#### Create new unit tests `:codeTestingSetupStructure` (WIP 🚧)
 
 **Description:**
 
@@ -245,19 +278,12 @@ Create a new unit test structure for a function.
 **Prompt**:
 
 ```text
-@workspace
-
-- Use GPT-4
-- Read files content from: "vote.ts".
+- Read files content from: "[[file]]".
 - List all functions.
 - For each functions in those files, list inner function calls.
 ```
 
-```text
-@workspace Read files "vote.ts", then list the functions, for each function list the inner function calls (including other files).
-```
-
-### Generate test for a specific function `:codeTestingGenerateSkeletonTest`
+#### Generate test for a specific function `:codeTestingGenerateSkeletonTest`
 
 **Description:**
 
@@ -266,17 +292,93 @@ Generate a skeleton test from input/output examples based on files.
 **Prompt**:
 
 ```text
-@workspace Based on those specs (see below), write tests for the function "canVote":
+Based on those specs (see below), write tests for the function "[[canVote]]":
 
 ---
-Verify that creating a tip defaults its status to "draft".
-Ensure that a draft tip cannot be voted on.
-Verify that once a tip is "scheduled", it cannot receive any more votes.
-Check that "archived" tips cannot be voted on.
+[[Specifications]]
 ---
 ```
 
-### Fixing code from test results `:codeTestingFixFailedTest` (WIP 🚧)
+#### Add new test in a test suite `:codeTestingAddNewTestInSuite`
+
+**Description:**
+
+Add a new test in a test suite following the test structure.
+
+**Prompt**:
+
+```text
+Add a new test in the test suite following same testing structure for test cases:
+
+[[test cases]]
+```
+
+#### Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature`
+
+```text
+From testing lib in the project from file "[[package.json | composer.json | ]]", write a unit test respecting AAA rule for the function "[[function]]" based on the following feature:
+
+[[Feature request]]
+```
+
+### Fill
+
+#### Fill tests cases `:codeTestingFillTestCase`
+
+```text
+@workspace for this test, fill existing tests from implementation files: "[[files...]]", only test logic, do not mock or stub anything.
+
+Always arrange with valid fake data generated from object type.
+```
+
+#### Fill component with data-testid `:codeTestingFillComponentWithDataTestId`
+
+```text
+Fill relevant component elements with "data-testid", use index number if available. 
+```
+
+#### Fill with Fake data `:codeTestingNewFakeFilledEntity`
+
+```text
+Without importing, open "[[Object file name]]" and create a new fake filled entity for every required properties.
+```
+
+#### Mock inner function calls `:codeTestingMockInnerFunctionCalls`
+
+**Description:**
+
+Generate code to mock inner function calls for a specific highlighted `code` or `import`.
+
+**Prompt**:
+
+```text
+Use "[[testing framework]]" to mock the inner function calls from this code (surrounded by "---" delimiter):
+
+---
+[[code]]
+---
+
+Rules:
+- Provide fake mocked data
+- Do not make import
+- Do not change existing tests
+```
+
+#### Fill empty tests (based on file) `:codeTestingFillExistingTests`
+
+**Description:**
+
+Fill existing tests based on the file content.
+
+**Prompt**:
+
+```text
+Fill empty tests based on the file content.
+```
+
+### WIP
+
+#### Fixing code from test results `:codeTestingFixFailedTest` (WIP 🚧)
 
 - Open the required file to fix the code.
 - Select the code to fix.
@@ -302,19 +404,6 @@ Follow those steps:
 4. Detail what the function is doing, be precise if other part of the code is involved.
 5. List all inconsistencies (minimum 3) you find regarding the issue, sorted by relevance.
 6. Once you analyze all source code in this file, fix the issue first issue from your inconsistencies list.
-```
-
-### Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature` (WIP 🚧)
-
-```text
-Based on this test and the opened files ("[[Opened file to use]]"), I need you to create unit tests to describe "[[Feature section to describe]]".
-
-Please:
-
-- Keep same testing structure
-- Import necessary files if needed
-- Use proper naming and types depending of the variable to test
-- Continue unit tests generation for the following functions: "[[functions to test]]"
 ```
 
 ## 🎯 Test-First
@@ -348,7 +437,7 @@ Here is the test that should pass:
 ### Function implementation based on a test `:codeTestFirstImplementFunction`
 
 ```text
-Write the function to implement for "getStatus" in order to make the tests pass.
+Write the function to implement for "setPublishedTip" in order to make the tests pass.
 ```
 
 ### Check function implementation based on unit testings `:codeTestingCheckFunctionImplementation`
