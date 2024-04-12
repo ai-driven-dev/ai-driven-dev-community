@@ -20,7 +20,7 @@ matches:
       @workspace Based on those two file names "[[filename_1]]" and "[[filename_2]]", merge logic to reduce code duplication.
   - trigger: ':codeCreateNewFile'
     form: |
-      @workspace base of "[[source_file]]" file, create a similar "[[destination_file]]" file structure, adapting the content to the new file.
+      @workspace base on "[[source_file]]" file, create a similar "[[destination_file]]" file structure, adapting the content to the new file.
   - trigger: ':codeConvertType'
     form: |
       You goal is to code a convert function to transform a type into another.
@@ -80,11 +80,12 @@ matches:
       Important rules:
       - Do not change the logic of the code.
       - Input and output of the code should remain the same.
+  - trigger: ':codeTestingCreateEmptyTestStructure'
+    form: |
+      Use "[[testing_framework]]" to generate an empty testing structure using AAA with only comments.
   - trigger: ':codeTestingCreateTestStructure'
     form: |
-      @workspace read "[[packagejson_____composerjson]]" file to get testing framework.
-
-      Then generate testing structure only (inner tests are commented with "Arrange", "Act", "Assert" comments) from those sentences:
+      Use "[[testing_framework]]" to generate a full testing code using AAA methods for the function signature "[[function_signature]]" from those sentences:
 
       ---
       [[test_cases]]
@@ -92,35 +93,84 @@ matches:
     form_fields:
       test_cases:
         multiline: true
-      packagejson_____composerjson:
+  - trigger: ':codeTestingCreateTestFromAnother'
+    form: |
+      Based on the file: "[[file_path]]"
+      And the test file: "[[file path]]"
+
+      Use "[[testing_framework]]" to generate a test
+      Re-use import and mock if necessary
+      Test for those test cases:
+
+      [[more_rules]]
+    form_fields:
+      more_rules:
+        multiline: true
+  - trigger: ':codeTestingSetupStructure'
+    form: |
+      - Read files content from: "[[file]]".
+      - List all functions.
+      - For each functions in those files, list inner function calls.
+  - trigger: ':codeTestingGenerateSkeletonTest'
+    form: |
+      Based on those specs (see below), write tests for the function "[[canvote]]":
+
+      ---
+      [[specifications]]
+      ---
+    form_fields:
+      specifications:
+        multiline: true
+  - trigger: ':codeTestingAddNewTestInSuite'
+    form: |
+      Add a new test in the test suite following same testing structure for test cases:
+
+      [[test_cases]]
+    form_fields:
+      test_cases:
+        multiline: true
+  - trigger: ':codeTestingGenerateFromFeature'
+    form: |
+      From testing lib in the project from file "[[packagejson_____composerjson____]]", write a unit test respecting AAA rule for the function "[[function]]" based on the following feature:
+
+      [[feature_request]]
+    form_fields:
+      feature_request:
+        multiline: true
+      packagejson_____composerjson____:
         type: choice
-        values: |-
+        values: |
           package.json
           composer.json
   - trigger: ':codeTestingFillTestCase'
     form: |
-      @workspace for this test, fill existing test from implementation files: "vote.ts", only test logic, do not mock or stub anything.
+      @workspace for this test, fill existing tests from implementation files: "[[files]]", only test logic, do not mock or stub anything.
 
       Always arrange with valid fake data generated from object type.
+  - trigger: ':codeTestingFillComponentWithDataTestId'
+    form: |
+      Fill relevant component elements with "data-testid", use index number if available. 
   - trigger: ':codeTestingNewFakeFilledEntity'
     form: |
-      @workspace Without importing, create a new fake filled entity for testing purposes for object "[[object_name]]".
+      Without importing, open "[[object_file_name]]" and create a new fake filled entity for every required properties.
   - trigger: ':codeTestingMockInnerFunctionCalls'
     form: |
-      @workspace Mock inner function calls for testing.
-  - trigger: ':codeTestingSetupStructure'
-    form: |
-      @workspace Read files "vote.ts", then list the functions, for each function list the inner function calls (including other files).
-  - trigger: ':codeTestingGenerateSkeletonTest'
-    form: |
-      @workspace Based on those specs (see below), write tests for the function "canVote":
+      Use "[[testing_framework]]" to mock the inner function calls from this code (surrounded by "---" delimiter):
 
       ---
-      Verify that creating a tip defaults its status to "draft".
-      Ensure that a draft tip cannot be voted on.
-      Verify that once a tip is "scheduled", it cannot receive any more votes.
-      Check that "archived" tips cannot be voted on.
+      [[code]]
       ---
+
+      Rules:
+      - Provide fake mocked data
+      - Do not make import
+      - Do not change existing tests
+    form_fields:
+      code:
+        multiline: true
+  - trigger: ':codeTestingFillExistingTests'
+    form: |
+      Fill empty tests based on the file content.
   - trigger: ':codeTestingFixFailedTest'
     form: |
       The test output the following error (surrounded by "---" delimiters): 
@@ -145,16 +195,6 @@ matches:
     form_fields:
       test_results:
         multiline: true
-  - trigger: ':codeTestingGenerateFromFeature'
-    form: |
-      Based on this test and the opened files ("[[opened_file_to_use]]"), I need you to create unit tests to describe "[[feature_section_to_describe]]".
-
-      Please:
-
-      - Keep same testing structure
-      - Import necessary files if needed
-      - Use proper naming and types depending of the variable to test
-      - Continue unit tests generation for the following functions: "[[functions_to_test]]"
   - trigger: ':codeTestFirstRewriteFunction'
     form: |
       1. Based on this test and its expectations, please acknowledge the tested function.
@@ -171,7 +211,7 @@ matches:
         multiline: true
   - trigger: ':codeTestFirstImplementFunction'
     form: |
-      Write the function to implement for "getStatus" in order to make the tests pass.
+      Write the function to implement for "setPublishedTip" in order to make the tests pass.
   - trigger: ':codeTestingCheckFunctionImplementation'
     form: |
       Check if this test is correctly implemented in the highlighted function.
