@@ -2,7 +2,7 @@
 
 - [Create \& ¨Merge a documentation from a GitHub repository 🧙 `:devMergeDocumentation`](#create--merge-a-documentation-from-a-github-repository--devmergedocumentation)
 
-## Create + Merge a documentation from a GitHub repository 🧙 `:devMergeDocumentation`
+## 🧙 Create + Merge a documentation from a GitHub repository `:devMergeDocumentation`
 
 - Use [Download GitHub Directory](https://download-directory.github.io/) to download the repository as a zip file
 - Unzip the file
@@ -11,4 +11,14 @@
 
 ```bash
 find . -type f -name '*.md' -o -name '*.mdx' -exec cat {} + > documentation.txt
+```
+
+## 🖋️ Shorts Snippets
+
+When talking to AI, sometimes you need to provide a short snippet of code.
+
+### "Do not import" `:dni`
+
+```text
+Do not import, 
 ```

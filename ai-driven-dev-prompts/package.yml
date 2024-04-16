@@ -162,10 +162,7 @@ matches:
           package.json
           composer.json
   - trigger: ':codeTestingFillTestCase'
-    form: |
-      for this test, fill existing tests from implementation files: "[[files]]", only test logic, do not mock or stub anything.
-
-      Always arrange with valid fake data generated from object type.
+    form: "For this test\_#selection, fill existing test from implementation files: #file #file...\n\nOnly test logic, do not mock or stub anything.\n\nArrange fake data with valid ones based on required properties of object:\_#file #file...\n"
     force_mode: clipboard
   - trigger: ':codeTestingFillComponentWithDataTestId'
     form: |
@@ -173,24 +170,16 @@ matches:
     force_mode: clipboard
   - trigger: ':codeTestingNewFakeFilledEntity'
     form: |
-      Without importing, open "[[object_file_name]]" and create a new fake filled entity for every required properties.
+      Without importing, create new fake filled entity for every required properties of this file: #file
     force_mode: clipboard
   - trigger: ':codeTestingMockInnerFunctionCalls'
     form: |
-      Use "[[testing_framework]]" to mock the inner function calls from this code (surrounded by "---" delimiter):
-
-      ---
-      [[code]]
-      ---
-
-      Rules:
-      - Provide fake mocked data
-      - Do not make import
-      - Do not change existing tests
+      Use "jest" to mock the implementation of the inner function calls from this code: #selection
     force_mode: clipboard
-    form_fields:
-      code:
-        multiline: true
+  - trigger: ':codeTestingMockNewPathInExistingFile'
+    form: |
+      Based on the already mocked paths in the file #file, add a new mock for function: #selection
+    force_mode: clipboard
   - trigger: ':codeTestingFillExistingTests'
     form: |
       Fill empty tests based on the file content.
@@ -237,7 +226,7 @@ matches:
         multiline: true
   - trigger: ':codeTestFirstImplementFunction'
     form: |
-      Write the function to implement for "setPublishedTip" in order to make the tests pass.
+      Write the function implementation for "[[function_name]]" in order to make every tests pass.
     force_mode: clipboard
   - trigger: ':codeTestingCheckFunctionImplementation'
     form: |
@@ -255,6 +244,10 @@ matches:
   - trigger: ':devMergeDocumentation'
     form: |
       find . -type f -name '*.md' -o -name '*.mdx' -exec cat {} + > documentation.txt
+    force_mode: clipboard
+  - trigger: ':dni'
+    form: |
+      Do not import, 
     force_mode: clipboard
 
   - trigger: ':instructFeatureGenerateUS'
