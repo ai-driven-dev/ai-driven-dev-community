@@ -325,10 +325,14 @@ From testing lib in the project from file "[[package.json | composer.json | ]]",
 
 #### Fill tests cases `:codeTestingFillTestCase`
 
-```text
-for this test, fill existing tests from implementation files: "[[files...]]", only test logic, do not mock or stub anything.
+Fill ... using your AI tool like copilot.
 
-Always arrange with valid fake data generated from object type.
+```text
+For this test #selection, fill existing test from implementation files: #file #file...
+
+Only test logic, do not mock or stub anything.
+
+Arrange fake data with valid ones based on required properties of object: #file #file...
 ```
 
 #### Fill component with data-testid `:codeTestingFillComponentWithDataTestId`
@@ -340,7 +344,7 @@ Fill relevant component elements with "data-testid", use index number if availab
 #### Fill with Fake data `:codeTestingNewFakeFilledEntity`
 
 ```text
-Without importing, open "[[Object file name]]" and create a new fake filled entity for every required properties.
+Without importing, create new fake filled entity for every required properties of this file: #file
 ```
 
 #### Mock inner function calls `:codeTestingMockInnerFunctionCalls`
@@ -349,19 +353,22 @@ Without importing, open "[[Object file name]]" and create a new fake filled enti
 
 Generate code to mock inner function calls for a specific highlighted `code` or `import`.
 
+**Prompt**:@
+
+```text
+Use "jest" to mock the implementation of the inner function calls from this code: #selection
+```
+
+#### Mock a new path in an existing file `:codeTestingMockNewPathInExistingFile`
+
+**Description:**
+
+Add a new mock using test structure in an existing file.
+
 **Prompt**:
 
 ```text
-Use "[[testing framework]]" to mock the inner function calls from this code (surrounded by "---" delimiter):
-
----
-[[code]]
----
-
-Rules:
-- Provide fake mocked data
-- Do not make import
-- Do not change existing tests
+Based on the already mocked paths in the file #file, add a new mock for function: #selection
 ```
 
 #### Fill empty tests (based on file) `:codeTestingFillExistingTests`
@@ -437,7 +444,7 @@ Here is the test that should pass:
 ### Function implementation based on a test `:codeTestFirstImplementFunction`
 
 ```text
-Write the function to implement for "setPublishedTip" in order to make the tests pass.
+Write the function implementation for "[[function name]]" in order to make every tests pass.
 ```
 
 ### Check function implementation based on unit testings `:codeTestingCheckFunctionImplementation`
