@@ -23,7 +23,9 @@ matches:
     force_mode: clipboard
   - trigger: ':codeCreateNewFile'
     form: |
-      Based on "[[source_file]]" file, create a similar "[[destination_file]]" file structure, adapting the content to the new file.
+      Based on file: #file
+      Create a similar file structure for: #file
+      Adapt the content to the new file using: #file
     force_mode: clipboard
   - trigger: ':codeConvertType'
     form: |
@@ -162,7 +164,7 @@ matches:
           package.json
           composer.json
   - trigger: ':codeTestingFillTestCase'
-    form: "For this test\_#selection, fill existing test from implementation files: #file #file...\n\nOnly test logic, do not mock or stub anything.\n\nArrange fake data with valid ones based on required properties of object:\_#file #file...\n"
+    form: "Write high quality test for this test selection #selection in file #file\nCode implementation to test:\_#file\n\nArrange fake data with valid ones (mock or stub if necessary) based on required properties of objects:\_#file\nAct to test logic.\nAssert that the result is expected.\n"
     force_mode: clipboard
   - trigger: ':codeTestingFillComponentWithDataTestId'
     form: |
@@ -172,13 +174,17 @@ matches:
     form: |
       Without importing, create new fake filled entity for every required properties of this file: #file
     force_mode: clipboard
+  - trigger: ':codeTestingMockSpecificFunctionReturns'
+    form: "Mock \"[[function_name]]\" function from\_#file\nand resolve to \"[[return_statement]]\".\n"
+    force_mode: clipboard
   - trigger: ':codeTestingMockInnerFunctionCalls'
     form: |
-      Use "jest" to mock the implementation of the inner function calls from this code: #selection
+      Use "[[testing_framework]]" to mock the implementation of the inner function calls from this code: #selection
     force_mode: clipboard
   - trigger: ':codeTestingMockNewPathInExistingFile'
     form: |
-      Based on the already mocked paths in the file #file, add a new mock for function: #selection
+      Based on the already mocked paths in the file #file
+      Add a new mock for function's selection #selection.
     force_mode: clipboard
   - trigger: ':codeTestingFillExistingTests'
     form: |

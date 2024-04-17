@@ -33,7 +33,9 @@ Related to code interaction (eg: with Copilot).
     - [Fill tests cases `:codeTestingFillTestCase`](#fill-tests-cases-codetestingfilltestcase)
     - [Fill component with data-testid `:codeTestingFillComponentWithDataTestId`](#fill-component-with-data-testid-codetestingfillcomponentwithdatatestid)
     - [Fill with Fake data `:codeTestingNewFakeFilledEntity`](#fill-with-fake-data-codetestingnewfakefilledentity)
+    - [Mock specific function returns `:codeTestingMockSpecificFunctionReturns`](#mock-specific-function-returns-codetestingmockspecificfunctionreturns)
     - [Mock inner function calls `:codeTestingMockInnerFunctionCalls`](#mock-inner-function-calls-codetestingmockinnerfunctioncalls)
+    - [Mock a new path in an existing file `:codeTestingMockNewPathInExistingFile`](#mock-a-new-path-in-an-existing-file-codetestingmocknewpathinexistingfile)
     - [Fill empty tests (based on file) `:codeTestingFillExistingTests`](#fill-empty-tests-based-on-file-codetestingfillexistingtests)
   - [WIP](#wip)
     - [Fixing code from test results `:codeTestingFixFailedTest` (WIP 🚧)](#fixing-code-from-test-results-codetestingfixfailedtest-wip-)
@@ -97,7 +99,9 @@ Based on those two file names "[[filename 1]]" and "[[filename 2]]", merge logic
 Create a new file based on a current file.
 
 ```text
-Based on "[[source file]]" file, create a similar "[[destination file]]" file structure, adapting the content to the new file.
+Based on file: #file
+Create a similar file structure for: #file
+Adapt the content to the new file using: #file
 ```
 
 ### Convert type into another type `:codeConvertType`
@@ -328,11 +332,12 @@ From testing lib in the project from file "[[package.json | composer.json | ]]",
 Fill ... using your AI tool like copilot.
 
 ```text
-For this test #selection, fill existing test from implementation files: #file #file...
+Write high quality test for this test selection #selection in file #file
+Code implementation to test: #file
 
-Only test logic, do not mock or stub anything.
-
-Arrange fake data with valid ones based on required properties of object: #file #file...
+Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects: #file
+Act to test logic.
+Assert that the result is expected.
 ```
 
 #### Fill component with data-testid `:codeTestingFillComponentWithDataTestId`
@@ -347,16 +352,23 @@ Fill relevant component elements with "data-testid", use index number if availab
 Without importing, create new fake filled entity for every required properties of this file: #file
 ```
 
+#### Mock specific function returns `:codeTestingMockSpecificFunctionReturns`
+
+```text
+Mock "[[function name]]" function from #file
+and resolve to "[[return statement]]".
+```
+
 #### Mock inner function calls `:codeTestingMockInnerFunctionCalls`
 
 **Description:**
 
 Generate code to mock inner function calls for a specific highlighted `code` or `import`.
 
-**Prompt**:@
+**Prompt**:
 
 ```text
-Use "jest" to mock the implementation of the inner function calls from this code: #selection
+Use "[[testing framework]]" to mock the implementation of the inner function calls from this code: #selection
 ```
 
 #### Mock a new path in an existing file `:codeTestingMockNewPathInExistingFile`
@@ -368,7 +380,8 @@ Add a new mock using test structure in an existing file.
 **Prompt**:
 
 ```text
-Based on the already mocked paths in the file #file, add a new mock for function: #selection
+Based on the already mocked paths in the file #file
+Add a new mock for function's selection #selection.
 ```
 
 #### Fill empty tests (based on file) `:codeTestingFillExistingTests`
