@@ -244,30 +244,33 @@ Create a test from another test.
 **Prompt**:
 
 ````text
-Based on the file: "[[file path]]"
-And the test file: "[[file path]]"
+Based on the implementation file: #file
+And its test file: #file
 
 Use "[[testing framework]]" to generate a test
 Re-use import and mock if necessary
 Test for those test cases:
-
-[[more rules]]
+[[test cases]]
 ````
 
-#### Create test from test cases `:codeTestingCreateTestStructure`
+#### Create test from test cases `:codeTestingCreateTest`
 
 **Description:**
 
 Create a full test from test cases for a given function.
 
+Useful to generate test:
+
+- With `AAA` pattern.
+- With `Input` / `Output` / `Expectation` pattern.
+- *Not very efficient on complex functions*
+
 **Prompt**:
 
 ```text
-Use "[[testing framework]]" to generate a full testing code using AAA methods for the function signature "[[function signature]]" from those sentences:
+Use "[[testing framework]]" to generate a test that uses AAA pattern for the function signature "[[function signature]]".
 
----
-[[Test cases]]
----
+[[Indications if needed]]
 ```
 
 #### Create new unit tests `:codeTestingSetupStructure` (WIP 🚧)
@@ -291,12 +294,12 @@ Create a new unit test structure for a function.
 
 **Description:**
 
-Generate a skeleton test from input/output examples based on files.
+Generate a test based on specifications for a specific function.
 
 **Prompt**:
 
 ```text
-Based on those specs (see below), write tests for the function "[[canVote]]":
+Use "[[testing framework]]" to write tests based on those specs (see below):
 
 ---
 [[Specifications]]
@@ -315,14 +318,6 @@ Add a new test in a test suite following the test structure.
 Add a new test in the test suite following same testing structure for test cases:
 
 [[test cases]]
-```
-
-#### Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature`
-
-```text
-From testing lib in the project from file "[[package.json | composer.json | ]]", write a unit test respecting AAA rule for the function "[[function]]" based on the following feature:
-
-[[Feature request]]
 ```
 
 ### Fill
@@ -351,6 +346,20 @@ Fill relevant component elements with "data-testid", use index number if availab
 ```text
 Without importing, create new fake filled entity for every required properties of this file: #file
 ```
+
+#### Fill empty tests (based on file) `:codeTestingFillExistingTests`
+
+**Description:**
+
+Fill existing tests based on the file content.
+
+**Prompt**:
+
+```text
+Fill empty tests based on the file content.
+```
+
+### Mock
 
 #### Mock specific function returns `:codeTestingMockSpecificFunctionReturns`
 
@@ -384,25 +393,12 @@ Based on the already mocked paths in the file #file
 Add a new mock for function's selection #selection.
 ```
 
-#### Fill empty tests (based on file) `:codeTestingFillExistingTests`
+### Fix
 
-**Description:**
-
-Fill existing tests based on the file content.
-
-**Prompt**:
-
-```text
-Fill empty tests based on the file content.
-```
-
-### WIP
-
-#### Fixing code from test results `:codeTestingFixFailedTest` (WIP 🚧)
+#### Fixing code from test results `:codeTestingFixFailedTest`
 
 - Open the required file to fix the code.
 - Select the code to fix.
-- If using Copilot, prefix the prompt with `/fix`
 
 ```text
 The test output the following error (surrounded by "---" delimiters): 
@@ -413,17 +409,16 @@ The test output the following error (surrounded by "---" delimiters):
 
 Follow those steps:
 
-1. Summarize in 1 sentence what the issue is.
-2. Check the code implementation to find the issue, not the test.
-3. Traverse the whole code used in the function, because the issue could be located elsewhere
+1. Assume current test is correct:  #file
+2. Summarize in 1 sentence what the issue is.
+3. Check the code implementation to find the issue in file: #file
+4. Traverse the whole code used in the function, because the issue could be located elsewhere
   - in a external type
   - in a constant variable defined above in the file
   - in a function called in the function
   - from an incorrect copy/paste in names
   - etc
-4. Detail what the function is doing, be precise if other part of the code is involved.
-5. List all inconsistencies (minimum 3) you find regarding the issue, sorted by relevance.
-6. Once you analyze all source code in this file, fix the issue first issue from your inconsistencies list.
+5. Once you analyze all source code in this file, fix the issue first issue from your inconsistencies list.
 ```
 
 ## 🎯 Test-First
