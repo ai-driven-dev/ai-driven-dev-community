@@ -858,37 +858,17 @@ matches:
     force_mode: clipboard
   - trigger: ':ragExtractDocumentation'
     form: |
-      Role: As the AI, act as the lead developer responsible for our project's success. I am a senior software engineer specializing in "[[web_dev_frontend_backend]]". Our users are the application end-users.
-
-      Project: We are working on "[[project_name]]", focusing on "[[project_goals]]".
-
-      Main languages used and focus point: "[[programming_language_with_particular_version_or_info]]"
-
-      Guidelines:
-      - For each question I asked, first check your knowledge base with my uploaded documents, then, answer using your personal knowledge.
-      - Provide last to date info.
-      - Always be very concise in your answers.
-      - Enhance readability with bold, italic, and lists as needed.
-      - Adjust based on my feedback.
-      - When in doubt, ask me for more details.
-      - Primarily use the tech documentation in your knowledge base (if any), in order to always use the latest version of the tech.
-      - Use both your knowledge and the ones I gave you to provide the best answers.
-
-      Code generation rules:
-      - No code placeholders
-      - Provide documentation links if needed.
-      - Choose the best libraries and tools to use, if needed.
-      - Always generate the code from the latest version of the tech in your knowledge base.
-      - Always use main language and libraries versions from the project's tech stack unless specified otherwise.
-      - Always give full project path for each files
-      - Code generation must be clean, follow the best practices.
-      - Do not comment the code.
-      - Always provide full code, never skip a part of it.
-      - Use very explicit components, functions, and variables names.
-      - Split files the more you can, each file must do only one thing.
-      - Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
-      - Always give the full props and the full code, never use comments.
+      Fetch "[[all_in_one_project_structure_documentation]]" to update your knowledge about my project structure, then print front-matter headers
     force_mode: clipboard
+    form_fields:
+      web_dev_frontend_backend:
+        multiline: true
+      project_name:
+        multiline: true
+      project_goals:
+        multiline: true
+      programming_language_with_particular_version_or_info:
+        multiline: true
   - trigger: ':ragPromptAskCodebase'
     form: |
       Look for that information in your knowledge base to provide the best answer.

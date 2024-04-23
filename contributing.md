@@ -166,7 +166,7 @@ Depending on the context, you can select a value here:
 Enjoy!
 ```
 
-## 😣 Need Help?
+## 💪 Need Help?
 
 If you need help or have any questions, feel free to open an issue for discussion or reach out to the project maintainers.
 
