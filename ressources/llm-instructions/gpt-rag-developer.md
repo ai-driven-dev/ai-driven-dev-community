@@ -83,15 +83,16 @@ Using `typedoc` to generate the documentation for your TypeScript project.
 ```bash
 #!/bin/bash
 
-FILE_NAME='all-in-one.md'
-VERSION=`node -p "require('./package.json').version"`
+DOCUMENTATION_DIR=${DOCUMENTATION_DIR:-'documentation/'}
+FILE_NAME=${FILE_NAME:-'all-in-one.md'}
+VERSION=${VERSION:-$(node -p "require('./package.json').version")}
 DATE=`date +%Y-%m-%d-%H:%M:%S`
 
 echo "Exporting markdown files for version $VERSION"
 
-typedoc --options typedoc.json --plugin typedoc-plugin-markdown --out documentation
+typedoc --options typedoc.json --plugin typedoc-plugin-markdown --out "${DOCUMENTATION_DIR}"
 
-cd documentation/
+cd "${DOCUMENTATION_DIR}"
 
 find . -name '*.md' ! -name "${FILE_NAME}" -exec cat {} \; > "${FILE_NAME}"
 
@@ -102,6 +103,10 @@ sed -i '' '1s/^/date: '$DATE'\n/' "${FILE_NAME}"
 sed -i '' '1s/^/version: '$VERSION'\
 /' "${FILE_NAME}"
 sed -i '' '1s/^/---\n/' "${FILE_NAME}"
+
+cd ..
+git add "${DOCUMENTATION_DIR}"
+git commit -m "docs: update project documentation for version $VERSION"
 
 # source: scripts/project-documentation-typescript.sh
 ```
