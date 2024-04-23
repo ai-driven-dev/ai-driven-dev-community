@@ -1,6 +1,9 @@
 # 🧑‍💻 Dev prompts / shortcuts for developers using AI `:dev`
 
-- [Create \& ¨Merge a documentation from a GitHub repository 🧙 `:devMergeDocumentation`](#create--merge-a-documentation-from-a-github-repository--devmergedocumentation)
+- [🧙 Create + Merge a documentation from a GitHub repository `:devMergeDocumentation`](#-create--merge-a-documentation-from-a-github-repository-devmergedocumentation)
+- [🖋️ Shorts Snippets](#️-shorts-snippets)
+  - ["Do not import" `:dni`](#do-not-import-dni)
+  - [Indentation `:indent`](#indentation-indent)
 
 ## 🧙 Create + Merge a documentation from a GitHub repository `:devMergeDocumentation`
 
@@ -21,4 +24,10 @@ When talking to AI, sometimes you need to provide a short snippet of code.
 
 ```text
 Do not import, 
+```
+
+### Indentation `:indent`
+
+```text
+Indentation for this code.
 ```

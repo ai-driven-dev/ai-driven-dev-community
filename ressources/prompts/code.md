@@ -418,7 +418,7 @@ Follow those steps:
   - in a function called in the function
   - from an incorrect copy/paste in names
   - etc
-5. Once you analyze all source code in this file, fix the issue first issue from your inconsistencies list.
+5. Once you analyzed all source code in this file, fix the issue first issue from your inconsistencies list.
 ```
 
 ## 🎯 Test-First
