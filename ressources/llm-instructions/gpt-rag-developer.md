@@ -13,7 +13,9 @@ That way, every times you will use the AI, it will remember your preferences and
 - [🗃️ Documents list to provide](#️-documents-list-to-provide)
   - [Project structure generation `:ragProjectStructureGenerate`](#project-structure-generation-ragprojectstructuregenerate)
   - [PDF file optimization `:ragPDFOptimize`](#pdf-file-optimization-ragpdfoptimize)
-  - [Extract documentation from a GitHub repository `:ragExtractDocumentation`](#extract-documentation-from-a-github-repository-ragextractdocumentation)
+  - [Generate your project documentation](#generate-your-project-documentation)
+    - [TypeScript  `:ragGenerateProjectDocumentationTS`](#typescript--raggenerateprojectdocumentationts)
+  - [Lib documentation from GitHub repository `:ragExtractLibDocumentation`](#lib-documentation-from-github-repository-ragextractlibdocumentation)
 - [🧠 Create a RAG for your project](#-create-a-rag-for-your-project)
   - [Instructions for AI to act as a developer](#instructions-for-ai-to-act-as-a-developer)
   - [Conversation starters](#conversation-starters)
@@ -60,7 +62,47 @@ If you need to instruct this AI with a PDF, use this script to reduce file size 
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[output.pdf]]" "[[input.pdf]]"
 ```
 
-### Extract documentation from a GitHub repository `:ragExtractDocumentation`
+### Generate your project documentation
+
+#### TypeScript  `:ragGenerateProjectDocumentationTS`
+
+**Description:**
+
+Using `typedoc` to generate the documentation for your TypeScript project.
+
+**How to use the prompt**:
+
+| Usage                   | Contexte                                                   |
+|-------------------------|------------------------------------------------------------|
+| 📦 **Dependencies**     | `npm install -D typedoc typedoc-plugin-markdown` |
+
+**Prompt:**
+
+```bash
+#!/bin/bash
+
+FILE_NAME='all-in-one.md'
+VERSION=`node -p "require('./package.json').version"`
+DATE=`date +%Y-%m-%d-%H:%M:%S`
+
+echo "Exporting markdown files for version $VERSION"
+
+typedoc --options typedoc.json --plugin typedoc-plugin-markdown --out documentation
+
+cd documentation/
+
+find . -name '*.md' ! -name "${FILE_NAME}" -exec cat {} \; > "${FILE_NAME}"
+
+# Write the version and date to the top of the file
+
+sed -i '' '1s/^/---\n\n/' "${FILE_NAME}"
+sed -i '' '1s/^/date: '$DATE'\n/' "${FILE_NAME}"
+sed -i '' '1s/^/version: '$VERSION'\
+/' "${FILE_NAME}"
+sed -i '' '1s/^/---\n/' "${FILE_NAME}"
+```
+
+### Lib documentation from GitHub repository `:ragExtractLibDocumentation`
 
 - Use [Download GitHub Directory](https://download-directory.github.io/) to download the repository as a zip file
 - Unzip the file
