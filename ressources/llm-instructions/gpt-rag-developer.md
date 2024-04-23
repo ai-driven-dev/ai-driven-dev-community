@@ -42,6 +42,16 @@ Place yourself in your project directory and run the following command to genera
 
 > ⚠️ The more you exclude directories, the more accurate the project structure will be.
 
+**Usage**:
+
+```json
+{
+  "doc:structure": "curl -s https://raw.githubusercontent.com/alexsoyes/ai-driven-dev-community/main/scripts/project-structure.sh | EXCLUDE='documentation' sh"
+}
+```
+
+**Script:**
+
 ```bash
 #!/bin/bash
 
@@ -83,9 +93,17 @@ Using `typedoc` to generate the documentation for your TypeScript project.
 
 | Usage                   | Contexte                                                   |
 |-------------------------|------------------------------------------------------------|
-| 📦 **Dependencies**     | `npm install -D typedoc typedoc-plugin-markdown` |
+| 📦 Dependencies     | `npm install -D typedoc typedoc-plugin-markdown` |
 
-**Prompt:**
+**Usage**:
+
+```json
+{
+  "doc:export": "curl -s https://raw.githubusercontent.com/alexsoyes/ai-driven-dev-community/main/scripts/project-documentation-typescript.sh | sh",
+}
+```
+
+**Script:**
 
 ```bash
 #!/bin/bash
