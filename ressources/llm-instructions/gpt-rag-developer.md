@@ -45,18 +45,20 @@ Place yourself in your project directory and run the following command to genera
 ```bash
 #!/bin/bash
 
-EXCLUDE_DIRS="node_modules|docs" # put your own excluded directories here
+EXCLUDE_DIRS=$(grep -v '^#' .gitignore | grep -v '^$' | tr '\n' '|')
 CURRENT_DIR=$(basename "$(pwd)")
 FILE_NAME_STRUCTURE="project-structure-${CURRENT_DIR}.txt"
 
 echo -e "Project structure for $CURRENT_DIR directory\n" | tee "$FILE_NAME_STRUCTURE" && tree -I "$EXCLUDE_DIRS" >> "$FILE_NAME_STRUCTURE"
+
+# source: scripts/project-structure.sh
 ```
 
 ### PDF file optimization `:ragPDFOptimize`
 
 If you need to instruct this AI with a PDF, use this script to reduce file size and improve RAG's performance.
 
-```bash
+```text
 # replace output.pdf and input.pdf with the correct file names
 
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[output.pdf]]" "[[input.pdf]]"
@@ -100,6 +102,8 @@ sed -i '' '1s/^/date: '$DATE'\n/' "${FILE_NAME}"
 sed -i '' '1s/^/version: '$VERSION'\
 /' "${FILE_NAME}"
 sed -i '' '1s/^/---\n/' "${FILE_NAME}"
+
+# source: scripts/project-documentation-typescript.sh
 ```
 
 ### Lib documentation from GitHub repository `:ragExtractLibDocumentation`
