@@ -20,7 +20,7 @@ const PUBLIC_PROMPTS = [
   './ressources/prompts/*',
   './ressources/prompts/_/*',
   './ressources/prompts/languages/*',
-  './llm-instructions/*',
+  './ressources/llm-instructions/*',
   './contributing*',
 ];
 
