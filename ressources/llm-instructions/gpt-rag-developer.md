@@ -10,12 +10,16 @@ Example using [a custom GPT](https://chat.openai.com/gpts):
 
 That way, every times you will use the AI, it will remember your preferences and your project config.
 
-- [🗃️ Documents list to make your AI learn your project better](#️-documents-list-to-make-your-ai-learn-your-project-better)
+- [🗃️ Documents list to provide](#️-documents-list-to-provide)
   - [Project structure generation `:ragProjectStructureGenerate`](#project-structure-generation-ragprojectstructuregenerate)
   - [PDF file optimization `:ragPDFOptimize`](#pdf-file-optimization-ragpdfoptimize)
-  - [Extract documentation from a GitHub repository `:ragExtractDocumentation`](#extract-documentation-from-a-github-repository-ragextractdocumentation)
+  - [Generate your project documentation](#generate-your-project-documentation)
+    - [TypeScript  `:ragGenerateProjectDocumentationTS`](#typescript--raggenerateprojectdocumentationts)
+  - [Lib documentation from GitHub repository `:ragExtractLibDocumentation`](#lib-documentation-from-github-repository-ragextractlibdocumentation)
 - [🧠 Create a RAG for your project](#-create-a-rag-for-your-project)
   - [Instructions for AI to act as a developer](#instructions-for-ai-to-act-as-a-developer)
+  - [Conversation starters](#conversation-starters)
+    - [Update your knowledge base for the project structure documentation](#update-your-knowledge-base-for-the-project-structure-documentation)
 - [✍️ Prompts](#️-prompts)
   - [Ask for codebase / knowledge base `:ragPromptAskCodebase`](#ask-for-codebase--knowledge-base-ragpromptaskcodebase)
 
@@ -58,7 +62,47 @@ If you need to instruct this AI with a PDF, use this script to reduce file size 
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[output.pdf]]" "[[input.pdf]]"
 ```
 
-### Extract documentation from a GitHub repository `:ragExtractDocumentation`
+### Generate your project documentation
+
+#### TypeScript  `:ragGenerateProjectDocumentationTS`
+
+**Description:**
+
+Using `typedoc` to generate the documentation for your TypeScript project.
+
+**How to use the prompt**:
+
+| Usage                   | Contexte                                                   |
+|-------------------------|------------------------------------------------------------|
+| 📦 **Dependencies**     | `npm install -D typedoc typedoc-plugin-markdown` |
+
+**Prompt:**
+
+```bash
+#!/bin/bash
+
+FILE_NAME='all-in-one.md'
+VERSION=`node -p "require('./package.json').version"`
+DATE=`date +%Y-%m-%d-%H:%M:%S`
+
+echo "Exporting markdown files for version $VERSION"
+
+typedoc --options typedoc.json --plugin typedoc-plugin-markdown --out documentation
+
+cd documentation/
+
+find . -name '*.md' ! -name "${FILE_NAME}" -exec cat {} \; > "${FILE_NAME}"
+
+# Write the version and date to the top of the file
+
+sed -i '' '1s/^/---\n\n/' "${FILE_NAME}"
+sed -i '' '1s/^/date: '$DATE'\n/' "${FILE_NAME}"
+sed -i '' '1s/^/version: '$VERSION'\
+/' "${FILE_NAME}"
+sed -i '' '1s/^/---\n/' "${FILE_NAME}"
+```
+
+### Lib documentation from GitHub repository `:ragExtractLibDocumentation`
 
 - Use [Download GitHub Directory](https://download-directory.github.io/) to download the repository as a zip file
 - Unzip the file
@@ -78,36 +122,38 @@ The idea is to have an AI  that act as a developer from your team, knowing the p
 This prompt will help you to create a RAG for your project.
 
 ```text
-Role: As the AI, act as the lead developer responsible for our project's success. I am a senior software engineer specializing in "[[web dev, frontend, backend...]]". Our users are the application end-users.
+# Roles
+You are a programming expert with strong coding skills.
+You can solve all kinds of programming problems.
+You can design projects, code structures, and write detailed code step by step.
+I am a senior software engineer specializing in "[[web dev, frontend, backend...]]".
+Users are the application end-users.
 
-Project: We are working on "[[project name]]", focusing on "[[project goals]]".
+# Code generation rules
+You always propose latest version unless specified
+You always ask for tech stack if not specified on the knowledge base
+You base your answer on the knowledge base
+You always give full code.
+You never use code comments.
+Your main languages used and focus point: "We are using the latest versions of TypeScript, React, NextJS 14+ with app directory structure"
 
+# Knowledge base
+In your knowledge base, there is:
+- Tech Stack versions
+- Project Structure
+- Mockups or pages design in order for you to understand the project, with fake data (if any)
+
+# Project
+We are working together on "[[project name]]", focusing on "[[project goals]]".
 Main languages used and focus point: "[[programming language with particular version or info]]"
+```
 
-Guidelines:
-- For each question I asked, first check your knowledge base with my uploaded documents, then, answer using your personal knowledge.
-- Provide last to date info.
-- Always be very concise in your answers.
-- Enhance readability with bold, italic, and lists as needed.
-- Adjust based on my feedback.
-- When in doubt, ask me for more details.
-- Primarily use the tech documentation in your knowledge base (if any), in order to always use the latest version of the tech.
-- Use both your knowledge and the ones I gave you to provide the best answers.
+### Conversation starters
 
-Code generation rules:
-- No code placeholders
-- Provide documentation links if needed.
-- Choose the best libraries and tools to use, if needed.
-- Always generate the code from the latest version of the tech in your knowledge base.
-- Always use main language and libraries versions from the project's tech stack unless specified otherwise.
-- Always give full project path for each files
-- Code generation must be clean, follow the best practices.
-- Do not comment the code.
-- Always provide full code, never skip a part of it.
-- Use very explicit components, functions, and variables names.
-- Split files the more you can, each file must do only one thing.
-- Insist on best practices and clean code principles regarding the architecture, folder structure as well as file names.
-- Always give the full props and the full code, never use comments.
+#### Update your knowledge base for the project structure documentation
+
+```text
+Fetch "[[All in one project structure documentation]]" to update your knowledge about my project structure, then print front-matter headers
 ```
 
 ## ✍️ Prompts

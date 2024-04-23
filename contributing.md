@@ -109,13 +109,14 @@ What the prompt is about.
 
 | Usage                   | Contexte                                                   |
 |-------------------------|------------------------------------------------------------|
-| 🔁 **Follow-up prompt** | None / `:instructImage...` required before this one        |
-| 🗂️ **Requirements**     | None / `documentation.md` is needed to use this prompt     |
+| 🔁 **Follow-up prompt** | `:instructImage...` required before this one               |
+| 🗂️ **Requirements**     | `documentation.md` is needed to use this prompt            |
 | 🔍 **Context**          | Open 2 files side-by-side in your IDE                      |
-| 📌 **Annotations**      | None / `@workspace` annotation in Copilot might be used.   |
+| 📌 **Annotations**      | `@workspace` annotation in Copilot might be used.          |
 | ✅ **Variables needed** | Yes                                                        |
+| 📦 **Dependencies**     | `brew install espanso`                                                  |
 
-**Prompt**:
+**Prompt/Code**:
 
 ```text
 This prompt took one inline variable here: "[[var_1]]".
@@ -144,11 +145,12 @@ What the prompt is about.
 
 | Usage                   | Contexte                                                   |
 |-------------------------|------------------------------------------------------------|
-| 🔁 **Follow-up prompt** | None / `:instructImage...` required before this one        |
-| 🗂️ **Attachments**      | None / `documentation.md` is needed to use this prompt     |
+| 🔁 **Follow-up prompt** | `:instructImage...` required before this one               |
+| 🗂️ **Attachments**      | `documentation.md` is needed to use this prompt            |
 | 🔍 **Context**          | Open 2 files side-by-side in your IDE                      |
-| 📌 **Annotations**      | None / `@workspace` annotation in Copilot might be used.   |
+| 📌 **Annotations**      | `@workspace` annotation in Copilot might be used.          |
 | ✅ **Parameters**       | Yes                                                        |
+| 📦 **Dependencies**     | `brew install espanso`                                     |
 
 **Prompt**:
 
@@ -166,7 +168,7 @@ Depending on the context, you can select a value here:
 Enjoy!
 ```
 
-## 😣 Need Help?
+## 💪 Need Help?
 
 If you need help or have any questions, feel free to open an issue for discussion or reach out to the project maintainers.
 
