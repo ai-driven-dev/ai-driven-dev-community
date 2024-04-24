@@ -193,10 +193,18 @@ Fetch "[[All in one project structure documentation]]" to update your knowledge 
 
 Custom GPTs have for example the ability to be filled with documents as RAGs.
 
-### Ask for codebase / knowledge base `:ragPromptAskCodebase`
+### Answer from knowledge base `:ragAnswerFromKnowledgeBase`
 
 ```text
 Look for that information in your knowledge base to provide the best answer.
 
-[[Your prompt]]
+[[Your question]]
+```
+
+### Using files in your knowledge base `:ragAnswerFromFiles`
+
+```text
+Look for files "[[files]]" in your knowledge base, then to provide the best answer to:
+
+[[Your question]]
 ```

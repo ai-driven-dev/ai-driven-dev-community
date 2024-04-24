@@ -124,29 +124,23 @@ matches:
         multiline: true
   - trigger: ':codeTestingCreateTest'
     form: |
-      Use "[[testing_framework]]" to generate a test that uses AAA pattern for the function signature "[[function_signature]]".
+      Use "[[testing_framework]]" to generate a test that uses AAA pattern for file #file
 
-      [[indications_if_needed]]
+      Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects.
+      Act to test logic.
+      Assert that the result is expected.
+
+      Expectations (surrounded by "---" delimiter):
+      ---
+      [[expectation_if_needed]]
+      ---
+
+      Important: those specification MUST be tested OVER the implementation
+
+      #editor
     force_mode: clipboard
     form_fields:
-      indications_if_needed:
-        multiline: true
-  - trigger: ':codeTestingSetupStructure'
-    form: |
-      - Read files content from: "[[file]]".
-      - List all functions.
-      - For each functions in those files, list inner function calls.
-    force_mode: clipboard
-  - trigger: ':codeTestingGenerateSkeletonTest'
-    form: |
-      Use "[[testing_framework]]" to write tests based on those specs (see below):
-
-      ---
-      [[specifications]]
-      ---
-    force_mode: clipboard
-    form_fields:
-      specifications:
+      expectation_if_needed:
         multiline: true
   - trigger: ':codeTestingAddNewTestInSuite'
     form: |
@@ -157,8 +151,19 @@ matches:
     form_fields:
       test_cases:
         multiline: true
+  - trigger: ':codeTestingFillTestCasesExpectations'
+    form: |
+      In those tests, fill every "Assert" parts only from those specs (surrounded by "---" delimiter):
+
+      ---
+      [[specifications]]
+      ---
+    force_mode: clipboard
+    form_fields:
+      specifications:
+        multiline: true
   - trigger: ':codeTestingFillTestCase'
-    form: "Write high quality test for this test selection #selection in file #file\nCode implementation to test:\_#file\n\nArrange fake data with valid ones (mock or stub if necessary) based on required properties of objects:\_#file\nAct to test logic.\nAssert that the result is expected.\n"
+    form: "Fill every tests #selection in file #file\nCode implementation to test:\_#file\n\nArrange fake data with valid ones (mock or stub if necessary) based on required properties of objects:\_#file\nAct to test logic.\nAssert that the result is expected.\n"
     force_mode: clipboard
   - trigger: ':codeTestingFillComponentWithDataTestId'
     form: |
@@ -184,6 +189,17 @@ matches:
       Based on the already mocked paths in the file #file
       Add a new mock for function's selection #selection.
     force_mode: clipboard
+  - trigger: ':codeFixFindIssuesAndFix'
+    form: |
+      Fix the following issues in the code #selection:
+
+      [[copypaste_errors_from_logs]]
+
+      #editor
+    force_mode: clipboard
+    form_fields:
+      copypaste_errors_from_logs:
+        multiline: true
   - trigger: ':codeTestingFixFailedTest'
     form: |
       The test output the following error (surrounded by "---" delimiters): 
@@ -207,6 +223,17 @@ matches:
     force_mode: clipboard
     form_fields:
       test_results:
+        multiline: true
+  - trigger: ':codeFixTestAssertions'
+    form: |
+      Based on those specifications (surrounded by "---" delimiter), please change the existing test #selection to match new assertions:
+
+      ---
+      [[new_specifications]]
+      ---
+    force_mode: clipboard
+    form_fields:
+      new_specifications:
         multiline: true
   - trigger: ':codeTestFirstRewriteFunction'
     form: |
@@ -893,14 +920,23 @@ matches:
         multiline: true
       programming_language_with_particular_version_or_info:
         multiline: true
-  - trigger: ':ragPromptAskCodebase'
+  - trigger: ':ragAnswerFromKnowledgeBase'
     form: |
       Look for that information in your knowledge base to provide the best answer.
 
-      [[your_prompt]]
+      [[your_question]]
     force_mode: clipboard
     form_fields:
-      your_prompt:
+      your_question:
+        multiline: true
+  - trigger: ':ragAnswerFromFiles'
+    form: |
+      Look for files "[[files]]" in your knowledge base, then to provide the best answer to:
+
+      [[your_question]]
+    force_mode: clipboard
+    form_fields:
+      your_question:
         multiline: true
 
 
