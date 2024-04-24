@@ -24,21 +24,22 @@ Related to code interaction (eg: with Copilot).
     - [Create test structure from test cases `:codeTestingCreateTestStructure`](#create-test-structure-from-test-cases-codetestingcreateteststructure)
   - [Generate](#generate)
     - [Create test from another `:codeTestingCreateTestFromAnother`](#create-test-from-another-codetestingcreatetestfromanother)
-    - [Create test from test cases `:codeTestingCreateTestStructure`](#create-test-from-test-cases-codetestingcreateteststructure)
-    - [Create new unit tests `:codeTestingSetupStructure` (WIP 🚧)](#create-new-unit-tests-codetestingsetupstructure-wip-)
-    - [Generate test for a specific function `:codeTestingGenerateSkeletonTest`](#generate-test-for-a-specific-function-codetestinggenerateskeletontest)
+    - [Create test from test cases `:codeTestingCreateTest`](#create-test-from-test-cases-codetestingcreatetest)
     - [Add new test in a test suite `:codeTestingAddNewTestInSuite`](#add-new-test-in-a-test-suite-codetestingaddnewtestinsuite)
-    - [Generate Unit Tests from a feature request `:codeTestingGenerateFromFeature`](#generate-unit-tests-from-a-feature-request-codetestinggeneratefromfeature)
   - [Fill](#fill)
+    - [Fill test cases expectations `:codeTestingFillTestCasesExpectations`](#fill-test-cases-expectations-codetestingfilltestcasesexpectations)
     - [Fill tests cases `:codeTestingFillTestCase`](#fill-tests-cases-codetestingfilltestcase)
     - [Fill component with data-testid `:codeTestingFillComponentWithDataTestId`](#fill-component-with-data-testid-codetestingfillcomponentwithdatatestid)
     - [Fill with Fake data `:codeTestingNewFakeFilledEntity`](#fill-with-fake-data-codetestingnewfakefilledentity)
+    - [Fill empty tests (based on file) `:codeTestingFillExistingTests`](#fill-empty-tests-based-on-file-codetestingfillexistingtests)
+  - [Mock](#mock)
     - [Mock specific function returns `:codeTestingMockSpecificFunctionReturns`](#mock-specific-function-returns-codetestingmockspecificfunctionreturns)
     - [Mock inner function calls `:codeTestingMockInnerFunctionCalls`](#mock-inner-function-calls-codetestingmockinnerfunctioncalls)
     - [Mock a new path in an existing file `:codeTestingMockNewPathInExistingFile`](#mock-a-new-path-in-an-existing-file-codetestingmocknewpathinexistingfile)
-    - [Fill empty tests (based on file) `:codeTestingFillExistingTests`](#fill-empty-tests-based-on-file-codetestingfillexistingtests)
-  - [WIP](#wip)
-    - [Fixing code from test results `:codeTestingFixFailedTest` (WIP 🚧)](#fixing-code-from-test-results-codetestingfixfailedtest-wip-)
+- [💉 Fix](#-fix)
+  - [Find issues and fix `:codeFixFindIssuesAndFix`](#find-issues-and-fix-codefixfindissuesandfix)
+    - [Fixing code from test results `:codeTestingFixFailedTest`](#fixing-code-from-test-results-codetestingfixfailedtest)
+  - [Fix test assertions with new specifications `:codeFixTestAssertions`](#fix-test-assertions-with-new-specifications-codefixtestassertions)
 - [🎯 Test-First](#-test-first)
   - [Rewrite function based on a test expectations `:codeTestFirstRewriteFunction`](#rewrite-function-based-on-a-test-expectations-codetestfirstrewritefunction)
   - [Function implementation based on a test `:codeTestFirstImplementFunction`](#function-implementation-based-on-a-test-codetestfirstimplementfunction)
@@ -268,42 +269,20 @@ Useful to generate test:
 **Prompt**:
 
 ```text
-Use "[[testing framework]]" to generate a test that uses AAA pattern for the function signature "[[function signature]]".
+Use "[[testing framework]]" to generate a test that uses AAA pattern for file #file
 
-[[Indications if needed]]
-```
+Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects.
+Act to test logic.
+Assert that the result is expected.
 
-#### Create new unit tests `:codeTestingSetupStructure` (WIP 🚧)
-
-**Description:**
-
-Create a new unit test structure for a function.
-
-- Pre-fill test scenarios from the test cases.
-- Use `Mock`, `Stub`, `Spy`, `Fake` or `Test Parameters` if needed.
-
-**Prompt**:
-
-```text
-- Read files content from: "[[file]]".
-- List all functions.
-- For each functions in those files, list inner function calls.
-```
-
-#### Generate test for a specific function `:codeTestingGenerateSkeletonTest`
-
-**Description:**
-
-Generate a test based on specifications for a specific function.
-
-**Prompt**:
-
-```text
-Use "[[testing framework]]" to write tests based on those specs (see below):
-
+Expectations (surrounded by "---" delimiter):
 ---
-[[Specifications]]
+[[Expectation if needed]]
 ---
+
+Important: those specification MUST be tested OVER the implementation
+
+#editor
 ```
 
 #### Add new test in a test suite `:codeTestingAddNewTestInSuite`
@@ -322,12 +301,22 @@ Add a new test in the test suite following same testing structure for test cases
 
 ### Fill
 
+#### Fill test cases expectations `:codeTestingFillTestCasesExpectations`
+
+```text
+In those tests, fill every "Assert" parts only from those specs (surrounded by "---" delimiter):
+
+---
+[[specifications]]
+---
+```
+
 #### Fill tests cases `:codeTestingFillTestCase`
 
 Fill ... using your AI tool like copilot.
 
 ```text
-Write high quality test for this test selection #selection in file #file
+Fill every tests #selection in file #file
 Code implementation to test: #file
 
 Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects: #file
@@ -393,9 +382,26 @@ Based on the already mocked paths in the file #file
 Add a new mock for function's selection #selection.
 ```
 
-### Fix
+## 💉 Fix
 
-#### Fixing code from test results `:codeTestingFixFailedTest`
+### Find issues and fix `:codeFixFindIssuesAndFix`
+
+**Description:**
+
+- Find the issues in the doc
+- Give AI instructions about how to fix those
+
+**Prompt:**
+
+```text
+Fix the following issues in the code #selection:
+
+[[Copy/Paste errors from logs]]
+
+#editor
+```
+
+### Fixing code from test results `:codeTestingFixFailedTest`
 
 - Open the required file to fix the code.
 - Select the code to fix.
@@ -419,6 +425,16 @@ Follow those steps:
   - from an incorrect copy/paste in names
   - etc
 5. Once you analyzed all source code in this file, fix the issue first issue from your inconsistencies list.
+```
+
+### Fix test assertions with new specifications `:codeFixTestAssertions`
+
+```text
+Based on those specifications (surrounded by "---" delimiter), please change the existing test #selection to match new assertions:
+
+---
+[[new specifications]]
+---
 ```
 
 ## 🎯 Test-First
