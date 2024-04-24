@@ -37,3 +37,4 @@ fi
 
 git add package*
 git add ai-driven-dev-prompts/
+git add scripts/
