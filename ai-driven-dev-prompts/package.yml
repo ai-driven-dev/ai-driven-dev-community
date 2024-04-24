@@ -841,7 +841,7 @@ matches:
         multiline: true
 
   - trigger: ':ragProjectStructureGenerate'
-    form: "#!/bin/bash\n\nEXCLUDE_DIRS=$(grep -v '^#' .gitignore | grep -v '^$' | sed 's|^/||' | sed 's|/$||' | sed 's/\\*//g' | sed -e :a -e '$!N; s/\\n/|/; ta')\n\nif [ -n \"$EXCLUDE\" ]; then\n  EXCLUDE_DIRS=\"${EXCLUDE_DIRS}|project-structure|${EXCLUDE}\"\nfi\n\nCURRENT_DIR=$(basename \"$(pwd)\" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)\nFILE_NAME_STRUCTURE=\"project-structure-${CURRENT_DIR}.txt\"\n\necho -e \"\U0001F5C4️ Excluded directories: $EXCLUDE_DIRS\\n\"\n\necho -e \"Project structure for $CURRENT_DIR directory\\n\" | tee \"$FILE_NAME_STRUCTURE\" && tree -I \"$EXCLUDE_DIRS\" >> \"$FILE_NAME_STRUCTURE\"\n\n# source: scripts/project-structure.sh\n"
+    form: "#!/bin/bash\n\nEXCLUDE_DIRS=$(grep -v '^#' .gitignore | grep -v '^$' | sed 's|^/||' | sed 's|/$||' | sed 's/\\*//g' | sed -e :a -e '$!N; s/\\n/|/; ta')\n\nif [ -n \"$EXCLUDE\" ]; then\n  EXCLUDE_DIRS=\"${EXCLUDE_DIRS}|project-structure|${EXCLUDE}\"\nfi\n\nCURRENT_DIR=$(basename \"$(pwd)\" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)\nFILE_NAME_STRUCTURE=\"project-structure-${CURRENT_DIR}.txt\"\n\necho \"\U0001F5C4️ Excluded directories: $EXCLUDE_DIRS\"\necho \"# Project structure for $CURRENT_DIR directory\" | tee \"$FILE_NAME_STRUCTURE\" && tree -I \"$EXCLUDE_DIRS\" >> \"$FILE_NAME_STRUCTURE\"\n\n# source: scripts/project-structure.sh\n"
     force_mode: clipboard
   - trigger: ':ragPDFOptimize'
     form: |
