@@ -907,11 +907,13 @@ matches:
 
       # source: scripts/project-documentation-typescript.sh
     force_mode: clipboard
-  - trigger: ':ragExtractLibDocumentation'
+  - trigger: ':ragMergeLibDocumentation'
     form: |
       Fetch "[[all_in_one_project_structure_documentation]]" to update your knowledge about my project structure, then print front-matter headers
     force_mode: clipboard
     form_fields:
+      filename_like_eg_documentationmd:
+        multiline: true
       web_dev_frontend_backend:
         multiline: true
       project_name:

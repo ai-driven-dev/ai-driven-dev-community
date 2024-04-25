@@ -143,7 +143,7 @@ git commit -m "docs: update project documentation for version $VERSION"
 - Then, upload that file in the AI and ask for a summary
 
 ```bash
-find . -type f -name '*.md' -o -name '*.mdx' -exec cat {} + > documentation.txt
+find . -type f -name '*.md' -o -name '*.mdx' -exec -exec cat {} \; > [[filename like, eg: documentation.md]]
 ```
 
 ## 🧠 Create a RAG for your project
