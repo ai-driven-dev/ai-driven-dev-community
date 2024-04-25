@@ -1,3 +1,33 @@
+# replace output.pdf and input.pdf with the correct file names
+
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[output.pdf]]" "[[input.pdf]]"
+```
+
+### Generate your project documentation
+
+#### TypeScript  `:ragGenerateProjectDocumentationTS`
+
+**Description:**
+
+Using `typedoc` to generate the documentation for your TypeScript project.
+
+**How to use the prompt**:
+
+| Usage                   | Contexte                                                   |
+|-------------------------|------------------------------------------------------------|
+| 📦 Dependencies     | `npm install -D typedoc typedoc-plugin-markdown` |
+
+**Usage**:
+
+```json
+{
+  "doc:export": "curl -s https://raw.githubusercontent.com/alexsoyes/ai-driven-dev-community/main/scripts/project-documentation-typescript.sh | sh",
+}
+```
+
+**Script:**
+
+```bash
 #!/bin/bash
 
 DOCUMENTATION_DIR=${DOCUMENTATION_DIR:-'documentation/'}
