@@ -15,13 +15,14 @@ That way, every times you will use the AI, it will remember your preferences and
   - [PDF file optimization `:ragPDFOptimize`](#pdf-file-optimization-ragpdfoptimize)
   - [Generate your project documentation](#generate-your-project-documentation)
     - [TypeScript  `:ragGenerateProjectDocumentationTS`](#typescript--raggenerateprojectdocumentationts)
-  - [Lib documentation from GitHub repository `:ragExtractLibDocumentation`](#lib-documentation-from-github-repository-ragextractlibdocumentation)
+  - [Lib documentation from GitHub repository `:ragMergeMarkdownLibDocumentation`](#lib-documentation-from-github-repository-ragmergemarkdownlibdocumentation)
 - [🧠 Create a RAG for your project](#-create-a-rag-for-your-project)
-  - [Instructions for AI to act as a developer](#instructions-for-ai-to-act-as-a-developer)
+  - [Instructions for AI to act as a developer `:ragInstructions`](#instructions-for-ai-to-act-as-a-developer-raginstructions)
   - [Conversation starters](#conversation-starters)
-    - [Update your knowledge base for the project structure documentation](#update-your-knowledge-base-for-the-project-structure-documentation)
+    - [Update your knowledge base for the project structure documentation `:ragUpdateProjectStructure`](#update-your-knowledge-base-for-the-project-structure-documentation-ragupdateprojectstructure)
 - [✍️ Prompts](#️-prompts)
-  - [Ask for codebase / knowledge base `:ragPromptAskCodebase`](#ask-for-codebase--knowledge-base-ragpromptaskcodebase)
+  - [Answer from knowledge base `:ragAnswerFromKnowledgeBase`](#answer-from-knowledge-base-raganswerfromknowledgebase)
+  - [Using files in your knowledge base `:ragAnswerFromFiles`](#using-files-in-your-knowledge-base-raganswerfromfiles)
 
 ## 🗃️ Documents list to provide
 
@@ -74,7 +75,7 @@ echo "# Project structure for $CURRENT_DIR directory" | tee "$FILE_NAME_STRUCTUR
 
 If you need to instruct this AI with a PDF, use this script to reduce file size and improve RAG's performance.
 
-```text
+```bash
 # replace output.pdf and input.pdf with the correct file names
 
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[output.pdf]]" "[[input.pdf]]"
@@ -135,7 +136,7 @@ git commit -m "docs: update project documentation for version $VERSION"
 # source: scripts/project-documentation-typescript.sh
 ```
 
-### Lib documentation from GitHub repository `:ragMergeLibDocumentation`
+### Lib documentation from GitHub repository `:ragMergeMarkdownLibDocumentation`
 
 - Use [Download GitHub Directory](https://download-directory.github.io/) to download the repository as a zip file
 - Unzip the file
@@ -150,7 +151,7 @@ find . -type f -name '*.md' -o -name '*.mdx' -exec -exec cat {} \; > [[filename 
 
 The idea is to have an AI  that act as a developer from your team, knowing the project and the tech stack (thanks to **Retrieval Augmented Generation**).
 
-### Instructions for AI to act as a developer
+### Instructions for AI to act as a developer `:ragInstructions`
 
 This prompt will help you to create a RAG for your project.
 
@@ -183,7 +184,7 @@ Main languages used and focus point: "[[programming language with particular ver
 
 ### Conversation starters
 
-#### Update your knowledge base for the project structure documentation
+#### Update your knowledge base for the project structure documentation `:ragUpdateProjectStructure`
 
 ```text
 Fetch "[[All in one project structure documentation]]" to update your knowledge about my project structure, then print front-matter headers

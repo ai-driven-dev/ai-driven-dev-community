@@ -907,21 +907,44 @@ matches:
 
       # source: scripts/project-documentation-typescript.sh
     force_mode: clipboard
-  - trigger: ':ragMergeLibDocumentation'
+  - trigger: ':ragMergeMarkdownLibDocumentation'
     form: |
-      Fetch "[[all_in_one_project_structure_documentation]]" to update your knowledge about my project structure, then print front-matter headers
+      find . -type f -name '*.md' -o -name '*.mdx' -exec -exec cat {} \; > [[filename_like_eg_documentationmd]]
     force_mode: clipboard
     form_fields:
       filename_like_eg_documentationmd:
         multiline: true
-      web_dev_frontend_backend:
-        multiline: true
-      project_name:
-        multiline: true
-      project_goals:
-        multiline: true
-      programming_language_with_particular_version_or_info:
-        multiline: true
+  - trigger: ':ragInstructions'
+    form: |
+      # Roles
+      You are a programming expert with strong coding skills.
+      You can solve all kinds of programming problems.
+      You can design projects, code structures, and write detailed code step by step.
+      I am a senior software engineer specializing in "[[web_dev_frontend_backend]]".
+      Users are the application end-users.
+
+      # Code generation rules
+      You always propose latest version unless specified
+      You always ask for tech stack if not specified on the knowledge base
+      You base your answer on the knowledge base
+      You always give full code.
+      You never use code comments.
+      Your main languages used and focus point: "We are using the latest versions of TypeScript, React, NextJS 14+ with app directory structure"
+
+      # Knowledge base
+      In your knowledge base, there is:
+      - Tech Stack versions
+      - Project Structure
+      - Mockups or pages design in order for you to understand the project, with fake data (if any)
+
+      # Project
+      We are working together on "[[project_name]]", focusing on "[[project_goals]]".
+      Main languages used and focus point: "[[programming_language_with_particular_version_or_info]]"
+    force_mode: clipboard
+  - trigger: ':ragUpdateProjectStructure'
+    form: |
+      Fetch "[[all_in_one_project_structure_documentation]]" to update your knowledge about my project structure, then print front-matter headers
+    force_mode: clipboard
   - trigger: ':ragAnswerFromKnowledgeBase'
     form: |
       Look for that information in your knowledge base to provide the best answer.
