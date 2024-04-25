@@ -160,6 +160,20 @@ Result should remain the same, but the code should be easier to read and underst
 Provide an example of the usage of this function, input and output.
 ```
 
+## 🚀 Generation
+
+### Generate type hinting `:codeGenerateTypeHinting`
+
+```text
+Type hints all necessary variables in this code.
+
+Import types if necessary.
+
+Assert that types match return values.
+
+Do not type "any" if possible.
+```
+
 ## 🐛 Bug
 
 ### Detect code inconsistencies `:bugCodeDetectInconsistencies`
@@ -489,4 +503,25 @@ Check that following function name and comments if any are matching code actions
 
 ```text
 Comment the code to make the hard parts easier to understand.
+```
+
+### Comment full file `:codeCommentsCommentFullFile`
+
+```text
+Add code documentation for this code.
+
+- Add top file documentation to describe what the file is doing
+- Add or update documentation for functions
+- Add documentation within function if necessary
+- Move comments to the right place if necessary
+```
+
+### Update comments to match code `:codeCommentsUpdateCommentsToMatchCode`
+
+```text
+Make sure the comments are up-to-date with the code.
+
+- Check function parameters and return types.
+- Comments must match type hints.
+- If the comments are not matching the code, update them.
 ```

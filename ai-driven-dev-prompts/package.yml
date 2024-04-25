@@ -66,6 +66,16 @@ matches:
     form: |
       Provide an example of the usage of this function, input and output.
     force_mode: clipboard
+  - trigger: ':codeGenerateTypeHinting'
+    form: |
+      Type hints all necessary variables in this code.
+
+      Import types if necessary.
+
+      Assert that types match return values.
+
+      Do not type "any" if possible.
+    force_mode: clipboard
   - trigger: ':bugCodeDetectInconsistencies'
     form: |
       I need you to detect inconsistencies in the code.
@@ -265,6 +275,23 @@ matches:
   - trigger: ':codeCommentsCommentHardParts'
     form: |
       Comment the code to make the hard parts easier to understand.
+    force_mode: clipboard
+  - trigger: ':codeCommentsCommentFullFile'
+    form: |
+      Add code documentation for this code.
+
+      - Add top file documentation to describe what the file is doing
+      - Add or update documentation for functions
+      - Add documentation within function if necessary
+      - Move comments to the right place if necessary
+    force_mode: clipboard
+  - trigger: ':codeCommentsUpdateCommentsToMatchCode'
+    form: |
+      Make sure the comments are up-to-date with the code.
+
+      - Check function parameters and return types.
+      - Comments must match type hints.
+      - If the comments are not matching the code, update them.
     force_mode: clipboard
 
   - trigger: ':dni'
