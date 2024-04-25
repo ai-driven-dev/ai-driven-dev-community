@@ -1,3 +1,2 @@
 Scrapy==2.11.1
-beautifulsoup4==4.12.3
 html2text==2024.2.26
