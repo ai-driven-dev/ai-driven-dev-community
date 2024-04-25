@@ -136,7 +136,7 @@ git commit -m "docs: update project documentation for version $VERSION"
 # source: scripts/project-documentation-typescript.sh
 ```
 
-### Lib documentation from GitHub repository `:ragMergeMarkdownLibDocumentation`
+### Get & Merge Documentation from GitHub repository `:ragMergeMarkdownFiles`
 
 - Use [Download GitHub Directory](https://download-directory.github.io/) to download the repository as a zip file
 - Unzip the file
@@ -144,7 +144,7 @@ git commit -m "docs: update project documentation for version $VERSION"
 - Then, upload that file in the AI and ask for a summary
 
 ```bash
-find . -type f -name '*.md' -o -name '*.mdx' -exec -exec cat {} \; > [[filename like, eg: documentation.md]]
+find . -type f -name '*.md' -exec cat {} \; > [[filename like, eg: documentation.md]]
 ```
 
 ## 🧠 Create a RAG for your project
