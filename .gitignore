@@ -4,3 +4,8 @@ node_modules
 # Ignore everything in prompts/private except .gitkeep
 prompts/private/*
 !prompts/private/.gitkeep
+
+# Ignore scraped website content
+scripts/scraper/websites/*
+*.pyc
+__pycache__/
