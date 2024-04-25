@@ -907,9 +907,9 @@ matches:
 
       # source: scripts/project-documentation-typescript.sh
     force_mode: clipboard
-  - trigger: ':ragMergeMarkdownLibDocumentation'
+  - trigger: ':ragMergeMarkdownFiles'
     form: |
-      find . -type f -name '*.md' -o -name '*.mdx' -exec -exec cat {} \; > [[filename_like_eg_documentationmd]]
+      find . -type f -name '*.md' -exec cat {} \; > [[filename_like_eg_documentationmd]]
     force_mode: clipboard
     form_fields:
       filename_like_eg_documentationmd:

@@ -1,4 +1,3 @@
-from bs4 import BeautifulSoup
 import html2text
 import os
 import scrapy
@@ -33,12 +32,6 @@ class HtmlSpiderSpider(scrapy.Spider):
 
     @staticmethod
     def html_to_markdown(html_content):
-        # Use BeautifulSoup to parse the HTML content
-        soup = BeautifulSoup(html_content, 'html.parser')
-        
-        # Get text from the parsed HTML
-        text_content = soup.get_text()
-        
         # Convert HTML to Markdown
         markdown_converter = html2text.HTML2Text()
         markdown_converter.ignore_links = False  # Set to True to ignore converting links
@@ -62,13 +55,14 @@ class HtmlSpiderSpider(scrapy.Spider):
             # Check if the path starts with the specified path
             if self.path is None or path.startswith(self.path):
                 filename = f'websites/{domain}/{path}'
+                self.log(f'Processing {response.url} to {filename}')
                 
                 # Ensure the directory exists
                 os.makedirs(os.path.dirname(filename), exist_ok=True)
                 
                 with open(filename, 'wb') as f:
                     f.write(response.body)
-                self.log(f'Saved file {filename}')
+                    self.log(f'Saved file {filename}')
 
                 if self.useMarkdown:
                     # Convert the HTML content to Markdown
@@ -83,5 +77,5 @@ class HtmlSpiderSpider(scrapy.Spider):
             href_parsed_uri = urlparse(absolute_url)
             href_domain = '{uri.netloc}'.format(uri=href_parsed_uri)
             if href_domain in self.allowed_domains and not absolute_url.endswith('.pdf'):
-                self.log(f'Found URL: {absolute_url}')  # Log found URLs
+                # self.log(f'Found URL: {absolute_url}')  # Log found URLs
                 yield scrapy.Request(absolute_url, callback=self.parse)
