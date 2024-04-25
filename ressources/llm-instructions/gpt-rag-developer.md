@@ -135,7 +135,7 @@ git commit -m "docs: update project documentation for version $VERSION"
 # source: scripts/project-documentation-typescript.sh
 ```
 
-### Lib documentation from GitHub repository `:ragExtractLibDocumentation`
+### Lib documentation from GitHub repository `:ragMergeLibDocumentation`
 
 - Use [Download GitHub Directory](https://download-directory.github.io/) to download the repository as a zip file
 - Unzip the file
