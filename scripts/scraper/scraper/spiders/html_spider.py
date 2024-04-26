@@ -38,18 +38,17 @@ class HtmlSpiderSpider(scrapy.Spider):
         self.path: Optional[str] = path
         self.useMarkdown: bool = useMarkdown
 
-    def process_response(self, request: Request, response: Response, spider: scrapy.Spider) -> Response:
+    def process_response(self, request: Request, response: Response) -> Response:
         """
         Process the response received from a request.
+
+        If the response status is in the handled list and the location's domain is not allowed, 
+        returns a new response with status 200 and an empty body. 
+        Otherwise, returns the original response.
 
         Args:
             request (Request): The request object.
             response (Response): The response object.
-            spider (Spider): The spider instance.
-
-        Returns:
-            Response: The processed response.
-
         """
         if response.status in self.handle_httpstatus_list:
             location = response.headers.get('location')
