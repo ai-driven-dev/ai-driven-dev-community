@@ -11,6 +11,8 @@ Related to code interaction (eg: with Copilot).
   - [Help me thinking `:codeCodingHelpThinking`](#help-me-thinking-codecodinghelpthinking)
   - [Improve code readability `:codeCodingImproveReadability` (WIP 🚧)](#improve-code-readability-codecodingimprovereadability-wip-)
   - [Give me an example of the usage of this function `:codeCodingProvideExampleUsage` (WIP 🚧)](#give-me-an-example-of-the-usage-of-this-function-codecodingprovideexampleusage-wip-)
+- [� Generation](#-generation)
+  - [Generate type hinting `:codeGenerateTypeHinting`](#generate-type-hinting-codegeneratetypehinting)
 - [🐛 Bug](#-bug)
   - [Detect code inconsistencies `:bugCodeDetectInconsistencies`](#detect-code-inconsistencies-bugcodedetectinconsistencies)
 - [🔫 Debug](#-debug)
@@ -38,7 +40,7 @@ Related to code interaction (eg: with Copilot).
     - [Mock a new path in an existing file `:codeTestingMockNewPathInExistingFile`](#mock-a-new-path-in-an-existing-file-codetestingmocknewpathinexistingfile)
 - [💉 Fix](#-fix)
   - [Find issues and fix `:codeFixFindIssuesAndFix`](#find-issues-and-fix-codefixfindissuesandfix)
-    - [Fixing code from test results `:codeTestingFixFailedTest`](#fixing-code-from-test-results-codetestingfixfailedtest)
+  - [Fixing code from test results `:codeTestingFixFailedTest`](#fixing-code-from-test-results-codetestingfixfailedtest)
   - [Fix test assertions with new specifications `:codeFixTestAssertions`](#fix-test-assertions-with-new-specifications-codefixtestassertions)
 - [🎯 Test-First](#-test-first)
   - [Rewrite function based on a test expectations `:codeTestFirstRewriteFunction`](#rewrite-function-based-on-a-test-expectations-codetestfirstrewritefunction)
@@ -47,6 +49,8 @@ Related to code interaction (eg: with Copilot).
 - [💬 Comments](#-comments)
   - [Comments must match code actions `:codeCommentsCheckCodeIsMatching`](#comments-must-match-code-actions-codecommentscheckcodeismatching)
   - [Comment the code to make the hard part easier `:codeCommentsCommentHardParts`](#comment-the-code-to-make-the-hard-part-easier-codecommentscommenthardparts)
+  - [Comment full file `:codeCommentsCommentFullFile`](#comment-full-file-codecommentscommentfullfile)
+  - [Update comments to match code `:codeCommentsUpdateCommentsToMatchCode`](#update-comments-to-match-code-codecommentsupdatecommentstomatchcode)
 
 ## 🧑‍💻 Code
 
@@ -525,3 +529,4 @@ Make sure the comments are up-to-date with the code.
 - Comments must match type hints.
 - If the comments are not matching the code, update them.
 ```
+
