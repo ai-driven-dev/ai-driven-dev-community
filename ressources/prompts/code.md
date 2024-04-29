@@ -97,6 +97,21 @@ Merge two files with almost the same content.
 Based on those two file names "[[filename 1]]" and "[[filename 2]]", merge logic to reduce code duplication.
 ```
 
+### Base on file, update file `:codeUpdateFile`
+
+**Description**:
+
+Update a file based on another file.
+
+**Prompt**:
+
+```text
+Based on file: #file
+Update the file: #file
+
+Adapt the content to match the structure.
+```
+
 ### Base on file, create a new file `:codeCreateNewFile`
 
 **Description**:

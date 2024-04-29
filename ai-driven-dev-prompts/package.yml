@@ -21,6 +21,13 @@ matches:
     form: |
       Based on those two file names "[[filename_1]]" and "[[filename_2]]", merge logic to reduce code duplication.
     force_mode: clipboard
+  - trigger: ':codeUpdateFile'
+    form: |
+      Based on file: #file
+      Update the file: #file
+
+      Adapt the content to match the structure.
+    force_mode: clipboard
   - trigger: ':codeCreateNewFile'
     form: |
       Based on file: #file
