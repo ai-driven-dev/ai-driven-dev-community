@@ -14,7 +14,7 @@ That way, every times you will use the AI, it will remember your preferences and
   - [Project structure generation `:ragProjectStructureGenerate`](#project-structure-generation-ragprojectstructuregenerate)
   - [PDF file optimization `:ragPDFOptimize`](#pdf-file-optimization-ragpdfoptimize)
   - [Generate your project documentation](#generate-your-project-documentation)
-    - [TypeScript `:ragGenerateProjectDocumentationTS`](#typescript--raggenerateprojectdocumentationts)
+    - [TypeScript  `:ragGenerateProjectDocumentationTS`](#typescript--raggenerateprojectdocumentationts)
   - [Get \& Merge Documentation from GitHub repository `:ragMergeMarkdownFiles`](#get--merge-documentation-from-github-repository-ragmergemarkdownfiles)
 - [🧠 Create a RAG for your project](#-create-a-rag-for-your-project)
   - [Instructions for AI to act as a developer `:ragInstructions`](#instructions-for-ai-to-act-as-a-developer-raginstructions)
@@ -75,7 +75,7 @@ echo "# Project structure for $CURRENT_DIR directory" | tee "$FILE_NAME_STRUCTUR
 
 If you need to instruct this AI with a PDF, use this script to reduce file size and improve RAG's performance.
 
-```bash
+```text
 # replace output.pdf and input.pdf with the correct file names
 
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[output.pdf]]" "[[input.pdf]]"

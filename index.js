@@ -1,7 +1,7 @@
 const fs = require('fs');
 const parseMarkdown = require('./src/espanso-generation/parseMarkdown');
 const generateYaml = require('./src/espanso-generation/generateYaml');
-const extractScripts = require('./src/extract-scripts');
+const { extractScripts } = require('./src/extract-scripts');
 const glob = require('glob');
 
 // @todo check this path

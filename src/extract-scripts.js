@@ -1,30 +1,45 @@
 const fs = require('fs');
 
-const bashCodeBlockRegex = /```bash\n((?:.*\n)*?# source: .+)\n```$/gm;
-
+const bashCodeBlockRegex = /(```bash\n[\s\S]*?# source: .+?```)/;
 /**
- * Extracts the scripts from the given file path.
+ * Extracts the scripts from the given file path and write those in files.
+ *
  * @param {string} filePath
  * @returns {void}
  */
 function extractScripts(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
-  let match;
+  const scripts = getScriptsContent(content);
 
-  while ((match = bashCodeBlockRegex.exec(content)) !== null) {
-    const source = match[1];
+  for (const source of scripts) {
     const sourcePath = source.match(/# source: (.*)/)[1];
 
-    // Only write the script to a file if a source path was found
-    if (sourcePath) {
-      console.log(`📦 Extracting script from ${filePath} to ${sourcePath}`);
-      if (fs.existsSync(sourcePath)) {
-        console.log(`🔀 Updating...`);
-        fs.unlinkSync(sourcePath);
-      }
-      fs.writeFileSync(sourcePath, `${source}`);
+    console.log(`📦 Extracting script from ${filePath} to ${sourcePath}`);
+    if (fs.existsSync(sourcePath)) {
+      console.log(`🔀 Updating...`);
+      fs.unlinkSync(sourcePath);
     }
+    fs.writeFileSync(sourcePath, `${source}`);
   }
 }
 
-module.exports = extractScripts;
+/**
+ * Extract scripts content from markdown.
+ *
+ * @param {string} fileContent
+ *
+ * @returns {string[]}
+ */
+function getScriptsContent(fileContent) {
+  const scripts = [];
+  let match;
+
+  while ((match = bashCodeBlockRegex.exec(fileContent)) !== null) {
+    const source = match[1];
+    scripts.push(source);
+  }
+
+  return scripts;
+}
+
+module.exports = { extractScripts, getScriptsContent };

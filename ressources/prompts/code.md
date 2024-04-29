@@ -11,7 +11,7 @@ Related to code interaction (eg: with Copilot).
   - [Help me thinking `:codeCodingHelpThinking`](#help-me-thinking-codecodinghelpthinking)
   - [Improve code readability `:codeCodingImproveReadability` (WIP 🚧)](#improve-code-readability-codecodingimprovereadability-wip-)
   - [Give me an example of the usage of this function `:codeCodingProvideExampleUsage` (WIP 🚧)](#give-me-an-example-of-the-usage-of-this-function-codecodingprovideexampleusage-wip-)
-- [� Generation](#-generation)
+- [🚀 Generation](#-generation)
   - [Generate type hinting `:codeGenerateTypeHinting`](#generate-type-hinting-codegeneratetypehinting)
 - [🐛 Bug](#-bug)
   - [Detect code inconsistencies `:bugCodeDetectInconsistencies`](#detect-code-inconsistencies-bugcodedetectinconsistencies)
@@ -48,7 +48,7 @@ Related to code interaction (eg: with Copilot).
   - [Check function implementation based on unit testings `:codeTestingCheckFunctionImplementation`](#check-function-implementation-based-on-unit-testings-codetestingcheckfunctionimplementation)
 - [💬 Comments](#-comments)
   - [Comments must match code actions `:codeCommentsCheckCodeIsMatching`](#comments-must-match-code-actions-codecommentscheckcodeismatching)
-  - [Comment the code to make the hard part easier `:codeCommentsCommentHardParts`](#comment-the-code-to-make-the-hard-part-easier-codecommentscommenthardparts)
+  - [Comment selection to make the hard part easier `:codeCommentsCommentHardParts`](#comment-selection-to-make-the-hard-part-easier-codecommentscommenthardparts)
   - [Comment full file `:codeCommentsCommentFullFile`](#comment-full-file-codecommentscommentfullfile)
   - [Update comments to match code `:codeCommentsUpdateCommentsToMatchCode`](#update-comments-to-match-code-codecommentsupdatecommentstomatchcode)
 
@@ -95,6 +95,21 @@ Merge two files with almost the same content.
 
 ```text
 Based on those two file names "[[filename 1]]" and "[[filename 2]]", merge logic to reduce code duplication.
+```
+
+### Base on file, update file `:codeUpdateFile`
+
+**Description**:
+
+Update a file based on another file.
+
+**Prompt**:
+
+```text
+Based on file: #file
+Update the file: #file
+
+Adapt the content to match the structure.
 ```
 
 ### Base on file, create a new file `:codeCreateNewFile`
@@ -500,10 +515,17 @@ Check if this test is correctly implemented in the highlighted function.
 ### Comments must match code actions `:codeCommentsCheckCodeIsMatching`
 
 ```text
-Check that following function name and comments if any are matching code actions.
+Check that following function name (and comments if any) are matching code actions.
+
+Do not explain why the code is wrong, just change accordingly.
+
+- If not, update the comments to match the code with a concise and simple one.
+    - Go to line on new sentence.
+    - Check for comment params to match function's params (type it "unknown" if not sure).
+- If so, just reply "OK ✅" without saying anything else.
 ```
 
-### Comment the code to make the hard part easier `:codeCommentsCommentHardParts`
+### Comment selection to make the hard part easier `:codeCommentsCommentHardParts`
 
 ```text
 Comment the code to make the hard parts easier to understand.
@@ -529,4 +551,3 @@ Make sure the comments are up-to-date with the code.
 - Comments must match type hints.
 - If the comments are not matching the code, update them.
 ```
-

@@ -21,6 +21,13 @@ matches:
     form: |
       Based on those two file names "[[filename_1]]" and "[[filename_2]]", merge logic to reduce code duplication.
     force_mode: clipboard
+  - trigger: ':codeUpdateFile'
+    form: |
+      Based on file: #file
+      Update the file: #file
+
+      Adapt the content to match the structure.
+    force_mode: clipboard
   - trigger: ':codeCreateNewFile'
     form: |
       Based on file: #file
@@ -270,7 +277,14 @@ matches:
     force_mode: clipboard
   - trigger: ':codeCommentsCheckCodeIsMatching'
     form: |
-      Check that following function name and comments if any are matching code actions.
+      Check that following function name (and comments if any) are matching code actions.
+
+      Do not explain why the code is wrong, just change accordingly.
+
+      - If not, update the comments to match the code with a concise and simple one.
+          - Go to line on new sentence.
+          - Check for comment params to match function's params (type it "unknown" if not sure).
+      - If so, just reply "OK ✅" without saying anything else.
     force_mode: clipboard
   - trigger: ':codeCommentsCommentHardParts'
     form: |
