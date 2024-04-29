@@ -1,6 +1,7 @@
 const fs = require('fs');
 
-const bashCodeBlockRegex = /(```bash\n[\s\S]*?# source: .+?```)/;
+const bashCodeBlockRegex = /```bash\n((?:.*\n)*?# source: .+?)\n*```$/gm;
+
 /**
  * Extracts the scripts from the given file path and write those in files.
  *
