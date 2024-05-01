@@ -141,7 +141,7 @@ matches:
         multiline: true
   - trigger: ':codeTestingCreateTest'
     form: |
-      Use "[[testing_framework]]" to generate a test that uses AAA pattern for file #file
+      Use "[[testing_framework]]" to generate a test that uses AAA pattern for #selection in file #file
 
       Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects.
       Act to test logic.
@@ -298,14 +298,6 @@ matches:
       - Add or update documentation for functions
       - Add documentation within function if necessary
       - Move comments to the right place if necessary
-    force_mode: clipboard
-  - trigger: ':codeCommentsUpdateCommentsToMatchCode'
-    form: |
-      Make sure the comments are up-to-date with the code.
-
-      - Check function parameters and return types.
-      - Comments must match type hints.
-      - If the comments are not matching the code, update them.
     force_mode: clipboard
 
   - trigger: ':dni'

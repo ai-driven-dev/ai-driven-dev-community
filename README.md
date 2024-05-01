@@ -123,7 +123,7 @@ This list is community based, feel free to improve it or add yours!
 
 Join a group of french software engineers that are using AI.
 
-[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mcNwacZCvC)
+[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/BUcTKVfbGh)
 
 - Check the [Demo](http://www.youtube.com/watch?v=1YvECxOn2_Q)!
 

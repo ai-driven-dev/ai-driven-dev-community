@@ -302,7 +302,7 @@ Useful to generate test:
 **Prompt**:
 
 ```text
-Use "[[testing framework]]" to generate a test that uses AAA pattern for file #file
+Use "[[testing framework]]" to generate a test that uses AAA pattern for #selection in file #file
 
 Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects.
 Act to test logic.
@@ -540,14 +540,4 @@ Add code documentation for this code.
 - Add or update documentation for functions
 - Add documentation within function if necessary
 - Move comments to the right place if necessary
-```
-
-### Update comments to match code `:codeCommentsUpdateCommentsToMatchCode`
-
-```text
-Make sure the comments are up-to-date with the code.
-
-- Check function parameters and return types.
-- Comments must match type hints.
-- If the comments are not matching the code, update them.
 ```
