@@ -28,7 +28,7 @@ matches:
 
       Adapt the content to match the structure.
     force_mode: clipboard
-  - trigger: ':codeCreateNewFile'
+  - trigger: ':codeCreateNewSimilarFile'
     form: |
       Based on file: #file
       Create a similar file structure for: #file
@@ -89,13 +89,76 @@ matches:
 
       Check for variable names, function names, and other inconsistencies in the code.
     force_mode: clipboard
+  - trigger: ':codeRefactoringAuditStructure'
+    form: |
+      As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
+      Your responsibilities include:
+
+      - Identifying and listing potential issues in the project structure.
+      - Proposing improvements for each identified issue, with clear explanations of why these improvements are beneficial.
+      - Reviewing the project for any empty folders, suggesting a purpose or recommending removal.
+      - Checking for duplicated files and proposing strategies to eliminate redundancies.
+      - Evaluating file naming conventions to ensure clarity, conciseness, and consistency.
+      - Identifying any files that are overly large or too generically named, suggesting better practices.
+      - Providing a detailed list of files or folders with issues.
+      - If necessary, suggesting a more efficient overall project structure.
+
+      For each of the above points, write a detailed explanation in this format:
+      """
+      # Issue
+
+      Explanation of the issue and why it is problematic.
+
+      ## Recommendations
+
+      Proposed solutions to the issue, with clear explanations of why they are beneficial.
+
+      ## Affected files or folders
+
+      List of files or folders affected by the issue.
+      """
+
+      Please provide a thorough analysis and structured recommendations, never recommend "hypothesis" or "guesses", use data from uploaded project structure only.
+
+      Project structure is: #file
+      Project stack is: #file
+    force_mode: clipboard
+  - trigger: ':codeRefactoringRewrite'
+    form: |
+      I need you to rewrite the following code to make it better.
+
+      If necessary, use those refactoring techniques:
+      - Extract method
+      - Inline method
+      - Rename method
+      - Move method
+      - Encapsulate field
+      - Decompose conditional
+      - Consolidate conditional expression
+      - Consolidate duplicate conditional fragments
+      - Remove assignments to parameters
+      - Type hinting
+      - Add full function documentation
+
+      Focus on code performance.
+
+      Make sure the code is still readable and maintainable, doing its best to keep the same logic.
+    force_mode: clipboard
+  - trigger: ':codeRefactoringRefactor'
+    form: |
+      Read #selection to simplify and beautify my code.
+
+      Analyze everything that seem unclear, not performant, ugly, too complicated.
+
+      Make a bullet list of every potential readability issues that you identified.
+    force_mode: clipboard
   - trigger: ':codeDebugAddErrorLogging'
     form: |
-      Add logging to debug errors.
+      Add logging at each steps of the code to debug errors.
     force_mode: clipboard
   - trigger: ':codeDebugAddLoggingEmojis'
     form: |
-      Add beautiful logging steps with emojis.
+      Add beautiful logging steps with emojis at each steps to debug errors.
     force_mode: clipboard
   - trigger: ':codePerformanceImprove'
     form: |
@@ -206,6 +269,48 @@ matches:
       Based on the already mocked paths in the file #file
       Add a new mock for function's selection #selection.
     force_mode: clipboard
+  - trigger: ':codeFixListPotentialIssues'
+    form: |
+      I have this error in my code (surrounded by "---" delimiters):
+
+      ---
+      [[error_message]]
+      ---
+
+      Context (what I was trying to do): "[[context]]"
+
+      Potential issues: 
+      [[potential_issues]]
+
+      Please list all potential solutions and steps to fix the code, sorted by relevance.
+
+      #editor
+    force_mode: clipboard
+    form_fields:
+      error_message:
+        multiline: true
+      potential_issues:
+        multiline: true
+  - trigger: ':codeFixFindFunctionalIssue'
+    form: |
+      In my application, when I do: "[[action]]"
+      I expect: "[[expectation]]"
+      But I get that issue (surrounded by "---" delimiters):
+      ---
+      [[result_including_errors_and_your_analysis_if_you_do_have]]
+      ---
+
+      Please list potentials issues and steps to fix the code, sorted by relevance.
+
+      #editor
+
+      [[more_code_context_if_needed]]
+    force_mode: clipboard
+    form_fields:
+      result_including_errors_and_your_analysis_if_you_do_have:
+        multiline: true
+      more_code_context_if_needed:
+        multiline: true
   - trigger: ':codeFixFindIssuesAndFix'
     form: |
       Fix the following issues in the code #selection:
@@ -901,7 +1006,7 @@ matches:
         multiline: true
 
   - trigger: ':ragProjectStructureGenerate'
-    form: "#!/bin/bash\n\nEXCLUDE_DIRS=$(grep -v '^#' .gitignore | grep -v '^$' | sed 's|^/||' | sed 's|/$||' | sed 's/\\*//g' | sed -e :a -e '$!N; s/\\n/|/; ta')\n\nif [ -n \"$EXCLUDE\" ]; then\n  EXCLUDE_DIRS=\"${EXCLUDE_DIRS}|project-structure|${EXCLUDE}\"\nfi\n\nCURRENT_DIR=$(basename \"$(pwd)\" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)\nFILE_NAME_STRUCTURE=\"project-structure-${CURRENT_DIR}.txt\"\n\necho \"\U0001F5C4️ Excluded directories: $EXCLUDE_DIRS\"\necho \"# Project structure for $CURRENT_DIR directory\" | tee \"$FILE_NAME_STRUCTURE\" && tree -I \"$EXCLUDE_DIRS\" >> \"$FILE_NAME_STRUCTURE\"\n\n# source: scripts/project-structure.sh\n"
+    form: "#!/bin/bash\n\nEXCLUDE_DIRS=$(grep -v '^#' .gitignore | grep -v '^$' | sed 's|^/||' | sed 's|/$||' | sed 's/\\*//g' | sed -e :a -e '$!N; s/\\n/|/; ta')\nEXCLUDE_DIRS=\"${EXCLUDE_DIRS}|project-structure|.git\"\n\nif [ -n \"$EXCLUDE\" ]; then\n  EXCLUDE_DIRS=\"${EXCLUDE_DIRS}|$EXCLUDE\"\nfi\n\nCURRENT_DIR=$(basename \"$(pwd)\" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)\nFILE_NAME_STRUCTURE=\"project-structure-${CURRENT_DIR}.txt\"\n\necho \"\U0001F5C4️ Excluded directories: $EXCLUDE_DIRS\"\necho \"# Project structure for $CURRENT_DIR directory\" | tee \"$FILE_NAME_STRUCTURE\" && tree -aI \"$EXCLUDE_DIRS\" >> \"$FILE_NAME_STRUCTURE\"\n\n# source: scripts/project-structure.sh\n"
     force_mode: clipboard
   - trigger: ':ragPDFOptimize'
     form: |
