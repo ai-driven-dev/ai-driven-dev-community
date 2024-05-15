@@ -89,6 +89,41 @@ matches:
 
       Check for variable names, function names, and other inconsistencies in the code.
     force_mode: clipboard
+  - trigger: ':codeRefactoringExtractGenericCode'
+    form: |
+      I want to make this file generic so it can "have a generic useInfinite() to share code, so I can call getCategories or getItems with same generic function".
+
+      Following content is variable and that need to be extracted (also check for specific elements that I might have missed.):
+      - Everything related to "category" or "categories"
+      - including "transform" function
+
+      Please:
+      1. List all the elements that need to be extracted.
+      2. List all the elements that do not need to be removed.
+      3. List the steps to achieve the refactoring.
+      4. Provide the code to add or modify (do not make unnecessary changes).
+
+      #file
+    force_mode: clipboard
+  - trigger: ':codeRefactoringListPotentialRefactoring'
+    form: |
+      I want to make this file generic so it can: "[[what_it_should_do]]".
+
+      Based on my tech, can you propose the 3 best way to do so?
+
+      For each proposition, provide:
+      - The code to add
+      - Advantages and disadvantages
+      - The impact on the code
+
+      Following content is variable: 
+      [[function_variable_constant_names]]
+
+      #file
+    force_mode: clipboard
+    form_fields:
+      function_variable_constant_names:
+        multiline: true
   - trigger: ':codeRefactoringAuditStructure'
     form: |
       As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
@@ -125,13 +160,14 @@ matches:
     force_mode: clipboard
   - trigger: ':codeRefactoringRewrite'
     form: |
-      I need you to rewrite the following code to make it better.
+      I need you to rewrite the following code #selection to make it better.
 
       If necessary, use those refactoring techniques:
       - Extract method
       - Inline method
       - Rename method
       - Move method
+      - Group similar methods, variables or properties
       - Encapsulate field
       - Decompose conditional
       - Consolidate conditional expression
@@ -1022,6 +1058,7 @@ matches:
       FILE_NAME=${FILE_NAME:-'all-in-one.md'}
       VERSION=${VERSION:-$(node -p "require('./package.json').version")}
       DATE=`date +%Y-%m-%d-%H:%M:%S`
+      COMMIT_CHANGES=$1
 
       echo "Exporting markdown files for version $VERSION"
 
@@ -1040,8 +1077,11 @@ matches:
       sed -i '' '1s/^/---\n/' "${FILE_NAME}"
 
       cd ..
-      git add "${DOCUMENTATION_DIR}"
-      git commit -m "docs: update project documentation for version $VERSION"
+
+      if [ "$COMMIT_CHANGES" == "--commit" ]; then
+        git add "${DOCUMENTATION_DIR}"
+        git commit -m "docs: update project documentation for version $VERSION"
+      fi
 
       # source: scripts/project-documentation-typescript.sh
     force_mode: clipboard

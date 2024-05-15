@@ -4,6 +4,7 @@ DOCUMENTATION_DIR=${DOCUMENTATION_DIR:-'documentation/'}
 FILE_NAME=${FILE_NAME:-'all-in-one.md'}
 VERSION=${VERSION:-$(node -p "require('./package.json').version")}
 DATE=`date +%Y-%m-%d-%H:%M:%S`
+COMMIT_CHANGES=$1
 
 echo "Exporting markdown files for version $VERSION"
 
@@ -22,7 +23,10 @@ sed -i '' '1s/^/version: '$VERSION'\
 sed -i '' '1s/^/---\n/' "${FILE_NAME}"
 
 cd ..
-git add "${DOCUMENTATION_DIR}"
-git commit -m "docs: update project documentation for version $VERSION"
+
+if [ "$COMMIT_CHANGES" == "--commit" ]; then
+  git add "${DOCUMENTATION_DIR}"
+  git commit -m "docs: update project documentation for version $VERSION"
+fi
 
 # source: scripts/project-documentation-typescript.sh
