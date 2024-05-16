@@ -110,7 +110,7 @@ Using `typedoc` to generate the documentation for your TypeScript project.
 #!/bin/bash
 
 DOCUMENTATION_DIR=${DOCUMENTATION_DIR:-'documentation/'}
-FILE_NAME=${FILE_NAME:-'all-in-one.md'}
+FILE_NAME=${FILE_NAME:-'all-in-one.txt'}
 VERSION=${VERSION:-$(node -p "require('./package.json').version")}
 DATE=`date +%Y-%m-%d-%H:%M:%S`
 COMMIT_CHANGES=$1
@@ -121,7 +121,7 @@ typedoc --options typedoc.json --plugin typedoc-plugin-markdown --out "${DOCUMEN
 
 cd "${DOCUMENTATION_DIR}"
 
-find . -name '*.md' ! -name "${FILE_NAME}" -exec cat {} \; > "${FILE_NAME}"
+find . -name '*.md*' ! -name "${FILE_NAME}" -exec cat {} \; > "${FILE_NAME}"
 
 # Write the version and date to the top of the file
 
@@ -149,7 +149,7 @@ fi
 - Then, upload that file in the AI and ask for a summary
 
 ```bash
-find . -type f -name '*.md' -exec cat {} \; > [[filename like, eg: documentation.md]]
+find . -type f -name '*.md*' -exec cat {} \; > [[filename like, eg: documentation.text]]
 ```
 
 ## 🧠 Create a RAG for your project
