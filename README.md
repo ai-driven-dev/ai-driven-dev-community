@@ -139,6 +139,8 @@ Guide:
 
 Here are the best prompts to use in your IDE... Sorted!
 
+![VSCode Prompt trigger](images/vscode-espanso-code-inline-chat.gif)
+
 **Those prompts have been selected AND tested to help you in your daily work.**
 
 Feel free to use them and add your own! ❤️ (credit your own prompts)
@@ -158,11 +160,11 @@ More dev prompts:
 - Private prompts
   - [Your private (or team) prompts](./ressources/prompts/private)
 
-![VSCode Prompt trigger](images/vscode-espanso-code-inline-chat.gif)
-
 ### Best dev prompts in Chat
 
 Sometimes you need a bigger context to get the best out of your AI.
+
+![ChatGPT Prompt Trigger](images/chatgpt-espanso-text-trigger.gif)
 
 Use those dev prompts in your ChatGPT:
 
@@ -172,8 +174,6 @@ Use those dev prompts in your ChatGPT:
 - 🏗️ [Project Architecture](./ressources/prompts/project-architecture.md)
 - 📋 [Project Management](./ressources/prompts/project-management.md)
 - 🚧 [Project setup](./ressources/prompts/project-setup.md)
-
-![ChatGPT Prompt Trigger](images/chatgpt-espanso-text-trigger.gif)
 
 ## **3#** 🛠️ Install AI Toolbox for software engineers
 
@@ -212,13 +212,13 @@ Enjoy your private prompts!
 
 We created a list of snippets we daily use as a frontend TypeScript developer.
 
+![VSCode Snippet](images/vscode-snippet.gif)
+
 AI makes way much easier code generation.
 
 > But sometimes, when you exactly know what you need, you do not necessary need a Gen-AI to write obvious code for you.
 
 Thus, AI can be mistaken, as a developer, you are the master of your code structure.
-
-![VSCode Snippet](images/vscode-snippet.gif)
 
 Feel free to use them!
 

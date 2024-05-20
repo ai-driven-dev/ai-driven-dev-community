@@ -2,7 +2,7 @@
 # 🖥️ AI Driven Dev - "Documentation" Prompts (`:doc`)
 
 - [📄 Documentation](#-documentation)
-  - [Search in the documentation from URL `:instructDocSearchURL`](#search-in-the-documentation-from-url-instructdocsearchurl)
+  - [Search in the documentation from URL `:docSearchURL`](#search-in-the-documentation-from-url-docsearchurl)
 - [💬 Comments](#-comments)
   - [Comments must match code actions `:docCommentCheckCodeIsMatching`](#comments-must-match-code-actions-doccommentcheckcodeismatching)
   - [Comment selection to make the hard part easier `:docCommentHardParts`](#comment-selection-to-make-the-hard-part-easier-doccommenthardparts)
@@ -10,7 +10,7 @@
 
 ## 📄 Documentation
 
-### Search in the documentation from URL `:instructDocSearchURL`
+### Search in the documentation from URL `:docSearchURL`
 
 ```text
 I need you to read the following documentation.

@@ -1,17 +1,17 @@
 # 🖥️ AI Driven Dev - "Refactoring" Prompts (`:refac`)
 
 - [🔄 Refactoring](#-refactoring)
-  - [Extract generic code `:codeRefactoringExtractGenericCode`](#extract-generic-code-coderefactoringextractgenericcode)
-  - [List potential refactoring `:codeRefactoringListPotentialRefactoring`](#list-potential-refactoring-coderefactoringlistpotentialrefactoring)
-  - [Audit structure `:codeRefactoringAuditStructure`](#audit-structure-coderefactoringauditstructure)
-  - [Rewrite better code `:codeRefactoringRewrite`](#rewrite-better-code-coderefactoringrewrite)
-  - [List steps to simplify code `:codeRefactoringRefactor`](#list-steps-to-simplify-code-coderefactoringrefactor)
+  - [Extract generic code `:refacExtractGenericCode`](#extract-generic-code-refacextractgenericcode)
+  - [List potential refactoring `:refacListPotentialRefactoring`](#list-potential-refactoring-refaclistpotentialrefactoring)
+  - [Audit structure `:refacAuditStructure`](#audit-structure-refacauditstructure)
+  - [Rewrite better code `:refacRewrite`](#rewrite-better-code-refacrewrite)
+  - [List steps to simplify code `:refacRefactor`](#list-steps-to-simplify-code-refacrefactor)
 - [🔥 Performance](#-performance)
-  - [Improve code performance `:codePerformanceImprove`](#improve-code-performance-codeperformanceimprove)
+  - [Improve code performance `:refacPerformanceImprove`](#improve-code-performance-codeperformanceimprove)
 
 ## 🔄 Refactoring
 
-### Extract generic code `:codeRefactoringExtractGenericCode`
+### Extract generic code `:refacExtractGenericCode`
 
 Hint : the more files you gave, the better: eg for example a generic code, better have two files with similar content to help the LLM about what to extract
 
@@ -31,7 +31,7 @@ Please:
 #file
 ```
 
-### List potential refactoring `:codeRefactoringListPotentialRefactoring`
+### List potential refactoring `:refacListPotentialRefactoring`
 
 ```text
 I want to make this file generic so it can: "[[what it should do]]".
@@ -49,7 +49,7 @@ Following content is variable:
 #file
 ```
 
-### Audit structure `:codeRefactoringAuditStructure`
+### Audit structure `:refacAuditStructure`
 
 ```text
 As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
@@ -85,7 +85,7 @@ Project structure is: #file
 Project stack is: #file
 ```
 
-### Rewrite better code `:codeRefactoringRewrite`
+### Rewrite better code `:refacRewrite`
 
 ```text
 I need you to rewrite the following code #selection to make it better.
@@ -109,7 +109,7 @@ Focus on code performance.
 Make sure the code is still readable and maintainable, doing its best to keep the same logic.
 ```
 
-### List steps to simplify code `:codeRefactoringRefactor`
+### List steps to simplify code `:refacRefactor`
 
 ```text
 Read #selection to simplify and beautify my code.
@@ -121,7 +121,7 @@ Make a bullet list of every potential readability issues that you identified.
 
 ## 🔥 Performance
 
-### Improve code performance `:codePerformanceImprove`
+### Improve code performance `:refacPerformanceImprove`
 
 ```text
 I need you to improve the performance of the following code.

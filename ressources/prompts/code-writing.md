@@ -9,9 +9,9 @@ Related to code interaction (eg: with Copilot).
   - [Base on file, update file `:codeUpdateFile`](#base-on-file-update-file-codeupdatefile)
   - [Base on file, create a new similar file `:codeCreateNewSimilarFile`](#base-on-file-create-a-new-similar-file-codecreatenewsimilarfile)
   - [Convert type into another type `:codeConvertType`](#convert-type-into-another-type-codeconverttype)
-  - [Help me thinking `:codeCodingHelpThinking`](#help-me-thinking-codecodinghelpthinking)
-  - [Improve code readability `:codeCodingImproveReadability` (WIP 🚧)](#improve-code-readability-codecodingimprovereadability-wip-)
-  - [Give me an example of the usage of this function `:codeCodingProvideExampleUsage` (WIP 🚧)](#give-me-an-example-of-the-usage-of-this-function-codecodingprovideexampleusage-wip-)
+  - [Help me thinking `:codeHelpThinking`](#help-me-thinking-codehelpthinking)
+  - [Improve code readability `:codeImproveReadability` (WIP 🚧)](#improve-code-readability-codeimprovereadability-wip-)
+  - [Give me an example of the usage of this function `:codeProvideExampleUsage` (WIP 🚧)](#give-me-an-example-of-the-usage-of-this-function-codeprovideexampleusage-wip-)
 - [🚀 Generation](#-generation)
   - [Generate type hinting `:codeGenerateTypeHinting`](#generate-type-hinting-codegeneratetypehinting)
 
@@ -119,7 +119,7 @@ For each property of the type to convert, find the corresponding property in the
 Please provide the following code.
 ```
 
-### Help me thinking `:codeCodingHelpThinking`
+### Help me thinking `:codeHelpThinking`
 
 ```text
 I need you to help me think about the best way to implement this new functionality:
@@ -128,7 +128,7 @@ I need you to help me think about the best way to implement this new functionali
 Please provide the best coding steps regarding my existing code.
 ```
 
-### Improve code readability `:codeCodingImproveReadability` (WIP 🚧)
+### Improve code readability `:codeImproveReadability` (WIP 🚧)
 
 ```text
 I need you to improve the readability of the following code.
@@ -136,7 +136,7 @@ I need you to improve the readability of the following code.
 Result should remain the same, but the code should be easier to read and understand.
 ```
 
-### Give me an example of the usage of this function `:codeCodingProvideExampleUsage` (WIP 🚧)
+### Give me an example of the usage of this function `:codeProvideExampleUsage` (WIP 🚧)
 
 ```text
 Provide an example of the usage of this function, input and output.

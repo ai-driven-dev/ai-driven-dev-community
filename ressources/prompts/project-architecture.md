@@ -1,14 +1,14 @@
 # 🖥️ AI Driven Dev - "Project structure" Prompts (`:struct`)
 
 - [📦 Project structure](#-project-structure)
-  - [Folder structure locations for types `:instructStructureWriteTypes`](#folder-structure-locations-for-types-instructstructurewritetypes)
-  - [Draw my folder structure from specifications `:instructStructureDrawNewFiles`](#draw-my-folder-structure-from-specifications-instructstructuredrawnewfiles)
-  - [Existing project structure acknowledgement `:instructStructureAcknowledgeProject`](#existing-project-structure-acknowledgement-instructstructureacknowledgeproject)
-  - [Review project files structures `:instructStructureReviewFilesAndDirectories`](#review-project-files-structures-instructstructurereviewfilesanddirectories)
+  - [Folder structure locations for types `:structWriteTypes`](#folder-structure-locations-for-types-structwritetypes)
+  - [Draw my folder structure from specifications `:structDrawNewFiles`](#draw-my-folder-structure-from-specifications-structdrawnewfiles)
+  - [Existing project structure acknowledgement `:structAcknowledgeProject`](#existing-project-structure-acknowledgement-structacknowledgeproject)
+  - [Review project files structures `:structReviewFilesAndDirectories`](#review-project-files-structures-structreviewfilesanddirectories)
 
 ## 📦 Project structure
 
-### Folder structure locations for types `:instructStructureWriteTypes`
+### Folder structure locations for types `:structWriteTypes`
 
 ```text
 I want to split those types with only 1 type per file.
@@ -20,7 +20,7 @@ Please generate a shell script to create those files and directories:
 [[List of types]]
 ```
 
-### Draw my folder structure from specifications `:instructStructureDrawNewFiles`
+### Draw my folder structure from specifications `:structDrawNewFiles`
 
 ```text
 Can you imagine the best folder structure for my features from the user-stories in my specifications?
@@ -28,7 +28,7 @@ Can you imagine the best folder structure for my features from the user-stories 
 Generate every needed files and directories in a shell script.
 ```
 
-### Existing project structure acknowledgement `:instructStructureAcknowledgeProject`
+### Existing project structure acknowledgement `:structAcknowledgeProject`
 
 In order to help the LLM to generate the best code possible in new and existing files.
 
@@ -39,7 +39,7 @@ In order to help the LLM to generate the best code possible in new and existing 
 Here is the last up to update project structure, please keep it in my for the next instructions and code generation.
 ```
 
-### Review project files structures `:instructStructureReviewFilesAndDirectories`
+### Review project files structures `:structReviewFilesAndDirectories`
 
 - 💡 **Description** : Before starting a refactoring, ask AI to review the project files structures and names.
 - 🤖 **AI Agent to use**: [AI Senior Developer](../agents/senior-developer.md).

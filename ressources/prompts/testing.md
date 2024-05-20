@@ -1,34 +1,34 @@
 # 🖥️ AI Driven Dev - "Testing" Prompts (`:test`)
 
 - [🎯 Test-First](#-test-first)
-  - [Rewrite function based on a test expectations `:codeTestFirstRewriteFunction`](#rewrite-function-based-on-a-test-expectations-codetestfirstrewritefunction)
-  - [Function implementation based on a test `:codeTestFirstImplementFunction`](#function-implementation-based-on-a-test-codetestfirstimplementfunction)
-  - [Check function implementation based on unit testings `:codeTestingCheckFunctionImplementation`](#check-function-implementation-based-on-unit-testings-codetestingcheckfunctionimplementation)
+  - [Rewrite function based on a test expectations `:testFirstRewriteFunction`](#rewrite-function-based-on-a-test-expectations-testfirstrewritefunction)
+  - [Function implementation based on a test `:testFirstImplementFunction`](#function-implementation-based-on-a-test-testfirstimplementfunction)
+  - [Check function implementation based on unit testings `:testingCheckFunctionImplementation`](#check-function-implementation-based-on-unit-testings-testingcheckfunctionimplementation)
 - [🧪 Testing](#-testing)
   - [Structure](#structure)
-    - [Create empty test structure for function `:codeTestingCreateEmptyTestStructure`](#create-empty-test-structure-for-function-codetestingcreateemptyteststructure)
-    - [Create test structure from test cases `:codeTestingCreateTestStructure`](#create-test-structure-from-test-cases-codetestingcreateteststructure)
+    - [Create empty test structure for function `:testingCreateEmptyTestStructure`](#create-empty-test-structure-for-function-testingcreateemptyteststructure)
+    - [Create test structure from test cases `:testingCreateTestStructure`](#create-test-structure-from-test-cases-testingcreateteststructure)
   - [Generate](#generate)
-    - [Create test from another `:codeTestingCreateTestFromAnother`](#create-test-from-another-codetestingcreatetestfromanother)
-    - [Create test from test cases `:codeTestingCreateTest`](#create-test-from-test-cases-codetestingcreatetest)
-    - [Add new test in a test suite `:codeTestingAddNewTestInSuite`](#add-new-test-in-a-test-suite-codetestingaddnewtestinsuite)
+    - [Create test from another `:testingCreateTestFromAnother`](#create-test-from-another-testingcreatetestfromanother)
+    - [Create test from test cases `:testingCreateTest`](#create-test-from-test-cases-testingcreatetest)
+    - [Add new test in a test suite `:testingAddNewTestInSuite`](#add-new-test-in-a-test-suite-testingaddnewtestinsuite)
   - [Fill](#fill)
-    - [Fill test cases expectations `:codeTestingFillTestCasesExpectations`](#fill-test-cases-expectations-codetestingfilltestcasesexpectations)
-    - [Fill tests cases `:codeTestingFillTestCase`](#fill-tests-cases-codetestingfilltestcase)
-    - [Fill component with data-testid `:codeTestingFillComponentWithDataTestId`](#fill-component-with-data-testid-codetestingfillcomponentwithdatatestid)
-    - [New fake objectif `:codeTestingNewFakeFilledEntity`](#new-fake-objectif-codetestingnewfakefilledentity)
-    - [Fill empty tests (based on file) `:codeTestingFillExistingTests`](#fill-empty-tests-based-on-file-codetestingfillexistingtests)
+    - [Fill test cases expectations `:testingFillTestCasesExpectations`](#fill-test-cases-expectations-testingfilltestcasesexpectations)
+    - [Fill tests cases `:testingFillTestCase`](#fill-tests-cases-testingfilltestcase)
+    - [Fill component with data-testid `:testingFillComponentWithDataTestId`](#fill-component-with-data-testid-testingfillcomponentwithdatatestid)
+    - [New fake objectif `:testingNewFakeFilledEntity`](#new-fake-objectif-testingnewfakefilledentity)
+    - [Fill empty tests (based on file) `:testingFillExistingTests`](#fill-empty-tests-based-on-file-testingfillexistingtests)
   - [Mock](#mock)
-    - [Mock specific function returns `:codeTestingMockSpecificFunctionReturns`](#mock-specific-function-returns-codetestingmockspecificfunctionreturns)
-    - [Mock inner function calls `:codeTestingMockInnerFunctionCalls`](#mock-inner-function-calls-codetestingmockinnerfunctioncalls)
-    - [Mock a new path in an existing file `:codeTestingMockNewPathInExistingFile`](#mock-a-new-path-in-an-existing-file-codetestingmocknewpathinexistingfile)
+    - [Mock specific function returns `:testingMockSpecificFunctionReturns`](#mock-specific-function-returns-testingmockspecificfunctionreturns)
+    - [Mock inner function calls `:testingMockInnerFunctionCalls`](#mock-inner-function-calls-testingmockinnerfunctioncalls)
+    - [Mock a new path in an existing file `:testingMockNewPathInExistingFile`](#mock-a-new-path-in-an-existing-file-testingmocknewpathinexistingfile)
 - [Fixing](#fixing)
-  - [Fixing code from test results `:codeTestingFixFailedTest`](#fixing-code-from-test-results-codetestingfixfailedtest)
-  - [Fix test assertions with new specifications `:codeFixTestAssertions`](#fix-test-assertions-with-new-specifications-codefixtestassertions)
+  - [Fixing code from test results `:testingFixFailedTest`](#fixing-code-from-test-results-testingfixfailedtest)
+  - [Fix test assertions with new specifications `:testFixTestAssertions`](#fix-test-assertions-with-new-specifications-testfixtestassertions)
 
 ## 🎯 Test-First
 
-### Rewrite function based on a test expectations `:codeTestFirstRewriteFunction`
+### Rewrite function based on a test expectations `:testFirstRewriteFunction`
 
 **Description**:
 
@@ -54,13 +54,13 @@ Here is the test that should pass:
 [[Test that should pass]]
 ```
 
-### Function implementation based on a test `:codeTestFirstImplementFunction`
+### Function implementation based on a test `:testFirstImplementFunction`
 
 ```text
 Write the function implementation for "[[function name]]" in order to make every tests pass.
 ```
 
-### Check function implementation based on unit testings `:codeTestingCheckFunctionImplementation`
+### Check function implementation based on unit testings `:testingCheckFunctionImplementation`
 
 ```text
 Check if this test is correctly implemented in the highlighted function.
@@ -70,7 +70,7 @@ Check if this test is correctly implemented in the highlighted function.
 
 ### Structure
 
-#### Create empty test structure for function `:codeTestingCreateEmptyTestStructure`
+#### Create empty test structure for function `:testingCreateEmptyTestStructure`
 
 **Description:**
 
@@ -82,7 +82,7 @@ Create an empty test structure for a function.
 Use "[[testing framework]]" to generate an empty testing structure using AAA with only comments.
 ```
 
-#### Create test structure from test cases `:codeTestingCreateTestStructure`
+#### Create test structure from test cases `:testingCreateTestStructure`
 
 **Description:**
 
@@ -100,7 +100,7 @@ Use "[[testing framework]]" to generate testing structure only (inner tests are 
 
 ### Generate
 
-#### Create test from another `:codeTestingCreateTestFromAnother`
+#### Create test from another `:testingCreateTestFromAnother`
 
 **Description:**
 
@@ -118,7 +118,7 @@ Test for those test cases:
 [[test cases]]
 ````
 
-#### Create test from test cases `:codeTestingCreateTest`
+#### Create test from test cases `:testingCreateTest`
 
 **Description:**
 
@@ -149,7 +149,7 @@ Important: those specification MUST be tested OVER the implementation
 #editor
 ```
 
-#### Add new test in a test suite `:codeTestingAddNewTestInSuite`
+#### Add new test in a test suite `:testingAddNewTestInSuite`
 
 **Description:**
 
@@ -165,7 +165,7 @@ Add a new test in the test suite following same testing structure for test cases
 
 ### Fill
 
-#### Fill test cases expectations `:codeTestingFillTestCasesExpectations`
+#### Fill test cases expectations `:testingFillTestCasesExpectations`
 
 ```text
 In those tests, fill every "Assert" parts only from those specs (surrounded by "---" delimiter):
@@ -175,7 +175,7 @@ In those tests, fill every "Assert" parts only from those specs (surrounded by "
 ---
 ```
 
-#### Fill tests cases `:codeTestingFillTestCase`
+#### Fill tests cases `:testingFillTestCase`
 
 Fill ... using your AI tool like copilot.
 
@@ -188,19 +188,19 @@ Act to test logic.
 Assert that the result is expected.
 ```
 
-#### Fill component with data-testid `:codeTestingFillComponentWithDataTestId`
+#### Fill component with data-testid `:testingFillComponentWithDataTestId`
 
 ```text
 Fill relevant component elements with "data-testid", use index number if available. 
 ```
 
-#### New fake objectif `:codeTestingNewFakeFilledEntity`
+#### New fake objectif `:testingNewFakeFilledEntity`
 
 ```text
 Without importing, create new fake filled entity for every required properties of this file: #file
 ```
 
-#### Fill empty tests (based on file) `:codeTestingFillExistingTests`
+#### Fill empty tests (based on file) `:testingFillExistingTests`
 
 **Description:**
 
@@ -214,14 +214,14 @@ Fill empty tests based on the file content.
 
 ### Mock
 
-#### Mock specific function returns `:codeTestingMockSpecificFunctionReturns`
+#### Mock specific function returns `:testingMockSpecificFunctionReturns`
 
 ```text
 Mock "[[function name]]" function from #file
 and resolve to "[[return statement]]".
 ```
 
-#### Mock inner function calls `:codeTestingMockInnerFunctionCalls`
+#### Mock inner function calls `:testingMockInnerFunctionCalls`
 
 **Description:**
 
@@ -233,7 +233,7 @@ Generate code to mock inner function calls for a specific highlighted `code` or 
 Use "[[testing framework]]" to mock the implementation of the inner function calls from this code: #selection
 ```
 
-#### Mock a new path in an existing file `:codeTestingMockNewPathInExistingFile`
+#### Mock a new path in an existing file `:testingMockNewPathInExistingFile`
 
 **Description:**
 
@@ -248,7 +248,7 @@ Add a new mock for function's selection #selection.
 
 ## Fixing
 
-### Fixing code from test results `:codeTestingFixFailedTest`
+### Fixing code from test results `:testingFixFailedTest`
 
 - Open the required file to fix the code.
 - Select the code to fix.
@@ -274,7 +274,7 @@ Follow those steps:
 5. Once you analyzed all source code in this file, fix the issue first issue from your inconsistencies list.
 ```
 
-### Fix test assertions with new specifications `:codeFixTestAssertions`
+### Fix test assertions with new specifications `:testFixTestAssertions`
 
 ```text
 Based on those specifications (surrounded by "---" delimiter), please change the existing test #selection to match new assertions:

@@ -1,12 +1,12 @@
 # 🖥️ AI Driven Dev - "Database" Prompts (`:db`)
 
 - [📀 Database](#-database)
-  - [SQL Schema Generation `:instructDBGenerateSchema`](#sql-schema-generation-instructdbgenerateschema)
-  - [Plain Object Generation from Schema `:instructDBGeneratePO`](#plain-object-generation-from-schema-instructdbgeneratepo)
+  - [SQL Schema Generation `:dbGenerateSchema`](#sql-schema-generation-dbgenerateschema)
+  - [Plain Object Generation from Schema `:dbGeneratePO`](#plain-object-generation-from-schema-dbgeneratepo)
 
 ## 📀 Database
 
-### SQL Schema Generation `:instructDBGenerateSchema`
+### SQL Schema Generation `:dbGenerateSchema`
 
 ```text
 I need you to help me creating my SQL database schema.
@@ -18,7 +18,7 @@ Give me the full db schema, with the tables, the columns, the relations between 
 [[Entity list and relations between entities]]
 ```
 
-### Plain Object Generation from Schema `:instructDBGeneratePO`
+### Plain Object Generation from Schema `:dbGeneratePO`
 
 When you want to create the types from the SQL schema.
 

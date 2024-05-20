@@ -2,7 +2,7 @@
 preserve_clipboard: false
 
 matches:
-  - trigger: ':codeFixListPotentialIssues'
+  - trigger: ':fixListPotentialIssues'
     form: |
       I have this error in my code (surrounded by "---" delimiters):
 
@@ -24,7 +24,7 @@ matches:
         multiline: true
       potential_issues:
         multiline: true
-  - trigger: ':codeFixFindFunctionalIssue'
+  - trigger: ':fixFindFunctionalIssue'
     form: |
       In my application, when I do: "[[action]]"
       I expect: "[[expectation]]"
@@ -44,7 +44,7 @@ matches:
         multiline: true
       more_code_context_if_needed:
         multiline: true
-  - trigger: ':codeFixFindIssuesAndFix'
+  - trigger: ':fixFindIssuesAndFix'
     form: |
       Fix the following issues in the code #selection:
 
@@ -61,11 +61,11 @@ matches:
 
       Check for variable names, function names, and other inconsistencies in the code.
     force_mode: clipboard
-  - trigger: ':codeDebugAddErrorLogging'
+  - trigger: ':fixAddErrorLogging'
     form: |
       Add logging at each steps of the code to debug errors.
     force_mode: clipboard
-  - trigger: ':codeDebugAddLoggingEmojis'
+  - trigger: ':fixAddLoggingEmojis'
     form: |
       Add beautiful logging steps with emojis at each steps to debug errors.
     force_mode: clipboard
@@ -122,7 +122,7 @@ matches:
         multiline: true
       type_to_convert_into_or_path:
         multiline: true
-  - trigger: ':codeCodingHelpThinking'
+  - trigger: ':codeHelpThinking'
     form: |
       I need you to help me think about the best way to implement this new functionality:
       [[new_functionality]]
@@ -132,13 +132,13 @@ matches:
     form_fields:
       new_functionality:
         multiline: true
-  - trigger: ':codeCodingImproveReadability'
+  - trigger: ':codeImproveReadability'
     form: |
       I need you to improve the readability of the following code.
 
       Result should remain the same, but the code should be easier to read and understand.
     force_mode: clipboard
-  - trigger: ':codeCodingProvideExampleUsage'
+  - trigger: ':codeProvideExampleUsage'
     form: |
       Provide an example of the usage of this function, input and output.
     force_mode: clipboard
@@ -153,7 +153,7 @@ matches:
       Do not type "any" if possible.
     force_mode: clipboard
 
-  - trigger: ':instructDBGenerateSchema'
+  - trigger: ':dbGenerateSchema'
     form: |
       I need you to help me creating my SQL database schema.
 
@@ -166,7 +166,7 @@ matches:
     form_fields:
       entity_list_and_relations_between_entities:
         multiline: true
-  - trigger: ':instructDBGeneratePO'
+  - trigger: ':dbGeneratePO'
     form: |
       I need you to help me creating my Plain Object from my SQL database schema.
 
@@ -192,7 +192,7 @@ matches:
       Fix indentation and syntaxe for this code.
     force_mode: clipboard
 
-  - trigger: ':instructDocSearchURL'
+  - trigger: ':docSearchURL'
     form: |
       I need you to read the following documentation.
 
@@ -231,7 +231,7 @@ matches:
       - Move comments to the right place if necessary
     force_mode: clipboard
 
-  - trigger: ':instructFeatureGenerateUS'
+  - trigger: ':featGenerateUS'
     form: |
       Goal:
       Generate a concise but full breakdown of this feature for our project.
@@ -277,7 +277,7 @@ matches:
         values: |-
           Project and lib setup have already been done
           Project and lib setup might not have been done
-  - trigger: ':instructFeatureExtractCodingSteps'
+  - trigger: ':featExtractCodingSteps'
     form: |
       Given the coding task detailed below:
 
@@ -302,7 +302,7 @@ matches:
           package.json
           composer.json
           requirements.txt
-  - trigger: ':instructFeatureCreateCodingSteps'
+  - trigger: ':featCreateCodingSteps'
     form: |
       Recalling our earlier discussion about the project tasks:
 
@@ -317,7 +317,7 @@ matches:
     form_fields:
       list_of_development_steps_if_not_specified_above:
         multiline: true
-  - trigger: ':instructExistingFeatureAcknowledgements'
+  - trigger: ':featExAcknowledgements'
     form: |
       Here are the specifications of the feature I need to code (surrounded by "---" delimiters).
 
@@ -338,11 +338,11 @@ matches:
     form_fields:
       copy_and_paste_the_specifications_here:
         multiline: true
-  - trigger: ':instructExistingFeatureOutputExample'
+  - trigger: ':featExOutputExample'
     form: |
       Give me an output example based on your understandings, with required inputs and the expected output.
     force_mode: clipboard
-  - trigger: ':instructExistingFeatureIterate'
+  - trigger: ':featExIterate'
     form: |
       Here are some answers about your previous questions.
 
@@ -360,7 +360,7 @@ matches:
     form_fields:
       your_answers_to_the_previous_questions:
         multiline: true
-  - trigger: ':instructTestingListTestCases'
+  - trigger: ':featTestingListTestCases'
     form: |
       From those specifications (surrounded by --- delimiter):
 
@@ -384,7 +384,7 @@ matches:
           Do not test UI, focus the logic only
           Test the UI if needed
           Test the UI and the logic
-  - trigger: ':instructTestingConvertAcceptanceCriteriaIntoGherkin'
+  - trigger: ':featTestingConvertAcceptanceCriteriaIntoGherkin'
     form: |
       From this acceptance criteria, can you transform it into Gherkin syntax?
 
@@ -393,7 +393,7 @@ matches:
     form_fields:
       acceptance_criteria:
         multiline: true
-  - trigger: ':instructTestingGenerateUnitTestPrompt'
+  - trigger: ':featTestingGenerateUnitTestPrompt'
     form: |
       I need you to act as a test engineer and generate a unit test prompt for my feature (surrounded by "---" delimiters):
 
@@ -411,7 +411,7 @@ matches:
       functional_requirement:
         multiline: true
 
-  - trigger: ':instructImageDetail'
+  - trigger: ':imgDetail'
     form: |
       Here is an image of my "[[the_image_you_describe]]" for a feature I have to code.
 
@@ -419,7 +419,7 @@ matches:
 
       For each section, give a detailed breakdown of the children elements.
     force_mode: clipboard
-  - trigger: ':instructImageIdentifyActions'
+  - trigger: ':imgIdentifyActions'
     form: |
       Identify image section actions, I need you to focus only on this image section I have to code (surrounded by "---" delimiters):
 
@@ -441,7 +441,7 @@ matches:
     form_fields:
       image_section_with_title_and_description:
         multiline: true
-  - trigger: ':instructImageCheckMatchingCode'
+  - trigger: ':imgCheckMatchingCode'
     form: |
       Match existing code (variables and functions) from knowledge base in "documentation.md" file.
 
@@ -455,7 +455,7 @@ matches:
     form_fields:
       sections_description_with_your_outcomes:
         multiline: true
-  - trigger: ':instructImageDefineMethods'
+  - trigger: ':imgDefineMethods'
     form: |
       In order to code the feature, I assert the following methods to use, defined here (surrounded by "---" delimiters):
       ---
@@ -467,7 +467,7 @@ matches:
     form_fields:
       variables_and_functions_to_use:
         multiline: true
-  - trigger: ':instructImageCheckExistingUIComponents'
+  - trigger: ':imgCheckExistingUIComponents'
     form: |
       Match existing UI components in image section:
 
@@ -477,7 +477,7 @@ matches:
       4. Same basic elements (like paragraph, headings, links) might not required a component but rather a simple HTML tag, list them.
       5. Based on the elements that need components, check if there is a match of potential use with the existing components from global UI components dir.
     force_mode: clipboard
-  - trigger: ':instructImageSectionGenerateCode'
+  - trigger: ':imgSectionGenerateCode'
     form: |
       Generate the code for this component:
 
@@ -494,7 +494,7 @@ matches:
     form_fields:
       more_rules_specific_to_your_project:
         multiline: true
-  - trigger: ':instructImageSectionImplementDesign'
+  - trigger: ':imgSectionImplementDesign'
     form: |
       Implement the design from the image section "[[sections_name]]" using "[[your_stack_eg_tailwind_css_only_css_material_ui]]".
 
@@ -510,7 +510,7 @@ matches:
       your_code_if_not_generated_from_above:
         multiline: true
 
-  - trigger: ':instructStructureWriteTypes'
+  - trigger: ':structWriteTypes'
     form: |
       I want to split those types with only 1 type per file.
 
@@ -523,17 +523,17 @@ matches:
     form_fields:
       list_of_types:
         multiline: true
-  - trigger: ':instructStructureDrawNewFiles'
+  - trigger: ':structDrawNewFiles'
     form: |
       Can you imagine the best folder structure for my features from the user-stories in my specifications?
 
       Generate every needed files and directories in a shell script.
     force_mode: clipboard
-  - trigger: ':instructStructureAcknowledgeProject'
+  - trigger: ':structAcknowledgeProject'
     form: |
       Here is the last up to update project structure, please keep it in my for the next instructions and code generation.
     force_mode: clipboard
-  - trigger: ':instructStructureReviewFilesAndDirectories'
+  - trigger: ':structReviewFilesAndDirectories'
     form: |
       Here is an example of project file structure that I like, please get its content from this URL, I will refer it as a "template": "[[url_of_the_gist_of_the_project_structure]]"
 
@@ -599,7 +599,7 @@ matches:
       lib_to_setup:
         multiline: true
 
-  - trigger: ':codeRefactoringExtractGenericCode'
+  - trigger: ':refacExtractGenericCode'
     form: |
       I want to make this file generic so it can "have a generic useInfinite() to share code, so I can call getCategories or getItems with same generic function".
 
@@ -615,7 +615,7 @@ matches:
 
       #file
     force_mode: clipboard
-  - trigger: ':codeRefactoringListPotentialRefactoring'
+  - trigger: ':refacListPotentialRefactoring'
     form: |
       I want to make this file generic so it can: "[[what_it_should_do]]".
 
@@ -634,7 +634,7 @@ matches:
     form_fields:
       function_variable_constant_names:
         multiline: true
-  - trigger: ':codeRefactoringAuditStructure'
+  - trigger: ':refacAuditStructure'
     form: |
       As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
       Your responsibilities include:
@@ -668,7 +668,7 @@ matches:
       Project structure is: #file
       Project stack is: #file
     force_mode: clipboard
-  - trigger: ':codeRefactoringRewrite'
+  - trigger: ':refacRewrite'
     form: |
       I need you to rewrite the following code #selection to make it better.
 
@@ -690,7 +690,7 @@ matches:
 
       Make sure the code is still readable and maintainable, doing its best to keep the same logic.
     force_mode: clipboard
-  - trigger: ':codeRefactoringRefactor'
+  - trigger: ':refacRefactor'
     form: |
       Read #selection to simplify and beautify my code.
 
@@ -698,7 +698,7 @@ matches:
 
       Make a bullet list of every potential readability issues that you identified.
     force_mode: clipboard
-  - trigger: ':codePerformanceImprove'
+  - trigger: ':refacPerformanceImprove'
     form: |
       I need you to improve the performance of the following code.
 
@@ -713,7 +713,7 @@ matches:
       - Input and output of the code should remain the same.
     force_mode: clipboard
 
-  - trigger: ':codeTestFirstRewriteFunction'
+  - trigger: ':testFirstRewriteFunction'
     form: |
       1. Based on this test and its expectations, please acknowledge the tested function.
       2. List the necessary steps to change in the code to make the test pass.
@@ -728,19 +728,19 @@ matches:
         multiline: true
       test_that_should_pass:
         multiline: true
-  - trigger: ':codeTestFirstImplementFunction'
+  - trigger: ':testFirstImplementFunction'
     form: |
       Write the function implementation for "[[function_name]]" in order to make every tests pass.
     force_mode: clipboard
-  - trigger: ':codeTestingCheckFunctionImplementation'
+  - trigger: ':testingCheckFunctionImplementation'
     form: |
       Check if this test is correctly implemented in the highlighted function.
     force_mode: clipboard
-  - trigger: ':codeTestingCreateEmptyTestStructure'
+  - trigger: ':testingCreateEmptyTestStructure'
     form: |
       Use "[[testing_framework]]" to generate an empty testing structure using AAA with only comments.
     force_mode: clipboard
-  - trigger: ':codeTestingCreateTestStructure'
+  - trigger: ':testingCreateTestStructure'
     form: |
       Use "[[testing_framework]]" to generate testing structure only (inner tests are commented with "Arrange", "Act", "Assert" comments) from those sentences:
 
@@ -751,7 +751,7 @@ matches:
     form_fields:
       test_cases:
         multiline: true
-  - trigger: ':codeTestingCreateTestFromAnother'
+  - trigger: ':testingCreateTestFromAnother'
     form: |
       Based on the implementation file: #file
       And its test file: #file
@@ -764,7 +764,7 @@ matches:
     form_fields:
       test_cases:
         multiline: true
-  - trigger: ':codeTestingCreateTest'
+  - trigger: ':testingCreateTest'
     form: |
       Use "[[testing_framework]]" to generate a test that uses AAA pattern for #selection in file #file
 
@@ -784,7 +784,7 @@ matches:
     form_fields:
       expectation_if_needed:
         multiline: true
-  - trigger: ':codeTestingAddNewTestInSuite'
+  - trigger: ':testingAddNewTestInSuite'
     form: |
       Add a new test in the test suite following same testing structure for test cases:
 
@@ -793,7 +793,7 @@ matches:
     form_fields:
       test_cases:
         multiline: true
-  - trigger: ':codeTestingFillTestCasesExpectations'
+  - trigger: ':testingFillTestCasesExpectations'
     form: |
       In those tests, fill every "Assert" parts only from those specs (surrounded by "---" delimiter):
 
@@ -804,34 +804,34 @@ matches:
     form_fields:
       specifications:
         multiline: true
-  - trigger: ':codeTestingFillTestCase'
+  - trigger: ':testingFillTestCase'
     form: "Fill every tests #selection in file #file\nCode implementation to test:\_#file\n\nArrange fake data with valid ones (mock or stub if necessary) based on required properties of objects:\_#file\nAct to test logic.\nAssert that the result is expected.\n"
     force_mode: clipboard
-  - trigger: ':codeTestingFillComponentWithDataTestId'
+  - trigger: ':testingFillComponentWithDataTestId'
     form: |
       Fill relevant component elements with "data-testid", use index number if available. 
     force_mode: clipboard
-  - trigger: ':codeTestingNewFakeFilledEntity'
+  - trigger: ':testingNewFakeFilledEntity'
     form: |
       Without importing, create new fake filled entity for every required properties of this file: #file
     force_mode: clipboard
-  - trigger: ':codeTestingFillExistingTests'
+  - trigger: ':testingFillExistingTests'
     form: |
       Fill empty tests based on the file content.
     force_mode: clipboard
-  - trigger: ':codeTestingMockSpecificFunctionReturns'
+  - trigger: ':testingMockSpecificFunctionReturns'
     form: "Mock \"[[function_name]]\" function from\_#file\nand resolve to \"[[return_statement]]\".\n"
     force_mode: clipboard
-  - trigger: ':codeTestingMockInnerFunctionCalls'
+  - trigger: ':testingMockInnerFunctionCalls'
     form: |
       Use "[[testing_framework]]" to mock the implementation of the inner function calls from this code: #selection
     force_mode: clipboard
-  - trigger: ':codeTestingMockNewPathInExistingFile'
+  - trigger: ':testingMockNewPathInExistingFile'
     form: |
       Based on the already mocked paths in the file #file
       Add a new mock for function's selection #selection.
     force_mode: clipboard
-  - trigger: ':codeTestingFixFailedTest'
+  - trigger: ':testingFixFailedTest'
     form: |
       The test output the following error (surrounded by "---" delimiters): 
 
@@ -855,7 +855,7 @@ matches:
     form_fields:
       test_results:
         multiline: true
-  - trigger: ':codeFixTestAssertions'
+  - trigger: ':testFixTestAssertions'
     form: |
       Based on those specifications (surrounded by "---" delimiter), please change the existing test #selection to match new assertions:
 
@@ -926,15 +926,15 @@ matches:
       Thank you for you professionalism.
     force_mode: clipboard
 
-  - trigger: ':languageTSTypeCreate'
+  - trigger: ':tsTypeCreate'
     form: |
       Create a TypeScript Type for this Object using Type keyword.
     force_mode: clipboard
-  - trigger: ':languageTSTypeExtract'
+  - trigger: ':tsTypeExtract'
     form: |
       Extract the type of the variable and create a new type for it.
     force_mode: clipboard
-  - trigger: ':languageTSDataFakeDataGenerate'
+  - trigger: ':tsDataFakeDataGenerate'
     form: |
       From this type, generate fake data for testing purposes. The data should be in the same format as the original data, but with fake values.
 
@@ -949,7 +949,7 @@ matches:
         multiline: true
       type:
         multiline: true
-  - trigger: ':languageTSValidationZodGenerate'
+  - trigger: ':tsValidationZodGenerate'
     form: |
       Create zod schema for this type.
     force_mode: clipboard

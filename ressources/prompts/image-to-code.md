@@ -1,17 +1,17 @@
 # 🖥️ AI Driven Dev - "Image to code" Prompts (`:img`)
 
 - [🏞️ Image](#️-image)
-  - [Extract details from image `:instructImageDetail`](#extract-details-from-image-instructimagedetail)
-  - [Identify image section actions `:instructImageIdentifyActions`](#identify-image-section-actions-instructimageidentifyactions)
-  - [Match existing code from knowledge base `:instructImageCheckMatchingCode`](#match-existing-code-from-knowledge-base-instructimagecheckmatchingcode)
-  - [Define methods to use `:instructImageDefineMethods`](#define-methods-to-use-instructimagedefinemethods)
-  - [Match existing UI components in image `:instructImageCheckExistingUIComponents`](#match-existing-ui-components-in-image-instructimagecheckexistinguicomponents)
-  - [Generate code for image section `:instructImageSectionGenerateCode`](#generate-code-for-image-section-instructimagesectiongeneratecode)
-  - [Implement image section design `:instructImageSectionImplementDesign`](#implement-image-section-design-instructimagesectionimplementdesign)
+  - [Extract details from image `:imgDetail`](#extract-details-from-image-imgdetail)
+  - [Identify image section actions `:imgIdentifyActions`](#identify-image-section-actions-imgidentifyactions)
+  - [Match existing code from knowledge base `:imgCheckMatchingCode`](#match-existing-code-from-knowledge-base-imgcheckmatchingcode)
+  - [Define methods to use `:imgDefineMethods`](#define-methods-to-use-imgdefinemethods)
+  - [Match existing UI components in image `:imgCheckExistingUIComponents`](#match-existing-ui-components-in-image-imgcheckexistinguicomponents)
+  - [Generate code for image section `:imgSectionGenerateCode`](#generate-code-for-image-section-imgsectiongeneratecode)
+  - [Implement image section design `:imgSectionImplementDesign`](#implement-image-section-design-imgsectionimplementdesign)
 
 ## 🏞️ Image
 
-### Extract details from image `:instructImageDetail`
+### Extract details from image `:imgDetail`
 
 > ⚠️ For best result you MUST re-upload the image in question before using this prompt.
 
@@ -23,7 +23,7 @@ Identify main sections.
 For each section, give a detailed breakdown of the children elements.
 ```
 
-### Identify image section actions `:instructImageIdentifyActions`
+### Identify image section actions `:imgIdentifyActions`
 
 From the image sections identified, group them.
 
@@ -46,7 +46,7 @@ Note for you:
 - For actions and states, we will get the info from the existing codebase afterward.
 ```
 
-### Match existing code from knowledge base `:instructImageCheckMatchingCode`
+### Match existing code from knowledge base `:imgCheckMatchingCode`
 
 > ⚠️ For best result you MUST re-upload `documentation.md` before using this prompt.
 
@@ -63,7 +63,7 @@ Here is the image section "[[section's name]]" I have to code (surrounded by "--
 For each elements, provide "[[number (default should be 2)]]" existing functions or variables (with their paths) that can fill the needs, sorted by relevance.
 ```
 
-### Define methods to use `:instructImageDefineMethods`
+### Define methods to use `:imgDefineMethods`
 
 ```text
 In order to code the feature, I assert the following methods to use, defined here (surrounded by "---" delimiters):
@@ -74,7 +74,7 @@ In order to code the feature, I assert the following methods to use, defined her
 Do nothing, just reply "ok" if you understood.
 ```
 
-### Match existing UI components in image `:instructImageCheckExistingUIComponents`
+### Match existing UI components in image `:imgCheckExistingUIComponents`
 
 ```text
 Match existing UI components in image section:
@@ -86,7 +86,7 @@ Match existing UI components in image section:
 5. Based on the elements that need components, check if there is a match of potential use with the existing components from global UI components dir.
 ```
 
-### Generate code for image section `:instructImageSectionGenerateCode`
+### Generate code for image section `:imgSectionGenerateCode`
 
 ```text
 Generate the code for this component:
@@ -102,7 +102,7 @@ Generate the code for this component:
 [[More rules specific to your project]]
 ```
 
-### Implement image section design `:instructImageSectionImplementDesign`
+### Implement image section design `:imgSectionImplementDesign`
 
 ```text
 Implement the design from the image section "[[section's name]]" using "[[Your stack, eg: Tailwind CSS, Only CSS, Material UI]]".

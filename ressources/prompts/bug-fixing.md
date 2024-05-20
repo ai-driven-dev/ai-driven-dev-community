@@ -1,17 +1,17 @@
 # 🖥️ AI Driven Dev - "Bug fixing" Prompts (`:fix`)
 
 - [🐛 Bug fixing](#-bug-fixing)
-  - [List potential issues `:codeFixListPotentialIssues`](#list-potential-issues-codefixlistpotentialissues)
-  - [Find functional issue `:codeFixFindFunctionalIssue`](#find-functional-issue-codefixfindfunctionalissue)
-  - [Find issues and fix `:codeFixFindIssuesAndFix`](#find-issues-and-fix-codefixfindissuesandfix)
+  - [List potential issues `:fixListPotentialIssues`](#list-potential-issues-fixlistpotentialissues)
+  - [Find functional issue `:fixFindFunctionalIssue`](#find-functional-issue-fixfindfunctionalissue)
+  - [Find issues and fix `:fixFindIssuesAndFix`](#find-issues-and-fix-fixfindissuesandfix)
   - [Detect code inconsistencies `:bugCodeDetectInconsistencies`](#detect-code-inconsistencies-bugcodedetectinconsistencies)
 - [🔫 Debug](#-debug)
-  - [Add logging to debug error `:codeDebugAddErrorLogging`](#add-logging-to-debug-error-codedebugadderrorlogging)
-  - [Add logging with emojis `:codeDebugAddLoggingEmojis`](#add-logging-with-emojis-codedebugaddloggingemojis)
+  - [Add logging to debug error `:fixAddErrorLogging`](#add-logging-to-debug-error-fixadderrorlogging)
+  - [Add logging with emojis `:fixAddLoggingEmojis`](#add-logging-with-emojis-fixaddloggingemojis)
 
 ## 🐛 Bug fixing
 
-### List potential issues `:codeFixListPotentialIssues`
+### List potential issues `:fixListPotentialIssues`
 
 ```text
 I have this error in my code (surrounded by "---" delimiters):
@@ -30,7 +30,7 @@ Please list all potential solutions and steps to fix the code, sorted by relevan
 #editor
 ```
 
-### Find functional issue `:codeFixFindFunctionalIssue`
+### Find functional issue `:fixFindFunctionalIssue`
 
 ```text
 In my application, when I do: "[[Action]]"
@@ -47,7 +47,7 @@ Please list potentials issues and steps to fix the code, sorted by relevance.
 [[More code context if needed]]
 ```
 
-### Find issues and fix `:codeFixFindIssuesAndFix`
+### Find issues and fix `:fixFindIssuesAndFix`
 
 **Description:**
 
@@ -74,13 +74,13 @@ Check for variable names, function names, and other inconsistencies in the code.
 
 ## 🔫 Debug
 
-### Add logging to debug error `:codeDebugAddErrorLogging`
+### Add logging to debug error `:fixAddErrorLogging`
 
 ```text
 Add logging at each steps of the code to debug errors.
 ```
 
-### Add logging with emojis `:codeDebugAddLoggingEmojis`
+### Add logging with emojis `:fixAddLoggingEmojis`
 
 ```text
 Add beautiful logging steps with emojis at each steps to debug errors.

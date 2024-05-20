@@ -1,21 +1,21 @@
 # 🖥️ AI Driven Dev - "Feature request" Prompts (`:feat`)
 
 - [🆕 Create new features](#-create-new-features)
-  - [Generate feature user-stories from request `:instructFeatureGenerateUS`](#generate-feature-user-stories-from-request-instructfeaturegenerateus)
-  - [Extract coding steps for a sub-task `:instructFeatureExtractCodingSteps`](#extract-coding-steps-for-a-sub-task-instructfeatureextractcodingsteps)
-  - [Create coding steps from development steps `:instructFeatureCreateCodingSteps`](#create-coding-steps-from-development-steps-instructfeaturecreatecodingsteps)
+  - [Generate feature user-stories from request `:featGenerateUS`](#generate-feature-user-stories-from-request-featgenerateus)
+  - [Extract coding steps for a sub-task `:featExtractCodingSteps`](#extract-coding-steps-for-a-sub-task-featextractcodingsteps)
+  - [Create coding steps from development steps `:featCreateCodingSteps`](#create-coding-steps-from-development-steps-featcreatecodingsteps)
 - [👌 Existing features](#-existing-features)
-  - [Acknowledge specs and code from specification from your feature `:instructExistingFeatureAcknowledgements`](#acknowledge-specs-and-code-from-specification-from-your-feature-instructexistingfeatureacknowledgements)
-  - [Give me output example based on your understandings `:instructExistingFeatureOutputExample`](#give-me-output-example-based-on-your-understandings-instructexistingfeatureoutputexample)
-  - [Answer LLM's questions about your feature (if needed) `:instructExistingFeatureIterate`](#answer-llms-questions-about-your-feature-if-needed-instructexistingfeatureiterate)
+  - [Acknowledge specs and code from specification from your feature `:featExAcknowledgements`](#acknowledge-specs-and-code-from-specification-from-your-feature-featexacknowledgements)
+  - [Give me output example based on your understandings `:featExOutputExample`](#give-me-output-example-based-on-your-understandings-featexoutputexample)
+  - [Answer LLM's questions about your feature (if needed) `:featExIterate`](#answer-llms-questions-about-your-feature-if-needed-featexiterate)
 - [🧪 Testing](#-testing)
-  - [List test cases from user-stories `:instructTestingListTestCases`](#list-test-cases-from-user-stories-instructtestinglisttestcases)
-  - [Acceptance Criteria as Gherkin `:instructTestingConvertAcceptanceCriteriaIntoGherkin`](#acceptance-criteria-as-gherkin-instructtestingconvertacceptancecriteriaintogherkin)
-  - [Unit test prompt generation `:instructTestingGenerateUnitTestPrompt` (WIP 🚧)](#unit-test-prompt-generation-instructtestinggenerateunittestprompt-wip-)
+  - [List test cases from user-stories `:featTestingListTestCases`](#list-test-cases-from-user-stories-feattestinglisttestcases)
+  - [Acceptance Criteria as Gherkin `:featTestingConvertAcceptanceCriteriaIntoGherkin`](#acceptance-criteria-as-gherkin-feattestingconvertacceptancecriteriaintogherkin)
+  - [Unit test prompt generation `:featTestingGenerateUnitTestPrompt` (WIP 🚧)](#unit-test-prompt-generation-feattestinggenerateunittestprompt-wip-)
 
 ## 🆕 Create new features
 
-### Generate feature user-stories from request `:instructFeatureGenerateUS`
+### Generate feature user-stories from request `:featGenerateUS`
 
 ```text
 Goal:
@@ -55,7 +55,7 @@ Here is a styled markdown template example you can inspire yourself with (surrou
 ---
 ```
 
-### Extract coding steps for a sub-task `:instructFeatureExtractCodingSteps`
+### Extract coding steps for a sub-task `:featExtractCodingSteps`
 
 Ask the LLM to generate fully detailed ticket based on the user stories for an individual sub-task.
 
@@ -77,7 +77,7 @@ Given the coding task detailed below:
 6. Provide one-line action steps, specifying new or existing file paths without generating code.
 ```
 
-### Create coding steps from development steps `:instructFeatureCreateCodingSteps`
+### Create coding steps from development steps `:featCreateCodingSteps`
 
 ```text
 Recalling our earlier discussion about the project tasks:
@@ -93,7 +93,7 @@ Recalling our earlier discussion about the project tasks:
 
 ## 👌 Existing features
 
-### Acknowledge specs and code from specification from your feature `:instructExistingFeatureAcknowledgements`
+### Acknowledge specs and code from specification from your feature `:featExAcknowledgements`
   
 ```text
 Here are the specifications of the feature I need to code (surrounded by "---" delimiters).
@@ -113,13 +113,13 @@ Ask anything you need to know, like existing code, libraries, mockups available,
 ---
 ```
 
-### Give me output example based on your understandings `:instructExistingFeatureOutputExample`
+### Give me output example based on your understandings `:featExOutputExample`
 
 ```text
 Give me an output example based on your understandings, with required inputs and the expected output.
 ```
 
-### Answer LLM's questions about your feature (if needed) `:instructExistingFeatureIterate`
+### Answer LLM's questions about your feature (if needed) `:featExIterate`
 
 ```text
 Here are some answers about your previous questions.
@@ -138,7 +138,7 @@ Here are my answers:
 
 ## 🧪 Testing
 
-### List test cases from user-stories `:instructTestingListTestCases`
+### List test cases from user-stories `:featTestingListTestCases`
 
 **Description**:
 
@@ -163,7 +163,7 @@ You have to list test cases with the following rules:
 - [[Do not test UI, focus the logic only | Test the UI if needed | Test the UI and the logic]].
 ```
 
-### Acceptance Criteria as Gherkin `:instructTestingConvertAcceptanceCriteriaIntoGherkin`
+### Acceptance Criteria as Gherkin `:featTestingConvertAcceptanceCriteriaIntoGherkin`
 
 Transforms some acceptance criteria into Gherkin syntax.
 
@@ -173,7 +173,7 @@ From this acceptance criteria, can you transform it into Gherkin syntax?
 [[Acceptance criteria]]
 ```
 
-### Unit test prompt generation `:instructTestingGenerateUnitTestPrompt` (WIP 🚧)
+### Unit test prompt generation `:featTestingGenerateUnitTestPrompt` (WIP 🚧)
 
 **Description**:
 
