@@ -867,11 +867,11 @@ matches:
       new_specifications:
         multiline: true
 
-  - trigger: ':variousLinkedInProfileOptimization'
+  - trigger: ':copyLinkedInProfileOptimization'
     form: |
       "Act like a Marketing manager expert in LinkedIn and give me tips for an engaging summary, effective use of keywords, and strategies for showcasing my accomplishments. Also, advise on increasing meaningful connections and engaging with industry-related content to boost my profile's reach."
     force_mode: clipboard
-  - trigger: ':variousSituationsAndBenefitsListing'
+  - trigger: ':copySituationsAndBenefitsListing'
     form: |
       Dans ma formation Coder avec l'IA, j'ai créé un module "[[nom_du_module]]".
 
@@ -883,7 +883,7 @@ matches:
       Sous forme de liste à puce, liste nos problèmes sans IA.
       Sous forme de liste à puce, liste les bénéfices / avantages de l'IA.
     force_mode: clipboard
-  - trigger: ':variousCriticizeAnswer'
+  - trigger: ':entreCriticizeAnswer'
     form: |
       Merci, peux-tu faire l'autocritique de ta réponse ?
 
@@ -893,7 +893,7 @@ matches:
       4) Réécris ton travail en suivant les recommandations du point 3).
       5) Demande-moi si je veux répéter le processus. Nous le ferons jusqu'à ce que votre travail soit noté 20/20.
     force_mode: clipboard
-  - trigger: ':variousCreateMidJourneyRealisticPicture'
+  - trigger: ':entreCreateMidJourneyRealisticPicture'
     form: |
       Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw.
     force_mode: clipboard

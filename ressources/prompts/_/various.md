@@ -1,27 +1,27 @@
-# Various side prompts (`:various`)
+# 🖥️ AI Driven Dev - "entre" Prompts
 
 Some prompt we can use sometimes, tech related, or not :)
 
 - [🖋️ Copywriting](#️-copywriting)
-  - [LinkedIn profile optimization `:variousLinkedInProfileOptimization`](#linkedin-profile-optimization-variouslinkedinprofileoptimization)
-  - [Benefits of a method `:variousSituationsAndBenefitsListing`](#benefits-of-a-method-varioussituationsandbenefitslisting)
+  - [LinkedIn profile optimization `:copyLinkedInProfileOptimization`](#linkedin-profile-optimization-copylinkedinprofileoptimization)
+  - [Benefits of a method `:copySituationsAndBenefitsListing`](#benefits-of-a-method-copysituationsandbenefitslisting)
 - [👔 Entrepreneurship](#-entrepreneurship)
-  - [Self criticize 🇫🇷 `:variousCriticizeAnswer`](#self-criticize--variouscriticizeanswer)
+  - [Self criticize 🇫🇷 `:entreCriticizeAnswer`](#self-criticize--entrecriticizeanswer)
 - [🌄 Images](#-images)
-  - [MidJourney realistic picture `:variousCreateMidJourneyRealisticPicture`](#midjourney-realistic-picture-variouscreatemidjourneyrealisticpicture)
+  - [MidJourney realistic picture `:entreCreateMidJourneyRealisticPicture`](#midjourney-realistic-picture-entrecreatemidjourneyrealisticpicture)
 - [💽 LLM](#-llm)
   - [Prompt evaluation `:llmPromptImprove`](#prompt-evaluation-llmpromptimprove)
   - [Answer evaluation with iteration `:llmAnswerEvaluate`](#answer-evaluation-with-iteration-llmanswerevaluate)
 
 ## 🖋️ Copywriting
 
-### LinkedIn profile optimization `:variousLinkedInProfileOptimization`
+### LinkedIn profile optimization `:copyLinkedInProfileOptimization`
 
 ```text
 "Act like a Marketing manager expert in LinkedIn and give me tips for an engaging summary, effective use of keywords, and strategies for showcasing my accomplishments. Also, advise on increasing meaningful connections and engaging with industry-related content to boost my profile's reach."
 ```
 
-### Benefits of a method `:variousSituationsAndBenefitsListing`
+### Benefits of a method `:copySituationsAndBenefitsListing`
 
 ```text
 Dans ma formation Coder avec l'IA, j'ai créé un module "[[nom du module]]".
@@ -37,7 +37,7 @@ Sous forme de liste à puce, liste les bénéfices / avantages de l'IA.
 
 ## 👔 Entrepreneurship
 
-### Self criticize 🇫🇷 `:variousCriticizeAnswer`
+### Self criticize 🇫🇷 `:entreCriticizeAnswer`
 
 ```text
 Merci, peux-tu faire l'autocritique de ta réponse ?
@@ -51,7 +51,7 @@ Merci, peux-tu faire l'autocritique de ta réponse ?
 
 ## 🌄 Images
 
-### MidJourney realistic picture `:variousCreateMidJourneyRealisticPicture`
+### MidJourney realistic picture `:entreCreateMidJourneyRealisticPicture`
 
 At the end of you image generated prompt.
 

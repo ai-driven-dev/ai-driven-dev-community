@@ -37,7 +37,7 @@ Get started easily with the **AI Driven Dev Community**:
   - [AIDDC Video Demo (in french)](#aiddc-video-demo-in-french)
 - [**5#** 🚀 Super easy contribution](#5--super-easy-contribution)
   - [5 steps to contribute in 2 minutes](#5-steps-to-contribute-in-2-minutes)
-  - [Non-fork contributions](#non-fork-contributions)
+  - [No  -fork contributions](#no---fork-contributions)
 
 ## **0#** 🚀 Get started
 
@@ -173,7 +173,7 @@ Use those dev prompts in your ChatGPT:
 - 🚀 [Feature Request](./ressources/prompts/feature-request.md)
 - 🏗️ [Project Architecture](./ressources/prompts/project-architecture.md)
 - 📋 [Project Management](./ressources/prompts/project-management.md)
-- 🚧 [Project setup](./ressources/prompts/project-setup.md)
+- 🚧 [Project Setup](./ressources/prompts/project-setup.md)
 
 ## **3#** 🛠️ Install AI Toolbox for software engineers
 
@@ -202,7 +202,7 @@ Having your personal prompts in a huge Notion doc or shared with your team?
 **You can easily make them available privately in your computer with Espanso.**
 
 1. Add your prompts in `markdown`in the directory `./prompts/private/`
-2. Take a look at the [contributing guide](./contributing.md) to create a perfect prompt.
+2. Take a look at the [contributing guide](./CONTRIBUTE.md) to create a perfect prompt.
 3. Start the project: `npm i && npm start`
 4. Reload your Espanso from GUI.
 
@@ -283,13 +283,13 @@ Join us on Discord to get the **latest updates, news and shared experiences** wi
 
 French courses are available to learn how to use AI in your daily work.
 
-[![Formation "Coder avec l'IA"](https://img.shields.io/badge/-Formation%20%22Coder%20avec%20l%27IA%22-red?style=for-the-badge)](https://lean.alexsoyes.com)
+[![Formation "Coder avec l'IA"](https://img.shields.io/badge/-Formation%20%22Coder%20avec%20l%27IA%22-red?style=for-the-badge)](https://learn.alexsoyes.com/formation-coder-avec-ia?utm_source=github&utm_medium=cta-button&utm_campaign=formation-coder-avec-ia&utm_terms=ia)
 
 ### Links
 
 Various links available that do not fit in other categories:
 
-- [GPTs source list for developers 📋](./ressources/gpt.md) (Include prompt source when available)
+- [GPTs source list for developers 📋](./ressources/custom-gpts.md) (Include prompt source when available)
 - [Various](./ressources/prompts/_/various.md) - Various and personals prompts that do not fit in other categories.
 
 ### AIDDC Video Demo (in french)
@@ -311,10 +311,10 @@ It will automatically update the prompts and the scripts.
 1. [Fork the repository](https://github.com/alexsoyes/ai-driven-dev-community/fork), then clone it.
 2. After installation, run `npm i && npx husky-init` if you want to **automatically**:
 3. Update any Readme from sub-directories in `./resources` to automatically generate the prompts in Espanso and scripts generation!
-4. Check the [Contributing guide](./contributing.md)
+4. Check the [Contributing guide](./CONTRIBUTE.md)
 5. Push your changes and create a Pull Request.
 
-### Non-fork contributions
+### No  -fork contributions
 
 You can also contribute without forking the repository:
 
