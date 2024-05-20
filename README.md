@@ -67,7 +67,7 @@ If you do follow these best practices, you will become a 10x Dev in no time.
 
 Free and Paid alternatives are available for each tool.
 
-[![[Best list of AI Tools for developers](https://www.notion.so/c858af13ed704d7184456a3f8ac21f07?pvs=21)](https://img.shields.io/badge/-Notion%20List%20of%20best%20AI%20Tools%20for%20developers-purple?style=for-the-badge)](<https://alexsoyes.notion.site/c858af13ed704d7184456a3f8ac21f07?v=79a8d07b1e414ced99fcd210970b2ee8>)
+[![Best list of AI Tools for developers](https://img.shields.io/badge/-Notion%20List%20of%20best%20AI%20Tools%20for%20developers-purple?style=for-the-badge)](https://alexsoyes.notion.site/c858af13ed704d7184456a3f8ac21f07?v=79a8d07b1e414ced99fcd210970b2ee8)
 
 ## **1#** 🤖 Custom AI for developers
 
@@ -84,7 +84,7 @@ Teach an AI to act as a Dev... from your own team
 1. **Documents list to provide** - Upload the relevant documents to instruct the AI about your project.
 2. **Create a RAG for your project** - Instructions for AI to act as a developer **from your team**, using your language etc.
 
-[Full page ressource](./ressources/llm-instructions/gpt-rag-developer.md)
+[Full page ressource](./ressources/llm-instructions/gpt-rag-developer.md) 🔗
 
 ### Best Instructions
 
@@ -92,7 +92,7 @@ Personalize the AI to have better performance and quicker answers.
 
 **This will help you to get the best out of the AI by providing it with the right context and knowledge about your project.**
 
-[Full page ressource](./ressources/llm-instructions/chatgpt-custom-instructions.md)
+[Full page ressource](./ressources/llm-instructions/chatgpt-custom-instructions.md) 🔗
 
 ### Custom GPT Agents
 
@@ -114,17 +114,6 @@ Use the prompts in your daily work:
 - Or by using the dialog box (`⌥ + SPACE` or `ALT + SPACE`)
 
 Basically, all prompts in the repository are available as an Espanso package.
-
-<table>
-  <tr>
-    <td><img src="images/espanso-code-gpt.gif" alt="Text expander with AI" width="400"/></td>
-    <td><img src="images/espanso-form-with-select.gif" alt="Text expander form with Select and Input" width="400"/></td>
-  </tr>
-  <tr>
-    <td align="center">PROMPT TYPING EXPANSION : Pasting a prompt using Espanso 🔥</td>
-    <td align="center">SEARCHING PROMPTS: Combination of prompt pasting using Input + Select ✨</td>
-  </tr>
-</table>
 
 **This make it easy for every developer to use the prompts in their daily work.**
 
@@ -167,7 +156,9 @@ More dev prompts:
 - Language Specific
   - [TypeScript](./ressources/prompts/languages/typescript.md)
 - Private prompts
-  - [Your private (or team) prompts](./ressources/prompts/private.md)
+  - [Your private (or team) prompts](./ressources/prompts/private)
+
+![VSCode Prompt trigger](images/vscode-espanso-code-inline-chat.gif)
 
 ### Best dev prompts in Chat
 
@@ -182,13 +173,15 @@ Use those dev prompts in your ChatGPT:
 - 📋 [Project Management](./ressources/prompts/project-management.md)
 - 🚧 [Project setup](./ressources/prompts/project-setup.md)
 
+![ChatGPT Prompt Trigger](images/chatgpt-espanso-text-trigger.gif)
+
 ## **3#** 🛠️ Install AI Toolbox for software engineers
 
 Clone this repo: `git clone git@github.com:alexsoyes/ai-driven-dev-community.git`
 
 You are all set!
 
-Required:
+Requirements:
 
 - [Node.js](https://nodejs.org/en/download/) - To run the project.
 
@@ -198,7 +191,7 @@ A python scraper to save HTML / Markdown content from your best websites.
 
 Full documentation available in the [scraper directory](./scripts/scraper/README.md).
 
-Required:
+Requirements:
 
 - [Python 3+](https://www.python.org/downloads/) - To run the scraper.
 
@@ -225,7 +218,7 @@ AI makes way much easier code generation.
 
 Thus, AI can be mistaken, as a developer, you are the master of your code structure.
 
-![VSCode Snippets](images/vscode-snippets-ia.gif)
+![VSCode Snippet](images/vscode-snippet.gif)
 
 Feel free to use them!
 

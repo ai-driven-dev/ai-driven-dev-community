@@ -189,7 +189,7 @@ matches:
     force_mode: clipboard
   - trigger: ':indent'
     form: |
-      Indentation for this code.
+      Fix indentation and syntaxe for this code.
     force_mode: clipboard
 
   - trigger: ':instructDocSearchURL'
@@ -217,11 +217,11 @@ matches:
           - Check for comment params to match function's params (type it "unknown" if not sure).
       - If so, just reply "OK ✅" without saying anything else.
     force_mode: clipboard
-  - trigger: ':docCommentCommentHardParts'
+  - trigger: ':docCommentHardParts'
     form: |
       Comment the code to make the hard parts easier to understand.
     force_mode: clipboard
-  - trigger: ':docCommentCommentFullFile'
+  - trigger: ':docCommentFullFile'
     form: |
       Add code documentation for this code.
 

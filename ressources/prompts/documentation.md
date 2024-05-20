@@ -1,12 +1,12 @@
 
 # 🖥️ AI Driven Dev - "Documentation" Prompts (`:doc`)
 
-- [� Documentation](#-documentation)
+- [📄 Documentation](#-documentation)
   - [Search in the documentation from URL `:instructDocSearchURL`](#search-in-the-documentation-from-url-instructdocsearchurl)
 - [💬 Comments](#-comments)
   - [Comments must match code actions `:docCommentCheckCodeIsMatching`](#comments-must-match-code-actions-doccommentcheckcodeismatching)
-  - [Comment selection to make the hard part easier `:docCommentCommentHardParts`](#comment-selection-to-make-the-hard-part-easier-doccommentcommenthardparts)
-  - [Comment full file `:docCommentCommentFullFile`](#comment-full-file-doccommentcommentfullfile)
+  - [Comment selection to make the hard part easier `:docCommentHardParts`](#comment-selection-to-make-the-hard-part-easier-doccommenthardparts)
+  - [Comment full file `:docCommentFullFile`](#comment-full-file-doccommentfullfile)
 
 ## 📄 Documentation
 
@@ -41,13 +41,13 @@ Do not explain why the code is wrong, just change accordingly.
 - If so, just reply "OK ✅" without saying anything else.
 ```
 
-### Comment selection to make the hard part easier `:docCommentCommentHardParts`
+### Comment selection to make the hard part easier `:docCommentHardParts`
 
 ```text
 Comment the code to make the hard parts easier to understand.
 ```
 
-### Comment full file `:docCommentCommentFullFile`
+### Comment full file `:docCommentFullFile`
 
 ```text
 Add code documentation for this code.

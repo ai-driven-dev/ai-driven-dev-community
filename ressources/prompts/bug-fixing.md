@@ -1,7 +1,13 @@
 # 🖥️ AI Driven Dev - "Bug fixing" Prompts (`:fix`)
 
-- [🐛 Bug](#-bug)
+- [🐛 Bug fixing](#-bug-fixing)
+  - [List potential issues `:codeFixListPotentialIssues`](#list-potential-issues-codefixlistpotentialissues)
+  - [Find functional issue `:codeFixFindFunctionalIssue`](#find-functional-issue-codefixfindfunctionalissue)
+  - [Find issues and fix `:codeFixFindIssuesAndFix`](#find-issues-and-fix-codefixfindissuesandfix)
   - [Detect code inconsistencies `:bugCodeDetectInconsistencies`](#detect-code-inconsistencies-bugcodedetectinconsistencies)
+- [🔫 Debug](#-debug)
+  - [Add logging to debug error `:codeDebugAddErrorLogging`](#add-logging-to-debug-error-codedebugadderrorlogging)
+  - [Add logging with emojis `:codeDebugAddLoggingEmojis`](#add-logging-with-emojis-codedebugaddloggingemojis)
 
 ## 🐛 Bug fixing
 
