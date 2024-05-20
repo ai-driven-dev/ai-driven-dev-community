@@ -23,6 +23,7 @@ const PUBLIC_PROMPTS = [
   './ressources/prompts/languages/*',
   './ressources/llm-instructions/*',
   './contributing*',
+  './README*',
 ];
 
 fs.writeFileSync(

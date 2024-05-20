@@ -1,8 +1,11 @@
 # Web Scraper to Save HTML / Markdown Content
 
-This project is a web scraper built with `Scrapy`, `BeautifulSoup`, and `html2text`.
+This project is a web scraper built with `Scrapy` and `html2text`.
 
 It is designed to crawl a specified domain, save the HTML content of the pages, and optionally convert the HTML content to Markdown.
+
+- [Installation](#installation)
+- [Usage Example](#usage-example)
 
 ## Installation
 

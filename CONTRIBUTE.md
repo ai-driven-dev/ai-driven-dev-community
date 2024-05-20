@@ -12,7 +12,8 @@ Your contributions are vital to making this project great and we welcome contrib
   - [Titles](#titles)
   - [Variables](#variables)
 - [🔥 Full Example](#-full-example)
-- [😣 Need Help?](#-need-help)
+  - [My title for my awesome prompt `:myExamplePromptForTesting`](#my-title-for-my-awesome-prompt-myexamplepromptfortesting)
+- [💪 Need Help?](#-need-help)
 
 ## 👮 General Guidelines
 
@@ -99,7 +100,7 @@ Not specifying (`:trigger`) in the title will not trigger Espanso config changes
 Remove the usage section lines if it's not needed.
 
 ````markdown
-### My title for my awesome prompt `:myExamplePrompt`
+### My title for my awesome testing prompt `:myExamplePromptForTesting`
 
 **Description**:
 
@@ -109,33 +110,30 @@ What the prompt is about.
 
 | Usage                   | Contexte                                                   |
 |-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://www.linkedin.com/in/alexandre-soyer)  |
 | 🔁 **Follow-up prompt** | `:instructImage...` required before this one               |
 | 🗂️ **Requirements**     | `documentation.md` is needed to use this prompt            |
 | 🔍 **Context**          | Open 2 files side-by-side in your IDE                      |
 | 📌 **Annotations**      | `@workspace` annotation in Copilot might be used.          |
 | ✅ **Variables needed** | Yes                                                        |
-| 📦 **Dependencies**     | `brew install espanso`                                                  |
+| 📦 **Dependencies**     | `brew install espanso`                                     |
 
 **Prompt/Code**:
 
 ```text
-This prompt took one inline variable here: "[[var_1]]".
+I need you to write a test regarding feature: "[[quick feature description]]".
 
-And multiline var here:
+Here are the specifications:
+[[List of specifications]]
 
-[[var_2]]
-
-Depending on the context, you can select a value here:
-
-[[var_3|option1|option2|option3]]
-
-Enjoy!
+Please select the type of test you want to write:
+[[unit|integration|end-to-end]]
 ```
 ````
 
-### My title for my awesome prompt `:myExamplePrompt`
+### My title for my awesome testing prompt `:myExamplePromptForTesting`
 
-> 👉 TRY ME RUNNING TRIGGER `:myExamplePrompt`
+> 👉 TRY ME RUNNING TRIGGER `:myExamplePromptForTesting`
 
 **Description**:
 
@@ -145,6 +143,7 @@ What the prompt is about.
 
 | Usage                   | Contexte                                                   |
 |-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://www.linkedin.com/in/alexandre-soyer)  |
 | 🔁 **Follow-up prompt** | `:instructImage...` required before this one               |
 | 🗂️ **Attachments**      | `documentation.md` is needed to use this prompt            |
 | 🔍 **Context**          | Open 2 files side-by-side in your IDE                      |
@@ -155,17 +154,13 @@ What the prompt is about.
 **Prompt**:
 
 ```text
-This prompt took one inline variable here: "[[var_1]]".
+I need you to write a test regarding feature: "[[quick feature description]]".
 
-And multiline var here:
+Here are the specifications:
+[[List of specifications]]
 
-[[var_2]]
-
-Depending on the context, you can select a value here:
-
-[[var_3|option1|option2|option3]]
-
-Enjoy!
+Please select the type of test you want to write:
+[[unit|integration|end-to-end]]
 ```
 
 ## 💪 Need Help?

@@ -2,309 +2,6 @@
 preserve_clipboard: false
 
 matches:
-  - trigger: ':codeChangeCodeWithoutImport'
-    form: |
-      Do not import, just change the code to make it work.
-    force_mode: clipboard
-  - trigger: ':codeCreateFunctionFromSpecs'
-    form: |
-      Based on those specs (see below), create a function that returns "[[what_you_want_to_return]]".
-
-      ---
-      Verify that creating a tip defaults its status to "draft".
-      Ensure that a draft tip cannot be voted on.
-      Verify that once a tip is "scheduled", it cannot receive any more votes.
-      Check that "archived" tips cannot be voted on.
-      ---
-    force_mode: clipboard
-  - trigger: ':codeMergeFileWithAlmostSameContent'
-    form: |
-      Based on those two file names "[[filename_1]]" and "[[filename_2]]", merge logic to reduce code duplication.
-    force_mode: clipboard
-  - trigger: ':codeUpdateFile'
-    form: |
-      Based on file: #file
-      Update the file: #file
-
-      Adapt the content to match the structure.
-    force_mode: clipboard
-  - trigger: ':codeCreateNewSimilarFile'
-    form: |
-      Based on file: #file
-      Create a similar file structure for: #file
-      Adapt the content to the new file using: #file
-    force_mode: clipboard
-  - trigger: ':codeConvertType'
-    form: |
-      You goal is to code a convert function to transform a type into another.
-
-      Type to convert is:
-      [[type_to_convert_or_path]]
-
-      Type to convert into is:
-      [[type_to_convert_into_or_path]]
-
-      For each property of the type to convert, find the corresponding property in the type to convert into.
-
-      Please provide the following code.
-    force_mode: clipboard
-    form_fields:
-      type_to_convert_or_path:
-        multiline: true
-      type_to_convert_into_or_path:
-        multiline: true
-  - trigger: ':codeCodingHelpThinking'
-    form: |
-      I need you to help me think about the best way to implement this new functionality:
-      [[new_functionality]]
-
-      Please provide the best coding steps regarding my existing code.
-    force_mode: clipboard
-    form_fields:
-      new_functionality:
-        multiline: true
-  - trigger: ':codeCodingImproveReadability'
-    form: |
-      I need you to improve the readability of the following code.
-
-      Result should remain the same, but the code should be easier to read and understand.
-    force_mode: clipboard
-  - trigger: ':codeCodingProvideExampleUsage'
-    form: |
-      Provide an example of the usage of this function, input and output.
-    force_mode: clipboard
-  - trigger: ':codeGenerateTypeHinting'
-    form: |
-      Type hints all necessary variables in this code.
-
-      Import types if necessary.
-
-      Assert that types match return values.
-
-      Do not type "any" if possible.
-    force_mode: clipboard
-  - trigger: ':bugCodeDetectInconsistencies'
-    form: |
-      I need you to detect inconsistencies in the code.
-
-      Check for variable names, function names, and other inconsistencies in the code.
-    force_mode: clipboard
-  - trigger: ':codeRefactoringExtractGenericCode'
-    form: |
-      I want to make this file generic so it can "have a generic useInfinite() to share code, so I can call getCategories or getItems with same generic function".
-
-      Following content is variable and that need to be extracted (also check for specific elements that I might have missed.):
-      - Everything related to "category" or "categories"
-      - including "transform" function
-
-      Please:
-      1. List all the elements that need to be extracted.
-      2. List all the elements that do not need to be removed.
-      3. List the steps to achieve the refactoring.
-      4. Provide the code to add or modify (do not make unnecessary changes).
-
-      #file
-    force_mode: clipboard
-  - trigger: ':codeRefactoringListPotentialRefactoring'
-    form: |
-      I want to make this file generic so it can: "[[what_it_should_do]]".
-
-      Based on my tech, can you propose the 3 best way to do so?
-
-      For each proposition, provide:
-      - The code to add
-      - Advantages and disadvantages
-      - The impact on the code
-
-      Following content is variable: 
-      [[function_variable_constant_names]]
-
-      #file
-    force_mode: clipboard
-    form_fields:
-      function_variable_constant_names:
-        multiline: true
-  - trigger: ':codeRefactoringAuditStructure'
-    form: |
-      As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
-      Your responsibilities include:
-
-      - Identifying and listing potential issues in the project structure.
-      - Proposing improvements for each identified issue, with clear explanations of why these improvements are beneficial.
-      - Reviewing the project for any empty folders, suggesting a purpose or recommending removal.
-      - Checking for duplicated files and proposing strategies to eliminate redundancies.
-      - Evaluating file naming conventions to ensure clarity, conciseness, and consistency.
-      - Identifying any files that are overly large or too generically named, suggesting better practices.
-      - Providing a detailed list of files or folders with issues.
-      - If necessary, suggesting a more efficient overall project structure.
-
-      For each of the above points, write a detailed explanation in this format:
-      """
-      # Issue
-
-      Explanation of the issue and why it is problematic.
-
-      ## Recommendations
-
-      Proposed solutions to the issue, with clear explanations of why they are beneficial.
-
-      ## Affected files or folders
-
-      List of files or folders affected by the issue.
-      """
-
-      Please provide a thorough analysis and structured recommendations, never recommend "hypothesis" or "guesses", use data from uploaded project structure only.
-
-      Project structure is: #file
-      Project stack is: #file
-    force_mode: clipboard
-  - trigger: ':codeRefactoringRewrite'
-    form: |
-      I need you to rewrite the following code #selection to make it better.
-
-      If necessary, use those refactoring techniques:
-      - Extract method
-      - Inline method
-      - Rename method
-      - Move method
-      - Group similar methods, variables or properties
-      - Encapsulate field
-      - Decompose conditional
-      - Consolidate conditional expression
-      - Consolidate duplicate conditional fragments
-      - Remove assignments to parameters
-      - Type hinting
-      - Add full function documentation
-
-      Focus on code performance.
-
-      Make sure the code is still readable and maintainable, doing its best to keep the same logic.
-    force_mode: clipboard
-  - trigger: ':codeRefactoringRefactor'
-    form: |
-      Read #selection to simplify and beautify my code.
-
-      Analyze everything that seem unclear, not performant, ugly, too complicated.
-
-      Make a bullet list of every potential readability issues that you identified.
-    force_mode: clipboard
-  - trigger: ':codeDebugAddErrorLogging'
-    form: |
-      Add logging at each steps of the code to debug errors.
-    force_mode: clipboard
-  - trigger: ':codeDebugAddLoggingEmojis'
-    form: |
-      Add beautiful logging steps with emojis at each steps to debug errors.
-    force_mode: clipboard
-  - trigger: ':codePerformanceImprove'
-    form: |
-      I need you to improve the performance of the following code.
-
-      1. Find the main performances issues in the code.
-      2. List the necessary steps to improve the performance of the code.
-      3. Implement the necessary changes to improve the performance of the code.
-      4. Make sure the code is still readable and maintainable.
-      5. Propose at the end 3 other ways to improve the code's performance, sorted by importance.
-
-      Important rules:
-      - Do not change the logic of the code.
-      - Input and output of the code should remain the same.
-    force_mode: clipboard
-  - trigger: ':codeTestingCreateEmptyTestStructure'
-    form: |
-      Use "[[testing_framework]]" to generate an empty testing structure using AAA with only comments.
-    force_mode: clipboard
-  - trigger: ':codeTestingCreateTestStructure'
-    form: |
-      Use "[[testing_framework]]" to generate testing structure only (inner tests are commented with "Arrange", "Act", "Assert" comments) from those sentences:
-
-      ---
-      [[test_cases]]
-      ---
-    force_mode: clipboard
-    form_fields:
-      test_cases:
-        multiline: true
-  - trigger: ':codeTestingCreateTestFromAnother'
-    form: |
-      Based on the implementation file: #file
-      And its test file: #file
-
-      Use "[[testing_framework]]" to generate a test
-      Re-use import and mock if necessary
-      Test for those test cases:
-      [[test_cases]]
-    force_mode: clipboard
-    form_fields:
-      test_cases:
-        multiline: true
-  - trigger: ':codeTestingCreateTest'
-    form: |
-      Use "[[testing_framework]]" to generate a test that uses AAA pattern for #selection in file #file
-
-      Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects.
-      Act to test logic.
-      Assert that the result is expected.
-
-      Expectations (surrounded by "---" delimiter):
-      ---
-      [[expectation_if_needed]]
-      ---
-
-      Important: those specification MUST be tested OVER the implementation
-
-      #editor
-    force_mode: clipboard
-    form_fields:
-      expectation_if_needed:
-        multiline: true
-  - trigger: ':codeTestingAddNewTestInSuite'
-    form: |
-      Add a new test in the test suite following same testing structure for test cases:
-
-      [[test_cases]]
-    force_mode: clipboard
-    form_fields:
-      test_cases:
-        multiline: true
-  - trigger: ':codeTestingFillTestCasesExpectations'
-    form: |
-      In those tests, fill every "Assert" parts only from those specs (surrounded by "---" delimiter):
-
-      ---
-      [[specifications]]
-      ---
-    force_mode: clipboard
-    form_fields:
-      specifications:
-        multiline: true
-  - trigger: ':codeTestingFillTestCase'
-    form: "Fill every tests #selection in file #file\nCode implementation to test:\_#file\n\nArrange fake data with valid ones (mock or stub if necessary) based on required properties of objects:\_#file\nAct to test logic.\nAssert that the result is expected.\n"
-    force_mode: clipboard
-  - trigger: ':codeTestingFillComponentWithDataTestId'
-    form: |
-      Fill relevant component elements with "data-testid", use index number if available. 
-    force_mode: clipboard
-  - trigger: ':codeTestingNewFakeFilledEntity'
-    form: |
-      Without importing, create new fake filled entity for every required properties of this file: #file
-    force_mode: clipboard
-  - trigger: ':codeTestingFillExistingTests'
-    form: |
-      Fill empty tests based on the file content.
-    force_mode: clipboard
-  - trigger: ':codeTestingMockSpecificFunctionReturns'
-    form: "Mock \"[[function_name]]\" function from\_#file\nand resolve to \"[[return_statement]]\".\n"
-    force_mode: clipboard
-  - trigger: ':codeTestingMockInnerFunctionCalls'
-    form: |
-      Use "[[testing_framework]]" to mock the implementation of the inner function calls from this code: #selection
-    force_mode: clipboard
-  - trigger: ':codeTestingMockNewPathInExistingFile'
-    form: |
-      Based on the already mocked paths in the file #file
-      Add a new mock for function's selection #selection.
-    force_mode: clipboard
   - trigger: ':codeFixListPotentialIssues'
     form: |
       I have this error in my code (surrounded by "---" delimiters):
@@ -358,65 +55,158 @@ matches:
     form_fields:
       copypaste_errors_from_logs:
         multiline: true
-  - trigger: ':codeTestingFixFailedTest'
+  - trigger: ':bugCodeDetectInconsistencies'
     form: |
-      The test output the following error (surrounded by "---" delimiters): 
+      I need you to detect inconsistencies in the code.
+
+      Check for variable names, function names, and other inconsistencies in the code.
+    force_mode: clipboard
+  - trigger: ':codeDebugAddErrorLogging'
+    form: |
+      Add logging at each steps of the code to debug errors.
+    force_mode: clipboard
+  - trigger: ':codeDebugAddLoggingEmojis'
+    form: |
+      Add beautiful logging steps with emojis at each steps to debug errors.
+    force_mode: clipboard
+
+
+  - trigger: ':codeChangeCodeWithoutImport'
+    form: |
+      Do not import, just change the code to make it work.
+    force_mode: clipboard
+  - trigger: ':codeCreateFunctionFromSpecs'
+    form: |
+      Based on those specs (see below), create a function that returns "[[what_you_want_to_return]]".
 
       ---
-      [[test_results]]
+      Verify that creating a tip defaults its status to "draft".
+      Ensure that a draft tip cannot be voted on.
+      Verify that once a tip is "scheduled", it cannot receive any more votes.
+      Check that "archived" tips cannot be voted on.
       ---
+    force_mode: clipboard
+  - trigger: ':codeMergeFileWithAlmostSameContent'
+    form: |
+      Based on those two file names "[[filename_1]]" and "[[filename_2]]", merge logic to reduce code duplication.
+    force_mode: clipboard
+  - trigger: ':codeUpdateFile'
+    form: |
+      Based on file: #file
+      Update the file: #file
 
-      Follow those steps:
+      Adapt the content to match the structure.
+    force_mode: clipboard
+  - trigger: ':codeCreateNewSimilarFile'
+    form: |
+      Based on file: #file
+      Create a similar file structure for: #file
+      Adapt the content to the new file using: #file
+    force_mode: clipboard
+  - trigger: ':codeConvertType'
+    form: |
+      Your goal is to code a convert function to transform a type into another.
 
-      1. Assume current test is correct:  #file
-      2. Summarize in 1 sentence what the issue is.
-      3. Check the code implementation to find the issue in file: #file
-      4. Traverse the whole code used in the function, because the issue could be located elsewhere
-        - in a external type
-        - in a constant variable defined above in the file
-        - in a function called in the function
-        - from an incorrect copy/paste in names
-        - etc
-      5. Once you analyzed all source code in this file, fix the issue first issue from your inconsistencies list.
+      Type to convert is:
+      [[type_to_convert_or_path]]
+
+      Type to convert into is:
+      [[type_to_convert_into_or_path]]
+
+      For each property of the type to convert, find the corresponding property in the type to convert into.
+
+      Please provide the following code.
     force_mode: clipboard
     form_fields:
-      test_results:
+      type_to_convert_or_path:
         multiline: true
-  - trigger: ':codeFixTestAssertions'
+      type_to_convert_into_or_path:
+        multiline: true
+  - trigger: ':codeCodingHelpThinking'
     form: |
-      Based on those specifications (surrounded by "---" delimiter), please change the existing test #selection to match new assertions:
+      I need you to help me think about the best way to implement this new functionality:
+      [[new_functionality]]
 
-      ---
-      [[new_specifications]]
-      ---
+      Please provide the best coding steps regarding my existing code.
     force_mode: clipboard
     form_fields:
-      new_specifications:
+      new_functionality:
         multiline: true
-  - trigger: ':codeTestFirstRewriteFunction'
+  - trigger: ':codeCodingImproveReadability'
     form: |
-      1. Based on this test and its expectations, please acknowledge the tested function.
-      2. List the necessary steps to change in the code to make the test pass.
-      3. Rewrite the function to make the test pass but keep its logic.
-      [[additional_context_like_your_implementation_ideas]]
+      I need you to improve the readability of the following code.
 
-      Here is the test that should pass:
-      [[test_that_should_pass]]
+      Result should remain the same, but the code should be easier to read and understand.
+    force_mode: clipboard
+  - trigger: ':codeCodingProvideExampleUsage'
+    form: |
+      Provide an example of the usage of this function, input and output.
+    force_mode: clipboard
+  - trigger: ':codeGenerateTypeHinting'
+    form: |
+      Type hints all necessary variables in this code.
+
+      Import types if necessary.
+
+      Assert that types match return values.
+
+      Do not type "any" if possible.
+    force_mode: clipboard
+
+  - trigger: ':instructDBGenerateSchema'
+    form: |
+      I need you to help me creating my SQL database schema.
+
+      Regarding the specifications, can you help me drawing my model?
+
+      Give me the full db schema, with the tables, the columns, the relations between the tables and the constraints from:
+
+      [[entity_list_and_relations_between_entities]]
     force_mode: clipboard
     form_fields:
-      additional_context_like_your_implementation_ideas:
+      entity_list_and_relations_between_entities:
         multiline: true
-      test_that_should_pass:
+  - trigger: ':instructDBGeneratePO'
+    form: |
+      I need you to help me creating my Plain Object from my SQL database schema.
+
+      1. For each entity, I want you to generate the corresponding type.
+      2. For each relation, I want you to generate the corresponding type.
+      3. No comment in code
+      4. Suffix the type name with "Entity"
+
+      Here is the SQL schema:
+
+      [[sql_schema]]
+    force_mode: clipboard
+    form_fields:
+      sql_schema:
         multiline: true
-  - trigger: ':codeTestFirstImplementFunction'
+
+  - trigger: ':dni'
     form: |
-      Write the function implementation for "[[function_name]]" in order to make every tests pass.
+      Do not import, 
     force_mode: clipboard
-  - trigger: ':codeTestingCheckFunctionImplementation'
+  - trigger: ':indent'
     form: |
-      Check if this test is correctly implemented in the highlighted function.
+      Indentation for this code.
     force_mode: clipboard
-  - trigger: ':codeCommentsCheckCodeIsMatching'
+
+  - trigger: ':instructDocSearchURL'
+    form: |
+      I need you to read the following documentation.
+
+      "[[documentation_url]]"
+
+      Based on that documentation, can you:
+
+      "[[want_you_want_to_do]]"
+
+      Please provide the best step by step way to it.
+
+      For each step, detail your explanation with the proper code.
+    force_mode: clipboard
+  - trigger: ':docCommentCheckCodeIsMatching'
     form: |
       Check that following function name (and comments if any) are matching code actions.
 
@@ -427,11 +217,11 @@ matches:
           - Check for comment params to match function's params (type it "unknown" if not sure).
       - If so, just reply "OK ✅" without saying anything else.
     force_mode: clipboard
-  - trigger: ':codeCommentsCommentHardParts'
+  - trigger: ':docCommentCommentHardParts'
     form: |
       Comment the code to make the hard parts easier to understand.
     force_mode: clipboard
-  - trigger: ':codeCommentsCommentFullFile'
+  - trigger: ':docCommentCommentFullFile'
     form: |
       Add code documentation for this code.
 
@@ -439,15 +229,6 @@ matches:
       - Add or update documentation for functions
       - Add documentation within function if necessary
       - Move comments to the right place if necessary
-    force_mode: clipboard
-
-  - trigger: ':dni'
-    form: |
-      Do not import, 
-    force_mode: clipboard
-  - trigger: ':indent'
-    form: |
-      Indentation for this code.
     force_mode: clipboard
 
   - trigger: ':instructFeatureGenerateUS'
@@ -579,20 +360,57 @@ matches:
     form_fields:
       your_answers_to_the_previous_questions:
         multiline: true
-  - trigger: ':instructDocSearchURL'
+  - trigger: ':instructTestingListTestCases'
     form: |
-      I need you to read the following documentation.
+      From those specifications (surrounded by --- delimiter):
 
-      "[[documentation_url]]"
+      ---
+      [[feature_to_build_be_as_detailed_as_possible]]
+      ---
 
-      Based on that documentation, can you:
+      You have to list test cases with the following rules:
 
-      "[[want_you_want_to_do]]"
-
-      Please provide the best step by step way to it.
-
-      For each step, detail your explanation with the proper code.
+      - Detect edge cases and exceptions.
+      - Group by distinct sections.
+      - Format with bullet list with small sentences.
+      - [[do_not_test_ui_focus_the_logic_only_____test_the_ui_if_needed_____test_the_ui_and_the_logic]].
     force_mode: clipboard
+    form_fields:
+      feature_to_build_be_as_detailed_as_possible:
+        multiline: true
+      do_not_test_ui_focus_the_logic_only_____test_the_ui_if_needed_____test_the_ui_and_the_logic:
+        type: list
+        values: |-
+          Do not test UI, focus the logic only
+          Test the UI if needed
+          Test the UI and the logic
+  - trigger: ':instructTestingConvertAcceptanceCriteriaIntoGherkin'
+    form: |
+      From this acceptance criteria, can you transform it into Gherkin syntax?
+
+      [[acceptance_criteria]]
+    force_mode: clipboard
+    form_fields:
+      acceptance_criteria:
+        multiline: true
+  - trigger: ':instructTestingGenerateUnitTestPrompt'
+    form: |
+      I need you to act as a test engineer and generate a unit test prompt for my feature (surrounded by "---" delimiters):
+
+      """
+      [[functional_requirement]]
+      """
+
+      You need to generate a very concise unit test prompt for an AI that will write the unit test code.
+
+      If necessary, use those unit testing techniques:
+
+      Mocking, Stubbing, Spying, Faking, Dependency Injection, Test Parameterization, Isolation (Sandboxing)
+    force_mode: clipboard
+    form_fields:
+      functional_requirement:
+        multiline: true
+
   - trigger: ':instructImageDetail'
     form: |
       Here is an image of my "[[the_image_you_describe]]" for a feature I have to code.
@@ -691,35 +509,7 @@ matches:
     form_fields:
       your_code_if_not_generated_from_above:
         multiline: true
-  - trigger: ':instructDBGenerateSchema'
-    form: |
-      I need you to help me creating my SQL database schema.
 
-      Regarding the specifications, can you help me drawing my model?
-
-      Give me the full db schema, with the tables, the columns, the relations between the tables and the constraints from:
-
-      [[entity_list_and_relations_between_entities]]
-    force_mode: clipboard
-    form_fields:
-      entity_list_and_relations_between_entities:
-        multiline: true
-  - trigger: ':instructDBGeneratePO'
-    form: |
-      I need you to help me creating my Plain Object from my SQL database schema.
-
-      1. For each entity, I want you to generate the corresponding type.
-      2. For each relation, I want you to generate the corresponding type.
-      3. No comment in code
-      4. Suffix the type name with "Entity"
-
-      Here is the SQL schema:
-
-      [[sql_schema]]
-    force_mode: clipboard
-    form_fields:
-      sql_schema:
-        multiline: true
   - trigger: ':instructStructureWriteTypes'
     form: |
       I want to split those types with only 1 type per file.
@@ -774,56 +564,8 @@ matches:
     form_fields:
       copy_and_paste_the_project_structure_here:
         multiline: true
-  - trigger: ':instructTestingListTestCases'
-    form: |
-      From those specifications (surrounded by --- delimiter):
 
-      ---
-      [[feature_to_build_be_as_detailed_as_possible]]
-      ---
 
-      You have to list test cases with the following rules:
-
-      - Detect edge cases and exceptions.
-      - Group by distinct sections.
-      - Format with bullet list with small sentences.
-      - [[do_not_test_ui_focus_the_logic_only_____test_the_ui_if_needed_____test_the_ui_and_the_logic]].
-    force_mode: clipboard
-    form_fields:
-      feature_to_build_be_as_detailed_as_possible:
-        multiline: true
-      do_not_test_ui_focus_the_logic_only_____test_the_ui_if_needed_____test_the_ui_and_the_logic:
-        type: list
-        values: |-
-          Do not test UI, focus the logic only
-          Test the UI if needed
-          Test the UI and the logic
-  - trigger: ':instructTestingConvertAcceptanceCriteriaIntoGherkin'
-    form: |
-      From this acceptance criteria, can you transform it into Gherkin syntax?
-
-      [[acceptance_criteria]]
-    force_mode: clipboard
-    form_fields:
-      acceptance_criteria:
-        multiline: true
-  - trigger: ':instructTestingGenerateUnitTestPrompt'
-    form: |
-      I need you to act as a test engineer and generate a unit test prompt for my feature (surrounded by "---" delimiters):
-
-      """
-      [[functional_requirement]]
-      """
-
-      You need to generate a very concise unit test prompt for an AI that will write the unit test code.
-
-      If necessary, use those unit testing techniques:
-
-      Mocking, Stubbing, Spying, Faking, Dependency Injection, Test Parameterization, Isolation (Sandboxing)
-    force_mode: clipboard
-    form_fields:
-      functional_requirement:
-        multiline: true
   - trigger: ':instructSetupGoodPractices'
     form: |
       Regarding my used project technologie, can you help me to enforce the following good practices in my application?
@@ -855,6 +597,274 @@ matches:
     force_mode: clipboard
     form_fields:
       lib_to_setup:
+        multiline: true
+
+  - trigger: ':codeRefactoringExtractGenericCode'
+    form: |
+      I want to make this file generic so it can "have a generic useInfinite() to share code, so I can call getCategories or getItems with same generic function".
+
+      Following content is variable and that need to be extracted (also check for specific elements that I might have missed.):
+      - Everything related to "category" or "categories"
+      - including "transform" function
+
+      Please:
+      1. List all the elements that need to be extracted.
+      2. List all the elements that do not need to be removed.
+      3. List the steps to achieve the refactoring.
+      4. Provide the code to add or modify (do not make unnecessary changes).
+
+      #file
+    force_mode: clipboard
+  - trigger: ':codeRefactoringListPotentialRefactoring'
+    form: |
+      I want to make this file generic so it can: "[[what_it_should_do]]".
+
+      Based on my tech, can you propose the 3 best way to do so?
+
+      For each proposition, provide:
+      - The code to add
+      - Advantages and disadvantages
+      - The impact on the code
+
+      Following content is variable: 
+      [[function_variable_constant_names]]
+
+      #file
+    force_mode: clipboard
+    form_fields:
+      function_variable_constant_names:
+        multiline: true
+  - trigger: ':codeRefactoringAuditStructure'
+    form: |
+      As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
+      Your responsibilities include:
+
+      - Identifying and listing potential issues in the project structure.
+      - Proposing improvements for each identified issue, with clear explanations of why these improvements are beneficial.
+      - Reviewing the project for any empty folders, suggesting a purpose or recommending removal.
+      - Checking for duplicated files and proposing strategies to eliminate redundancies.
+      - Evaluating file naming conventions to ensure clarity, conciseness, and consistency.
+      - Identifying any files that are overly large or too generically named, suggesting better practices.
+      - Providing a detailed list of files or folders with issues.
+      - If necessary, suggesting a more efficient overall project structure.
+
+      For each of the above points, write a detailed explanation in this format:
+      """
+      # Issue
+
+      Explanation of the issue and why it is problematic.
+
+      ## Recommendations
+
+      Proposed solutions to the issue, with clear explanations of why they are beneficial.
+
+      ## Affected files or folders
+
+      List of files or folders affected by the issue.
+      """
+
+      Please provide a thorough analysis and structured recommendations, never recommend "hypothesis" or "guesses", use data from uploaded project structure only.
+
+      Project structure is: #file
+      Project stack is: #file
+    force_mode: clipboard
+  - trigger: ':codeRefactoringRewrite'
+    form: |
+      I need you to rewrite the following code #selection to make it better.
+
+      If necessary, use those refactoring techniques:
+      - Extract method
+      - Inline method
+      - Rename method
+      - Move method
+      - Group similar methods, variables or properties
+      - Encapsulate field
+      - Decompose conditional
+      - Consolidate conditional expression
+      - Consolidate duplicate conditional fragments
+      - Remove assignments to parameters
+      - Type hinting
+      - Add full function documentation
+
+      Focus on code performance.
+
+      Make sure the code is still readable and maintainable, doing its best to keep the same logic.
+    force_mode: clipboard
+  - trigger: ':codeRefactoringRefactor'
+    form: |
+      Read #selection to simplify and beautify my code.
+
+      Analyze everything that seem unclear, not performant, ugly, too complicated.
+
+      Make a bullet list of every potential readability issues that you identified.
+    force_mode: clipboard
+  - trigger: ':codePerformanceImprove'
+    form: |
+      I need you to improve the performance of the following code.
+
+      1. Find the main performances issues in the code.
+      2. List the necessary steps to improve the performance of the code.
+      3. Implement the necessary changes to improve the performance of the code.
+      4. Make sure the code is still readable and maintainable.
+      5. Propose at the end 3 other ways to improve the code's performance, sorted by importance.
+
+      Important rules:
+      - Do not change the logic of the code.
+      - Input and output of the code should remain the same.
+    force_mode: clipboard
+
+  - trigger: ':codeTestFirstRewriteFunction'
+    form: |
+      1. Based on this test and its expectations, please acknowledge the tested function.
+      2. List the necessary steps to change in the code to make the test pass.
+      3. Rewrite the function to make the test pass but keep its logic.
+      [[additional_context_like_your_implementation_ideas]]
+
+      Here is the test that should pass:
+      [[test_that_should_pass]]
+    force_mode: clipboard
+    form_fields:
+      additional_context_like_your_implementation_ideas:
+        multiline: true
+      test_that_should_pass:
+        multiline: true
+  - trigger: ':codeTestFirstImplementFunction'
+    form: |
+      Write the function implementation for "[[function_name]]" in order to make every tests pass.
+    force_mode: clipboard
+  - trigger: ':codeTestingCheckFunctionImplementation'
+    form: |
+      Check if this test is correctly implemented in the highlighted function.
+    force_mode: clipboard
+  - trigger: ':codeTestingCreateEmptyTestStructure'
+    form: |
+      Use "[[testing_framework]]" to generate an empty testing structure using AAA with only comments.
+    force_mode: clipboard
+  - trigger: ':codeTestingCreateTestStructure'
+    form: |
+      Use "[[testing_framework]]" to generate testing structure only (inner tests are commented with "Arrange", "Act", "Assert" comments) from those sentences:
+
+      ---
+      [[test_cases]]
+      ---
+    force_mode: clipboard
+    form_fields:
+      test_cases:
+        multiline: true
+  - trigger: ':codeTestingCreateTestFromAnother'
+    form: |
+      Based on the implementation file: #file
+      And its test file: #file
+
+      Use "[[testing_framework]]" to generate a test
+      Re-use import and mock if necessary
+      Test for those test cases:
+      [[test_cases]]
+    force_mode: clipboard
+    form_fields:
+      test_cases:
+        multiline: true
+  - trigger: ':codeTestingCreateTest'
+    form: |
+      Use "[[testing_framework]]" to generate a test that uses AAA pattern for #selection in file #file
+
+      Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects.
+      Act to test logic.
+      Assert that the result is expected.
+
+      Expectations (surrounded by "---" delimiter):
+      ---
+      [[expectation_if_needed]]
+      ---
+
+      Important: those specification MUST be tested OVER the implementation
+
+      #editor
+    force_mode: clipboard
+    form_fields:
+      expectation_if_needed:
+        multiline: true
+  - trigger: ':codeTestingAddNewTestInSuite'
+    form: |
+      Add a new test in the test suite following same testing structure for test cases:
+
+      [[test_cases]]
+    force_mode: clipboard
+    form_fields:
+      test_cases:
+        multiline: true
+  - trigger: ':codeTestingFillTestCasesExpectations'
+    form: |
+      In those tests, fill every "Assert" parts only from those specs (surrounded by "---" delimiter):
+
+      ---
+      [[specifications]]
+      ---
+    force_mode: clipboard
+    form_fields:
+      specifications:
+        multiline: true
+  - trigger: ':codeTestingFillTestCase'
+    form: "Fill every tests #selection in file #file\nCode implementation to test:\_#file\n\nArrange fake data with valid ones (mock or stub if necessary) based on required properties of objects:\_#file\nAct to test logic.\nAssert that the result is expected.\n"
+    force_mode: clipboard
+  - trigger: ':codeTestingFillComponentWithDataTestId'
+    form: |
+      Fill relevant component elements with "data-testid", use index number if available. 
+    force_mode: clipboard
+  - trigger: ':codeTestingNewFakeFilledEntity'
+    form: |
+      Without importing, create new fake filled entity for every required properties of this file: #file
+    force_mode: clipboard
+  - trigger: ':codeTestingFillExistingTests'
+    form: |
+      Fill empty tests based on the file content.
+    force_mode: clipboard
+  - trigger: ':codeTestingMockSpecificFunctionReturns'
+    form: "Mock \"[[function_name]]\" function from\_#file\nand resolve to \"[[return_statement]]\".\n"
+    force_mode: clipboard
+  - trigger: ':codeTestingMockInnerFunctionCalls'
+    form: |
+      Use "[[testing_framework]]" to mock the implementation of the inner function calls from this code: #selection
+    force_mode: clipboard
+  - trigger: ':codeTestingMockNewPathInExistingFile'
+    form: |
+      Based on the already mocked paths in the file #file
+      Add a new mock for function's selection #selection.
+    force_mode: clipboard
+  - trigger: ':codeTestingFixFailedTest'
+    form: |
+      The test output the following error (surrounded by "---" delimiters): 
+
+      ---
+      [[test_results]]
+      ---
+
+      Follow those steps:
+
+      1. Assume current test is correct:  #file
+      2. Summarize in 1 sentence what the issue is.
+      3. Check the code implementation to find the issue in file: #file
+      4. Traverse the whole code used in the function, because the issue could be located elsewhere
+        - in a external type
+        - in a constant variable defined above in the file
+        - in a function called in the function
+        - from an incorrect copy/paste in names
+        - etc
+      5. Once you analyzed all source code in this file, fix the issue first issue from your inconsistencies list.
+    force_mode: clipboard
+    form_fields:
+      test_results:
+        multiline: true
+  - trigger: ':codeFixTestAssertions'
+    form: |
+      Based on those specifications (surrounded by "---" delimiter), please change the existing test #selection to match new assertions:
+
+      ---
+      [[new_specifications]]
+      ---
+    force_mode: clipboard
+    form_fields:
+      new_specifications:
         multiline: true
 
   - trigger: ':variousLinkedInProfileOptimization'
@@ -1143,28 +1153,4 @@ matches:
         multiline: true
 
 
-  - trigger: ':myExamplePrompt'
-    form: |
-      This prompt took one inline variable here: "[[var_1]]".
-
-      And multiline var here:
-
-      [[var_2]]
-
-      Depending on the context, you can select a value here:
-
-      [[var_3___option1___option2___option3]]
-
-      Enjoy!
-    force_mode: clipboard
-    form_fields:
-      var_2:
-        multiline: true
-      var_3___option1___option2___option3:
-        type: list
-        values: |-
-          var_3
-          option1
-          option2
-          option3
 
