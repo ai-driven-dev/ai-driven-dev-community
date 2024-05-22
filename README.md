@@ -8,7 +8,7 @@ The GitHub Repository is updated weekly!
 
 🇫🇷 More French ressources are available to learn how to use AI in your daily work.
 
-[![5 meilleures ressources IA pour développeurs](https://img.shields.io/badge/-5%20ressources%20AI%20pour%20devs-blue?style=for-the-badge)](https://learn.alexsoyes.com/ressources-ia?utm_source=github&utm_medium=cta-button&utm_campaign=free-ai-resources&utm_terms=ia)
+[![5 meilleures ressources IA pour développeurs](https://img.shields.io/badge/-5%20ressources%20AI%20pour%20devs-blue?style=for-the-badge)](https://learn.alexsoyes.com/ressources-ia?utm_source=github&utm_medium=cta-button&utm_campaign=free-ai-resources&utm_terms=ia) [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/BUcTKVfbGh)
 
 <hr />
 
@@ -289,8 +289,17 @@ French courses are available to learn how to use AI in your daily work.
 
 Various links available that do not fit in other categories:
 
+**External**:
+
+- [Anthropic Prompt Library](https://docs.anthropic.com/en/prompt-library/website-wizard) - A collection of prompts to use with Claude.
+- [LLMLingua](https://llmlingua.com) - Prompts compressing for accelerated inference.
+
+**Internal**:
+
 - [GPTs source list for developers 📋](./ressources/custom-gpts.md) (Include prompt source when available)
 - [Various](./ressources/prompts/_/various.md) - Various and personals prompts that do not fit in other categories.
+
+[![Best list of AI Tools for developers](https://img.shields.io/badge/-Notion%20List%20of%20best%20AI%20Tools%20for%20developers-purple?style=for-the-badge)](https://alexsoyes.notion.site/c858af13ed704d7184456a3f8ac21f07?v=79a8d07b1e414ced99fcd210970b2ee8)
 
 ### AIDDC Video Demo (in french)
 
