@@ -19,3 +19,9 @@ Do not import,
 ```text
 Fix indentation and syntaxe for this code.
 ```
+
+### Inline `:inline`
+
+```text
+Inline this selection to single line.
+```

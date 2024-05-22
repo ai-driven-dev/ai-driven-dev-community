@@ -191,6 +191,10 @@ matches:
     form: |
       Fix indentation and syntaxe for this code.
     force_mode: clipboard
+  - trigger: ':inline'
+    form: |
+      Inline this selection to single line.
+    force_mode: clipboard
 
   - trigger: ':docSearchURL'
     form: |

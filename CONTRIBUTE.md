@@ -12,7 +12,7 @@ Your contributions are vital to making this project great and we welcome contrib
   - [Titles](#titles)
   - [Variables](#variables)
 - [🔥 Full Example](#-full-example)
-  - [My title for my awesome prompt `:myExamplePromptForTesting`](#my-title-for-my-awesome-prompt-myexamplepromptfortesting)
+  - [My title for my awesome testing prompt `:myExamplePromptForTesting`](#my-title-for-my-awesome-testing-prompt-myexamplepromptfortesting)
 - [💪 Need Help?](#-need-help)
 
 ## 👮 General Guidelines
@@ -26,11 +26,11 @@ Your contributions are vital to making this project great and we welcome contrib
 
 Triggers are named using the following structure:
 
-| #1 Title | #2 Section | #3 Action | #4 Target (*optional*) | Result |
-| ------ | -------- | ------- | ------- | ------ |
-| `:instruct` | Image | ExtractInfo | Mockup | `:instructImageExtractInfoMockup` |
-| `:code` | Test | Fix | FailedTest | `:codeTestFixFailedTest` |
-| `:language` | Documentation | Convert | Object | `:languageDocumentationConvertObject` |
+| #1 Title     | #2 Section    | #3 Action   | #4 Target (*optional*) | Result                               |
+| ------------ | ------------- | ----------- | ---------------------- | ------------------------------------ |
+| `:instruct`  | Image         | ExtractInfo | Mockup                 | `:instructImageExtractInfoMockup`    |
+| `:code`      | Test          | Fix         | FailedTest             | `:codeTestFixFailedTest`             |
+| `:language`  | Documentation | Convert     | Object                 | `:languageDocumentationConvertObject`|
 
 ### Title
 
@@ -104,7 +104,9 @@ Remove the usage section lines if it's not needed.
 
 **Description**:
 
-What the prompt is about.
+// TODO Alex : use when you want to...?
+
+What the prompt is about, why should I use it, and when to use it, what to expect.
 
 **How to use the prompt**:
 
