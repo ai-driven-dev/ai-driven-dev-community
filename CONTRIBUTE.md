@@ -104,21 +104,18 @@ Remove the usage section lines if it's not needed.
 
 **Description**:
 
-// TODO Alex : use when you want to...?
-
-What the prompt is about, why should I use it, and when to use it, what to expect.
+> What the prompt is about, why should I use it, and when to use it, what to expect from it?
 
 **How to use the prompt**:
 
-| Usage                   | Contexte                                                   |
+| Usage                   | Context                                                    |
 |-------------------------|------------------------------------------------------------|
 | 🚀 **Author**           | [@alexsoyes](https://www.linkedin.com/in/alexandre-soyer)  |
-| 🔁 **Follow-up prompt** | `:instructImage...` required before this one               |
-| 🗂️ **Requirements**     | `documentation.md` is needed to use this prompt            |
-| 🔍 **Context**          | Open 2 files side-by-side in your IDE                      |
-| 📌 **Annotations**      | `@workspace` annotation in Copilot might be used.          |
-| ✅ **Variables needed** | Yes                                                        |
-| 📦 **Dependencies**     | `brew install espanso`                                     |
+| 🤖 **Tool**             | Recommended: Copilot, ChatGPT                              |
+| 🔍 **Context**          | Eg: How to use it (opening 2 files, using a doc...)        |
+| ✨ **Required before**  | Eg: `:instructImage...` prompt required before this one    |
+| ✅ **Requirements**     | Eg: `documentation.md` is needed to use this prompt        |
+| 📦 **Dependencies**     | Eg: Run `brew install espanso`                             |
 
 **Prompt/Code**:
 
@@ -135,23 +132,21 @@ Please select the type of test you want to write:
 
 ### My title for my awesome testing prompt `:myExamplePromptForTesting`
 
+This is a demo prompt for testing.
+
 > 👉 TRY ME RUNNING TRIGGER `:myExamplePromptForTesting`
 
 **Description**:
 
-What the prompt is about.
+*This prompt is used to demo a test writing from feature and specifications.*
+*You will be able to select the type of test you want to write.*
 
 **How to use the prompt**:
 
-| Usage                   | Contexte                                                   |
+| Usage                   | Context                                                    |
 |-------------------------|------------------------------------------------------------|
+| 🤖 **Tool**             | **WebChat**                                                |
 | 🚀 **Author**           | [@alexsoyes](https://www.linkedin.com/in/alexandre-soyer)  |
-| 🔁 **Follow-up prompt** | `:instructImage...` required before this one               |
-| 🗂️ **Attachments**      | `documentation.md` is needed to use this prompt            |
-| 🔍 **Context**          | Open 2 files side-by-side in your IDE                      |
-| 📌 **Annotations**      | `@workspace` annotation in Copilot might be used.          |
-| ✅ **Parameters**       | Yes                                                        |
-| 📦 **Dependencies**     | `brew install espanso`                                     |
 
 **Prompt**:
 
