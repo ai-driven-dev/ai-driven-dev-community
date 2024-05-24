@@ -31,14 +31,15 @@ For each step, detail your explanation with the proper code.
 ### Comments must match code actions `:docCommentCheckCodeIsMatching`
 
 ```text
-Check that following function name (and comments if any) are matching code actions.
+Check that comments are matching code actions.
 
-Do not explain why the code is wrong, just change accordingly.
-
-- If not, update the comments to match the code with a concise and simple one.
-    - Go to line on new sentence.
-    - Check for comment params to match function's params (type it "unknown" if not sure).
 - If so, just reply "OK ✅" without saying anything else.
+- If not, update the comments to match the code with a concise and simple one describing what the inner code is doing.
+
+Rules:
+  - Go to line on new sentence.
+  - Check for comment params to match function's params.
+  - Check if "TODO" are still relevant, if not, remove them. You must be very sure that they are not relevant to remove them.
 ```
 
 ### Comment selection to make the hard part easier `:docCommentHardParts`

@@ -47,6 +47,23 @@ Please list potentials issues and steps to fix the code, sorted by relevance.
 [[More code context if needed]]
 ```
 
+### Find technical issue `:fixFindTechnicalIssue`
+
+```text
+In the code, when I: "[[Action]]"
+I do expect: "[[Expectation]]"
+But I get that issue (surrounded by "---" delimiters):
+---
+[[Result including errors and your analysis if you do have]]
+---
+
+Please list potentials issues and steps to fix the code, sorted by relevance.
+
+#editor
+
+[[More code context if needed]]
+```
+
 ### Find issues and fix `:fixFindIssuesAndFix`
 
 **Description:**
@@ -67,9 +84,15 @@ Fix the following issues in the code #selection:
 ### Detect code inconsistencies `:bugCodeDetectInconsistencies`
 
 ```text
-I need you to detect inconsistencies in the code.
+I need you to detect all inconsistencies.
 
-Check for variable names, function names, and other inconsistencies in the code.
+Check for variable names, function names, etc.
+
+Make sure that the code is consistent and it doing what it is supposed to do.
+
+Do not point out correct code, only the issues.
+
+For each issue, provide the best possible solution following code pattern.
 ```
 
 ## 🔫 Debug

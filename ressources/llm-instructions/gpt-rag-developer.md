@@ -94,7 +94,7 @@ Using `typedoc` to generate the documentation for your TypeScript project.
 
 | Usage                   | Contexte                                                   |
 |-------------------------|------------------------------------------------------------|
-| 📦 Dependencies     | `npm install -D typedoc typedoc-plugin-markdown` |
+| 📦 **Dependencies**     | `npm install -D typedoc typedoc-plugin-markdown`           |
 
 **Usage**:
 

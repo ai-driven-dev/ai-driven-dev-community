@@ -44,6 +44,26 @@ matches:
         multiline: true
       more_code_context_if_needed:
         multiline: true
+  - trigger: ':fixFindTechnicalIssue'
+    form: |
+      In the code, when I: "[[action]]"
+      I do expect: "[[expectation]]"
+      But I get that issue (surrounded by "---" delimiters):
+      ---
+      [[result_including_errors_and_your_analysis_if_you_do_have]]
+      ---
+
+      Please list potentials issues and steps to fix the code, sorted by relevance.
+
+      #editor
+
+      [[more_code_context_if_needed]]
+    force_mode: clipboard
+    form_fields:
+      result_including_errors_and_your_analysis_if_you_do_have:
+        multiline: true
+      more_code_context_if_needed:
+        multiline: true
   - trigger: ':fixFindIssuesAndFix'
     form: |
       Fix the following issues in the code #selection:
@@ -57,9 +77,15 @@ matches:
         multiline: true
   - trigger: ':bugCodeDetectInconsistencies'
     form: |
-      I need you to detect inconsistencies in the code.
+      I need you to detect all inconsistencies.
 
-      Check for variable names, function names, and other inconsistencies in the code.
+      Check for variable names, function names, etc.
+
+      Make sure that the code is consistent and it doing what it is supposed to do.
+
+      Do not point out correct code, only the issues.
+
+      For each issue, provide the best possible solution following code pattern.
     force_mode: clipboard
   - trigger: ':fixAddErrorLogging'
     form: |
@@ -212,14 +238,15 @@ matches:
     force_mode: clipboard
   - trigger: ':docCommentCheckCodeIsMatching'
     form: |
-      Check that following function name (and comments if any) are matching code actions.
+      Check that comments are matching code actions.
 
-      Do not explain why the code is wrong, just change accordingly.
-
-      - If not, update the comments to match the code with a concise and simple one.
-          - Go to line on new sentence.
-          - Check for comment params to match function's params (type it "unknown" if not sure).
       - If so, just reply "OK ✅" without saying anything else.
+      - If not, update the comments to match the code with a concise and simple one describing what the inner code is doing.
+
+      Rules:
+        - Go to line on new sentence.
+        - Check for comment params to match function's params.
+        - Check if "TODO" are still relevant, if not, remove them. You must be very sure that they are not relevant to remove them.
     force_mode: clipboard
   - trigger: ':docCommentHardParts'
     form: |
@@ -603,6 +630,70 @@ matches:
       lib_to_setup:
         multiline: true
 
+  - trigger: ':refacAuditCode'
+    form: |
+      Your task is to analyze the provided code snippet and suggest improvements to optimize its performance.
+
+      Identify areas where the code can be made more efficient, faster, or less resource-intensive.
+
+      Provide specific suggestions for optimization, along with explanations of how these changes can enhance the code’s performance.
+
+      The optimized code should maintain the same functionality as the original code while demonstrating improved efficiency.
+
+      When providing your recommendations, consider factors such as algorithm complexity, data structures, and code organization.
+
+      Please wait for the user to provide the code snippet before proceeding with the audit, and ensure that your suggestions are clear and well-explained.
+
+      Rules:
+      - Reduce complexity.
+      - Improve readability.
+      - Enhance performance.
+      - Merge similar functions into one.
+      - Remove redundant code.
+
+      Steps:
+      1. Explain what the code is doing (in very concise bullet points).
+      2. List those points, then give detailed explanations of the impact and propose specific recommendations for optimizing the code (formatted as bullet points).
+        - identified performances issues
+        - identified readability issues
+        - identified maintainability issues
+      3. Rewrite full code snippets with your improvements.
+      4. At the end of the audit, please ask me if I want to repeat the audit from step 2. with this time, the newly generated code, until you get a "no" or you reach a maximum of 3 iterations, or you are satisfied with the result.
+    force_mode: clipboard
+  - trigger: ':refacAuditStructure'
+    form: |
+      As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
+      Your responsibilities include:
+
+      - Identifying and listing potential issues in the project structure.
+      - Proposing improvements for each identified issue, with clear explanations of why these improvements are beneficial.
+      - Reviewing the project for any empty folders, suggesting a purpose or recommending removal.
+      - Checking for duplicated files and proposing strategies to eliminate redundancies.
+      - Evaluating file naming conventions to ensure clarity, conciseness, and consistency.
+      - Identifying any files that are overly large or too generically named, suggesting better practices.
+      - Providing a detailed list of files or folders with issues.
+      - If necessary, suggesting a more efficient overall project structure.
+
+      For each of the above points, write a detailed explanation in this format:
+      """
+      # Issue
+
+      Explanation of the issue and why it is problematic.
+
+      ## Recommendations
+
+      Proposed solutions to the issue, with clear explanations of why they are beneficial.
+
+      ## Affected files or folders
+
+      List of files or folders affected by the issue.
+      """
+
+      Please provide a thorough analysis and structured recommendations, never recommend "hypothesis" or "guesses", use data from uploaded project structure only.
+
+      Project structure is: #file
+      Project stack is: #file
+    force_mode: clipboard
   - trigger: ':refacExtractGenericCode'
     form: |
       I want to make this file generic so it can "have a generic useInfinite() to share code, so I can call getCategories or getItems with same generic function".
@@ -638,40 +729,6 @@ matches:
     form_fields:
       function_variable_constant_names:
         multiline: true
-  - trigger: ':refacAuditStructure'
-    form: |
-      As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
-      Your responsibilities include:
-
-      - Identifying and listing potential issues in the project structure.
-      - Proposing improvements for each identified issue, with clear explanations of why these improvements are beneficial.
-      - Reviewing the project for any empty folders, suggesting a purpose or recommending removal.
-      - Checking for duplicated files and proposing strategies to eliminate redundancies.
-      - Evaluating file naming conventions to ensure clarity, conciseness, and consistency.
-      - Identifying any files that are overly large or too generically named, suggesting better practices.
-      - Providing a detailed list of files or folders with issues.
-      - If necessary, suggesting a more efficient overall project structure.
-
-      For each of the above points, write a detailed explanation in this format:
-      """
-      # Issue
-
-      Explanation of the issue and why it is problematic.
-
-      ## Recommendations
-
-      Proposed solutions to the issue, with clear explanations of why they are beneficial.
-
-      ## Affected files or folders
-
-      List of files or folders affected by the issue.
-      """
-
-      Please provide a thorough analysis and structured recommendations, never recommend "hypothesis" or "guesses", use data from uploaded project structure only.
-
-      Project structure is: #file
-      Project stack is: #file
-    force_mode: clipboard
   - trigger: ':refacRewrite'
     form: |
       I need you to rewrite the following code #selection to make it better.
@@ -918,17 +975,17 @@ matches:
       Please also acknowledge that AI can access URL, documents and generate images.
     force_mode: clipboard
   - trigger: ':llmAnswerEvaluate'
-    form: |
-      Can you be self-critical of your answer?
-
-      1) Evaluate your own work. List its strengths and weaknesses.
-      2) Give it a mark between 0 and 20. Justify your score in terms of the rules you had to respect.
-      3) Make a list of suggestions that will enable you to achieve a score of 20, again in relation to these rules. Number each suggestion.
-      4) Rewrite your work following the recommendations in point 3).
-      5) Ask me if I'd like to repeat the process. We'll do this until your work is marked 20/20.
-
-      Thank you for you professionalism.
+    form: "Need to change next markdown files using template:\n\n````markdown\n### My title for my awesome testing prompt `:myExamplePromptForTesting`\n\n**Description**:\n\n> What the prompt is about, why should I use it, and when to use it, what to expect from it?\n\n**How to use the prompt**:\n\n| Usage                   | Context                                                    |\n|-------------------------|------------------------------------------------------------|\n| \U0001F680 **Author**           | [@alexsoyes](https://www.linkedin.com/in/alexandre-soyer)  |\n| \U0001F916 **Tool**             | Recommended: Copilot, ChatGPT                              |\n| \U0001F50D **Context**          | Eg: How to use it (opening 2 files, using a doc...)        |\n| ✨ **Required before**  | Eg: `:instructImage...` prompt required before this one    |\n| ✅ **Requirements**     | Eg: `documentation.md` is needed to use this prompt        |\n| \U0001F4E6 **Dependencies**     | Eg: Run `brew install espanso`                             |\n\n**Prompt/Code**:\n\n```text\nI need you to write a test regarding feature: \"[[quick_feature_description]]\".\n\nHere are the specifications:\n[[list_of_specifications]]\n\nPlease select the type of test you want to write:\n[[unit___integration___endtoend]]\n```\n````\n\nacknowledge it, when gave file : \n 1. Get origin prompt from context \n 2. Use same template and add table if any \n 3. All table lines not required, use necessary ones \n 4. Update content of lines to match prompt \n 5. Most time, dependencies line does not exist \n 6. Replace table if not up to date with template \n 7. Description is one line sentence (about 15 words) with explicit benefits \n \n reply with markdown format can copy paste in IDE. \n\n Recommended tool: \"ChatGPT\"\n"
     force_mode: clipboard
+    form_fields:
+      list_of_specifications:
+        multiline: true
+      unit___integration___endtoend:
+        type: list
+        values: |-
+          unit
+          integration
+          end-to-end
 
   - trigger: ':tsTypeCreate'
     form: |
