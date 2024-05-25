@@ -97,52 +97,27 @@ Thank you for you professionalism.
 
 ## 📚 This repository
 
-### Update prompts based on contribution guide
+### Update prompts based on contribution guide `:repoUpdatePromptsBasedOnContributionGuide`
 
 `````text
-Need to change next markdown files using template:
+You are a special developer contributing to this repository.
+We need to classify AI prompts for developers efficiently.
+Please update the prompts based on the contribution guide.
 
+Here is the contribution guide:
 ````markdown
-### My title for my awesome testing prompt `:myExamplePromptForTesting`
-
-**Description**:
-
-> What the prompt is about, why should I use it, and when to use it, what to expect from it?
-
-**How to use the prompt**:
-
-| Usage                   | Context                                                    |
-|-------------------------|------------------------------------------------------------|
-| 🚀 **Author**           | [@alexsoyes](https://www.linkedin.com/in/alexandre-soyer)  |
-| 🤖 **Tool**             | Recommended: Copilot, ChatGPT                              |
-| 🔍 **Context**          | Eg: How to use it (opening 2 files, using a doc...)        |
-| ✨ **Required before**  | Eg: `:instructImage...` prompt required before this one    |
-| ✅ **Requirements**     | Eg: `documentation.md` is needed to use this prompt        |
-| 📦 **Dependencies**     | Eg: Run `brew install espanso`                             |
-
-**Prompt/Code**:
-
-```text
-I need you to write a test regarding feature: "[[quick feature description]]".
-
-Here are the specifications:
-[[List of specifications]]
-
-Please select the type of test you want to write:
-[[unit|integration|end-to-end]]
-```
+#file
 ````
 
-acknowledge it, when gave file : 
- 1. Get origin prompt from context 
- 2. Use same template and add table if any 
- 3. All table lines not required, use necessary ones 
- 4. Update content of lines to match prompt 
- 5. Most time, dependencies line does not exist 
- 6. Replace table if not up to date with template 
- 7. Description is one line sentence (about 15 words) with explicit benefits 
- 
- reply with markdown format can copy paste in IDE. 
+Here are the rules:
 
- Recommended tool: "ChatGPT"
+- When I provide a file, I need you to change its content to match the contribution guide.
+- Get the title and make sure its matches the contribution guide.
+- Get existing prompt and update it to match the contribution guide.
+- If there is a description, update it to match the contribution guide.
+- Add a table with proper lines.
+- Guess the recommended tool, if there is annotation/selector like @workspace, #file, #selection etc, the tool is "GitHub Copilot", otherwise, it is "ChatGPT".
+- By default, Author is "Alexandre Soyer" with LinkedIn profile: <https://www.linkedin.com/in/alexandre-soyer>.
+
+Here is the file: #file
 `````

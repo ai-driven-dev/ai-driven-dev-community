@@ -42,8 +42,8 @@ Triggers are named using the following structure:
 
 ### Explanation
 
-- **Title**: The main files of the repo, coming from `resources/prompts/*` directory.
-- **Section**: The concerned section in the prompt page.
+- **Title**: The main files of the repo, coming from `resources/prompts/*` directory (in 1st level title).
+- **Section**: The concerned section in the prompt page (the 2nd level title).
 - **Action**: A verb to describe the action you want to perform.
 - **Target**: The element you want to interact with.
 
@@ -64,11 +64,18 @@ Triggers are named using the following structure:
 
 Those prompt may contain GitHub Copilot annotations like `@workspace` or `#file` for instance.
 
+> For better result, use those annotations at the end of the line.
+
 ### Titles
 
 Always add a title, it can be a title 2 to 6 (`##` to `######`) and end with the trigger (`:yourTriggerHere`).
 
 Not specifying (`:trigger`) in the title will not trigger Espanso config changes.
+
+### Description
+
+- Keep the description short and concise (less than 20 words), focus on essential.
+- End your sentence with dot `.`.
 
 ### Variables
 
@@ -101,23 +108,29 @@ You can use variables in your prompt which make them so efficient!
 |-------------------------|------------------------------------------------------------|
 | 🚀 **Author**           | [@alexsoyes](https://www.linkedin.com/in/alexandre-soyer)  |
 | 🤖 **Tool**             | Github Copilot, ChatGPT, ...                               |
-| 🔍 **Context**          | How to use it (opening 2 files, using a doc...)            |
-| ✨ Required before      | `:instructImage...` prompt required before this one        |
-| ✅ Requirements         | `documentation.md` file is needed to use this prompt       |
-| 📦 Dependencies         | Run `brew install espanso`                                 |
+| 🔍 **Context**          | Where to use it, on which file etc.            |
+| ✨ Required before      | Prompt triggers required before this one        |
+| ✅ Requirements         | Files needed in order to use this prompt       |
+| 📦 Dependencies         | Necessary installation to proceed before using                                |
 
 **Prompt/Code**:
 
 ```text
-I need you to write a test regarding feature: "[[quick feature description]]".
+This prompt is about: "[[quick feature description]]".
 
-Implementation to test: #file
+You can you join GitHub Copilot files here:
+- Implementation: #file
+- Test: #file
 
-Here are the specifications:
+As well as the #selection
+
+Copy/paste the specifications:
 [[List of specifications]]
 
-Please select the type of test you want to write:
+And select the type of test you want to write:
 [[unit|integration|end-to-end]]
+
+@workspace might be useful here! Let's go!
 ```
 ````
 

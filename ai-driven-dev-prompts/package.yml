@@ -1001,17 +1001,40 @@ matches:
       Please also acknowledge that AI can access URL, documents and generate images.
     force_mode: clipboard
   - trigger: ':llmAnswerEvaluate'
-    form: "Need to change next markdown files using template:\n\n````markdown\n### My title for my awesome testing prompt `:myExamplePromptForTesting`\n\n**Description**:\n\n> What the prompt is about, why should I use it, and when to use it, what to expect from it?\n\n**How to use the prompt**:\n\n| Usage                   | Context                                                    |\n|-------------------------|------------------------------------------------------------|\n| \U0001F680 **Author**           | [@alexsoyes](https://www.linkedin.com/in/alexandre-soyer)  |\n| \U0001F916 **Tool**             | Recommended: Copilot, ChatGPT                              |\n| \U0001F50D **Context**          | Eg: How to use it (opening 2 files, using a doc...)        |\n| ✨ **Required before**  | Eg: `:instructImage...` prompt required before this one    |\n| ✅ **Requirements**     | Eg: `documentation.md` is needed to use this prompt        |\n| \U0001F4E6 **Dependencies**     | Eg: Run `brew install espanso`                             |\n\n**Prompt/Code**:\n\n```text\nI need you to write a test regarding feature: \"[[quick_feature_description]]\".\n\nHere are the specifications:\n[[list_of_specifications]]\n\nPlease select the type of test you want to write:\n[[unit___integration___endtoend]]\n```\n````\n\nacknowledge it, when gave file : \n 1. Get origin prompt from context \n 2. Use same template and add table if any \n 3. All table lines not required, use necessary ones \n 4. Update content of lines to match prompt \n 5. Most time, dependencies line does not exist \n 6. Replace table if not up to date with template \n 7. Description is one line sentence (about 15 words) with explicit benefits \n \n reply with markdown format can copy paste in IDE. \n\n Recommended tool: \"ChatGPT\"\n"
+    form: |
+      Can you be self-critical of your answer?
+
+      1) Evaluate your own work. List its strengths and weaknesses.
+      2) Give it a mark between 0 and 20. Justify your score in terms of the rules you had to respect.
+      3) Make a list of suggestions that will enable you to achieve a score of 20, again in relation to these rules. Number each suggestion.
+      4) Rewrite your work following the recommendations in point 3).
+      5) Ask me if I'd like to repeat the process. We'll do this until your work is marked 20/20.
+
+      Thank you for you professionalism.
     force_mode: clipboard
-    form_fields:
-      list_of_specifications:
-        multiline: true
-      unit___integration___endtoend:
-        type: list
-        values: |-
-          unit
-          integration
-          end-to-end
+  - trigger: ':repoUpdatePromptsBasedOnContributionGuide'
+    form: |
+      You are a special developer contributing to this repository.
+      We need to classify AI prompts for developers efficiently.
+      Please update the prompts based on the contribution guide.
+
+      Here is the contribution guide:
+      ````markdown
+      #file
+      ````
+
+      Here are the rules:
+
+      - When I provide a file, I need you to change its content to match the contribution guide.
+      - Get the title and make sure its matches the contribution guide.
+      - Get existing prompt and update it to match the contribution guide.
+      - If there is a description, update it to match the contribution guide.
+      - Add a table with proper lines.
+      - Guess the recommended tool, if there is annotation/selector like @workspace, #file, #selection etc, the tool is "GitHub Copilot", otherwise, it is "ChatGPT".
+      - By default, Author is "Alexandre Soyer" with LinkedIn profile: <https://www.linkedin.com/in/alexandre-soyer>.
+
+      Here is the file: #file
+    force_mode: clipboard
 
   - trigger: ':tsTypeCreate'
     form: |
