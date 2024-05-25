@@ -50,18 +50,18 @@ Please list potentials issues and steps to fix the code, sorted by relevance.
 ### Find technical issue `:fixFindTechnicalIssue`
 
 ```text
-In the code, when I: "[[Action]]"
-I do expect: "[[Expectation]]"
-But I get that issue (surrounded by "---" delimiters):
----
-[[Result including errors and your analysis if you do have]]
----
+@workspace
 
-Please list potentials issues and steps to fix the code, sorted by relevance.
+When I: "click on the ButtonIcon passing a buttonInfo in the component, it is providing a tooltip" I do expect: "the button to be still clickable" But instead I get that issue: "i click, the state changed but the dropdown is not shown"
 
-#editor
+Maybe it cancel my focus which trigger the state to be set to false.
+Notes: Every components are using Radix internally
 
-[[More code context if needed]]
+Please list potentials issues and steps to fix the code, sorted by relevance, in bullet points.
+
+For each potential issue, propose some code to change for debugging or logging in order to help determine the root cause.
+
+#file
 ```
 
 ### Find issues and fix `:fixFindIssuesAndFix`

@@ -6,9 +6,9 @@ The GitHub Repository is updated weekly!
 
 **A collection of tools, prompts, snippets and agents for developers that use AI, daily.**
 
-🇫🇷 More French ressources are available to learn how to use AI in your daily work.
+🇫🇷 More French resources are available to learn how to use AI in your daily work.
 
-[![5 meilleures ressources IA pour développeurs](https://img.shields.io/badge/-5%20ressources%20AI%20pour%20devs-blue?style=for-the-badge)](https://learn.alexsoyes.com/ressources-ia?utm_source=github&utm_medium=cta-button&utm_campaign=free-ai-resources&utm_terms=ia) [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/BUcTKVfbGh)
+[![5 meilleures resources IA pour développeurs](https://img.shields.io/badge/-5%20resources%20AI%20pour%20devs-blue?style=for-the-badge)](https://learn.alexsoyes.com/resources-ia?utm_source=github&utm_medium=cta-button&utm_campaign=free-ai-resources&utm_terms=ia) [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/BUcTKVfbGh)
 
 <hr />
 
@@ -84,7 +84,7 @@ Teach an AI to act as a Dev... from your own team
 1. **Documents list to provide** - Upload the relevant documents to instruct the AI about your project.
 2. **Create a RAG for your project** - Instructions for AI to act as a developer **from your team**, using your language etc.
 
-[Full page ressource](./ressources/llm-instructions/gpt-rag-developer.md) 🔗
+[Full page resource](./resources/llm-instructions/gpt-rag-developer.md) 🔗
 
 ### Best Instructions
 
@@ -92,7 +92,7 @@ Personalize the AI to have better performance and quicker answers.
 
 **This will help you to get the best out of the AI by providing it with the right context and knowledge about your project.**
 
-[Full page ressource](./ressources/llm-instructions/chatgpt-custom-instructions.md) 🔗
+[Full page resource](./resources/llm-instructions/chatgpt-custom-instructions.md) 🔗
 
 ### Custom GPT Agents
 
@@ -100,8 +100,8 @@ Use those GPT agents to help you in your daily work.
 
 (Include instructions sources)
 
-- [Senior Dev](./ressources/llm-instructions/gpt-senior-developer.md)
-- [Agile Coach](./ressources/llm-instructions/gpt-agile-coach.md)
+- [Senior Dev](./resources/llm-instructions/gpt-senior-developer.md)
+- [Agile Coach](./resources/llm-instructions/gpt-agile-coach.md)
 
 ## **2#** ⭐️ Developer prompts list
 
@@ -145,20 +145,20 @@ Here are the best prompts to use in your IDE... Sorted!
 
 Feel free to use them and add your own! ❤️ (credit your own prompts)
 
-- 🐛 [Bug Fixing](./ressources/prompts/bug-fixing.md)
-- 🕵️‍♀️ [Code Review](./ressources/prompts/code-review.md) (*in progress*)
-- 💻 [Code writing](./ressources/prompts/code-writing.md)
-- 📚 [Documentation](./ressources/prompts/documentation.md)
-- 🛠️ [General Dev](./ressources/prompts/dev.md) - Help to use AI in our daily work (but not specifically AI oriented).
-- ♻️ [Refactoring](./ressources/prompts/refactoring.md) (*in progress*)
-- 🧪 [Testing](./ressources/prompts/testing.md)
+- 🐛 [Bug Fixing](./resources/prompts/bug-fixing.md)
+- 🕵️‍♀️ [Code Review](./resources/prompts/code-review.md) (*in progress*)
+- 💻 [Code writing](./resources/prompts/code-writing.md)
+- 📚 [Documentation](./resources/prompts/documentation.md)
+- 🛠️ [General Dev](./resources/prompts/dev.md) - Help to use AI in our daily work (but not specifically AI oriented).
+- ♻️ [Refactoring](./resources/prompts/refactoring.md) (*in progress*)
+- 🧪 [Testing](./resources/prompts/testing.md)
 
 More dev prompts:
 
 - Language Specific
-  - [TypeScript](./ressources/prompts/languages/typescript.md)
+  - [TypeScript](./resources/prompts/languages/typescript.md)
 - Private prompts
-  - [Your private (or team) prompts](./ressources/prompts/private)
+  - [Your private (or team) prompts](./resources/prompts/private)
 
 ### Best dev prompts in Chat
 
@@ -168,12 +168,12 @@ Sometimes you need a bigger context to get the best out of your AI.
 
 Use those dev prompts in your ChatGPT:
 
-- 🗃️ [Database](./ressources/prompts/database.md)
-- 🖼️ [Image to Code](./ressources/prompts/image-to-code.md)
-- 🚀 [Feature Request](./ressources/prompts/feature-request.md)
-- 🏗️ [Project Architecture](./ressources/prompts/project-architecture.md)
-- 📋 [Project Management](./ressources/prompts/project-management.md)
-- 🚧 [Project Setup](./ressources/prompts/project-setup.md)
+- 🗃️ [Database](./resources/prompts/database.md)
+- 🖼️ [Image to Code](./resources/prompts/image-to-code.md)
+- 🚀 [Feature Request](./resources/prompts/feature-request.md)
+- 🏗️ [Project Architecture](./resources/prompts/project-architecture.md)
+- 📋 [Project Management](./resources/prompts/project-management.md)
+- 🚧 [Project Setup](./resources/prompts/project-setup.md)
 
 ## **3#** 🛠️ Install AI Toolbox for software engineers
 
@@ -224,11 +224,11 @@ Feel free to use them!
 
 **Languages**:
 
-- [TypeScript](./ressources/snippets/vscode/typescript.json)
+- [TypeScript](./resources/snippets/vscode/typescript.json)
 
 **Libraries**:
 
-- [React](./ressources/snippets/vscode/typescriptreact.json)
+- [React](./resources/snippets/vscode/typescriptreact.json)
 
 **Installation**:
 
@@ -296,8 +296,8 @@ Various links available that do not fit in other categories:
 
 **Internal**:
 
-- [GPTs source list for developers 📋](./ressources/custom-gpts.md) (Include prompt source when available)
-- [Various](./ressources/prompts/_/various.md) - Various and personals prompts that do not fit in other categories.
+- [GPTs source list for developers 📋](./resources/custom-gpts.md) (Include prompt source when available)
+- [Various](./resources/prompts/_/various.md) - Various and personals prompts that do not fit in other categories.
 
 [![Best list of AI Tools for developers](https://img.shields.io/badge/-Notion%20List%20of%20best%20AI%20Tools%20for%20developers-purple?style=for-the-badge)](https://alexsoyes.notion.site/c858af13ed704d7184456a3f8ac21f07?v=79a8d07b1e414ced99fcd210970b2ee8)
 

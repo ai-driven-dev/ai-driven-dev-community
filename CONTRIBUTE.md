@@ -3,17 +3,17 @@
 Your contributions are vital to making this project great and we welcome contributions from everyone.
 
 - [👮 General Guidelines](#-general-guidelines)
+- [💪 Need Help?](#-need-help)
 - [✒️ Trigger Conventions](#️-trigger-conventions)
-  - [Title](#title)
-  - [Section](#section)
-  - [Action](#action)
-  - [Target (optional)](#target-optional)
-- [📜 Template Rules](#-template-rules)
+  - [Explanation](#explanation)
+  - [Valid Triggers](#valid-triggers)
+  - [Invalid Triggers](#invalid-triggers)
+- [🚓 Rules](#-rules)
+  - [Note on GitHub Copilot](#note-on-github-copilot)
   - [Titles](#titles)
   - [Variables](#variables)
-- [🔥 Full Example](#-full-example)
-  - [My title for my awesome testing prompt `:myExamplePromptForTesting`](#my-title-for-my-awesome-testing-prompt-myexamplepromptfortesting)
-- [💪 Need Help?](#-need-help)
+- [📜 Template to Copy/Paste](#-template-to-copypaste)
+  - [Example: An awesome testing prompt `:myExamplePromptForTesting`](#example-an-awesome-testing-prompt-myexamplepromptfortesting)
 
 ## 👮 General Guidelines
 
@@ -22,82 +22,71 @@ Your contributions are vital to making this project great and we welcome contrib
 - [x] **Update any relevant documentation** or tests to reflect your changes.
 - [x] **Follow the project's guidelines** on formatting and style for prompts.
 
+## 💪 Need Help?
+
+If you need help or have any questions, feel free to open an issue for discussion or reach out to the project maintainers.
+
+**Join our Discord 🇫🇷 to discuss your ideas and get help from the community.**
+
+[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/BUcTKVfbGh)
+
 ## ✒️ Trigger Conventions
 
 Triggers are named using the following structure:
 
 | #1 Title     | #2 Section    | #3 Action   | #4 Target (*optional*) | Result                               |
 | ------------ | ------------- | ----------- | ---------------------- | ------------------------------------ |
-| `:instruct`  | Image         | ExtractInfo | Mockup                 | `:instructImageExtractInfoMockup`    |
+| `:instruct`  | Image         | Extract     | Mockup Info            | `:instructImageExtractInfoMockup`    |
 | `:code`      | Test          | Fix         | FailedTest             | `:codeTestFixFailedTest`             |
 | `:language`  | Documentation | Convert     | Object                 | `:languageDocumentationConvertObject`|
 
-### Title
+### Explanation
 
-The main files of the repo. They are fixed:
+- **Title**: The main files of the repo, coming from `resources/prompts/*` directory.
+- **Section**: The concerned section in the prompt page.
+- **Action**: A verb to describe the action you want to perform.
+- **Target**: The element you want to interact with.
 
-- Code (`:code`)
-- Instruct (`:instruct`)
-- Languages (`:language`)
-  - TypeScript (`:languageTS`)
-- Dev (`:dev`) (*unrelated to AI*)
-- Various (`:various`) (*unrelated to AI*)
+### Valid Triggers
 
-### Section
+- ✅ `:featImageExtractInfoMockup`
+- ✅ `:testScenarioFixFailedTest`
 
-The section where the prompt is in the doc.
+### Invalid Triggers
 
-Example:
+- ❌ `:bugfixingImageExtractInfoMockup` (invalid title not existing in `resources/prompts/*`)
+- ❌ `:featImageInfo` (missing action)
+- ❌ `:testFix` (missing section)
 
-- `Flow`
-- `Documentation`
-- `Database`
-- `Image`
-- `Test`
+## 🚓 Rules
 
-### Action
+### Note on GitHub Copilot
 
-Use a verb to describe the action you want to perform.
-
-Example:
-
-- `Improve`
-- `Convert`
-- `Optimize`
-- `Log`
-- `Jailbreak`
-
-### Target (optional)
-
-The element you want to interact with.
-
-Example:
-
-- `Object`
-- `Answer`
-- `CodeTemplate`
-
-## 📜 Template Rules
+Those prompt may contain GitHub Copilot annotations like `@workspace` or `#file` for instance.
 
 ### Titles
 
 Always add a title, it can be a title 2 to 6 (`##` to `######`) and end with the trigger (`:yourTriggerHere`).
 
+Not specifying (`:trigger`) in the title will not trigger Espanso config changes.
+
 ### Variables
 
 You can use variables in your prompt which make them so efficient!
 
-- Inline variable: `"[[my inline variable]]"`
-- Multi-line variable: `[[my multi-line variable]]`
-- Select variable: `[[my select variable|option1|option2]]`
+| Variable Type | Description | Example |
+| --- | --- | --- |
+| Inline variable | For quick sentence completion | `"[[my inline variable]]"` |
+| Multi-line variable | For detailed information or code block | `[[my multi-line variable]]` |
+| Select variable | For restricted multiple choices | `"[[option0\|option1\|option2]]"` |
 
 ![Espanso Window](./images/espanso-prompt-window.png)
 
-## 🔥 Full Example
+## 📜 Template to Copy/Paste
 
-Not specifying (`:trigger`) in the title will not trigger Espanso config changes.
+**Note**:
 
-Remove the usage section lines if it's not needed.
+- Remove the table line if not needed.
 
 ````markdown
 ### My title for my awesome testing prompt `:myExamplePromptForTesting`
@@ -111,16 +100,18 @@ Remove the usage section lines if it's not needed.
 | Usage                   | Context                                                    |
 |-------------------------|------------------------------------------------------------|
 | 🚀 **Author**           | [@alexsoyes](https://www.linkedin.com/in/alexandre-soyer)  |
-| 🤖 **Tool**             | Recommended: Copilot, ChatGPT                              |
-| 🔍 **Context**          | Eg: How to use it (opening 2 files, using a doc...)        |
-| ✨ **Required before**  | Eg: `:instructImage...` prompt required before this one    |
-| ✅ **Requirements**     | Eg: `documentation.md` is needed to use this prompt        |
-| 📦 **Dependencies**     | Eg: Run `brew install espanso`                             |
+| 🤖 **Tool**             | Github Copilot, ChatGPT, ...                               |
+| 🔍 **Context**          | How to use it (opening 2 files, using a doc...)            |
+| ✨ Required before      | `:instructImage...` prompt required before this one        |
+| ✅ Requirements         | `documentation.md` file is needed to use this prompt       |
+| 📦 Dependencies         | Run `brew install espanso`                                 |
 
 **Prompt/Code**:
 
 ```text
 I need you to write a test regarding feature: "[[quick feature description]]".
+
+Implementation to test: #file
 
 Here are the specifications:
 [[List of specifications]]
@@ -130,11 +121,11 @@ Please select the type of test you want to write:
 ```
 ````
 
-### My title for my awesome testing prompt `:myExamplePromptForTesting`
+### Example: An awesome testing prompt `:myExamplePromptForTesting`
 
 This is a demo prompt for testing.
 
-> 👉 TRY ME RUNNING TRIGGER `:myExamplePromptForTesting`
+> 👉 TRY ME typing trigger `:myExamplePromptForTesting`
 
 **Description**:
 
@@ -145,13 +136,16 @@ This is a demo prompt for testing.
 
 | Usage                   | Context                                                    |
 |-------------------------|------------------------------------------------------------|
-| 🤖 **Tool**             | **WebChat**                                                |
-| 🚀 **Author**           | [@alexsoyes](https://www.linkedin.com/in/alexandre-soyer)  |
+| 🤖 **Tool**             | **ChatGPT**                                                |
+| 🚀 **Author**           | [Alex so yes](https://www.linkedin.com/in/alexandre-soyer) |
+| 🔍 **Context**          | Open your test file in your IDE                            |
 
 **Prompt**:
 
-```text
+```shell
 I need you to write a test regarding feature: "[[quick feature description]]".
+
+Implementation to test: #file:implementation.js
 
 Here are the specifications:
 [[List of specifications]]
@@ -159,9 +153,3 @@ Here are the specifications:
 Please select the type of test you want to write:
 [[unit|integration|end-to-end]]
 ```
-
-## 💪 Need Help?
-
-If you need help or have any questions, feel free to open an issue for discussion or reach out to the project maintainers.
-
-**[Join our Discord 🇫🇷](https://discord.gg/mcNwacZCvC) to discuss your ideas and get help from the community.**

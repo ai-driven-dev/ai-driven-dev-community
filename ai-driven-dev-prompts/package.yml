@@ -46,24 +46,19 @@ matches:
         multiline: true
   - trigger: ':fixFindTechnicalIssue'
     form: |
-      In the code, when I: "[[action]]"
-      I do expect: "[[expectation]]"
-      But I get that issue (surrounded by "---" delimiters):
-      ---
-      [[result_including_errors_and_your_analysis_if_you_do_have]]
-      ---
+      @workspace
 
-      Please list potentials issues and steps to fix the code, sorted by relevance.
+      When I: "click on the ButtonIcon passing a buttonInfo in the component, it is providing a tooltip" I do expect: "the button to be still clickable" But instead I get that issue: "i click, the state changed but the dropdown is not shown"
 
-      #editor
+      Maybe it cancel my focus which trigger the state to be set to false.
+      Notes: Every components are using Radix internally
 
-      [[more_code_context_if_needed]]
+      Please list potentials issues and steps to fix the code, sorted by relevance, in bullet points.
+
+      For each potential issue, propose some code to change for debugging or logging in order to help determine the root cause.
+
+      #file
     force_mode: clipboard
-    form_fields:
-      result_including_errors_and_your_analysis_if_you_do_have:
-        multiline: true
-      more_code_context_if_needed:
-        multiline: true
   - trigger: ':fixFindIssuesAndFix'
     form: |
       Fix the following issues in the code #selection:
@@ -101,6 +96,26 @@ matches:
     form: |
       Do not import, just change the code to make it work.
     force_mode: clipboard
+  - trigger: ':codeCreateFunctionFromAnotherFunction'
+    form: |
+      Based on the code below (surrounded by "---" delimiters):
+
+      ---
+      [[code_of_the_existing_function]]
+      ---
+
+      Create a new similar function that takes a different parameters.
+
+      The new function should have the following signature:
+      [[new_function_signature]]
+
+      #file
+    force_mode: clipboard
+    form_fields:
+      code_of_the_existing_function:
+        multiline: true
+      new_function_signature:
+        multiline: true
   - trigger: ':codeCreateFunctionFromSpecs'
     form: |
       Based on those specs (see below), create a function that returns "[[what_you_want_to_return]]".
@@ -812,19 +827,33 @@ matches:
     form_fields:
       test_cases:
         multiline: true
-  - trigger: ':testingCreateTestFromAnother'
+  - trigger: ':testingCreateTestCaseFromAnother'
     form: |
-      Based on the implementation file: #file
-      And its test file: #file
-
-      Use "[[testing_framework]]" to generate a test
-      Re-use import and mock if necessary
-      Test for those test cases:
-      [[test_cases]]
+      Based on existing test case "[[test_name]]" in file: #file
+      Create a similar test case for the same function using those parameters:
+      [[parameters]]
     force_mode: clipboard
     form_fields:
-      test_cases:
+      parameters:
         multiline: true
+  - trigger: ':testingCreateTestCases'
+    form: |
+      Based on existing test case "should add new item templates" in file: #file
+
+      ---
+
+      ---
+
+      Create a new similar test case for the functions
+      "[[function_names]]" in implementation file #file
+
+      Test will be added in file: #file
+
+      Rules:
+
+      - Keep similar testing structure
+      - Changes types accordingly for new test file
+    force_mode: clipboard
   - trigger: ':testingCreateTest'
     form: |
       Use "[[testing_framework]]" to generate a test that uses AAA pattern for #selection in file #file
@@ -847,13 +876,10 @@ matches:
         multiline: true
   - trigger: ':testingAddNewTestInSuite'
     form: |
-      Add a new test in the test suite following same testing structure for test cases:
+      Add a new test following same structure as #selection in the test suite regarding that case: "[[new_test_case]]"
 
-      [[test_cases]]
+      Test is located in file: #file
     force_mode: clipboard
-    form_fields:
-      test_cases:
-        multiline: true
   - trigger: ':testingFillTestCasesExpectations'
     form: |
       In those tests, fill every "Assert" parts only from those specs (surrounded by "---" delimiter):

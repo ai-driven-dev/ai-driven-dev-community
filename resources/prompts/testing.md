@@ -9,7 +9,8 @@
     - [Create empty test structure for function `:testingCreateEmptyTestStructure`](#create-empty-test-structure-for-function-testingcreateemptyteststructure)
     - [Create test structure from test cases `:testingCreateTestStructure`](#create-test-structure-from-test-cases-testingcreateteststructure)
   - [Generate](#generate)
-    - [Create test from another `:testingCreateTestFromAnother`](#create-test-from-another-testingcreatetestfromanother)
+  - [Create similar test case from another `:testingCreateTestCaseFromAnother`](#create-similar-test-case-from-another-testingcreatetestcasefromanother)
+    - [Create test from test cases `:testingCreateTestCases`](#create-test-from-test-cases-testingcreatetestcases)
     - [Create test from test cases `:testingCreateTest`](#create-test-from-test-cases-testingcreatetest)
     - [Add new test in a test suite `:testingAddNewTestInSuite`](#add-new-test-in-a-test-suite-testingaddnewtestinsuite)
   - [Fill](#fill)
@@ -100,22 +101,44 @@ Use "[[testing framework]]" to generate testing structure only (inner tests are 
 
 ### Generate
 
-#### Create test from another `:testingCreateTestFromAnother`
+### Create similar test case from another `:testingCreateTestCaseFromAnother`
 
 **Description:**
 
-Create a test from another test.
+Create a similar test case from another test case.
+
+**Prompt**:
+
+```text
+Based on existing test case "[[test name]]" in file: #file
+Create a similar test case for the same function using those parameters:
+[[parameters]]
+```
+
+#### Create test from test cases `:testingCreateTestCases`
+
+**Description:**
+
+Create a test from test cases using existing test structure and implementation.
 
 **Prompt**:
 
 ````text
-Based on the implementation file: #file
-And its test file: #file
+Based on existing test case "should add new item templates" in file: #file
 
-Use "[[testing framework]]" to generate a test
-Re-use import and mock if necessary
-Test for those test cases:
-[[test cases]]
+---
+
+---
+
+Create a new similar test case for the functions
+"[[function names]]" in implementation file #file
+
+Test will be added in file: #file
+
+Rules:
+
+- Keep similar testing structure
+- Changes types accordingly for new test file
 ````
 
 #### Create test from test cases `:testingCreateTest`
@@ -158,9 +181,9 @@ Add a new test in a test suite following the test structure.
 **Prompt**:
 
 ```text
-Add a new test in the test suite following same testing structure for test cases:
+Add a new test following same structure as #selection in the test suite regarding that case: "[[new test case ]]"
 
-[[test cases]]
+Test is located in file: #file
 ```
 
 ### Fill

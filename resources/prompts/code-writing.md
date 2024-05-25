@@ -29,6 +29,29 @@ Sometimes some AIs like GitHub Copilot are inserting import statements aside to 
 Do not import, just change the code to make it work.
 ```
 
+## Create a function from another function `:codeCreateFunctionFromAnotherFunction`
+
+**Description**:
+
+Create a new function from another function with similar logic but different parameters.
+
+**Prompt**:
+
+```text
+Based on the code below (surrounded by "---" delimiters):
+
+---
+[[Code of the existing function]]
+---
+
+Create a new similar function that takes a different parameters.
+
+The new function should have the following signature:
+[[New function signature]]
+
+#file
+```
+
 ### Create a function from specs `:codeCreateFunctionFromSpecs`
 
 **Description**:
