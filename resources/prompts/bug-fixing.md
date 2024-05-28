@@ -3,6 +3,7 @@
 - [🐛 Bug fixing](#-bug-fixing)
   - [List potential issues `:fixListPotentialIssues`](#list-potential-issues-fixlistpotentialissues)
   - [Find functional issue `:fixFindFunctionalIssue`](#find-functional-issue-fixfindfunctionalissue)
+  - [Find technical issue `:fixFindTechnicalIssue`](#find-technical-issue-fixfindtechnicalissue)
   - [Find issues and fix `:fixFindIssuesAndFix`](#find-issues-and-fix-fixfindissuesandfix)
   - [Detect code inconsistencies `:bugCodeDetectInconsistencies`](#detect-code-inconsistencies-bugcodedetectinconsistencies)
 - [🔫 Debug](#-debug)
@@ -50,9 +51,11 @@ Please list potentials issues and steps to fix the code, sorted by relevance.
 ### Find technical issue `:fixFindTechnicalIssue`
 
 ```text
-@workspace
+I do have this issue on my project, can you help me figure it out?
 
-When I: "click on the ButtonIcon passing a buttonInfo in the component, it is providing a tooltip" I do expect: "the button to be still clickable" But instead I get that issue: "i click, the state changed but the dropdown is not shown"
+When I: "click on the ButtonIcon passing a buttonInfo in the component, it is providing a tooltip"
+
+I do expect: "the button to be still clickable" But instead I get that issue: "i click, the state changed but the dropdown is not shown"
 
 Maybe it cancel my focus which trigger the state to be set to false.
 Notes: Every components are using Radix internally
@@ -106,5 +109,7 @@ Add logging at each steps of the code to debug errors.
 ### Add logging with emojis `:fixAddLoggingEmojis`
 
 ```text
-Add beautiful logging steps with emojis at each steps to debug errors.
+Add logging messages at each important steps of this code, including inner function.
+Use appropriate emojis at the beginning of the logging message.
+This will help use to debug errors.
 ```

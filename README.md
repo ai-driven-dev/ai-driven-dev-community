@@ -8,7 +8,7 @@ The GitHub Repository is updated weekly!
 
 🇫🇷 More French resources are available to learn how to use AI in your daily work.
 
-[![5 meilleures resources IA pour développeurs](https://img.shields.io/badge/-5%20resources%20AI%20pour%20devs-blue?style=for-the-badge)](https://learn.alexsoyes.com/resources-ia?utm_source=github&utm_medium=cta-button&utm_campaign=free-ai-resources&utm_terms=ia) [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/BUcTKVfbGh)
+[![5 meilleures resources IA pour développeurs](https://img.shields.io/badge/-5%20resources%20AI%20pour%20devs-blue?style=for-the-badge)](https://learn.alexsoyes.com/ressources-ia?utm_source=github&utm_medium=cta-button&utm_campaign=free-ai-resources&utm_terms=ia) [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/BUcTKVfbGh)
 
 <hr />
 

@@ -46,9 +46,11 @@ matches:
         multiline: true
   - trigger: ':fixFindTechnicalIssue'
     form: |
-      @workspace
+      I do have this issue on my project, can you help me figure it out?
 
-      When I: "click on the ButtonIcon passing a buttonInfo in the component, it is providing a tooltip" I do expect: "the button to be still clickable" But instead I get that issue: "i click, the state changed but the dropdown is not shown"
+      When I: "click on the ButtonIcon passing a buttonInfo in the component, it is providing a tooltip"
+
+      I do expect: "the button to be still clickable" But instead I get that issue: "i click, the state changed but the dropdown is not shown"
 
       Maybe it cancel my focus which trigger the state to be set to false.
       Notes: Every components are using Radix internally
@@ -88,7 +90,9 @@ matches:
     force_mode: clipboard
   - trigger: ':fixAddLoggingEmojis'
     form: |
-      Add beautiful logging steps with emojis at each steps to debug errors.
+      Add logging messages at each important steps of this code, including inner function.
+      Use appropriate emojis at the beginning of the logging message.
+      This will help use to debug errors.
     force_mode: clipboard
 
 
@@ -1018,12 +1022,7 @@ matches:
       We need to classify AI prompts for developers efficiently.
       Please update the prompts based on the contribution guide.
 
-      Here is the contribution guide:
-      ````markdown
-      #file
-      ````
-
-      Here are the rules:
+      Using contribution guide "CONTRIBUTING.md", apply those those rules:
 
       - When I provide a file, I need you to change its content to match the contribution guide.
       - Get the title and make sure its matches the contribution guide.
@@ -1033,7 +1032,7 @@ matches:
       - Guess the recommended tool, if there is annotation/selector like @workspace, #file, #selection etc, the tool is "GitHub Copilot", otherwise, it is "ChatGPT".
       - By default, Author is "Alexandre Soyer" with LinkedIn profile: <https://www.linkedin.com/in/alexandre-soyer>.
 
-      Here is the file: #file
+      Here is the file to update: "code-writing.md".
     force_mode: clipboard
 
   - trigger: ':tsTypeCreate'

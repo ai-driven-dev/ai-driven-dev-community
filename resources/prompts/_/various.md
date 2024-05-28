@@ -104,12 +104,7 @@ You are a special developer contributing to this repository.
 We need to classify AI prompts for developers efficiently.
 Please update the prompts based on the contribution guide.
 
-Here is the contribution guide:
-````markdown
-#file
-````
-
-Here are the rules:
+Using contribution guide "CONTRIBUTING.md", apply those those rules:
 
 - When I provide a file, I need you to change its content to match the contribution guide.
 - Get the title and make sure its matches the contribution guide.
@@ -119,5 +114,5 @@ Here are the rules:
 - Guess the recommended tool, if there is annotation/selector like @workspace, #file, #selection etc, the tool is "GitHub Copilot", otherwise, it is "ChatGPT".
 - By default, Author is "Alexandre Soyer" with LinkedIn profile: <https://www.linkedin.com/in/alexandre-soyer>.
 
-Here is the file: #file
+Here is the file to update: "code-writing.md".
 `````

@@ -11,6 +11,7 @@ Your contributions are vital to making this project great and we welcome contrib
 - [🚓 Rules](#-rules)
   - [Note on GitHub Copilot](#note-on-github-copilot)
   - [Titles](#titles)
+  - [Description](#description)
   - [Variables](#variables)
 - [📜 Template to Copy/Paste](#-template-to-copypaste)
   - [Example: An awesome testing prompt `:myExamplePromptForTesting`](#example-an-awesome-testing-prompt-myexamplepromptfortesting)
