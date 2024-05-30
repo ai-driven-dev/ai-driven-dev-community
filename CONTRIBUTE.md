@@ -3,6 +3,7 @@
 Your contributions are vital to making this project great and we welcome contributions from everyone.
 
 - [👮 General Guidelines](#-general-guidelines)
+  - [Text Expander: 'Espanso'](#text-expander-espanso)
 - [💪 Need Help?](#-need-help)
 - [✒️ Trigger Conventions](#️-trigger-conventions)
   - [Explanation](#explanation)
@@ -22,6 +23,16 @@ Your contributions are vital to making this project great and we welcome contrib
 - [x] **Search for already existing** ones.
 - [x] **Update any relevant documentation** or tests to reflect your changes.
 - [x] **Follow the project's guidelines** on formatting and style for prompts.
+
+### Text Expander: 'Espanso'
+
+We use [Espanso](https://espanso.org/) as a text expander tool to help developers to write faster and more accurately.
+
+It allows you to use `triggers` to expand text snippets... that act as prompts!
+
+> Think of it as a library of prompts for developers that can be searched anytime and anywhere.
+
+![VSCode with Espanso](https://file%2B.vscode-resource.vscode-cdn.net/Users/alexsoyer/Projects/ai-driven-dev-community/images/vscode-espanso-code-inline-chat.gif?version%3D1717052148784)
 
 ## 💪 Need Help?
 
@@ -44,20 +55,20 @@ Triggers are named using the following structure:
 ### Explanation
 
 - **Title**: The main files of the repo, coming from `resources/prompts/*` directory (in 1st level title).
-- **Section**: The concerned section in the prompt page (the 2nd level title).
+- **Section**: The concerned section in the prompt page (the 2nd level title). (*Optional*: only if trigger is matching the `title`, eg: `:img` and `image` or `:code` with `code`)
 - **Action**: A verb to describe the action you want to perform.
-- **Target**: The element you want to interact with.
+- **Target**: The element you want to interact with. (*Optional*: because target could not exist)
 
 ### Valid Triggers
 
-- ✅ `:featImageExtractInfoMockup`
+- ✅ `:imgExtractInfoMockup`
 - ✅ `:testScenarioFixFailedTest`
 
 ### Invalid Triggers
 
-- ❌ `:bugfixingImageExtractInfoMockup` (invalid title not existing in `resources/prompts/*`)
-- ❌ `:featImageInfo` (missing action)
-- ❌ `:testFix` (missing section)
+- ❌ `:bugfixingImageExtractInfoMockup` (invalid *title* not existing in `resources/prompts/*`)
+- ❌ `:codeImageInfo` (missing *action*)
+- ❌ `:testFix` (missing *section*)
 
 ## 🚓 Rules
 
@@ -73,10 +84,12 @@ Always add a title, it can be a title 2 to 6 (`##` to `######`) and end with the
 
 Not specifying (`:trigger`) in the title will not trigger Espanso config changes.
 
+![Espanso text trigger](https://file%2B.vscode-resource.vscode-cdn.net/Users/alexsoyer/Projects/ai-driven-dev-community/images/chatgpt-espanso-text-trigger.gif?version%3D1717051915134)
+
 ### Description
 
 - Keep the description short and concise (less than 20 words), focus on essential.
-- End your sentence with dot `.`.
+- End your sentence with dot `.` whenever possible (if the last word is a selector like `#codebase` , `#file` etc, it might not be needed)
 
 ### Variables
 

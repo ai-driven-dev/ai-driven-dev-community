@@ -147,6 +147,8 @@ matches:
       Based on file: #file
       Create a similar file structure for: #file
       Adapt the content to the new file using: #file
+
+      You need to create a similar file structure, but adapting content and properties to new type.
     force_mode: clipboard
   - trigger: ':codeConvertType'
     form: |

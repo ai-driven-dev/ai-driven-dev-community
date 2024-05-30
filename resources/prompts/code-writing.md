@@ -4,6 +4,7 @@ Related to code interaction (eg: with Copilot).
 
 - [🧑‍💻 Code](#-code)
   - [Change code without import `:codeChangeCodeWithoutImport`](#change-code-without-import-codechangecodewithoutimport)
+  - [Create a function from another function `:codeCreateFunctionFromAnotherFunction`](#create-a-function-from-another-function-codecreatefunctionfromanotherfunction)
   - [Create a function from specs `:codeCreateFunctionFromSpecs`](#create-a-function-from-specs-codecreatefunctionfromspecs)
   - [Merge file with almost same content `:codeMergeFileWithAlmostSameContent`](#merge-file-with-almost-same-content-codemergefilewithalmostsamecontent)
   - [Base on file, update file `:codeUpdateFile`](#base-on-file-update-file-codeupdatefile)
@@ -29,7 +30,7 @@ Sometimes some AIs like GitHub Copilot are inserting import statements aside to 
 Do not import, just change the code to make it work.
 ```
 
-## Create a function from another function `:codeCreateFunctionFromAnotherFunction`
+### Create a function from another function `:codeCreateFunctionFromAnotherFunction`
 
 **Description**:
 
@@ -102,12 +103,14 @@ Adapt the content to match the structure.
 
 **Description**:
 
-Create a new file based on a current file.
+Create a new "same" file based on a current file.
 
 ```text
 Based on file: #file
 Create a similar file structure for: #file
 Adapt the content to the new file using: #file
+
+You need to create a similar file structure, but adapting content and properties to new type.
 ```
 
 ### Convert type into another type `:codeConvertType`
