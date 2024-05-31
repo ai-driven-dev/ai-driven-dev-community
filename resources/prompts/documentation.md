@@ -2,8 +2,8 @@
 # 🖥️ AI Driven Dev - "Documentation" Prompts (`:doc`)
 
 - [🚛 Extraction](#-extraction)
-  - [Extract online documentation](#extract-online-documentation)
-  - [Merge markdown documentation together](#merge-markdown-documentation-together)
+  - [Extract online documentation `:docScrapWebsite`](#extract-online-documentation-docscrapwebsite)
+  - [Merge markdown documentation together `:docMergeMarkdownDocumentation`](#merge-markdown-documentation-together-docmergemarkdowndocumentation)
   - [Extract project code documentation](#extract-project-code-documentation)
     - [TypeScript  `:docExtractProjectDocumentationTS`](#typescript--docextractprojectdocumentationts)
 - [📄 Documentation](#-documentation)
@@ -16,7 +16,7 @@
 
 ## 🚛 Extraction
 
-### Extract online documentation
+### Extract online documentation `:docScrapWebsite`
 
 **Description**:
 
@@ -38,7 +38,7 @@ If you documentation is online, you can extract it and use it in your LLM.
 scrapy crawl html_spider -a domain=nuqs.47ng.com -a path=docs -a useMarkdown=True
 ```
 
-### Merge markdown documentation together
+### Merge markdown documentation together `:docMergeMarkdownDocumentation`
 
 **Description**:
 

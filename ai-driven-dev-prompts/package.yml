@@ -209,6 +209,16 @@ matches:
       Inline this selection to single line.
     force_mode: clipboard
 
+  - trigger: ':docScrapWebsite'
+    form: |
+      scrapy crawl html_spider -a domain=nuqs.47ng.com -a path=docs -a useMarkdown=True
+    force_mode: clipboard
+  - trigger: ':docMergeMarkdownDocumentation'
+    form: |
+      find . -type f -name '*.md*' -exec cat {} \; > "[[name]]"-documentation.txt
+
+      # source: scripts/merge-documentation.sh
+    force_mode: clipboard
   - trigger: ':docExtractProjectDocumentationTS'
     form: |
       #!/bin/bash
