@@ -1,67 +1,61 @@
 # 🖥️ AI Driven Dev - "Testing" Prompts (`:test`)
 
+This document contains a list of prompts for developers that can be used to generate code snippets related to testing.
+
 - [🎯 Test-First](#-test-first)
-  - [Rewrite function based on a test expectations `:testFirstRewriteFunction`](#rewrite-function-based-on-a-test-expectations-testfirstrewritefunction)
   - [Function implementation based on a test `:testFirstImplementFunction`](#function-implementation-based-on-a-test-testfirstimplementfunction)
-  - [Check function implementation based on unit testings `:testingCheckFunctionImplementation`](#check-function-implementation-based-on-unit-testings-testingcheckfunctionimplementation)
+  - [Check function implementation based on unit testings `:testCheckFunctionImplementation`](#check-function-implementation-based-on-unit-testings-testcheckfunctionimplementation)
 - [🧪 Testing](#-testing)
+  - [Test cases](#test-cases)
+    - [List test cases from user-stories `:testListTestCases`](#list-test-cases-from-user-stories-testlisttestcases)
   - [Structure](#structure)
-    - [Create empty test structure for function `:testingCreateEmptyTestStructure`](#create-empty-test-structure-for-function-testingcreateemptyteststructure)
-    - [Create test structure from test cases `:testingCreateTestStructure`](#create-test-structure-from-test-cases-testingcreateteststructure)
+    - [Create empty test structure based on file `:testStructureCreateEmptyBasedOnFile`](#create-empty-test-structure-based-on-file-teststructurecreateemptybasedonfile)
+    - [Create empty test structure `:testStructureCreate`](#create-empty-test-structure-teststructurecreate)
   - [Generate](#generate)
-  - [Create similar test case from another `:testingCreateTestCaseFromAnother`](#create-similar-test-case-from-another-testingcreatetestcasefromanother)
-    - [Create test from test cases `:testingCreateTestCases`](#create-test-from-test-cases-testingcreatetestcases)
-    - [Create test from test cases `:testingCreateTest`](#create-test-from-test-cases-testingcreatetest)
-    - [Add new test in a test suite `:testingAddNewTestInSuite`](#add-new-test-in-a-test-suite-testingaddnewtestinsuite)
+    - [Unit test `:testGenerateUnitTest`](#unit-test-testgenerateunittest)
+    - [Generate similar test case from another `:testGenerateTestCaseFromAnother`](#generate-similar-test-case-from-another-testgeneratetestcasefromanother)
+    - [Generate test from and existing test cases `:testGenerateTestFromExistingTestCase`](#generate-test-from-and-existing-test-cases-testgeneratetestfromexistingtestcase)
+    - [Generate a new test `:testGenerateNewTest`](#generate-a-new-test-testgeneratenewtest)
+    - [Generate new test in a test suite `:testGenerateNewInTestSuite`](#generate-new-test-in-a-test-suite-testgeneratenewintestsuite)
+    - [Generate new test from another test file `:testGenerateNewFromAnotherFile`](#generate-new-test-from-another-test-file-testgeneratenewfromanotherfile)
+    - [Generate new data-testid `:testGenerateNewDataTestId`](#generate-new-data-testid-testgeneratenewdatatestid)
+  - [Create](#create)
+    - [Create new test object with "fake" properties `:testCreateNewFakeTestObject`](#create-new-test-object-with-fake-properties-testcreatenewfaketestobject)
   - [Fill](#fill)
-    - [Fill test cases expectations `:testingFillTestCasesExpectations`](#fill-test-cases-expectations-testingfilltestcasesexpectations)
-    - [Fill tests cases `:testingFillTestCase`](#fill-tests-cases-testingfilltestcase)
-    - [Fill component with data-testid `:testingFillComponentWithDataTestId`](#fill-component-with-data-testid-testingfillcomponentwithdatatestid)
-    - [New fake objectif `:testingNewFakeFilledEntity`](#new-fake-objectif-testingnewfakefilledentity)
-    - [Fill empty tests (based on file) `:testingFillExistingTests`](#fill-empty-tests-based-on-file-testingfillexistingtests)
+    - [Fill empty test cases expectations `:testFillTestCases`](#fill-empty-test-cases-expectations-testfilltestcases)
   - [Mock](#mock)
-    - [Mock specific function returns `:testingMockSpecificFunctionReturns`](#mock-specific-function-returns-testingmockspecificfunctionreturns)
-    - [Mock inner function calls `:testingMockInnerFunctionCalls`](#mock-inner-function-calls-testingmockinnerfunctioncalls)
-    - [Mock a new path in an existing file `:testingMockNewPathInExistingFile`](#mock-a-new-path-in-an-existing-file-testingmocknewpathinexistingfile)
-- [Fixing](#fixing)
-  - [Fixing code from test results `:testingFixFailedTest`](#fixing-code-from-test-results-testingfixfailedtest)
-  - [Fix test assertions with new specifications `:testFixTestAssertions`](#fix-test-assertions-with-new-specifications-testfixtestassertions)
+    - [Mock function from file `:testMockFunction`](#mock-function-from-file-testmockfunction)
+    - [Mock inner function calls `:testMockInnerFunctionCalls`](#mock-inner-function-calls-testmockinnerfunctioncalls)
+    - [Mock new function from another file `:testMockFunctionFromFile`](#mock-new-function-from-another-file-testmockfunctionfromfile)
+  - [Fix](#fix)
+    - [Fix code from test results `:testFixCodeFromTestResults`](#fix-code-from-test-results-testfixcodefromtestresults)
+  - [Rewrite](#rewrite)
+    - [Rewrite test assertions with new specifications `:testRewriteTestAssertions`](#rewrite-test-assertions-with-new-specifications-testrewritetestassertions)
+    - [Rewrite function based on expectations `:testRewriteFromExpectations`](#rewrite-function-based-on-expectations-testrewritefromexpectations)
 
 ## 🎯 Test-First
 
-### Rewrite function based on a test expectations `:testFirstRewriteFunction`
+### Function implementation based on a test `:testFirstImplementFunction`
 
 **Description**:
 
-Rewrite the function to make the test pass, and keep its logic.
+Create a new function implementation based on a test and make it pass.
 
-**Usage**:
+**How to use the prompt**:
 
-| Context | Description |
-| ----- | ----------- |
-| 🎯 Where | Navigate to the file where your function to change is located. |
-| ＠ Annotations | `@workspace` annotation in Copilot might be used. |
-| 🫴 Variables | *"Test that should pass"* is the test with the expectations you want your function be changed with. |
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | Use this prompt after creating your test.                  |
 
 **Prompt**:
-
-```markdown
-1. Based on this test and its expectations, please acknowledge the tested function.
-2. List the necessary steps to change in the code to make the test pass.
-3. Rewrite the function to make the test pass but keep its logic.
-[[Additional context like your implementation ideas]]
-
-Here is the test that should pass:
-[[Test that should pass]]
-```
-
-### Function implementation based on a test `:testFirstImplementFunction`
 
 ```text
 Write the function implementation for "[[function name]]" in order to make every tests pass.
 ```
 
-### Check function implementation based on unit testings `:testingCheckFunctionImplementation`
+### Check function implementation based on unit testings `:testCheckFunctionImplementation`
 
 ```text
 Check if this test is correctly implemented in the highlighted function.
@@ -69,31 +63,94 @@ Check if this test is correctly implemented in the highlighted function.
 
 ## 🧪 Testing
 
-### Structure
+### Test cases
 
-#### Create empty test structure for function `:testingCreateEmptyTestStructure`
+#### List test cases from user-stories `:testListTestCases`
 
-**Description:**
+**Description**:
 
-Create an empty test structure for a function.
+List functional tests for a feature based on a user-story.
+
+The idea is to have an exhaustive list of tests to be done.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | [GPT RAG Dev](../llm-instructions/gpt-rag-developer.md) ChatGPT |
+| 🔍 **Context**          | Get a list a functional tests from feature.                |
+| 📜 Todo                 | Check if it can be merged with other prompts in same cat.  |
 
 **Prompt**:
 
 ```text
-Use "[[testing framework]]" to generate an empty testing structure using AAA with only comments.
+From those specifications (surrounded by --- delimiter):
+
+---
+[[Feature to build, be as detailed as possible]]
+---
+
+You have to list test cases with the following rules:
+
+- Detect edge cases and exceptions.
+- Group by distinct sections.
+- Format with bullet list with small sentences.
+- [[Do not test UI, focus the logic only | Test the UI if needed | Test the UI and the logic]].
 ```
 
-#### Create test structure from test cases `:testingCreateTestStructure`
+### Structure
 
-**Description:**
+#### Create empty test structure based on file `:testStructureCreateEmptyBasedOnFile`
 
-Create a test structure from test cases.
+**Description**:
+
+Create an empty test file structure based on another existing test file from your project
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | Use this prompt when you want to create a new test file.   |
 
 **Prompt**:
 
 ```text
-Use "[[testing framework]]" to generate testing structure only (inner tests are commented with "Arrange", "Act", "Assert" comments) from those sentences:
+Based on the test structure of the file: #file
 
+Create an empty test structure for the new file name "[[file name]]".
+
+- Do not take test cases, only the structure.
+- Get common functions structure like "beforeEach", "afterEach", "beforeAll", "afterAll" etc if they exist.
+- Get global variables if they exists, as long as they are not related specifically to this file.
+- Replace types if necessary.
+- Do not take the imports if not necessary.
+```
+
+#### Create empty test structure `:testStructureCreate`
+
+**Description**:
+
+Create an empty test structure file from text test cases.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | On a new test file creation.                               |
+
+**Prompt**:
+
+```text
+Use "[[testing framework]]" to generate testing structure only.
+
+Inner tests are commented with "Arrange", "Act", "Assert" comments.
+
+Here are the test cases (surrounded by "---" delimiter):
 ---
 [[Test cases]]
 ---
@@ -101,154 +158,283 @@ Use "[[testing framework]]" to generate testing structure only (inner tests are 
 
 ### Generate
 
-### Create similar test case from another `:testingCreateTestCaseFromAnother`
+#### Unit test `:testGenerateUnitTest`
 
-**Description:**
+**Description**:
 
-Create a similar test case from another test case.
+Based on a functional requirement, generate a unit test.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | ChatGPT, GitHub Copilot                                    |
+| 🔍 **Context**          | If you want to write a complete unit test.                 |
+| 📜 Todo                 | Check if it can be merged with other prompts in same cat.  |
 
 **Prompt**:
 
 ```text
-Based on existing test case "[[test name]]" in file: #file
-Create a similar test case for the same function using those parameters:
-[[parameters]]
+I need you to act as a test engineer specialized in "[[testing lib]]" to generate a unit test for my feature (surrounded by "---" delimiters):
+
+---
+[[Functional requirement]]
+---
+
+If necessary, use those unit testing techniques:
+
+Mocking, Stubbing, Spying, Faking, Dependency Injection, Test Parameterization, Isolation (Sandboxing)
 ```
 
-#### Create test from test cases `:testingCreateTestCases`
+#### Generate similar test case from another `:testGenerateTestCaseFromAnother`
 
-**Description:**
+**Description**:
 
-Create a test from test cases using existing test structure and implementation.
+Generate a similar test case from another test case.
+
+Very useful to write more test with different inputs / expectations.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | When writing tests, adding another one.                    |
+
+**Prompt**:
+
+```text
+Based on existing test case #selection in file #file.
+
+Generate a similar test case for the same function using those parameters:
+
+[[parameters in bullet points]]
+```
+
+#### Generate test from and existing test cases `:testGenerateTestFromExistingTestCase`
+
+**Description**:
+
+Generate a similar test from an existing test case using existing test structure and implementation.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | When adding a new test in the same file.                   |
 
 **Prompt**:
 
 ````text
-Based on existing test case "should add new item templates" in file: #file
+Based on existing test case #selection in file #file
 
+Generate a new similar test case for the functions (surrounded bu "---" delimiter):
 ---
-
+[[function to test]]
 ---
-
-Create a new similar test case for the functions
-"[[function names]]" in implementation file #file
-
-Test will be added in file: #file
 
 Rules:
 
-- Keep similar testing structure
-- Changes types accordingly for new test file
+- Keep similar testing structure.
+- Changes types accordingly for new test case.
 ````
 
-#### Create test from test cases `:testingCreateTest`
+#### Generate a new test `:testGenerateNewTest`
 
-**Description:**
+**Description**:
 
 Create a full test from test cases for a given function.
 
-Useful to generate test:
+Useful to generate test with `Input` / `Output` / `Expectation` pattern.
 
-- With `AAA` pattern.
-- With `Input` / `Output` / `Expectation` pattern.
-- *Not very efficient on complex functions*
+> Note: Not very efficient on complex functions.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | Use this prompt after a new function creation.             |
 
 **Prompt**:
 
 ```text
 Use "[[testing framework]]" to generate a test that uses AAA pattern for #selection in file #file
 
-Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects.
-Act to test logic.
-Assert that the result is expected.
+- Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects.
+- Act to test logic.
+- Assert that the result is expected.
 
-Expectations (surrounded by "---" delimiter):
+Expectations here (surrounded by "---" delimiter):
 ---
 [[Expectation if needed]]
 ---
 
-Important: those specification MUST be tested OVER the implementation
-
-#editor
+Important: those specification MUST be tested OVER the implementation.
 ```
 
-#### Add new test in a test suite `:testingAddNewTestInSuite`
+#### Generate new test in a test suite `:testGenerateNewInTestSuite`
 
-**Description:**
+**Description**:
 
-Add a new test in a test suite following the test structure.
+Add a new test in a test suite following the existing test structure.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | If you want to add a new test in an existing test file.    |
+| ⚠️ Warning               | `#file` selector can be truncated by the AI tool if it is too long. |
 
 **Prompt**:
 
 ```text
-Add a new test following same structure as #selection in the test suite regarding that case: "[[new test case ]]"
+Add a new test case for "[[new test case]]".
 
-Test is located in file: #file
+- Implementation file is: #file
+- Test should be added in: #file
+- It should follow same structure and convention as #selection
+```
+
+#### Generate new test from another test file `:testGenerateNewFromAnotherFile`
+
+**Description**:
+
+Add a new test in a test suite following the test case of another file.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | On a new test case creation, based on another one from another file. |
+
+**Prompt**:
+
+```text
+I need to add a new test in file (following same file convention): #file
+
+Based on the test structure of another file: #file
+
+The test case is: [[new test case]]
+```
+
+#### Generate new data-testid `:testGenerateNewDataTestId`
+
+**Description**:
+
+Add new `data-testid` attribute to an HTML component.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | To add in a file that contains HTML elements to test.      |
+
+**Prompt**:
+
+```text
+Add in relevant component elements from #selection a "data-testid" if not already present.
+```
+
+### Create
+
+#### Create new test object with "fake" properties `:testCreateNewFakeTestObject`
+
+**Description**:
+
+Super useful to generate a fake object with all properties filled.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | When in a test if you want to arrange data.                |
+
+**Prompt**:
+
+```text
+Without importing, create new fake filled object for every required properties of this file: #file
 ```
 
 ### Fill
 
-#### Fill test cases expectations `:testingFillTestCasesExpectations`
+#### Fill empty test cases expectations `:testFillTestCases`
 
-```text
-In those tests, fill every "Assert" parts only from those specs (surrounded by "---" delimiter):
+**Description**:
 
----
-[[specifications]]
----
-```
+If you have a list of empty test cases, fill every test case with the expected result.
 
-#### Fill tests cases `:testingFillTestCase`
+**How to use the prompt**:
 
-Fill ... using your AI tool like copilot.
-
-```text
-Fill every tests #selection in file #file
-Code implementation to test: #file
-
-Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects: #file
-Act to test logic.
-Assert that the result is expected.
-```
-
-#### Fill component with data-testid `:testingFillComponentWithDataTestId`
-
-```text
-Fill relevant component elements with "data-testid", use index number if available. 
-```
-
-#### New fake objectif `:testingNewFakeFilledEntity`
-
-```text
-Without importing, create new fake filled entity for every required properties of this file: #file
-```
-
-#### Fill empty tests (based on file) `:testingFillExistingTests`
-
-**Description:**
-
-Fill existing tests based on the file content.
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | An empty structure of test cases in a test file.           |
+| ✨ Required before      | Generate empty test cases first.                           |
 
 **Prompt**:
 
 ```text
-Fill empty tests based on the file content.
+Fill every empty tests in file #file
+Code implementation to test: #file
+
+Rules:
+- Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects: #file
+- Act to test logic.
+- Assert that the result is expected.
 ```
 
 ### Mock
 
-#### Mock specific function returns `:testingMockSpecificFunctionReturns`
+#### Mock function from file `:testMockFunction`
+
+**Description**:
+
+Mock a function to return a specific value.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | If you need to mock a function from a specific file.       |
+
+**Prompt**:
 
 ```text
 Mock "[[function name]]" function from #file
-and resolve to "[[return statement]]".
+
+Then, resolve it to "[[return statement]]".
 ```
 
-#### Mock inner function calls `:testingMockInnerFunctionCalls`
+#### Mock inner function calls `:testMockInnerFunctionCalls`
 
-**Description:**
+**Description**:
 
 Generate code to mock inner function calls for a specific highlighted `code` or `import`.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | Mock almost anything by selection.                         |
 
 **Prompt**:
 
@@ -256,25 +442,45 @@ Generate code to mock inner function calls for a specific highlighted `code` or 
 Use "[[testing framework]]" to mock the implementation of the inner function calls from this code: #selection
 ```
 
-#### Mock a new path in an existing file `:testingMockNewPathInExistingFile`
+#### Mock new function from another file `:testMockFunctionFromFile`
 
-**Description:**
+**Description**:
 
 Add a new mock using test structure in an existing file.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | When your test scenario if changing the assertions.her test file. |
 
 **Prompt**:
 
 ```text
-Based on the already mocked paths in the file #file
+Based on those already mocked paths in the file #file
+
 Add a new mock for function's selection #selection.
 ```
 
-## Fixing
+### Fix
 
-### Fixing code from test results `:testingFixFailedTest`
+#### Fix code from test results `:testFixCodeFromTestResults`
 
-- Open the required file to fix the code.
-- Select the code to fix.
+**Description**:
+
+Fix your implementation code based on the test results.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | When your test scenario if changing the assertions.        |
+
+**Prompt**:
 
 ```text
 The test output the following error (surrounded by "---" delimiters): 
@@ -285,24 +491,69 @@ The test output the following error (surrounded by "---" delimiters):
 
 Follow those steps:
 
-1. Assume current test is correct:  #file
+1. Assume current test is correct in file:  #file
 2. Summarize in 1 sentence what the issue is.
 3. Check the code implementation to find the issue in file: #file
-4. Traverse the whole code used in the function, because the issue could be located elsewhere
-  - in a external type
-  - in a constant variable defined above in the file
-  - in a function called in the function
-  - from an incorrect copy/paste in names
-  - etc
+4. Traverse the whole code used in the function, because the issue could be located elsewhere:
+  - in a external type.
+  - in a constant variable defined above in the file.
+  - in a function called in the function.
+  - from an incorrect copy/paste in names.
+  - etc.
 5. Once you analyzed all source code in this file, fix the issue first issue from your inconsistencies list.
 ```
 
-### Fix test assertions with new specifications `:testFixTestAssertions`
+### Rewrite
+
+#### Rewrite test assertions with new specifications `:testRewriteTestAssertions`
+
+**Description**:
+
+Change the existing test to match new needs based on new specifications.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | When your test scenario if changing the assertions.        |
+
+**Prompt**:
 
 ```text
-Based on those specifications (surrounded by "---" delimiter), please change the existing test #selection to match new assertions:
-
+Based on those specifications (surrounded by "---" delimiter):
 ---
 [[new specifications]]
 ---
+
+ Change the existing test #selection to match new needs.
+```
+
+#### Rewrite function based on expectations `:testRewriteFromExpectations`
+
+**Description**:
+
+Rewrite the function to make the test pass, and keep its logic.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | Use this prompt after the test has failed.                 |
+
+**Prompt**:
+
+```text
+1. Based on this test and its expectations, please acknowledge the tested function.
+2. List the necessary steps to change in the code to make the test pass.
+3. Rewrite the function from to make the test pass and keep its logic.
+
+[[Additional context like your implementation ideas]]
+
+Here is the test that should pass: #selection
+
+Implemented function in file: #file
 ```

@@ -1,5 +1,7 @@
 # 🖥️ AI Driven Dev - "Bug fixing" Prompts (`:fix`)
 
+In progress...
+
 - [🐛 Bug fixing](#-bug-fixing)
   - [List potential issues `:fixListPotentialIssues`](#list-potential-issues-fixlistpotentialissues)
   - [Find functional issue `:fixFindFunctionalIssue`](#find-functional-issue-fixfindfunctionalissue)
@@ -7,7 +9,7 @@
   - [Find issues and fix `:fixFindIssuesAndFix`](#find-issues-and-fix-fixfindissuesandfix)
   - [Detect code inconsistencies `:bugCodeDetectInconsistencies`](#detect-code-inconsistencies-bugcodedetectinconsistencies)
 - [🔫 Debug](#-debug)
-  - [Add logging to debug error `:fixAddErrorLogging`](#add-logging-to-debug-error-fixadderrorlogging)
+  - [Add logging to debug error `:fixDebugCodeSteps`](#add-logging-to-debug-error-fixdebugcodesteps)
   - [Add logging with emojis `:fixAddLoggingEmojis`](#add-logging-with-emojis-fixaddloggingemojis)
 
 ## 🐛 Bug fixing
@@ -100,7 +102,7 @@ For each issue, provide the best possible solution following code pattern.
 
 ## 🔫 Debug
 
-### Add logging to debug error `:fixAddErrorLogging`
+### Add logging to debug error `:fixDebugCodeSteps`
 
 ```text
 Add logging at each steps of the code to debug errors.

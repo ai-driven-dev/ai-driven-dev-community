@@ -1,133 +1,108 @@
 # 🖥️ AI Driven Dev - "Code Writing" Prompts (`:code`)
 
-Related to code interaction (eg: with Copilot).
+Related to code interaction in your IDE with an embedded AI model (like GitHub Copilot).
 
-- [🧑‍💻 Code](#-code)
-  - [Change code without import `:codeChangeCodeWithoutImport`](#change-code-without-import-codechangecodewithoutimport)
-  - [Create a function from another function `:codeCreateFunctionFromAnotherFunction`](#create-a-function-from-another-function-codecreatefunctionfromanotherfunction)
-  - [Create a function from specs `:codeCreateFunctionFromSpecs`](#create-a-function-from-specs-codecreatefunctionfromspecs)
-  - [Merge file with almost same content `:codeMergeFileWithAlmostSameContent`](#merge-file-with-almost-same-content-codemergefilewithalmostsamecontent)
-  - [Base on file, update file `:codeUpdateFile`](#base-on-file-update-file-codeupdatefile)
-  - [Base on file, create a new similar file `:codeCreateNewSimilarFile`](#base-on-file-create-a-new-similar-file-codecreatenewsimilarfile)
-  - [Convert type into another type `:codeConvertType`](#convert-type-into-another-type-codeconverttype)
-  - [Help me thinking `:codeHelpThinking`](#help-me-thinking-codehelpthinking)
-  - [Improve code readability `:codeImproveReadability` (WIP 🚧)](#improve-code-readability-codeimprovereadability-wip-)
-  - [Give me an example of the usage of this function `:codeProvideExampleUsage` (WIP 🚧)](#give-me-an-example-of-the-usage-of-this-function-codeprovideexampleusage-wip-)
+- [🚛 Files](#-files)
+  - [Base on file, create a new similar file `:codeFileCreate`](#base-on-file-create-a-new-similar-file-codefilecreate)
 - [🚀 Generation](#-generation)
   - [Generate type hinting `:codeGenerateTypeHinting`](#generate-type-hinting-codegeneratetypehinting)
+  - [Generate a new function from specs `:codeGenerateFunctionFromSpecs`](#generate-a-new-function-from-specs-codegeneratefunctionfromspecs)
+  - [Generate transformer pattern `:codeGenerateTransformer`](#generate-transformer-pattern-codegeneratetransformer)
+  - [Generate a new function with different parameters `:codeGenerateFunction`](#generate-a-new-function-with-different-parameters-codegeneratefunction)
 
-## 🧑‍💻 Code
+## 🚛 Files
 
-### Change code without import `:codeChangeCodeWithoutImport`
-
-**Description**:
-
-Sometimes some AIs like GitHub Copilot are inserting import statements aside to the code. This prompt is to avoid that.
-
-**Prompt**:
-
-```text
-Do not import, just change the code to make it work.
-```
-
-### Create a function from another function `:codeCreateFunctionFromAnotherFunction`
-
-**Description**:
-
-Create a new function from another function with similar logic but different parameters.
-
-**Prompt**:
-
-```text
-Based on the code below (surrounded by "---" delimiters):
-
----
-[[Code of the existing function]]
----
-
-Create a new similar function that takes a different parameters.
-
-The new function should have the following signature:
-[[New function signature]]
-
-#file
-```
-
-### Create a function from specs `:codeCreateFunctionFromSpecs`
-
-**Description**:
-
-Create a function from specs.
-
-**Prompt**:
-
-```text
-Based on those specs (see below), create a function that returns "[[what you want to return]]".
-
----
-Verify that creating a tip defaults its status to "draft".
-Ensure that a draft tip cannot be voted on.
-Verify that once a tip is "scheduled", it cannot receive any more votes.
-Check that "archived" tips cannot be voted on.
----
-```
-
-### Merge file with almost same content `:codeMergeFileWithAlmostSameContent`
-
-**Description**:
-
-Merge two files with almost the same content.
-
-**Prompt**:
-
-```text
-Based on those two file names "[[filename 1]]" and "[[filename 2]]", merge logic to reduce code duplication.
-```
-
-### Base on file, update file `:codeUpdateFile`
-
-**Description**:
-
-Update a file based on another file.
-
-**Prompt**:
-
-```text
-Based on file: #file
-Update the file: #file
-
-Adapt the content to match the structure.
-```
-
-### Base on file, create a new similar file `:codeCreateNewSimilarFile`
+### Base on file, create a new similar file `:codeFileCreate`
 
 **Description**:
 
 Create a new "same" file based on a current file.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | In your editor.                                            |
+
+**Prompt**:
 
 ```text
 Based on file: #file
 Create a similar file structure for: #file
 Adapt the content to the new file using: #file
 
-You need to create a similar file structure, but adapting content and properties to new type.
+You need to create a similar file structure adapting content and properties to new type.
 ```
 
-### Convert type into another type `:codeConvertType`
+## 🚀 Generation
+
+### Generate type hinting `:codeGenerateTypeHinting`
 
 **Description**:
 
-Convert a type into another type.
+Type hint all necessary variables / functions in this code.
 
 **How to use the prompt**:
 
-| Usage                   | Context                                                  |
-|-------------------------|----------------------------------------------------------|
-| 🔁 **Follow-up prompt** | None                                                     |
-| 🗂️ **Requirements**     | None                                                     |
-| 🔍 **Context**          | None                                                     |
-| 📌 **Annotations**      | Optional `@workspace` if you decide to convert from paths|
-| ✅ **Variables needed** | Yes                                                      |
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | In your editor.                                            |
+
+**Prompt**:
+
+```text
+Type hints all necessary variables and functions in this code: #selection
+
+Import types if necessary.
+
+Assert that types match return values.
+
+Do not type "any" if possible.
+```
+
+### Generate a new function from specs `:codeGenerateFunctionFromSpecs`
+
+**Description**:
+
+Create a function from specs.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | In your editor.                                            |
+
+**Prompt**:
+
+```text
+Based on those specs below, create a function with the following signature "[[Function signature]]".
+
+---
+[[Fully detailed specs]]
+---
+
+#codebase
+```
+
+### Generate transformer pattern `:codeGenerateTransformer`
+
+**Description**:
+
+Create a function to transform a type into another type (mapping properties).
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | In your editor.                                            |
 
 **Prompt**:
 
@@ -145,39 +120,29 @@ For each property of the type to convert, find the corresponding property in the
 Please provide the following code.
 ```
 
-### Help me thinking `:codeHelpThinking`
+### Generate a new function with different parameters `:codeGenerateFunction`
+
+**Description**:
+
+Create a new function from another function with similar logic but different parameters.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | In your editor.                                            |
+
+**Prompt**:
 
 ```text
-I need you to help me think about the best way to implement this new functionality:
-[[new functionality]]
+Based on this code #selection, create a new similar function that takes a different parameters.
 
-Please provide the best coding steps regarding my existing code.
-```
+The new function should have the following signature (surrounded by a "---" delimiters):
+---
+[[New function signature]]
+---
 
-### Improve code readability `:codeImproveReadability` (WIP 🚧)
-
-```text
-I need you to improve the readability of the following code.
-
-Result should remain the same, but the code should be easier to read and understand.
-```
-
-### Give me an example of the usage of this function `:codeProvideExampleUsage` (WIP 🚧)
-
-```text
-Provide an example of the usage of this function, input and output.
-```
-
-## 🚀 Generation
-
-### Generate type hinting `:codeGenerateTypeHinting`
-
-```text
-Type hints all necessary variables in this code.
-
-Import types if necessary.
-
-Assert that types match return values.
-
-Do not type "any" if possible.
+File to implement the function: #file
 ```

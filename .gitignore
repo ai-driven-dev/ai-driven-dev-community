@@ -9,3 +9,5 @@ prompts/private/*
 scripts/scraper/websites/*
 *.pyc
 __pycache__/
+
+.plandex

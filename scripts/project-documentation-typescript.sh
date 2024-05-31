@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOCUMENTATION_DIR=${DOCUMENTATION_DIR:-'documentation/'}
-FILE_NAME=${FILE_NAME:-'all-in-one.txt'}
+FILE_NAME=${FILE_NAME:-'project-documentation.txt'}
 VERSION=${VERSION:-$(node -p "require('./package.json').version")}
 DATE=`date +%Y-%m-%d-%H:%M:%S`
 COMMIT_CHANGES=$1

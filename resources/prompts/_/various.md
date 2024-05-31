@@ -9,9 +9,13 @@ Some prompt we can use sometimes, tech related, or not :)
   - [Self criticize 🇫🇷 `:entreCriticizeAnswer`](#self-criticize--entrecriticizeanswer)
 - [🌄 Images](#-images)
   - [MidJourney realistic picture `:entreCreateMidJourneyRealisticPicture`](#midjourney-realistic-picture-entrecreatemidjourneyrealisticpicture)
+- [📜 PDF](#-pdf)
+  - [PDF file optimization `:pdfOptimisation`](#pdf-file-optimization-pdfoptimisation)
 - [💽 LLM](#-llm)
   - [Prompt evaluation `:llmPromptImprove`](#prompt-evaluation-llmpromptimprove)
   - [Answer evaluation with iteration `:llmAnswerEvaluate`](#answer-evaluation-with-iteration-llmanswerevaluate)
+- [📚 This repository](#-this-repository)
+  - [Update prompts based on contribution guide `:repoUpdatePromptsBasedOnContributionGuide`](#update-prompts-based-on-contribution-guide-repoupdatepromptsbasedoncontributionguide)
 
 ## 🖋️ Copywriting
 
@@ -57,6 +61,18 @@ At the end of you image generated prompt.
 
 ```text
 Use a high-resolution 16k camera with a 16:9 aspect ratio, a raw style, and a quality setting of 2 to capture this atmospheric scene. –ar 16:9 –v 6 –style raw.
+```
+
+## 📜 PDF
+
+### PDF file optimization `:pdfOptimisation`
+
+If you need to instruct this AI with a PDF, use this script to reduce file size and improve RAG's performance.
+
+```text
+# replace output.pdf and input.pdf with the correct file names
+
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[output.pdf]]" "[[input.pdf]]"
 ```
 
 ## 💽 LLM

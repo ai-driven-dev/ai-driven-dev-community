@@ -1,19 +1,37 @@
 # 🖥️ AI Driven Dev - "Refactoring" Prompts (`:refac`)
 
-- [� Audit](#-audit)
-  - [Audit code `:refacAuditCode`](#audit-code-refacauditcode)
-  - [Audit structure `:refacAuditStructure`](#audit-structure-refacauditstructure)
+Refactoring prompts for developers that need to improve their codebase!
+
+- [🕵️ Agents](#️-agents)
+  - [Create an agent to audit your code `:refacAgentAuditCode`](#create-an-agent-to-audit-your-code-refacagentauditcode)
+- [Audit](#audit)
+  - [Audit structure of the application `:refacAuditStructure`](#audit-structure-of-the-application-refacauditstructure)
 - [🔄 Refactoring](#-refactoring)
-  - [Extract generic code `:refacExtractGenericCode`](#extract-generic-code-refacextractgenericcode)
-  - [List potential refactoring `:refacListPotentialRefactoring`](#list-potential-refactoring-refaclistpotentialrefactoring)
-  - [Rewrite better code `:refacRewrite`](#rewrite-better-code-refacrewrite)
-  - [List steps to simplify code `:refacRefactor`](#list-steps-to-simplify-code-refacrefactor)
+  - [Merge 2 files with almost same content `:refacMergeFiles`](#merge-2-files-with-almost-same-content-refacmergefiles)
+  - [Create a new generic file from code `:refacExtractGenericFile`](#create-a-new-generic-file-from-code-refacextractgenericfile)
+  - [Advice generic function creation `:refacGenericFunctionCreationAdvice`](#advice-generic-function-creation-refacgenericfunctioncreationadvice)
+  - [Rewrite better code `:refacRewriteBetterCode`](#rewrite-better-code-refacrewritebettercode)
+  - [List steps to simplify code `:refacListSteps`](#list-steps-to-simplify-code-refacliststeps)
 - [🔥 Performance](#-performance)
   - [Improve code performance `:refacPerformanceImprove`](#improve-code-performance-refacperformanceimprove)
 
-## 🚔 Audit
+## 🕵️ Agents
 
-### Audit code `:refacAuditCode`
+### Create an agent to audit your code `:refacAgentAuditCode`
+
+**Description**:
+
+This prompt create a new "review" agent that can audit your code for your refactoring phases.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | ChatGPT / GitHub Copilot                                   |
+| 🔍 **Context**          | If you need to audit the code at any point.                |
+
+**Prompt**:
 
 ```text
 Your task is to analyze the provided code snippet and suggest improvements to optimize its performance.
@@ -45,9 +63,25 @@ Steps:
 4. At the end of the audit, please ask me if I want to repeat the audit from step 2. with this time, the newly generated code, until you get a "no" or you reach a maximum of 3 iterations, or you are satisfied with the result.
 ```
 
-### Audit structure `:refacAuditStructure`
+## Audit
 
-```text
+### Audit structure of the application `:refacAuditStructure`
+
+**Description**:
+
+Audit your project structure to identify potential issues in your architecture and suggest improvements.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | ChatGPT                                                    |
+| 🔍 **Context**          | When you want to step back an check your code structure.   |
+
+**Prompt**:
+
+````markdown
 As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
 Your responsibilities include:
 
@@ -79,20 +113,55 @@ Please provide a thorough analysis and structured recommendations, never recomme
 
 Project structure is: #file
 Project stack is: #file
-```
+````
 
 ## 🔄 Refactoring
 
-### Extract generic code `:refacExtractGenericCode`
+### Merge 2 files with almost same content `:refacMergeFiles`
 
-Hint : the more files you gave, the better: eg for example a generic code, better have two files with similar content to help the LLM about what to extract
+**Description**:
+
+Merge two files with almost the same content.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | Open the 2 files in your editor, side-by-side.             |
+
+**Prompt**:
 
 ```text
-I want to make this file generic so it can "have a generic useInfinite() to share code, so I can call getCategories or getItems with same generic function".
+Merge logic of those files to reduce code duplication.
 
-Following content is variable and that need to be extracted (also check for specific elements that I might have missed.):
-- Everything related to "category" or "categories"
-- including "transform" function
+File 1: #file
+File 2: #file
+```
+
+### Create a new generic file from code `:refacExtractGenericFile`
+
+**Description**:
+
+Extract a generic code from 1 or n files to make it reusable in other parts of the application.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | When you want a new generic function.                      |
+| 🔥 Hint                 | The more files you gave, the better: eg for example a generic code, better have two files with similar content to help the LLM about what to extract. |
+
+**Prompt**:
+
+```text
+I want to make this file generic so it can "[[purpose]]".
+
+Follow content in variable that need to be extracted (also check for specific elements that I might have missed.):
+[[specific elements that must be extracted]]
 
 Please:
 1. List all the elements that need to be extracted.
@@ -100,10 +169,25 @@ Please:
 3. List the steps to achieve the refactoring.
 4. Provide the code to add or modify (do not make unnecessary changes).
 
-#file
+File to make generic: #file
+Another file to help: #file
 ```
 
-### List potential refactoring `:refacListPotentialRefactoring`
+### Advice generic function creation `:refacGenericFunctionCreationAdvice`
+
+**Description**:
+
+Advice on a generic function creation.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | ChatGPT, Github Copilot                                    |
+| 🔍 **Context**          | When you need refactor but not sure on how.                |
+
+**Prompt**:
 
 ```text
 I want to make this file generic so it can: "[[what it should do]]".
@@ -111,41 +195,71 @@ I want to make this file generic so it can: "[[what it should do]]".
 Based on my tech, can you propose the 3 best way to do so?
 
 For each proposition, provide:
-- The code to add
-- Advantages and disadvantages
-- The impact on the code
+- The code to add.
+- Advantages and disadvantages.
+- The impact on the code.
 
-Following content is variable: 
+Things that need to be generic:
 [[function, variable, constant names...]]
 
-#file
+Implementation file: #file
 ```
 
-### Rewrite better code `:refacRewrite`
+### Rewrite better code `:refacRewriteBetterCode`
+
+**Description**:
+
+Just make your code a bit better.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | Improve your code readability at any stage.                |
+
+**Prompt**:
 
 ```text
 I need you to rewrite the following code #selection to make it better.
 
 If necessary, use those refactoring techniques:
-- Extract method
-- Inline method
-- Rename method
-- Move method
-- Group similar methods, variables or properties
-- Encapsulate field
-- Decompose conditional
-- Consolidate conditional expression
-- Consolidate duplicate conditional fragments
-- Remove assignments to parameters
-- Type hinting
-- Add full function documentation
+- Extract method.
+- Inline method.
+- Rename method.
+- Move method.
+- Group similar methods, variables or properties.
+- Encapsulate field.
+- Decompose conditional.
+- Consolidate conditional expression.
+- Consolidate duplicate conditional fragments.
+- Remove assignments to parameters.
+- Type hinting.
+- Add full function documentation.
 
 Focus on code performance.
 
 Make sure the code is still readable and maintainable, doing its best to keep the same logic.
 ```
 
-### List steps to simplify code `:refacRefactor`
+### List steps to simplify code `:refacListSteps`
+
+**Description**:
+
+List steps to simplify and beautify your code if you are not sure about its "quality".
+
+**How to use the prompt**:
+
+> Note : Bold usages are required, others are optional.
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | ChatGPT                                                    |
+| 🔍 **Context**          | When you want to find issues in the written code.          |
+
+**Prompt**:
 
 ```text
 Read #selection to simplify and beautify my code.
@@ -159,8 +273,22 @@ Make a bullet list of every potential readability issues that you identified.
 
 ### Improve code performance `:refacPerformanceImprove`
 
+**Description**:
+
+Improve your code execution speed.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot             .                               |
+| 🔍 **Context**          | Use it if this part of your app is kind of slow.           |
+
+**Prompt**:
+
 ```text
-I need you to improve the performance of the following code.
+I need you to improve the performance of the following code: #selection.
 
 1. Find the main performances issues in the code.
 2. List the necessary steps to improve the performance of the code.

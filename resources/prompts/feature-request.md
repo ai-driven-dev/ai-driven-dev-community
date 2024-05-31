@@ -1,25 +1,35 @@
 # 🖥️ AI Driven Dev - "Feature request" Prompts (`:feat`)
 
+This document provides you with a list of prompts that you can use to request the AI to generate new features or to help you implement existing ones.
+
 - [🆕 Create new features](#-create-new-features)
-  - [Generate feature user-stories from request `:featGenerateUS`](#generate-feature-user-stories-from-request-featgenerateus)
-  - [Extract coding steps for a sub-task `:featExtractCodingSteps`](#extract-coding-steps-for-a-sub-task-featextractcodingsteps)
-  - [Create coding steps from development steps `:featCreateCodingSteps`](#create-coding-steps-from-development-steps-featcreatecodingsteps)
+  - [Generate feature as User-Stories `:featGenerateUS`](#generate-feature-as-user-stories-featgenerateus)
+  - [Extract development steps `:featExtractDevSteps`](#extract-development-steps-featextractdevsteps)
+  - [Extract coding steps `:featExtractCodingSteps`](#extract-coding-steps-featextractcodingsteps)
 - [👌 Existing features](#-existing-features)
-  - [Acknowledge specs and code from specification from your feature `:featExAcknowledgements`](#acknowledge-specs-and-code-from-specification-from-your-feature-featexacknowledgements)
-  - [Give me output example based on your understandings `:featExOutputExample`](#give-me-output-example-based-on-your-understandings-featexoutputexample)
-  - [Answer LLM's questions about your feature (if needed) `:featExIterate`](#answer-llms-questions-about-your-feature-if-needed-featexiterate)
-- [🧪 Testing](#-testing)
-  - [List test cases from user-stories `:featTestingListTestCases`](#list-test-cases-from-user-stories-feattestinglisttestcases)
-  - [Acceptance Criteria as Gherkin `:featTestingConvertAcceptanceCriteriaIntoGherkin`](#acceptance-criteria-as-gherkin-feattestingconvertacceptancecriteriaintogherkin)
-  - [Unit test prompt generation `:featTestingGenerateUnitTestPrompt` (WIP 🚧)](#unit-test-prompt-generation-feattestinggenerateunittestprompt-wip-)
+  - [How to implement `:featExistingImplement`](#how-to-implement-featexistingimplement)
+  - [How to implement (answer) `:featExistingImplementAnswer`](#how-to-implement-answer-featexistingimplementanswer)
 
 ## 🆕 Create new features
 
-### Generate feature user-stories from request `:featGenerateUS`
+### Generate feature as User-Stories `:featGenerateUS`
+
+**Description**:
+
+From a feature, generate a full user-stories with acceptance criteria and sub-tasks.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | ChatGPT, [GPT Agile Coach](../ai-driven-dev-community/resources/llm-instructions/gpt-agile-coach.md) |
+| 🔍 **Context**          | If you feature is clear enough to generate a US.           |
+
+**Prompt**:
 
 ```text
-Goal:
-Generate a concise but full breakdown of this feature for our project.
+Goal: Generate a concise but full breakdown of this feature for our project.
 
 Rules:
 - Look for that information in your knowledge base to provide the best answer.
@@ -55,29 +65,59 @@ Here is a styled markdown template example you can inspire yourself with (surrou
 ---
 ```
 
-### Extract coding steps for a sub-task `:featExtractCodingSteps`
+### Extract development steps `:featExtractDevSteps`
+
+**Description**:
+
+From a feature, extract the development steps for each sub-task.
 
 Ask the LLM to generate fully detailed ticket based on the user stories for an individual sub-task.
 
-> ⚠️ For best result you MUST re-upload `documentation.md` before using this prompt.
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | ChatGPT, [GPT RAG Dev](../llm-instructions/gpt-rag-developer.md) |
+| 🔍 **Context**          | If the user-story is clear.                                |
+| ✨ Required before      | Sub-task of a User-Story required.                         |
+| ✅ External files       | Re-upload `project-documentation.txt` first.               |
+
+**Prompt**:
 
 ```text
-Given the coding task detailed below:
+Given the task detailed below (surrounded by "---" delimiters), can you provide me with the development steps for each sub-task?
 
-"""
+---
 [[sub task full description]]
-"""
+---
 
-0. For each question, search into knowledge base.
-1. Recall name, tech stack and libraries from [[package.json | composer.json | requirements.txt]] in the knowledge base.
-2. Concentrate solely on the task at hand.
-3. Identify any potential missing sub-tasks.
-4. Reformulate tasks in one line.
-5. Look for that information in your `documentation.md` file in your knowledge base to provide the best answer.
-6. Provide one-line action steps, specifying new or existing file paths without generating code.
+1. For each question, search into knowledge base.
+2. Recall name, tech stack and libraries from [[package.json | composer.json | requirements.txt]] in the knowledge base.
+3. Concentrate solely on the task at hand.
+4. Identify any potential missing sub-tasks.
+5. Reformulate tasks in one line.
+6. Look for that information in your `project-documentation.txt` file in your knowledge base to provide the best answer.
+7. Provide one-line action steps, specifying new or existing file paths without generating code.
 ```
 
-### Create coding steps from development steps `:featCreateCodingSteps`
+### Extract coding steps `:featExtractCodingSteps`
+
+**Description**:
+
+Base on the detailed development steps, extract the coding steps for each sub-task.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | ChatGPT, [GPT RAG Dev](../llm-instructions/gpt-rag-developer.md) |
+| 🔍 **Context**          | Go to development steps.                                   |
+| ✨ Required before      | Development steps extracted before.                        |
+| ✅ External files       | Uploaded `project-documentation.txt`.                      |
+
+**Prompt**:
 
 ```text
 Recalling our earlier discussion about the project tasks:
@@ -93,34 +133,55 @@ Recalling our earlier discussion about the project tasks:
 
 ## 👌 Existing features
 
-### Acknowledge specs and code from specification from your feature `:featExAcknowledgements`
+### How to implement `:featExistingImplement`
+
+**Description**:
+
+For an existing feature, extract the development steps for each sub-task.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | ChatGPT, [GPT RAG Dev](../llm-instructions/gpt-rag-developer.md) |
+| 🔍 **Context**          | If you need to implement a new feature.                    |
+
+**Prompt**:
   
 ```text
 Here are the specifications of the feature I need to code (surrounded by "---" delimiters).
+---
+[[Copy and paste the specifications here]]
+---
 
 Now, can you:
-
-1. Acknowledge it
-2. Reformulate in bullet point grouped by section to show me that you understood what to do
-3. Generate development steps (based on an existing projet you do not know nothing about)
+- Acknowledge it.
+- Reformulate in bullet point grouped by section to show me that you understood what to do.
+- Generate development steps (based on an existing projet you do not know nothing about).
 
 Finally, ask me the relevant questions about implementing the feature in my project regarding my project's tech stack and libraries.
 
 Ask anything you need to know, like existing code, libraries, mockups available, logics, etc.
-
----
-[[Copy and paste the specifications here]]
----
 ```
 
-### Give me output example based on your understandings `:featExOutputExample`
+### How to implement (answer) `:featExistingImplementAnswer`
 
-```text
-Give me an output example based on your understandings, with required inputs and the expected output.
-```
+**Description**:
 
-### Answer LLM's questions about your feature (if needed) `:featExIterate`
+Answer the Chat about how to implement the existing feature.
 
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | ChatGPT, [GPT RAG Dev](../llm-instructions/gpt-rag-developer.md) |
+| 🔍 **Context**          | After you started to talk to implement the existing feature. |
+| ✨ Required before      | How to implement prompt                                    |
+
+**Prompt**:
+  
 ```text
 Here are some answers about your previous questions.
 
@@ -134,65 +195,4 @@ Can you merge this new information together with the previous ones, and then:
 Here are my answers:
 
 [[Your answers to the previous questions]]
-```
-
-## 🧪 Testing
-
-### List test cases from user-stories `:featTestingListTestCases`
-
-**Description**:
-
-List functional tests for a feature based on a user-story.
-
-The idea is to have an exhaustive list of tests to be done.
-
-**Prompt**:
-
-```text
-From those specifications (surrounded by --- delimiter):
-
----
-[[Feature to build, be as detailed as possible]]
----
-
-You have to list test cases with the following rules:
-
-- Detect edge cases and exceptions.
-- Group by distinct sections.
-- Format with bullet list with small sentences.
-- [[Do not test UI, focus the logic only | Test the UI if needed | Test the UI and the logic]].
-```
-
-### Acceptance Criteria as Gherkin `:featTestingConvertAcceptanceCriteriaIntoGherkin`
-
-Transforms some acceptance criteria into Gherkin syntax.
-
-```text
-From this acceptance criteria, can you transform it into Gherkin syntax?
-
-[[Acceptance criteria]]
-```
-
-### Unit test prompt generation `:featTestingGenerateUnitTestPrompt` (WIP 🚧)
-
-**Description**:
-
-Based on a functional requirement, generate a unit test prompt for our coding AI.
-
-Before testing the function, we need to make sure first that we are using the good technique.
-
-**Prompt**:
-
-```text
-I need you to act as a test engineer and generate a unit test prompt for my feature (surrounded by "---" delimiters):
-
-"""
-[[Functional requirement]]
-"""
-
-You need to generate a very concise unit test prompt for an AI that will write the unit test code.
-
-If necessary, use those unit testing techniques:
-
-Mocking, Stubbing, Spying, Faking, Dependency Injection, Test Parameterization, Isolation (Sandboxing)
 ```

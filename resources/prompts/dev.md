@@ -1,8 +1,11 @@
-# 🧑‍💻 Dev prompts / shortcuts for developers using AI `:dev`
+# 🧑‍💻 Dev prompts / shortcuts for developers using AI
+
+Really short useful snippets for developers using AI.
 
 - [🖋️ Shorts Snippets](#️-shorts-snippets)
   - ["Do not import" `:dni`](#do-not-import-dni)
   - [Indentation `:indent`](#indentation-indent)
+  - [Inline `:inline`](#inline-inline)
 
 ## 🖋️ Shorts Snippets
 

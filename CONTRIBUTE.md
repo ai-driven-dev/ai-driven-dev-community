@@ -1,4 +1,4 @@
-# 🫂 Contributing for prompts (with text expansion)
+# 🔥 Contributing Guide for developers
 
 Your contributions are vital to making this project great and we welcome contributions from everyone.
 
@@ -46,11 +46,11 @@ If you need help or have any questions, feel free to open an issue for discussio
 
 Triggers are named using the following structure:
 
-| #1 Title     | #2 Section    | #3 Action   | #4 Target (*optional*) | Result                               |
+| #1 Title     | #2 Section (optional)    | #3 Action   | #4 Target (*optional*) | Result                               |
 | ------------ | ------------- | ----------- | ---------------------- | ------------------------------------ |
-| `:instruct`  | Image         | Extract     | Mockup Info            | `:instructImageExtractInfoMockup`    |
-| `:code`      | Test          | Fix         | FailedTest             | `:codeTestFixFailedTest`             |
-| `:language`  | Documentation | Convert     | Object                 | `:languageDocumentationConvertObject`|
+| `:test`  | Structure         | Create     | Empty             | `:testStructureCreateEmpty`    |
+| `:fix`      | Debug          | Code         | Steps             | `:fixDebugCodeSteps`             |
+| `:doc`  | Documentation | Search     | URL                 | `:docSearchURL`|
 
 ### Explanation
 
@@ -118,16 +118,21 @@ You can use variables in your prompt which make them so efficient!
 
 **How to use the prompt**:
 
+> Note : Bold usages are required, others are optional.
+
 | Usage                   | Context                                                    |
 |-------------------------|------------------------------------------------------------|
-| 🚀 **Author**           | [@alexsoyes](https://www.linkedin.com/in/alexandre-soyer)  |
-| 🤖 **Tool**             | Github Copilot, ChatGPT, ...                               |
-| 🔍 **Context**          | Where to use it, on which file etc.            |
-| ✨ Required before      | Prompt triggers required before this one        |
-| ✅ Requirements         | Files needed in order to use this prompt       |
-| 📦 Dependencies         | Necessary installation to proceed before using                                |
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot, ChatGPT, [GPT Agile Coach](../ai-driven-dev-community/resources/llm-instructions/gpt-agile-coach.md), [GPT RAG Dev](../llm-instructions/gpt-rag-developer.md) |
+| 🔍 **Context**          | Where to use it, on which file etc.                        |
+| ✨ Required before      | Prompt triggers required before this one.                  |
+| ✅ External files       | Files needed in order to use this prompt.                  |
+| 📦 Dependencies         | Necessary installation to proceed before using.            |
+| 🔥 Hint                 | Something to notice about this prompt.                     |
+| ⚠️ Warning               | Warn the developer about a specific element.               |
+| 📜 Todo                 | If more can be achieved in the next prompt release.        |
 
-**Prompt/Code**:
+**Prompt/Code/Usage**:
 
 ```text
 This prompt is about: "[[quick feature description]]".

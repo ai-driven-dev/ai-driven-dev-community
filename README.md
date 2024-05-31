@@ -145,9 +145,9 @@ Here are the best prompts to use in your IDE... Sorted!
 
 Feel free to use them and add your own! ❤️ (credit your own prompts)
 
-- 🐛 [Bug Fixing](./resources/prompts/bug-fixing.md)
+- 🐛 [Bug Fixing](./resources/prompts/bug-fixing.md) (*in progress*)
 - 🕵️‍♀️ [Code Review](./resources/prompts/code-review.md) (*in progress*)
-- 💻 [Code writing](./resources/prompts/code-writing.md)
+- 💻 [Code Writing](./resources/prompts/code-writing.md)
 - 📚 [Documentation](./resources/prompts/documentation.md)
 - 🛠️ [General Dev](./resources/prompts/dev.md) - Help to use AI in our daily work (but not specifically AI oriented).
 - ♻️ [Refactoring](./resources/prompts/refactoring.md) (*in progress*)
@@ -166,12 +166,11 @@ Sometimes you need a bigger context to get the best out of your AI.
 
 ![ChatGPT Prompt Trigger](images/chatgpt-espanso-text-trigger.gif)
 
-Use those dev prompts in your ChatGPT:
+Use those dev prompts (mostly in ChatGPT or equivalent):
 
 - 🗃️ [Database](./resources/prompts/database.md)
 - 🖼️ [Image to Code](./resources/prompts/image-to-code.md)
 - 🚀 [Feature Request](./resources/prompts/feature-request.md)
-- 🏗️ [Project Architecture](./resources/prompts/project-architecture.md)
 - 📋 [Project Management](./resources/prompts/project-management.md)
 - 🚧 [Project Setup](./resources/prompts/project-setup.md)
 

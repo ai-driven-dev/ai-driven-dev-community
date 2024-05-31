@@ -12,10 +12,6 @@ That way, every times you will use the AI, it will remember your preferences and
 
 - [🗃️ Documents list to provide](#️-documents-list-to-provide)
   - [Project structure generation `:ragProjectStructureGenerate`](#project-structure-generation-ragprojectstructuregenerate)
-  - [PDF file optimization `:ragPDFOptimize`](#pdf-file-optimization-ragpdfoptimize)
-  - [Generate your project documentation](#generate-your-project-documentation)
-    - [TypeScript  `:ragGenerateProjectDocumentationTS`](#typescript--raggenerateprojectdocumentationts)
-  - [Get \& Merge Documentation from GitHub repository `:ragMergeMarkdownFiles`](#get--merge-documentation-from-github-repository-ragmergemarkdownfiles)
 - [🧠 Create a RAG for your project](#-create-a-rag-for-your-project)
   - [Instructions for AI to act as a developer `:ragInstructions`](#instructions-for-ai-to-act-as-a-developer-raginstructions)
   - [Conversation starters](#conversation-starters)
@@ -34,7 +30,7 @@ Giving the AI the right context is key to get the best out of it, and it starts 
 | --- | --- | --- | --- |
 | Yes | Tech Stack | Used to instruct LLM about the versions of your libs. | `package.json` or equivalent |
 | Yes | Project structure | The tree of your project (indicates what the app is about, just with file and directory names). | Generate project structure from bellow 👇 |
-| Yes | Technical documentation | The whole architected project classes, functions | `typedoc` with markdown extract as `documentation.md` ([example](https://github.com/alexsoyes/weekly-ai-tips/blob/main/package.json#L9)) |
+| Yes | Technical documentation | The whole architected project classes, functions | `typedoc` with markdown extract as `project-documentation.txt` ([example](https://github.com/alexsoyes/weekly-ai-tips/blob/main/package.json#L9)) |
 | No | Mockups or Pages Design | UI exported as `.pdf` with optimized size | `wire-frames.pdf`  |
 
 ### Project structure generation `:ragProjectStructureGenerate`
@@ -70,86 +66,6 @@ echo "🗄️ Excluded directories: $EXCLUDE_DIRS"
 echo "# Project structure for $CURRENT_DIR directory" | tee "$FILE_NAME_STRUCTURE" && tree -aI "$EXCLUDE_DIRS" >> "$FILE_NAME_STRUCTURE"
 
 # source: scripts/project-structure.sh
-```
-
-### PDF file optimization `:ragPDFOptimize`
-
-If you need to instruct this AI with a PDF, use this script to reduce file size and improve RAG's performance.
-
-```text
-# replace output.pdf and input.pdf with the correct file names
-
-gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="[[output.pdf]]" "[[input.pdf]]"
-```
-
-### Generate your project documentation
-
-#### TypeScript  `:ragGenerateProjectDocumentationTS`
-
-**Description:**
-
-Using `typedoc` to generate the documentation for your TypeScript project.
-
-**How to use the prompt**:
-
-| Usage                   | Contexte                                                   |
-|-------------------------|------------------------------------------------------------|
-| 📦 **Dependencies**     | `npm install -D typedoc typedoc-plugin-markdown`           |
-
-**Usage**:
-
-```json
-{
-  "doc:export": "curl -s https://raw.githubusercontent.com/alexsoyes/ai-driven-dev-community/main/scripts/project-documentation-typescript.sh | sh",
-}
-```
-
-**Script:**
-
-```bash
-#!/bin/bash
-
-DOCUMENTATION_DIR=${DOCUMENTATION_DIR:-'documentation/'}
-FILE_NAME=${FILE_NAME:-'all-in-one.txt'}
-VERSION=${VERSION:-$(node -p "require('./package.json').version")}
-DATE=`date +%Y-%m-%d-%H:%M:%S`
-COMMIT_CHANGES=$1
-
-echo "Exporting markdown files for version $VERSION"
-
-typedoc --options typedoc.json --plugin typedoc-plugin-markdown --out "${DOCUMENTATION_DIR}"
-
-cd "${DOCUMENTATION_DIR}"
-
-find . -name '*.md*' ! -name "${FILE_NAME}" -exec cat {} \; > "${FILE_NAME}"
-
-# Write the version and date to the top of the file
-
-sed -i '' '1s/^/---\n\n/' "${FILE_NAME}"
-sed -i '' '1s/^/date: '$DATE'\n/' "${FILE_NAME}"
-sed -i '' '1s/^/version: '$VERSION'\
-/' "${FILE_NAME}"
-sed -i '' '1s/^/---\n/' "${FILE_NAME}"
-
-cd ..
-
-if [ "$COMMIT_CHANGES" == "--commit" ]; then
-  git add "${DOCUMENTATION_DIR}"
-  git commit -m "docs: update project documentation for version $VERSION"
-fi
-
-# source: scripts/project-documentation-typescript.sh
-```
-
-### Get & Merge Documentation from GitHub repository `:ragMergeMarkdownFiles`
-
-- Use [Download GitHub Directory](https://download-directory.github.io/) to download the repository as a zip file
-- Unzip the file
-- Run the following command to create a `.txt` documentation file
-- Then, upload that file in the AI and ask for a summary
-
-```bash
-find . -type f -name '*.md*' -exec cat {} \; > [[filename like, eg: documentation.text]]
 ```
 
 ## 🧠 Create a RAG for your project

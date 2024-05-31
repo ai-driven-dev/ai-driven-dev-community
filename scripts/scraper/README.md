@@ -22,7 +22,7 @@ pip install -r requirements.txt
 
 To run the scraper, use the following command:
 
-```bash
+```shell
 scrapy crawl html_spider -a domain=nuqs.47ng.com -a path=docs -a useMarkdown=True
 ```
 
