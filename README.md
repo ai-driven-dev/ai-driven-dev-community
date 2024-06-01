@@ -19,6 +19,7 @@ Get started easily with the **AI Driven Dev Community**:
 - [**0#** 🚀 Get started](#0--get-started)
   - [Best practices](#best-practices)
   - [Tools to install](#tools-to-install)
+  - [Example workflow of an AI Driven Dev](#example-workflow-of-an-ai-driven-dev)
 - [**1#** 🤖 Custom AI for developers](#1--custom-ai-for-developers)
   - [RAG Developer](#rag-developer)
   - [Best Instructions](#best-instructions)
@@ -71,6 +72,12 @@ If you do follow these best practices, you will become a 10x Dev in no time.
 Free and Paid alternatives are available for each tool.
 
 [![Best list of AI Tools for developers](https://img.shields.io/badge/-Notion%20List%20of%20best%20AI%20Tools%20for%20developers-purple?style=for-the-badge)](https://alexsoyes.notion.site/c858af13ed704d7184456a3f8ac21f07?v=79a8d07b1e414ced99fcd210970b2ee8)
+
+### Example workflow of an AI Driven Dev
+
+Here is a basic workflow of how you can combine prompts, parameters and AI instructions.
+
+![AIDD Workflow](images/aiddc-workflow.gif)
 
 ## **1#** 🤖 Custom AI for developers
 
