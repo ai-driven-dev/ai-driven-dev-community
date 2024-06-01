@@ -32,7 +32,7 @@ It allows you to use `triggers` to expand text snippets... that act as prompts!
 
 > Think of it as a library of prompts for developers that can be searched anytime and anywhere.
 
-![VSCode with Espanso](https://file%2B.vscode-resource.vscode-cdn.net/Users/alexsoyer/Projects/ai-driven-dev-community/images/vscode-espanso-code-inline-chat.gif?version%3D1717052148784)
+![VSCode with Espanso](./images/vscode-espanso-code-inline-chat.gif)
 
 ## 💪 Need Help?
 
@@ -84,7 +84,7 @@ Always add a title, it can be a title 2 to 6 (`##` to `######`) and end with the
 
 Not specifying (`:trigger`) in the title will not trigger Espanso config changes.
 
-![Espanso text trigger](https://file%2B.vscode-resource.vscode-cdn.net/Users/alexsoyer/Projects/ai-driven-dev-community/images/chatgpt-espanso-text-trigger.gif?version%3D1717051915134)
+![Espanso text trigger](./images/chatgpt-espanso-text-trigger.gif)
 
 ### Description
 

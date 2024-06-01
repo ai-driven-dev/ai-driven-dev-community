@@ -1,4 +1,4 @@
-![AI-Driven Dev Community FR](https://file%2B.vscode-resource.vscode-cdn.net/Users/alexsoyer/Projects/ai-driven-dev-community/images/aiddc.png?version%3D1717239016729)
+![AI-Driven Dev Community FR](./images/aiddc.png)
 
 # AI Driven Dev Community
 
