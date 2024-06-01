@@ -1,3 +1,5 @@
+![AI-Driven Dev Community FR](https://file%2B.vscode-resource.vscode-cdn.net/Users/alexsoyer/Projects/ai-driven-dev-community/images/aiddc.png?version%3D1717239016729)
+
 # AI Driven Dev Community
 
 Our goal is to help you become a 10x developer by coding with AI.
@@ -63,6 +65,7 @@ If you do follow these best practices, you will become a 10x Dev in no time.
 - [Espanso](https://espanso.org) - Text expander to use the prompts in your daily work. (Required * for the prompts)
 - [ChatGPT](https://chat.openai.com) - AI to help you in your daily work. (Recommended)
 - [GitHub Copilot](https://copilot.github.com) - AI to help you code faster. (Recommended)
+- [Maccy](https://maccy.app) - OSX Clipboard manager to use the prompts easily. (Recommended)
 - [VSCode](https://code.visualstudio.com) - Because Copilot AI features are available sooner in this IDE. (Recommended)
 
 Free and Paid alternatives are available for each tool.
