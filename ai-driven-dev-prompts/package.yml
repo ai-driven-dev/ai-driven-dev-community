@@ -2,30 +2,32 @@
 preserve_clipboard: false
 
 matches:
-  - trigger: ':fixListPotentialIssues'
+  - trigger: ':bugListTechnicalIssues'
     form: |
-      I have this error in my code (surrounded by "---" delimiters):
+      Check all those hypothesis by proposing code change to fix the issue.
 
       ---
-      [[error_message]]
+      [[hypothesis]]
       ---
 
-      Context (what I was trying to do): "[[context]]"
+      - put comment to describe what you are doing
+      - add logging to debug the issue if necessary
 
-      Potential issues: 
-      [[potential_issues]]
-
-      Please list all potential solutions and steps to fix the code, sorted by relevance.
-
-      #editor
+      #file
     force_mode: clipboard
     form_fields:
       error_message:
         multiline: true
-      potential_issues:
+      context:
         multiline: true
-  - trigger: ':fixFindFunctionalIssue'
+      potential_issues_you_target_or_things_that_you_can_assert_is_not_the_issue:
+        multiline: true
+      hypothesis:
+        multiline: true
+  - trigger: ':bugFindFunctionalIssue'
     form: |
+      @workspace
+
       In my application, when I do: "[[action]]"
       I expect: "[[expectation]]"
       But I get that issue (surrounded by "---" delimiters):
@@ -35,7 +37,9 @@ matches:
 
       Please list potentials issues and steps to fix the code, sorted by relevance.
 
-      #editor
+      Note that the issue might be induced by another part of the code, so you might need to check the whole code.
+
+      #file
 
       [[more_code_context_if_needed]]
     force_mode: clipboard
@@ -44,16 +48,15 @@ matches:
         multiline: true
       more_code_context_if_needed:
         multiline: true
-  - trigger: ':fixFindTechnicalIssue'
+  - trigger: ':bugFindTechnicalIssue'
     form: |
       I do have this issue on my project, can you help me figure it out?
 
-      When I: "click on the ButtonIcon passing a buttonInfo in the component, it is providing a tooltip"
+      When I: "[[do]]".
+      I do expect: "[[that]]".
+      But instead I get that issue: "[[error]]".
 
-      I do expect: "the button to be still clickable" But instead I get that issue: "i click, the state changed but the dropdown is not shown"
-
-      Maybe it cancel my focus which trigger the state to be set to false.
-      Notes: Every components are using Radix internally
+      Notes: [[more_notes_if_any]]
 
       Please list potentials issues and steps to fix the code, sorted by relevance, in bullet points.
 
@@ -61,7 +64,10 @@ matches:
 
       #file
     force_mode: clipboard
-  - trigger: ':fixFindIssuesAndFix'
+    form_fields:
+      more_notes_if_any:
+        multiline: true
+  - trigger: ':bugFindIssuesAndFix'
     form: |
       Fix the following issues in the code #selection:
 
@@ -84,11 +90,11 @@ matches:
 
       For each issue, provide the best possible solution following code pattern.
     force_mode: clipboard
-  - trigger: ':fixDebugCodeSteps'
+  - trigger: ':bugDebugCodeSteps'
     form: |
       Add logging at each steps of the code to debug errors.
     force_mode: clipboard
-  - trigger: ':fixAddLoggingEmojis'
+  - trigger: ':bugAddLoggingEmojis'
     form: |
       Add logging messages at each important steps of this code, including inner function.
       Use appropriate emojis at the beginning of the logging message.
@@ -96,6 +102,20 @@ matches:
     force_mode: clipboard
 
 
+  - trigger: ':codeBasedGenerate'
+    form: |
+      Based on existing code (surrounded by "---" delimiters):
+      ---
+      [[code_to_be_inspired_on]]
+      ---
+
+      Generate new similar code for #selection regarding "[[things_you_want_to_do]]".
+
+      Adapt the existing code with the new one regarding names.
+    force_mode: clipboard
+    form_fields:
+      code_to_be_inspired_on:
+        multiline: true
   - trigger: ':codeFileCreate'
     form: |
       Based on file: #file
@@ -309,6 +329,19 @@ matches:
       Provide an example of the usage of this function, input and output and add it in code comments.
     force_mode: clipboard
 
+  - trigger: ':featCodeSpec'
+    form: |
+      @workspace from #codebase I need to implement this new feature:
+
+      ---
+      [[feature_to_build_be_as_detailed_as_possible]]
+      ---
+
+      List all the required steps to code it.
+    force_mode: clipboard
+    form_fields:
+      feature_to_build_be_as_detailed_as_possible:
+        multiline: true
   - trigger: ':featGenerateUS'
     form: |
       Goal: Generate a concise but full breakdown of this feature for our project.
@@ -866,18 +899,20 @@ matches:
   - trigger: ':refacAuditStructure'
     form: |
       As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
-      Your responsibilities include:
 
+      Your responsibilities also include:
+
+      - Understanding the project stack and structure.
       - Identifying and listing potential issues in the project structure.
       - Proposing improvements for each identified issue, with clear explanations of why these improvements are beneficial.
-      - Reviewing the project for any empty folders, suggesting a purpose or recommending removal.
+      - Reviewing the project for any empty folders if any.
       - Checking for duplicated files and proposing strategies to eliminate redundancies.
       - Evaluating file naming conventions to ensure clarity, conciseness, and consistency.
       - Identifying any files that are overly large or too generically named, suggesting better practices.
       - Providing a detailed list of files or folders with issues.
       - If necessary, suggesting a more efficient overall project structure.
 
-      For each of the above points, write a detailed explanation in this format:
+      For each of those point, look for the whole project structure and identify all the issues that matches the point.
       """
       # Issue
 
@@ -896,6 +931,30 @@ matches:
 
       Project structure is: #file
       Project stack is: #file
+    force_mode: clipboard
+  - trigger: ':refacListDesignPatterns'
+    form: |
+      List the existing design patterns in the following code, if any: #selection.
+
+      Then, provide a list of design patterns that can be implemented in the selected code.
+
+      For each design pattern, provide:
+      - A very brief description of the design pattern.
+      - Why it is effective.
+      - The benefits and drawbacks of using the design pattern.
+      - An example of how the design pattern can be implemented in the selected technology.
+
+      Technology: "[[technology]]"
+    force_mode: clipboard
+  - trigger: ':refacApplyDesignPattern'
+    form: |
+      Apply the following design pattern to the selected code: #selection.
+
+      1. Check if the selected code can be refactored using the design pattern.
+      2. Explain how the design pattern can be applied to the selected code.
+      3. Provide the refactored code using the design pattern.
+
+      Design Pattern: "[[design_pattern]]"
     force_mode: clipboard
   - trigger: ':refacMergeFiles'
     form: |
@@ -1075,9 +1134,9 @@ matches:
     form: |
       Based on existing test case #selection in file #file
 
-      Generate a new similar test case for the functions (surrounded bu "---" delimiter):
+      Generate a new similar test cases for:
       ---
-      [[function_to_test]]
+      [[bullet_point_of_things_to_test_or_function_names]]
       ---
 
       Rules:
@@ -1086,7 +1145,7 @@ matches:
       - Changes types accordingly for new test case.
     force_mode: clipboard
     form_fields:
-      function_to_test:
+      bullet_point_of_things_to_test_or_function_names:
         multiline: true
   - trigger: ':testGenerateNewTest'
     form: |

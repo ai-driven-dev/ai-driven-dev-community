@@ -232,9 +232,9 @@ Generate a similar test from an existing test case using existing test structure
 ````text
 Based on existing test case #selection in file #file
 
-Generate a new similar test case for the functions (surrounded bu "---" delimiter):
+Generate a new similar test cases for:
 ---
-[[function to test]]
+[[bullet point of things to test or function names]]
 ---
 
 Rules:

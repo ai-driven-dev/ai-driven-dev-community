@@ -11,3 +11,5 @@ scripts/scraper/websites/*
 __pycache__/
 
 .plandex
+
+images/.DS_Store

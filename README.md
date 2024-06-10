@@ -1,6 +1,6 @@
-![AI-Driven Dev Community FR](./images/aiddc.png)
-
 # AI Driven Dev Community
+
+![AI-Driven Dev Community FR](./images/aiddc.png)
 
 Our goal is to help you become a 10x developer by coding with AI.
 

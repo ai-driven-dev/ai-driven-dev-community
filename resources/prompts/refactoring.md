@@ -6,6 +6,9 @@ Refactoring prompts for developers that need to improve their codebase!
   - [Create an agent to audit your code `:refacAgentAuditCode`](#create-an-agent-to-audit-your-code-refacagentauditcode)
 - [Audit](#audit)
   - [Audit structure of the application `:refacAuditStructure`](#audit-structure-of-the-application-refacauditstructure)
+- [📐 Design patterns](#-design-patterns)
+  - [List design patterns for a specific technology `:refacListDesignPatterns`](#list-design-patterns-for-a-specific-technology-refaclistdesignpatterns)
+  - [Apply design pattern `:refacApplyDesignPattern`](#apply-design-pattern-refacapplydesignpattern)
 - [🔄 Refactoring](#-refactoring)
   - [Merge 2 files with almost same content `:refacMergeFiles`](#merge-2-files-with-almost-same-content-refacmergefiles)
   - [Create a new generic file from code `:refacExtractGenericFile`](#create-a-new-generic-file-from-code-refacextractgenericfile)
@@ -83,18 +86,20 @@ Audit your project structure to identify potential issues in your architecture a
 
 ````markdown
 As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
-Your responsibilities include:
 
+Your responsibilities also include:
+
+- Understanding the project stack and structure.
 - Identifying and listing potential issues in the project structure.
 - Proposing improvements for each identified issue, with clear explanations of why these improvements are beneficial.
-- Reviewing the project for any empty folders, suggesting a purpose or recommending removal.
+- Reviewing the project for any empty folders if any.
 - Checking for duplicated files and proposing strategies to eliminate redundancies.
 - Evaluating file naming conventions to ensure clarity, conciseness, and consistency.
 - Identifying any files that are overly large or too generically named, suggesting better practices.
 - Providing a detailed list of files or folders with issues.
 - If necessary, suggesting a more efficient overall project structure.
 
-For each of the above points, write a detailed explanation in this format:
+For each of those point, look for the whole project structure and identify all the issues that matches the point.
 """
 # Issue
 
@@ -114,6 +119,64 @@ Please provide a thorough analysis and structured recommendations, never recomme
 Project structure is: #file
 Project stack is: #file
 ````
+
+## 📐 Design patterns
+
+### List design patterns for a specific technology `:refacListDesignPatterns`
+
+**Description**:
+
+List design patterns for a specific technology like React or TypeScript.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | GitHub Copilot, ChatGPT                                    |
+| 🔍 **Context**          | When you want to refactor your code with design patterns.  |
+
+**Prompt**:
+
+```text
+List the existing design patterns in the following code, if any: #selection.
+
+Then, provide a list of design patterns that can be implemented in the selected code.
+
+For each design pattern, provide:
+- A very brief description of the design pattern.
+- Why it is effective.
+- The benefits and drawbacks of using the design pattern.
+- An example of how the design pattern can be implemented in the selected technology.
+
+Technology: "[[technology]]"
+```
+
+### Apply design pattern `:refacApplyDesignPattern`
+
+**Description**:
+
+Apply a design pattern to a specific code selection.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | GitHub Copilot, ChatGPT                                    |
+| 🔍 **Context**          | When you want to refactor using a specific design pattern. |
+
+**Prompt**:
+
+```text
+Apply the following design pattern to the selected code: #selection.
+
+1. Check if the selected code can be refactored using the design pattern.
+2. Explain how the design pattern can be applied to the selected code.
+3. Provide the refactored code using the design pattern.
+
+Design Pattern: "[[design pattern]]"
+```
 
 ## 🔄 Refactoring
 

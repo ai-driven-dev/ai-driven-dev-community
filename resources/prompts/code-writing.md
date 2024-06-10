@@ -3,6 +3,7 @@
 Related to code interaction in your IDE with an embedded AI model (like GitHub Copilot).
 
 - [🚛 Files](#-files)
+  - [Base on code, generate new `:codeBasedGenerate`](#base-on-code-generate-new-codebasedgenerate)
   - [Base on file, create a new similar file `:codeFileCreate`](#base-on-file-create-a-new-similar-file-codefilecreate)
 - [🚀 Generation](#-generation)
   - [Generate type hinting `:codeGenerateTypeHinting`](#generate-type-hinting-codegeneratetypehinting)
@@ -11,6 +12,33 @@ Related to code interaction in your IDE with an embedded AI model (like GitHub C
   - [Generate a new function with different parameters `:codeGenerateFunction`](#generate-a-new-function-with-different-parameters-codegeneratefunction)
 
 ## 🚛 Files
+
+### Base on code, generate new `:codeBasedGenerate`
+
+**Description**:
+
+Generate some new code based on existing one.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | In your editor.                                            |
+
+**Prompt**:
+
+```text
+Based on existing code (surrounded by "---" delimiters):
+---
+[[Code to be inspired on]]
+---
+
+Generate new similar code for #selection regarding "[[things you want to do]]".
+
+Adapt the existing code with the new one regarding names.
+```
 
 ### Base on file, create a new similar file `:codeFileCreate`
 

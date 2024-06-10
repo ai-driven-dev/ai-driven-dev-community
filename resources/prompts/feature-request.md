@@ -3,6 +3,7 @@
 This document provides you with a list of prompts that you can use to request the AI to generate new features or to help you implement existing ones.
 
 - [🆕 Create new features](#-create-new-features)
+  - [Create a short feature in the code `:featCodeSpec`](#create-a-short-feature-in-the-code-featcodespec)
   - [Generate feature as User-Stories `:featGenerateUS`](#generate-feature-as-user-stories-featgenerateus)
   - [Extract development steps `:featExtractDevSteps`](#extract-development-steps-featextractdevsteps)
   - [Extract coding steps `:featExtractCodingSteps`](#extract-coding-steps-featextractcodingsteps)
@@ -11,6 +12,32 @@ This document provides you with a list of prompts that you can use to request th
   - [How to implement (answer) `:featExistingImplementAnswer`](#how-to-implement-answer-featexistingimplementanswer)
 
 ## 🆕 Create new features
+
+### Create a short feature in the code `:featCodeSpec`
+
+**Description**:
+
+Create a short feature in the code, from the IDE, interacting directly in the codebase.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | GitHub Copilot                                             |
+| 🔍 **Context**          | Integrate a small feature rapidly in the codebase.         |
+
+**Prompt**:
+
+```text
+@workspace from #codebase I need to implement this new feature:
+
+---
+[[Feature to build, be as detailed as possible]]
+---
+
+List all the required steps to code it.
+```
 
 ### Generate feature as User-Stories `:featGenerateUS`
 
