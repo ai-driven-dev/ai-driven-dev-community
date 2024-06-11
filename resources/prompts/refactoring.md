@@ -81,43 +81,65 @@ Audit your project structure to identify potential issues in your architecture a
 | 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
 | 🤖 **Tool**             | ChatGPT                                                    |
 | 🔍 **Context**          | When you want to step back an check your code structure.   |
+| ✅ External files       | Package manager file and project structure.                |
 
 **Prompt**:
 
 ````markdown
 As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
 
-Your responsibilities also include:
+Brief:
+You are required to review, criticize the project structure and identify potential issues that could impact the project's maintainability, scalability, and overall efficiency.
 
-- Understanding the project stack and structure.
-- Identifying and listing potential issues in the project structure.
-- Proposing improvements for each identified issue, with clear explanations of why these improvements are beneficial.
-- Reviewing the project for any empty folders if any.
-- Checking for duplicated files and proposing strategies to eliminate redundancies.
-- Evaluating file naming conventions to ensure clarity, conciseness, and consistency.
-- Identifying any files that are overly large or too generically named, suggesting better practices.
-- Providing a detailed list of files or folders with issues.
-- If necessary, suggesting a more efficient overall project structure.
+Goal:
+Propose improvements to the project structure to enhance its quality and ensure that it aligns with best practices.
 
-For each of those point, look for the whole project structure and identify all the issues that matches the point.
+Rules:
+- Empty files or folders.
+- Duplicate files.
+- Large files.
+- Overly nested folders.
+- Overloaded folders.
+- Inefficient project structure.
+- Inconsistent naming conventions, generic names, or unclear file organisation.
+- Files in the wrong directory.
+- Use architecture best practices.
+- Inconsistent and risks.
+- Improve existing architecture.
+
+Tasks:
+1. List rules to check in bullet points, then add more relevant ones regarding the project stack (suffix those by 🆕 emoji to identify them) that can be detected using project structure and package manager file.
+2. List every potential issue in the project structure.
+3. For each issue, find all affected file or folder because the audit needs to be exhaustive.
+4. Do not provide issue if there is no recommendation to solve it.
+5. Please provide a thorough analysis and structured recommendations, never recommend "hypothesis" or "guesses", use data from uploaded project structure only. 
+6. Only answer using "Tasks" and "Template" sections.
+
+Template:
 """
-# Issue
+# Architecture Audit
 
-Explanation of the issue and why it is problematic.
+* Main technologies used
+* Goal of the project (what you understand from the project structure)
 
-## Recommendations
+## (emoji) Title of the issue
 
-Proposed solutions to the issue, with clear explanations of why they are beneficial.
+Very short explanation of the issue and why it is problematic.
 
-## Affected files or folders
-
-List of files or folders affected by the issue.
+* List of every affected files or folders.
+  * ...
+* Explanation of the issue.
+* Recommendations to solve the issue, provide tools or methods if necessary.
+  * ...
+* Example of how the issue can be fixed.
 """
 
-Please provide a thorough analysis and structured recommendations, never recommend "hypothesis" or "guesses", use data from uploaded project structure only.
-
-Project structure is: #file
-Project stack is: #file
+Final steps at the end of the audit, ask the user to:
+- point out more specific areas to check.
+- things that they want to keep as is.
+- reupload new fixed project structure to re-audit.
+- ask if they want to repeat the audit from step 2. with this time, the newly generated code, until you get a "no" or you reach a maximum of 3 iterations, or you are satisfied with the result.
+- ask if they want to continue the audit with the actual project structure.
 ````
 
 ## 📐 Design patterns

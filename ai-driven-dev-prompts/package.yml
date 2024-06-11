@@ -897,40 +897,7 @@ matches:
       4. At the end of the audit, please ask me if I want to repeat the audit from step 2. with this time, the newly generated code, until you get a "no" or you reach a maximum of 3 iterations, or you are satisfied with the result.
     force_mode: clipboard
   - trigger: ':refacAuditStructure'
-    form: |
-      As a software architect, you are tasked with conducting a comprehensive audit of a project structure. 
-
-      Your responsibilities also include:
-
-      - Understanding the project stack and structure.
-      - Identifying and listing potential issues in the project structure.
-      - Proposing improvements for each identified issue, with clear explanations of why these improvements are beneficial.
-      - Reviewing the project for any empty folders if any.
-      - Checking for duplicated files and proposing strategies to eliminate redundancies.
-      - Evaluating file naming conventions to ensure clarity, conciseness, and consistency.
-      - Identifying any files that are overly large or too generically named, suggesting better practices.
-      - Providing a detailed list of files or folders with issues.
-      - If necessary, suggesting a more efficient overall project structure.
-
-      For each of those point, look for the whole project structure and identify all the issues that matches the point.
-      """
-      # Issue
-
-      Explanation of the issue and why it is problematic.
-
-      ## Recommendations
-
-      Proposed solutions to the issue, with clear explanations of why they are beneficial.
-
-      ## Affected files or folders
-
-      List of files or folders affected by the issue.
-      """
-
-      Please provide a thorough analysis and structured recommendations, never recommend "hypothesis" or "guesses", use data from uploaded project structure only.
-
-      Project structure is: #file
-      Project stack is: #file
+    form: "As a software architect, you are tasked with conducting a comprehensive audit of a project structure. \n\nBrief:\nYou are required to review, criticize the project structure and identify potential issues that could impact the project's maintainability, scalability, and overall efficiency.\n\nGoal:\nPropose improvements to the project structure to enhance its quality and ensure that it aligns with best practices.\n\nRules:\n- Empty files or folders.\n- Duplicate files.\n- Large files.\n- Overly nested folders.\n- Overloaded folders.\n- Inefficient project structure.\n- Inconsistent naming conventions, generic names, or unclear file organisation.\n- Files in the wrong directory.\n- Use architecture best practices.\n- Inconsistent and risks.\n- Improve existing architecture.\n\nTasks:\n1. List rules to check in bullet points, then add more relevant ones regarding the project stack (suffix those by \U0001F195 emoji to identify them) that can be detected using project structure and package manager file.\n2. List every potential issue in the project structure.\n3. For each issue, find all affected file or folder because the audit needs to be exhaustive.\n4. Do not provide issue if there is no recommendation to solve it.\n5. Please provide a thorough analysis and structured recommendations, never recommend \"hypothesis\" or \"guesses\", use data from uploaded project structure only. \n6. Only answer using \"Tasks\" and \"Template\" sections.\n\nTemplate:\n\"\"\"\n# Architecture Audit\n\n* Main technologies used\n* Goal of the project (what you understand from the project structure)\n\n## (emoji) Title of the issue\n\nVery short explanation of the issue and why it is problematic.\n\n* List of every affected files or folders.\n  * ...\n* Explanation of the issue.\n* Recommendations to solve the issue, provide tools or methods if necessary.\n  * ...\n* Example of how the issue can be fixed.\n\"\"\"\n\nFinal steps at the end of the audit, ask the user to:\n- point out more specific areas to check.\n- things that they want to keep as is.\n- reupload new fixed project structure to re-audit.\n- ask if they want to repeat the audit from step 2. with this time, the newly generated code, until you get a \"no\" or you reach a maximum of 3 iterations, or you are satisfied with the result.\n- ask if they want to continue the audit with the actual project structure.\n"
     force_mode: clipboard
   - trigger: ':refacListDesignPatterns'
     form: |
@@ -1377,7 +1344,7 @@ matches:
 
 
   - trigger: ':ragProjectStructureGenerate'
-    form: "#!/bin/bash\n\nEXCLUDE_DIRS=$(grep -v '^#' .gitignore | grep -v '^$' | sed 's|^/||' | sed 's|/$||' | sed 's/\\*//g' | sed -e :a -e '$!N; s/\\n/|/; ta')\nEXCLUDE_DIRS=\"${EXCLUDE_DIRS}|project-structure|.git\"\n\nif [ -n \"$EXCLUDE\" ]; then\n  EXCLUDE_DIRS=\"${EXCLUDE_DIRS}|$EXCLUDE\"\nfi\n\nCURRENT_DIR=$(basename \"$(pwd)\" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)\nFILE_NAME_STRUCTURE=\"project-structure-${CURRENT_DIR}.txt\"\n\necho \"\U0001F5C4️ Excluded directories: $EXCLUDE_DIRS\"\necho \"# Project structure for $CURRENT_DIR directory\" | tee \"$FILE_NAME_STRUCTURE\" && tree -aIf \"$EXCLUDE_DIRS\" >> \"$FILE_NAME_STRUCTURE\"\n\n# source: scripts/project-structure.sh\n"
+    form: "#!/bin/bash\n\nEXCLUDE_DIRS=$(grep -v '^#' .gitignore | grep -v '^$' | sed 's|^/||' | sed 's|/$||' | sed 's/\\*//g' | sed -e :a -e '$!N; s/\\n/|/; ta')\nEXCLUDE_DIRS=\"${EXCLUDE_DIRS}|project-structure|.git\"\n\nif [ -n \"$EXCLUDE\" ]; then\n  EXCLUDE_DIRS=\"${EXCLUDE_DIRS}|$EXCLUDE\"\nfi\n\nCURRENT_DIR=$(basename \"$(pwd)\" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)\nFILE_NAME_STRUCTURE=\"project-structure-${CURRENT_DIR}.txt\"\n\necho \"\U0001F5C4️ Excluded directories: $EXCLUDE_DIRS\"\necho \"# Project structure for $CURRENT_DIR directory\" | tee \"$FILE_NAME_STRUCTURE\" && tree --du -h -aIif \"$EXCLUDE_DIRS\" >> \"$FILE_NAME_STRUCTURE\"\n\n# source: scripts/project-structure.sh\n"
     force_mode: clipboard
   - trigger: ':ragInstructions'
     form: |
