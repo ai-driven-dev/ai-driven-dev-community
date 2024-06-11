@@ -93,6 +93,7 @@ You are required to review, criticize the project structure and identify potenti
 
 Goal:
 Propose improvements to the project structure to enhance its quality and ensure that it aligns with best practices.
+Feat every issue regarding the "Project" info and its tech stack.
 
 Rules:
 - Empty files or folders.
@@ -104,23 +105,22 @@ Rules:
 - Inconsistent naming conventions, generic names, or unclear file organisation.
 - Files in the wrong directory.
 - Use architecture best practices.
-- Inconsistent and risks.
-- Improve existing architecture.
+- Find inconsistencies and risks.
+- Propose actions to improve existing architecture.
 
 Tasks:
 1. List rules to check in bullet points, then add more relevant ones regarding the project stack (suffix those by 🆕 emoji to identify them) that can be detected using project structure and package manager file.
 2. List every potential issue in the project structure.
 3. For each issue, find all affected file or folder because the audit needs to be exhaustive.
 4. Do not provide issue if there is no recommendation to solve it.
-5. Please provide a thorough analysis and structured recommendations, never recommend "hypothesis" or "guesses", use data from uploaded project structure only. 
 6. Only answer using "Tasks" and "Template" sections.
 
 Template:
 """
 # Architecture Audit
 
-* Main technologies used
-* Goal of the project (what you understand from the project structure)
+* Main technologies used in list.
+* Description of the project.
 
 ## (emoji) Title of the issue
 
@@ -129,17 +129,16 @@ Very short explanation of the issue and why it is problematic.
 * List of every affected files or folders.
   * ...
 * Explanation of the issue.
-* Recommendations to solve the issue, provide tools or methods if necessary.
+* Short explanation of recommendations to solve the issue, provide tools or methods if necessary.
   * ...
 * Example of how the issue can be fixed.
 """
 
-Final steps at the end of the audit, ask the user to:
-- point out more specific areas to check.
-- things that they want to keep as is.
-- reupload new fixed project structure to re-audit.
-- ask if they want to repeat the audit from step 2. with this time, the newly generated code, until you get a "no" or you reach a maximum of 3 iterations, or you are satisfied with the result.
-- ask if they want to continue the audit with the actual project structure.
+Final steps at the end of the audit, ask the user to type:
+1) Continue audit and ask user to specify more rules of your own.
+2) Re-audit the project dismissing correct points.
+3) Reupload new project structure and Re-audit.
+4) Continue audit, AI will try to find new issues.
 ````
 
 ## 📐 Design patterns

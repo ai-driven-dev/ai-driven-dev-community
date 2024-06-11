@@ -49,7 +49,7 @@ fs.writeFileSync(`${espansoConfigPath}/README.md`, `Your custom prompts!`);
 extractScriptsFromMarkdownToFiles(PUBLIC_PROMPTS);
 
 function getPromptsContentForEspanso(directories) {
-  const header = '# custom config\npreserve_clipboard: false\n\nmatches:\n';
+  const header = 'matches:\n';
 
   let yamlContent = header;
 
