@@ -27,8 +27,9 @@ Get started easily with the **AI Driven Dev Community**:
 - [**2#** ⭐️ Developer prompts list](#2-️-developer-prompts-list)
   - [Usage](#usage)
   - [Installation](#installation)
-  - [Best coding prompts in IDE](#best-coding-prompts-in-ide)
-  - [Best dev prompts in Chat](#best-dev-prompts-in-chat)
+  - [Prompts for developers (in IDE)](#prompts-for-developers-in-ide)
+  - [Prompts for developers (in Chat)](#prompts-for-developers-in-chat)
+  - [Coding with AI CLI](#coding-with-ai-cli)
 - [**3#** 🛠️ Install AI Toolbox for software engineers](#3-️-install-ai-toolbox-for-software-engineers)
   - [Website scraper](#website-scraper)
   - [Private prompts](#private-prompts)
@@ -145,7 +146,7 @@ Guide:
   espanso package update ai-driven-dev-prompts
   ```
 
-### Best coding prompts in IDE
+### Prompts for developers (in IDE)
 
 Here are the best prompts to use in your IDE... Sorted!
 
@@ -170,7 +171,7 @@ More dev prompts:
 - Private prompts
   - [Your private (or team) prompts](./resources/prompts/private)
 
-### Best dev prompts in Chat
+### Prompts for developers (in Chat)
 
 Sometimes you need a bigger context to get the best out of your AI.
 
@@ -183,6 +184,14 @@ Use those dev prompts (mostly in ChatGPT or equivalent):
 - 🚀 [Feature Request](./resources/prompts/feature-request.md)
 - 📋 [Project Management](./resources/prompts/project-management.md)
 - 🚧 [Project Setup](./resources/prompts/project-setup.md)
+
+### Coding with AI CLI
+
+Use the CLI to code with the AI when you need to write in multiple files at once.
+
+- 💾 [Guide - Coding with AI CLI (+ example script)](./resources/guide/coding-with-cli.md)
+
+![Aider - Split file](images/aider-split-file.gif)
 
 ## **3#** 🛠️ Install AI Toolbox for software engineers
 
@@ -302,6 +311,8 @@ Various links available that do not fit in other categories:
 
 - [Anthropic Prompt Library](https://docs.anthropic.com/en/prompt-library/website-wizard) - A collection of prompts to use with Claude.
 - [LLMLingua](https://llmlingua.com) - Prompts compressing for accelerated inference.
+- [GitHub: "Awesome Agents"](https://github.com/kyrolabs/awesome-agents) - A curated list of AI agents to use in your daily work.
+- [GitHub: Copilot course from Microsoft](https://github.com/microsoft/Mastering-GitHub-Copilot-for-Paired-Programming) - Mastering GitHub Copilot for Paired Programming.
 
 **Internal**:
 
