@@ -3,10 +3,9 @@
 In progress...
 
 - [🐛 Bug fixing](#-bug-fixing)
-  - [List potential issues `:bugListTechnicalIssues`](#list-potential-issues-buglisttechnicalissues)
-  - [Find functional issue `:bugFindFunctionalIssue`](#find-functional-issue-bugfindfunctionalissue)
-  - [Find technical issue `:bugFindTechnicalIssue`](#find-technical-issue-bugfindtechnicalissue)
-  - [Find issues and fix `:bugFindIssuesAndFix`](#find-issues-and-fix-bugfindissuesandfix)
+  - [Detect technical issues `:bugDetectTechnical`](#detect-technical-issues-bugdetecttechnical)
+  - [Detect functional issue `:bugDetectFunctional`](#detect-functional-issue-bugdetectfunctional)
+  - [Fix code from error log `:bugFixCodeFromErrorLog`](#fix-code-from-error-log-bugfixcodefromerrorlog)
   - [Detect code inconsistencies `:bugCodeDetectInconsistencies`](#detect-code-inconsistencies-bugcodedetectinconsistencies)
 - [🔫 Debug](#-debug)
   - [Add logging to debug error `:bugDebugCodeSteps`](#add-logging-to-debug-error-bugdebugcodesteps)
@@ -14,7 +13,7 @@ In progress...
 
 ## 🐛 Bug fixing
 
-### List potential issues `:bugListTechnicalIssues`
+### Detect technical issues `:bugDetectTechnical`
 
 ```text
 @workspace
@@ -51,46 +50,28 @@ Check all those hypothesis by proposing code change to fix the issue.
 #file
 ```
 
-### Find functional issue `:bugFindFunctionalIssue`
+### Detect functional issue `:bugDetectFunctional`
 
 ```text
 @workspace
 
-In my application, when I do: "[[Action]]"
-I expect: "[[Expectation]]"
-But I get that issue (surrounded by "---" delimiters):
+Given: "[[State]]".
+When: "[[Action]]".
+Then: "[[Expected result]]".
+
+Instead, I get the following:
 ---
-[[Result including errors and your analysis if you do have]]
+[[Result, behavior, errors... or your analysis]]
 ---
 
-Please list potentials issues and steps to fix the code, sorted by relevance.
+Analyze the given code, then list potentials issues and steps to fix the code, sorted by relevance.
 
-Note that the issue might be induced by another part of the code, so you might need to check the whole code.
-
-#file
-
-[[More code context if needed]]
-```
-
-### Find technical issue `:bugFindTechnicalIssue`
-
-```text
-I do have this issue on my project, can you help me figure it out?
-
-When I: "[[do]]".
-I do expect: "[[that]]".
-But instead I get that issue: "[[error]]".
-
-Notes: [[more notes if any]]
-
-Please list potentials issues and steps to fix the code, sorted by relevance, in bullet points.
-
-For each potential issue, propose some code to change for debugging or logging in order to help determine the root cause.
+Note that the issue might be induced by another part of the code, so you might need to check the whole #codebase.
 
 #file
 ```
 
-### Find issues and fix `:bugFindIssuesAndFix`
+### Fix code from error log `:bugFixCodeFromErrorLog`
 
 **Description:**
 
@@ -100,11 +81,9 @@ For each potential issue, propose some code to change for debugging or logging i
 **Prompt:**
 
 ```text
-Fix the following issues in the code #selection:
+@workspace Fix the following issues in the code #selection:
 
 [[Copy/Paste errors from logs]]
-
-#editor
 ```
 
 ### Detect code inconsistencies `:bugCodeDetectInconsistencies`

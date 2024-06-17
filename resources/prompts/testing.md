@@ -12,7 +12,6 @@ This document contains a list of prompts for developers that can be used to gene
     - [Create empty test structure based on file `:testStructureCreateEmptyBasedOnFile`](#create-empty-test-structure-based-on-file-teststructurecreateemptybasedonfile)
     - [Create empty test structure `:testStructureCreate`](#create-empty-test-structure-teststructurecreate)
   - [Generate](#generate)
-    - [Unit test `:testGenerateUnitTest`](#unit-test-testgenerateunittest)
     - [Generate similar test case from another `:testGenerateTestCaseFromAnother`](#generate-similar-test-case-from-another-testgeneratetestcasefromanother)
     - [Generate test from and existing test cases `:testGenerateTestFromExistingTestCase`](#generate-test-from-and-existing-test-cases-testgeneratetestfromexistingtestcase)
     - [Generate a new test `:testGenerateNewTest`](#generate-a-new-test-testgeneratenewtest)
@@ -158,35 +157,6 @@ Here are the test cases (surrounded by "---" delimiter):
 
 ### Generate
 
-#### Unit test `:testGenerateUnitTest`
-
-**Description**:
-
-Based on a functional requirement, generate a unit test.
-
-**How to use the prompt**:
-
-| Usage                   | Context                                                    |
-|-------------------------|------------------------------------------------------------|
-| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
-| 🤖 **Tool**             | ChatGPT, GitHub Copilot                                    |
-| 🔍 **Context**          | If you want to write a complete unit test.                 |
-| 📜 Todo                 | Check if it can be merged with other prompts in same cat.  |
-
-**Prompt**:
-
-```text
-I need you to act as a test engineer specialized in "[[testing lib]]" to generate a unit test for my feature (surrounded by "---" delimiters):
-
----
-[[Functional requirement]]
----
-
-If necessary, use those unit testing techniques:
-
-Mocking, Stubbing, Spying, Faking, Dependency Injection, Test Parameterization, Isolation (Sandboxing)
-```
-
 #### Generate similar test case from another `:testGenerateTestCaseFromAnother`
 
 **Description**:
@@ -276,6 +246,10 @@ Expectations here (surrounded by "---" delimiter):
 ---
 
 Important: those specification MUST be tested OVER the implementation.
+
+If necessary, use those unit testing techniques:
+
+Mocking, Stubbing, Spying, Faking, Dependency Injection, Test Parameterization, Isolation (Sandboxing)
 ```
 
 #### Generate new test in a test suite `:testGenerateNewInTestSuite`

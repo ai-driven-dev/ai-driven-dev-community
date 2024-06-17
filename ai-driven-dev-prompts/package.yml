@@ -1,5 +1,5 @@
 matches:
-  - trigger: ':bugListTechnicalIssues'
+  - trigger: ':bugDetectTechnical'
     form: |
       Check all those hypothesis by proposing code change to fix the issue.
 
@@ -21,56 +21,33 @@ matches:
         multiline: true
       hypothesis:
         multiline: true
-  - trigger: ':bugFindFunctionalIssue'
+  - trigger: ':bugDetectFunctional'
     form: |
       @workspace
 
-      In my application, when I do: "[[action]]"
-      I expect: "[[expectation]]"
-      But I get that issue (surrounded by "---" delimiters):
+      Given: "[[state]]".
+      When: "[[action]]".
+      Then: "[[expected_result]]".
+
+      Instead, I get the following:
       ---
-      [[result_including_errors_and_your_analysis_if_you_do_have]]
+      [[result_behavior_errors_or_your_analysis]]
       ---
 
-      Please list potentials issues and steps to fix the code, sorted by relevance.
+      Analyze the given code, then list potentials issues and steps to fix the code, sorted by relevance.
 
-      Note that the issue might be induced by another part of the code, so you might need to check the whole code.
-
-      #file
-
-      [[more_code_context_if_needed]]
-    force_mode: clipboard
-    form_fields:
-      result_including_errors_and_your_analysis_if_you_do_have:
-        multiline: true
-      more_code_context_if_needed:
-        multiline: true
-  - trigger: ':bugFindTechnicalIssue'
-    form: |
-      I do have this issue on my project, can you help me figure it out?
-
-      When I: "[[do]]".
-      I do expect: "[[that]]".
-      But instead I get that issue: "[[error]]".
-
-      Notes: [[more_notes_if_any]]
-
-      Please list potentials issues and steps to fix the code, sorted by relevance, in bullet points.
-
-      For each potential issue, propose some code to change for debugging or logging in order to help determine the root cause.
+      Note that the issue might be induced by another part of the code, so you might need to check the whole #codebase.
 
       #file
     force_mode: clipboard
     form_fields:
-      more_notes_if_any:
+      result_behavior_errors_or_your_analysis:
         multiline: true
-  - trigger: ':bugFindIssuesAndFix'
+  - trigger: ':bugFixCodeFromErrorLog'
     form: |
-      Fix the following issues in the code #selection:
+      @workspace Fix the following issues in the code #selection:
 
       [[copypaste_errors_from_logs]]
-
-      #editor
     force_mode: clipboard
     form_fields:
       copypaste_errors_from_logs:
@@ -98,6 +75,14 @@ matches:
       This will help use to debug errors.
     force_mode: clipboard
 
+  - trigger: ':reviewValidateCode'
+    form: |
+      Can you validate that this code is correct and does what it is supposed to do?
+
+      Check every aspect of the code and make sure that it is working as expected.
+
+      If not, list the potential issues in bullet points and suggest possible solutions.
+    force_mode: clipboard
 
   - trigger: ':codeBasedGenerate'
     form: |
@@ -1068,21 +1053,6 @@ matches:
     form_fields:
       test_cases:
         multiline: true
-  - trigger: ':testGenerateUnitTest'
-    form: |
-      I need you to act as a test engineer specialized in "[[testing_lib]]" to generate a unit test for my feature (surrounded by "---" delimiters):
-
-      ---
-      [[functional_requirement]]
-      ---
-
-      If necessary, use those unit testing techniques:
-
-      Mocking, Stubbing, Spying, Faking, Dependency Injection, Test Parameterization, Isolation (Sandboxing)
-    force_mode: clipboard
-    form_fields:
-      functional_requirement:
-        multiline: true
   - trigger: ':testGenerateTestCaseFromAnother'
     form: |
       Based on existing test case #selection in file #file.
@@ -1125,6 +1095,10 @@ matches:
       ---
 
       Important: those specification MUST be tested OVER the implementation.
+
+      If necessary, use those unit testing techniques:
+
+      Mocking, Stubbing, Spying, Faking, Dependency Injection, Test Parameterization, Isolation (Sandboxing)
     force_mode: clipboard
     form_fields:
       expectation_if_needed:
