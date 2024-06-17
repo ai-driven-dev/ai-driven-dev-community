@@ -16,6 +16,7 @@ if (!fs.existsSync(espansoConfigPath)) {
 const PRIVATE_PROMPTS = ['./prompts/private/*'];
 
 const PUBLIC_PROMPTS = [
+  './resources/guide/*',
   './resources/prompts/*',
   './resources/prompts/_/*',
   './resources/prompts/languages/*',

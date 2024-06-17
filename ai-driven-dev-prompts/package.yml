@@ -1,4 +1,5 @@
 matches:
+
   - trigger: ':bugDetectTechnical'
     form: |
       Check all those hypothesis by proposing code change to fix the issue.
