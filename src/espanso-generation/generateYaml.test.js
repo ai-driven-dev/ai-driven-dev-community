@@ -52,7 +52,6 @@ Technically speaking, here are the libs we are using for our project:
       "[[package_json_or_equivalent]]"
 
       [[i_am_focus_on_frontend_____i_am_focus_on_backend]]
-    force_mode: clipboard
     form_fields:
       fully_detailed_explanation:
         multiline: true

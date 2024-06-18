@@ -27,7 +27,6 @@ function generateYaml(espansoConfig) {
       const matchItem = {
         trigger: `:${configItem.trigger}`,
         form: configItem.form,
-        force_mode: 'clipboard',
       };
 
       // If there are variables, add form_fields
