@@ -2,24 +2,27 @@ matches:
 
   - trigger: ':bugDetectTechnical'
     form: |
-      Check all those hypothesis by proposing code change to fix the issue.
+      @workspace
+
+      I have this error in my code (surrounded by "---" delimiters):
 
       ---
-      [[hypothesis]]
+      [[error_message]]
       ---
 
-      - put comment to describe what you are doing
-      - add logging to debug the issue if necessary
+      Context (what I was trying to do): "[[context]]".
 
+      My Analysis: 
+      [[potential_issues_you_target_or_things_that_you_can_assert_is_not_the_issue]]
+
+      Please list all potential solutions and steps to fix the code, sorted by relevance.
+
+      Analyze the following code to find the issue: 
       #file
     form_fields:
       error_message:
         multiline: true
-      context:
-        multiline: true
       potential_issues_you_target_or_things_that_you_can_assert_is_not_the_issue:
-        multiline: true
-      hypothesis:
         multiline: true
   - trigger: ':bugDetectFunctional'
     form: |

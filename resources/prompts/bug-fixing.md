@@ -35,21 +35,6 @@ Analyze the following code to find the issue:
 #file
 ```
 
-Follow-up prompt:
-
-```text
-Check all those hypothesis by proposing code change to fix the issue.
-
----
-[[hypothesis]]
----
-
-- put comment to describe what you are doing
-- add logging to debug the issue if necessary
-
-#file
-```
-
 ### Detect functional issue `:bugDetectFunctional`
 
 ```text

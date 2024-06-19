@@ -4,17 +4,16 @@ const generateYaml = require('./src/espanso-generation/generateYaml');
 const { extractScripts } = require('./src/extract-scripts');
 const glob = require('glob');
 
-// @todo do this for Linux and Windows as well
-// const espansoConfigPath = `"$HOME/Library/Application Support/espanso/match/packages/"`;
+console.log('🚀 Starting script...');
 
 const espansoConfigPath = `${process.env.HOME}/Library/Application Support/espanso/match/packages/ai-driven-dev-prompts-private`;
 
 if (!fs.existsSync(espansoConfigPath)) {
+  console.log('📂 Creating espanso config directory...');
   fs.mkdirSync(espansoConfigPath, { recursive: true });
 }
 
 const PRIVATE_PROMPTS = ['./prompts/private/*'];
-
 const PUBLIC_PROMPTS = [
   './resources/guide/*',
   './resources/prompts/*',
@@ -25,16 +24,19 @@ const PUBLIC_PROMPTS = [
   './README*',
 ];
 
+console.log('📝 Writing public prompts...');
 fs.writeFileSync(
   './ai-driven-dev-prompts/package.yml',
   getPromptsContentForEspanso(PUBLIC_PROMPTS)
 );
 
+console.log('📝 Writing private prompts...');
 fs.writeFileSync(
   `${espansoConfigPath}/package.yml`,
   getPromptsContentForEspanso(PRIVATE_PROMPTS)
 );
 
+console.log('📝 Writing manifest...');
 fs.writeFileSync(
   `${espansoConfigPath}/_manifest.yml`,
   `name: 'ai-driven-dev-prompts-private'
@@ -45,13 +47,17 @@ author: alexsoyes ()
 website: https://github.com/alexsoyes/ai-driven-dev-community`
 );
 
+console.log('📝 Writing README...');
 fs.writeFileSync(`${espansoConfigPath}/README.md`, `Your custom prompts!`);
 
+console.log('🔍 Extracting scripts from markdown...');
 extractScriptsFromMarkdownToFiles(PUBLIC_PROMPTS);
 
-function getPromptsContentForEspanso(directories) {
-  const header = 'matches:\n';
+console.log('✅ Script finished.');
 
+function getPromptsContentForEspanso(directories) {
+  console.log('🔄 Generating prompts content for Espanso...');
+  const header = 'matches:\n';
   let yamlContent = header;
 
   for (const promptDirectory of directories) {
@@ -66,12 +72,14 @@ function getPromptsContentForEspanso(directories) {
 }
 
 function getPrompts(filePath) {
+  console.log(`🔄 Generating prompts for file "${filePath}"`);
   const markdownText = fs.readFileSync(filePath, 'utf8');
   const espansoConfig = parseMarkdown(markdownText);
   return generateYaml(espansoConfig).split('\n').slice(1).join('\n') + '\n';
 }
 
 function extractScriptsFromMarkdownToFiles(directories) {
+  console.log('🔄 Extracting scripts from markdown files...');
   for (const promptDirectory of directories) {
     const markdownFiles = glob.sync(promptDirectory + '.md');
 
