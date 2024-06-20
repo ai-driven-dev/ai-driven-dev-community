@@ -142,7 +142,7 @@ Guide:
 
 3. Configure the package from [config directory](https://espanso.org/docs/configuration/basics/#structure):
 
-From "`espanso path config}`/default.yml":
+From "`espanso path config`/default.yml":
 
   ```yml
   # prevent "v" being pasted instead of the prompt
