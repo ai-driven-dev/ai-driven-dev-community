@@ -140,7 +140,22 @@ Guide:
   espanso install ai-driven-dev-prompts --git git@github.com:alexsoyes/ai-driven-dev-community.git --external
   ```
 
-3. Last, update every time you want to get the latest prompts:
+3. Configure the package from [config directory](https://espanso.org/docs/configuration/basics/#structure):
+
+From "`espanso path config}`/default.yml":
+
+  ```yml
+  # prevent "v" being pasted instead of the prompt
+  backend: "inject"
+  # allow to keep current prompt in clipboard
+  preserve_clipboard: false
+  # reload when config / package changes
+  auto_restart: true
+  # delay to paste the prompt
+  clipboard_threshold: 100
+  ```
+
+🔄 **Note**: Update every time you want to get the latest prompts:
 
   ```sh
   espanso package update ai-driven-dev-prompts
@@ -222,7 +237,6 @@ Having your personal prompts in a huge Notion doc or shared with your team?
 1. Add your prompts in `markdown`in the directory `./prompts/private/`
 2. Take a look at the [contributing guide](./CONTRIBUTE.md) to create a perfect prompt.
 3. Start the project: `npm i && npm start`
-4. Reload your Espanso from GUI.
 
 Enjoy your private prompts!
 
