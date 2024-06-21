@@ -8,19 +8,13 @@
 # Exit if any command fails
 set -e
 
-# Get env if exist from previous dir.
-ENV_PATH="$(dirname "$0")/../.env"
 
-if [ -f "$ENV_PATH" ]; then
-    source "$ENV_PATH"
-fi
-
-# Checking if OPENAI_API_KEY is set
-if [ -z "$OPENAI_API_KEY" ]; then
-    echo "OPENAI_API_KEY is not set. Please set it to your OpenAI API key."
-    echo "You can find it in your OpenAI dashboard: https://platform.openai.com/api-keys"
-    exit 1
-fi
+#
+# Success function in green color
+#
+success() {
+    echo -e "\033[0;32m$1\033[0m"
+}
 
 #
 # Debug function
@@ -41,6 +35,25 @@ fi
 error() {
     echo -e "\033[0;31m$1\033[0m"
 }
+
+
+# Get env if exist from previous dir.
+BASE_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+ENV_PATH="$BASE_DIR/../.env"
+
+if [ -f "$ENV_PATH" ]; then
+    source "$ENV_PATH"
+else
+  error "No .env file found in dir $BASE_DIR"
+  exit 1
+fi
+
+# Checking if OPENAI_API_KEY is set
+if [ -z "$OPENAI_API_KEY" ]; then
+    echo "OPENAI_API_KEY is not set. Please set it to your OpenAI API key."
+    echo "You can find it in your OpenAI dashboard: https://platform.openai.com/api-keys"
+    exit 1
+fi
 
 # Gen-AI parameters
 GEN_AI_MODEL="gpt-4o"
@@ -115,7 +128,7 @@ call_openai_api() {
     debug "API call successful, processing response"
     debug "Full API Response in JSON:"
     debug "$response" | jq '.'
-    
+
     echo "$response" | jq -r '.choices[0].message.content'
 }
 

@@ -8,6 +8,12 @@ PREV_COMMIT_MSG=$(git log -10 --pretty=format:%s)
 # Current staged git changes.
 CHANGES=$(git diff --staged)
 
+# If there is no changes, exit.
+if [ -z "$CHANGES" ]; then
+    error "No changes to commit"
+    exit 1
+fi
+
 PROMPT=$(cat <<EOF
 Goal:
 Generate a commit message to summarize the changes made.

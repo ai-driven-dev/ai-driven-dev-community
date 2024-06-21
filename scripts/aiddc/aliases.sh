@@ -1,8 +1,8 @@
 # ~/.aiddc/aliases.sh
 
 # Script
-alias aupdate='~/.aiddc/aidd-update'
+alias aupdate='~/.aiddc/scripts/aidd-update'
 
 # Commits
-alias areview='~/.aiddc/aidd-commit-review'
-alias amsg='~/.aiddc/aidd-commit-msg'
+alias areview='~/.aiddc/scripts/aidd-commit-review'
+alias amsg='~/.aiddc/scripts/aidd-commit-msg'
