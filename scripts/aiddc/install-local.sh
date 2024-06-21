@@ -13,6 +13,8 @@ fi
 
 cp -vr ../aiddc $DEST
 
+chmod +x $DEST/scripts/*.sh
+
 # Install AIDD-C locally
 source ~/.bashrc
 
