@@ -8,11 +8,13 @@ DEST=~/.aiddc
 
 if [ -d "$DEST" ]; then
   debug "Directory $DEST already exists, removing..."
-  rm -rf $DEST
+  rm -rfv $DEST
 fi
 
+debug "Copying AIDD-C to $DEST..."
 cp -vr ../aiddc $DEST
 
+debug "Making scripts executable..."
 chmod +x $DEST/scripts/*.sh
 
 # Install AIDD-C locally

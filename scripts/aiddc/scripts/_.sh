@@ -33,9 +33,8 @@ fi
 # Error function in red color
 #
 error() {
-    echo -e "\033[0;31m$1\033[0m"
+    printf "\033[0;31m%s\033[0m\n" "$1"
 }
-
 
 # Get env if exist from previous dir.
 BASE_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
