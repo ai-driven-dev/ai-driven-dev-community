@@ -16,12 +16,19 @@ fi
 
 PROMPT=$(cat <<EOF
 Goal:
-Generate a commit message to summarize the changes made.
+Generate only a commit message to summarize the changes made.
 
 Rules:
 - Should be formatted in Conventional Commit.
 - Remain consistent with the last commit messages if possibles.
 - Focus on describing the changes made, not the implementation details.
+
+Important note:
+Commits should be small and focused on a single change.
+If there is too many changes, consider breaking them down into smaller, more focused commits.
+If so, do not provide a commit message but git commands instead:
+- Break down the changes into smaller, more focused commits.
+- Generate a commit message for each commit.
 
 Previous commit messages:
 $PREV_COMMIT_MSG
@@ -31,4 +38,6 @@ $CHANGES
 EOF
 )
 
-ask_ai "$PROMPT"
+notice "The bigger your commits, the harder it is to review them."
+
+call_ai "$PROMPT"

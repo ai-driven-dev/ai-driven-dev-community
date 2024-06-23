@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 set -e
 
@@ -31,9 +31,6 @@ mv -v $TMP/ai-driven-dev-community-main/$SOURCE_FOLDER_TO_UNZIP $DEST
 debug "Remove the tmp folder."
 rm -rf $TMP
 
-debug "Make all scripts executable."
-chmod +x $DEST/scripts/*.sh
-
 debug "Added the following line to .bashrc: \`source ~/.aiddc/aliases.sh\`"
 
 if grep -q 'source ~/.aiddc/aliases.sh' ~/.bashrc; then
@@ -45,5 +42,3 @@ fi
 
 success "AIDD-C installed successfully."
 tree $DEST
-
-source ~/.bashrc

@@ -1,8 +1,0 @@
-{
-  "name": "aiddc",
-  "version": "0.0.1",
-  "description": "Advanced Interface Design and Development Center",
-  "scripts": {
-    "_": "./_.sh"
-  }
-}
