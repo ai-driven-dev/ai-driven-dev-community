@@ -25,8 +25,8 @@ Rules:
 
 Important note:
 Commits should be small and focused on a single change.
-If there is too many changes, consider breaking them down into smaller, more focused commits.
-If so, do not provide a commit message but git commands instead:
+If there is too many changes, do not provide a commit message but git commands instead:
+- Git reset first.
 - Break down the changes into smaller, more focused commits.
 - Generate a commit message for each commit.
 
