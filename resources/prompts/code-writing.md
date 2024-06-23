@@ -10,6 +10,8 @@ Related to code interaction in your IDE with an embedded AI model (like GitHub C
   - [Generate a new function from specs `:codeGenerateFunctionFromSpecs`](#generate-a-new-function-from-specs-codegeneratefunctionfromspecs)
   - [Generate transformer pattern `:codeGenerateTransformer`](#generate-transformer-pattern-codegeneratetransformer)
   - [Generate a new function with different parameters `:codeGenerateFunction`](#generate-a-new-function-with-different-parameters-codegeneratefunction)
+- [💱 Conversion](#-conversion)
+  - [Convert a file from a programming language to another one `:codeConvertFile`](#convert-a-file-from-a-programming-language-to-another-one-codeconvertfile)
 
 ## 🚛 Files
 
@@ -173,4 +175,34 @@ The new function should have the following signature (surrounded by a "---" deli
 ---
 
 File to implement the function: #file
+```
+
+## 💱 Conversion
+
+### Convert a file from a programming language to another one `:codeConvertFile`
+
+Change the programming language of a file but keeps its logic.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | In your editor.                                            |
+| ⚠️ Warning               | 90%+ of converted code is working, do not expect 100%.     |
+
+**Prompt**:
+
+```text
+Goal:
+I need you to convert this file from [[Current programming language]] to [[New programming language]].
+
+Rules:
+- Please keep the same logic and the same variable names.
+- Apply new programming language best practices.
+- Use native librairies the more you can.
+- Find the best similar libs in new language that does not exist in the old one.
+
+File to convert: #file
 ```

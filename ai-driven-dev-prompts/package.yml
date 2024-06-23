@@ -153,6 +153,23 @@ matches:
     form_fields:
       new_function_signature:
         multiline: true
+  - trigger: ':codeConvertFile'
+    form: |
+      Goal:
+      I need you to convert this file from [[current_programming_language]] to [[new_programming_language]].
+
+      Rules:
+      - Please keep the same logic and the same variable names.
+      - Apply new programming language best practices.
+      - Use native librairies the more you can.
+      - Find the best similar libs in new language that does not exist in the old one.
+
+      File to convert: #file
+    form_fields:
+      current_programming_language:
+        multiline: true
+      new_programming_language:
+        multiline: true
 
   - trigger: ':dbGenerateSchema'
     form: |
