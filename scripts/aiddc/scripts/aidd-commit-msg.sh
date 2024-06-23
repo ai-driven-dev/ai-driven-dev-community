@@ -33,9 +33,9 @@ Rules:
 
 Important note:
 Commits should be small and focused on a single change.
-If there is too many changes, do not provide a commit message but git commands instead:
-- Git reset first.
-- Break down the changes into smaller, more focused commits.
+If there is too many changes, provide git commands to:
+- Reset and change directory to the root of the repository.
+- Break down the changes into smaller, more focused commits for each files.
 - Generate a commit message for each commit.
 
 Previous commit messages:
