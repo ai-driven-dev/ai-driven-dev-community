@@ -9,6 +9,19 @@ const path = require('path');
 const https = require('https');
 const readline = require('readline');
 
+// Redefine console.error to always print in red
+console.error = (function(origError) {
+    return function(...args) {
+        origError('\x1b[31m', ...args, '\x1b[0m');
+    };
+})(console.error);
+
+console.warn = (function(origWarn) {
+    return function(...args) {
+        origWarn('\x1b[33m', ...args, '\x1b[0m');
+    };
+})(console.warn);
+
 // Load environment variables
 const loadEnv = () => {
     const ENV_PATH = path.join(__dirname, '.env');
@@ -115,7 +128,7 @@ const callOpenAiApi = async (systemMessage, prompt, maxTokens = GEN_AI_MAX_TOKEN
  * @param {string} prompt - The prompt to send to the AI.
  */
 const askAi = async (prompt) => {
-    console.log(`\n\n${prompt}\n\n`);
+    console.warn(`\n--------------------\n${prompt}\n--------------------\n`);
 
     const rl = readline.createInterface({
         input: process.stdin,
@@ -181,7 +194,6 @@ Available scripts:
 `)
 
 const promptFilePath = path.join(__dirname, '/.prompt');
-console.log(`---> DEBUG: Expected prompt file path: ${promptFilePath}`);
 
 if (fs.existsSync(promptFilePath)) {
     const promptContent = fs.readFileSync(promptFilePath, 'utf-8');
