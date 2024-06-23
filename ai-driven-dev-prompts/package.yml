@@ -81,6 +81,17 @@ matches:
 
       If not, list the potential issues in bullet points and suggest possible solutions.
 
+  - trigger: ':codeApplyStructure'
+    form: |
+      Goal:
+      Apply a structure from a file to another one, adapting the code to the new file.
+
+      Rules:
+      - Only take structure.
+      - Do not change logic.
+
+      File to apply the structure from: #file
+      File to apply the structure to: #file
   - trigger: ':codeBasedGenerate'
     form: |
       Based on existing code (surrounded by "---" delimiters):

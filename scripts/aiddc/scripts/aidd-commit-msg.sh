@@ -2,6 +2,12 @@
 
 . "$(dirname "$0")/_.sh"
 
+# NOTICE
+# --------------------
+notice "[aidd-commit-msg]: Preparing commit message"
+
+# PARAMETERS
+# --------------------
 # Last 10 previous commit message from the user.
 PREV_COMMIT_MSG=$(git log -10 --pretty=format:%s)
 
@@ -14,6 +20,8 @@ if [ -z "$CHANGES" ]; then
     exit 1
 fi
 
+# PROMPT
+# --------------------
 PROMPT=$(cat <<EOF
 Goal:
 Generate only a commit message to summarize the changes made.
@@ -38,6 +46,6 @@ $CHANGES
 EOF
 )
 
-notice "The bigger your commits, the harder it is to review them."
-
+# CALLING AI
+# --------------------
 call_ai "$PROMPT"

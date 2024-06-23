@@ -4,7 +4,7 @@
 
 # NOTICE
 # --------------------
-notice "[SCRIPT NAME]: [MESSAGE]"
+notice "[SCRIPT NAME]: MESSAGE"
 
 # PARAMETERS
 # --------------------
