@@ -46,8 +46,8 @@ BASE_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 ENV_PATH="$BASE_DIR/../.env"
 
 if [ -f "$ENV_PATH" ]; then
-    success "Loading .env file"
     source "$ENV_PATH"
+    success ".env file loaded"
 else
   error "No .env file found in dir $BASE_DIR"
   exit 1
@@ -87,6 +87,6 @@ call_ai() {
     debug "Prompt size is: $(wc -c "$BASE_DIR/../.prompt")"
 
     node "$BASE_DIR/../main.js"
-    
+
     rm "$BASE_DIR/../.prompt"
 }
