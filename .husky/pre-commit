@@ -35,6 +35,7 @@ else
   echo "👀 No changes in package.yml"
 fi
 
-git add package*
+git add package-lock.json
+git add package.json
+git add scripts/*.sh
 git add ai-driven-dev-prompts/
-git add scripts/
