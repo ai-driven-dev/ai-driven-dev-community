@@ -2,6 +2,8 @@
 
 Related to code interaction in your IDE with an embedded AI model (like GitHub Copilot).
 
+- [📘 Content changes](#-content-changes)
+  - [Apply structure from this file `:codeApplyStructure`](#apply-structure-from-this-file-codeapplystructure)
 - [🚛 Files](#-files)
   - [Base on code, generate new `:codeBasedGenerate`](#base-on-code-generate-new-codebasedgenerate)
   - [Base on file, create a new similar file `:codeFileCreate`](#base-on-file-create-a-new-similar-file-codefilecreate)
@@ -12,6 +14,36 @@ Related to code interaction in your IDE with an embedded AI model (like GitHub C
   - [Generate a new function with different parameters `:codeGenerateFunction`](#generate-a-new-function-with-different-parameters-codegeneratefunction)
 - [💱 Conversion](#-conversion)
   - [Convert a file from a programming language to another one `:codeConvertFile`](#convert-a-file-from-a-programming-language-to-another-one-codeconvertfile)
+
+## 📘 Content changes
+
+### Apply structure from this file `:codeApplyStructure`
+
+**Description**:
+
+Apply a structure from this file to the current file.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | In your editor.                                            |
+
+**Prompt**:
+
+```text
+Goal:
+Apply a structure from a file to another one, adapting the code to the new file.
+
+Rules:
+- Only take structure.
+- Do not change logic.
+
+File to apply the structure from: #file
+File to apply the structure to: #file
+```
 
 ## 🚛 Files
 
