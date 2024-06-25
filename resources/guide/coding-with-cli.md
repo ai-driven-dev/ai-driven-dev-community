@@ -121,6 +121,14 @@ function reset() {
 #   None
 #
 function addToIndex() {
+
+  for file in "$@"; do
+    if [ ! -f "$file" ]; then
+      echo "Error: File '$file' does not exist."
+      exit 1
+    fi
+  done
+
   filesToIndex+=("$@")
 }
 

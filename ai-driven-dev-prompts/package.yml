@@ -948,12 +948,16 @@ matches:
 
       Make sure the code is still readable and maintainable, doing its best to keep the same logic.
   - trigger: ':refacListSteps'
-    form: |
-      Read #selection to simplify and beautify my code.
+    form: |+
+      Goal:
+      Simplify and beautify this code.
 
-      Analyze everything that seem unclear, not performant, ugly, too complicated.
+      #file
 
-      Make a bullet list of every potential readability issues that you identified.
+      Rules:
+      - Analyze everything that seem unclear, not performant, ugly, too complicated.
+      - Make a bullet list of every potential readability issues that you identified.
+
   - trigger: ':refacPerformanceImprove'
     form: |
       I need you to improve the performance of the following code: #selection.
