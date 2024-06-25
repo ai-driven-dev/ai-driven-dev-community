@@ -346,11 +346,15 @@ List steps to simplify and beautify your code if you are not sure about its "qua
 **Prompt**:
 
 ```text
-Read #selection to simplify and beautify my code.
+Goal:
+Simplify and beautify this code.
 
-Analyze everything that seem unclear, not performant, ugly, too complicated.
+#file
 
-Make a bullet list of every potential readability issues that you identified.
+Rules:
+- Analyze everything that seem unclear, not performant, ugly, too complicated.
+- Make a bullet list of every potential readability issues that you identified.
+
 ```
 
 ## 🔥 Performance
