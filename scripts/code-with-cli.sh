@@ -160,6 +160,29 @@ function prompt() {
 }
 
 #
+# Pause the interaction with the AI and ask the user if he wants to continue.
+#
+# Parameters:
+#   None
+# Example:
+#   shouldContinue
+# Returns:
+#   None
+#
+function shouldContinue() {
+  echo ">>> 🛑 Review AI changes before next prompt. 🛑"
+  read -p "Do you want to continue? [y/N] " -n 1 -r
+  echo ""
+
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Continuing..."
+  else
+    echo "Aborting..."
+    exit 1
+  fi
+}
+
+#
 # Get the files to index.
 #
 # Parameters:
