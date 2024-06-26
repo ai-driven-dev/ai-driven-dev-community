@@ -88,12 +88,10 @@ Source code:
 
 # Proxy: Uncomment to use local LLM from Ollama
 #export OLLAMA_API_BASE=http://127.0.0.1:11434
+#model="ollama/qwen2:latest"
 
 # Arrays
 declare -a filesToIndex 
-
-# Local variables
-model="ollama/qwen2:latest"
 
 #
 # Resets the 'filesToIndex' array.

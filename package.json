@@ -1,6 +1,6 @@
 {
   "name": "ai-driven-dev-community",
-  "version": "0.3.84",
+  "version": "0.3.85",
   "description": "From prompts in Readme to Espanso text expander!",
   "main": "index.js",
   "directories": {
@@ -13,10 +13,7 @@
     "start": "node index.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "pre-commit": "./.husky/pre-commit",
-    "post-merge": "./.husky/post-merge",
-    "post-push": "./.husky/post-push",
-    "prepare": "husky install"
+    "pre-commit": "./.husky/pre-commit"
   },
   "keywords": [
     "espanso",

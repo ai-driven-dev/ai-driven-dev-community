@@ -2,6 +2,10 @@
 
 . "$(dirname "$0")/_.sh"
 
+# REQUIREMENTS
+# --------------------
+check_binary "git"
+
 # NOTICE
 # --------------------
 notice "[SCRIPT NAME]: MESSAGE"
@@ -11,13 +15,21 @@ notice "[SCRIPT NAME]: MESSAGE"
 TEXT="Example text"
 CMD=$(echo "Example command output")
 
+# SCRIPT
+# --------------------
+echo "Doing something... like finding todos"
+find . -type f -name "*.js" | xargs grep "TODO"
+
 # PROMPT
 # --------------------
 PROMPT=$(cat <<_
-MULTILINE
-PROMPT 
-HERE
+Goal: ""
 
+Rules:
+- 
+
+Expected output:
+- 
 $TEXT
 $CMD
 _

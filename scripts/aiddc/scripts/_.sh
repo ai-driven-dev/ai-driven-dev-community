@@ -15,9 +15,8 @@ set -e
 #   $1 - The notice message to print.
 #
 notice() {
-    printf "\033[0;33m%s\033[0m\n" "Note 🤖: $1"
+    printf "\033[0;33m%s\033[0m\n" "🤖: $1"
 }
-
 
 #
 # Success function in green color
@@ -38,6 +37,18 @@ success() {
 error() {
     printf "\033[0;31m%s\033[0m\n" "$1"
 }
+
+#
+# This function checks if a binary is installed
+#
+check_binary() {
+    if ! command -v "$1" &>/dev/null; then
+        error "$1 is not installed"
+        exit 1
+    fi
+}
+
+check_binary "node"
 
 # Get env if exist from previous dir.
 # Loads environment variables from the .env file if it exists.

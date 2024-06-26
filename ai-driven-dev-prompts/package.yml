@@ -73,6 +73,33 @@ matches:
       Use appropriate emojis at the beginning of the logging message.
       This will help use to debug errors.
 
+  - trigger: ':reviewCommitMessage'
+    form: |
+      Goal:
+      Generate only a commit message to summarize the changes made.
+
+      Rules:
+      - Should be formatted in Conventional Commit.
+      - Remain consistent with the last commit messages if possibles.
+      - Focus on describing the changes made, not the implementation details.
+
+      Important note:
+      Commits should be small and focused on a single change.
+      If there is too many changes, provide git commands to:
+      - Reset and change directory to the root of the repository.
+      - Break down the changes into smaller, more focused commits for each files.
+      - Generate a commit message for each commit.
+
+      Previous commit messages:
+      [[copy_your_last_10_commit_messages_here]]
+
+      Current git changes:
+      [[copy_your_git_changes_here]]
+    form_fields:
+      copy_your_last_10_commit_messages_here:
+        multiline: true
+      copy_your_git_changes_here:
+        multiline: true
   - trigger: ':reviewValidateCode'
     form: |
       Can you validate that this code is correct and does what it is supposed to do?
@@ -80,6 +107,19 @@ matches:
       Check every aspect of the code and make sure that it is working as expected.
 
       If not, list the potential issues in bullet points and suggest possible solutions.
+  - trigger: ':reviewCreatePullRequest'
+    form: |
+      Goal: Create a pull request for my changes.
+
+      Rules:
+      - Use the following template file: #file
+      - "AI instruction" comments are hints for you, follow them carefully, then, delete them.
+      - Here are the changes:
+
+      [[copy_your_git_changes_here]]
+    form_fields:
+      copy_your_git_changes_here:
+        multiline: true
 
   - trigger: ':codeApplyStructure'
     form: |
