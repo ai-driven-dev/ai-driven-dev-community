@@ -28,6 +28,8 @@ fi
 debug "Move the subfolder $SOURCE_FOLDER_TO_UNZIP to $DEST."
 mv -v $TMP/ai-driven-dev-community-main/$SOURCE_FOLDER_TO_UNZIP $DEST
 
+chmod +x $DEST/scripts/*.sh
+
 debug "Remove the tmp folder."
 rm -rf $TMP
 
