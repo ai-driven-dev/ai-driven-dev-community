@@ -31,6 +31,7 @@ Get started easily with the **AI Driven Dev Community**:
   - [Prompts for developers (in Chat)](#prompts-for-developers-in-chat)
   - [Coding with AI CLI](#coding-with-ai-cli)
 - [**3#** 🛠️ Install AI Toolbox for software engineers](#3-️-install-ai-toolbox-for-software-engineers)
+  - [AIDDC Scripts](#aiddc-scripts)
   - [Website scraper](#website-scraper)
   - [Private prompts](#private-prompts)
   - [VSCode snippets](#vscode-snippets)
@@ -217,6 +218,23 @@ You are all set!
 Requirements:
 
 - [Node.js](https://nodejs.org/en/download/) - To run the project.
+
+### AIDDC Scripts
+
+A set of scripts for developers that directly communicate with OpenAI's ChatGPT API.
+
+Full documentation available in the [scripts directory](./scripts/aiddc/README.md).
+
+Available alises:
+
+- `aiddc-changes` : List the changes in the repository.
+- `aiddc-changes-from-main` : List the changes in the repository from the main branch.
+- `aiddc-commit-last` : Get the last commit message.
+- `aiddc-commit-msg` : Generate a commit message (using AI).
+
+```bash
+curl -sSf https://github.com/alexsoyes/ai-driven-dev-community/blob/main/scripts/aiddc/install.sh | bash
+```
 
 ### Website scraper
 

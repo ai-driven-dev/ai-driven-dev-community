@@ -1,3 +1,55 @@
+curl -sSf https://github.com/alexsoyes/ai-driven-dev-community/blob/main/scripts/aiddc/install.sh | bash
+```
+
+### Website scraper
+
+A python scraper to save HTML / Markdown content from your best websites.
+
+Full documentation available in the [scraper directory](./scripts/scraper/README.md).
+
+Requirements:
+
+- [Python 3+](https://www.python.org/downloads/) - To run the scraper.
+
+### Private prompts
+
+Having your personal prompts in a huge Notion doc or shared with your team?
+
+**You can easily make them available privately in your computer with Espanso.**
+
+1. Add your prompts in `markdown`in the directory `./prompts/private/`
+2. Take a look at the [contributing guide](./CONTRIBUTE.md) to create a perfect prompt.
+3. Start the project: `npm i && npm start`
+
+Enjoy your private prompts!
+
+### VSCode snippets
+
+We created a list of snippets we daily use as a frontend TypeScript developer.
+
+![VSCode Snippet](images/vscode-snippet.gif)
+
+AI makes way much easier code generation.
+
+> But sometimes, when you exactly know what you need, you do not necessary need a Gen-AI to write obvious code for you.
+
+Thus, AI can be mistaken, as a developer, you are the master of your code structure.
+
+Feel free to use them!
+
+**Languages**:
+
+- [TypeScript](./resources/snippets/vscode/typescript.json)
+
+**Libraries**:
+
+- [React](./resources/snippets/vscode/typescriptreact.json)
+
+**Installation**:
+
+You can install them easily with the following script:
+
+```bash
 #!/bin/bash
 
 # TODO: add OS support
