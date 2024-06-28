@@ -61,6 +61,10 @@ if [ -f "$ENV_PATH" ]; then
     success ".env file loaded"
 else
   error "No .env file found in dir $BASE_DIR"
+  echo ""
+  echo "You can create one by copying .env.example to .env and adding your OpenAI API key."
+  echo ""
+  cat "$BASE_DIR/../.env.example"
   exit 1
 fi
 
