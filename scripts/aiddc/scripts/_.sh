@@ -65,6 +65,7 @@ else
   echo "You can create one by copying .env.example to .env and adding your OpenAI API key."
   echo ""
   cat "$BASE_DIR/../.env.example"
+  echo ""
   exit 1
 fi
 
