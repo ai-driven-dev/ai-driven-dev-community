@@ -40,11 +40,15 @@ else
     echo 'source ~/.aiddc/aliases.sh' >> ~/.bashrc
 fi
 
-if grep -q 'source ~/.aiddc/aliases.sh' ~/.zshrc; then
-    success "The aliases are already sourced in .zshrc."
+if [ -f ~/.zshrc ]; then
+    if grep -q 'source ~/.aiddc/aliases.sh' ~/.zshrc; then
+        success "The aliases are already sourced in .zshrc."
+    else
+        debug "The source line for aliases is missing in .zshrc, adding..."
+        echo 'source ~/.aiddc/aliases.sh' >> ~/.zshrc
+    fi
 else
-    debug "The source line for aliases is missing in .zshrc, adding..."
-    echo 'source ~/.aiddc/aliases.sh' >> ~/.zshrc
+    debug "~/.zshrc does not exist, skipping..."
 fi
 
 success "AIDD-C installed successfully."

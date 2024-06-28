@@ -225,7 +225,7 @@ A set of scripts for developers that directly communicate with OpenAI's ChatGPT 
 
 Full documentation available in the [scripts directory](./scripts/aiddc/README.md).
 
-Available alises:
+Available aliases:
 
 - `aiddc-changes` : List the changes in the repository.
 - `aiddc-changes-from-main` : List the changes in the repository from the main branch.
@@ -233,7 +233,7 @@ Available alises:
 - `aiddc-commit-msg` : Generate a commit message (using AI).
 
 ```bash
-curl -sSf https://github.com/alexsoyes/ai-driven-dev-community/blob/main/scripts/aiddc/install.sh | bash
+curl -sSf https://raw.githubusercontent.com/alexsoyes/ai-driven-dev-community/main/scripts/aiddc/install.sh | bash
 ```
 
 ### Website scraper

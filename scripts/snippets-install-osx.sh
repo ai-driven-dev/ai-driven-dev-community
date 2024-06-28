@@ -1,4 +1,4 @@
-curl -sSf https://github.com/alexsoyes/ai-driven-dev-community/blob/main/scripts/aiddc/install.sh | bash
+curl -sSf https://raw.githubusercontent.com/alexsoyes/ai-driven-dev-community/main/scripts/aiddc/install.sh | bash
 ```
 
 ### Website scraper

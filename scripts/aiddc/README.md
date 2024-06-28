@@ -5,7 +5,7 @@ A list of aliases and pre-written scripts to help you inject AI into your dev wo
 ## Installation
 
 ```bash
-curl -sSf https://github.com/alexsoyes/ai-driven-dev-community/blob/main/scripts/aiddc/install.sh | bash
+curl -sSf https://raw.githubusercontent.com/alexsoyes/ai-driven-dev-community/main/scripts/aiddc/install.sh | bash
 ```
 
 ## Guide
