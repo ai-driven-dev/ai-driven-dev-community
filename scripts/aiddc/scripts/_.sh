@@ -15,7 +15,7 @@ set -e
 #   $1 - The notice message to print.
 #
 notice() {
-    printf "\033[0;33m%s\033[0m\n" "🤖: $1"
+    printf "\033[0;33m%s\033[0m\n" "$1"
 }
 
 #

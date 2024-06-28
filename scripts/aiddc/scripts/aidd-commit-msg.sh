@@ -17,6 +17,7 @@ CHANGES=$(git diff --staged)
 # If there is no changes, exit.
 if [ -z "$CHANGES" ]; then
     error "No changes to commit"
+    echo "Please stage your changes before generating a commit message."
     exit 1
 fi
 

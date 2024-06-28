@@ -105,6 +105,7 @@ const callOpenAiApi = async (systemMessage, prompt, maxTokens = GEN_AI_MAX_TOKEN
                     if (!messageContent) {
                         reject(new Error('Failed to extract message content from response'));
                     } else {
+                        openaiApiCalculateCost(response.usage);
                         resolve(messageContent);
                     }
                 } else {
@@ -124,11 +125,52 @@ const callOpenAiApi = async (systemMessage, prompt, maxTokens = GEN_AI_MAX_TOKEN
 };
 
 /**
+ * Calculates the cost of using the OpenAI API based on the model and token usage.
+ * @param {Object} usage - The token usage details.
+ * @param {number} usage.prompt_tokens - The number of prompt tokens used.
+ * @param {number} usage.completion_tokens - The number of completion tokens used.
+ * @param {string} [model="gpt-4o"] - The model used.
+ * @returns {number} - The total cost calculated.
+ */
+const openaiApiCalculateCost = (usage, model = GEN_AI_MODEL) => {
+    const pricing = {
+        'gpt-4o': {
+            'prompt': 0.5,
+            'completion': 0.15,
+        }
+    };
+
+    if (!pricing[model]) {
+        throw new Error("Invalid model specified");
+    }
+
+    const modelPricing = pricing[model];
+    const promptCost = usage.prompt_tokens * modelPricing.prompt / 1000;
+    const completionCost = usage.completion_tokens * modelPricing.completion / 1000;
+    let totalCost = promptCost + completionCost;
+
+    // round to 6 decimals
+    totalCost = totalCost.toFixed(6);
+
+    console.log(`\n🚚 Usage:`);
+    console.warn(`--------------------\n`);
+    console.warn(`Prompt: ${usage.prompt_tokens.toLocaleString()} tokens`);
+    console.warn(`Completion: ${usage.completion_tokens.toLocaleString()} tokens`);
+    console.warn(`Total: ${usage.total_tokens.toLocaleString()} tokens`);
+    console.warn(`Cost for ${model}: $${parseFloat(totalCost).toFixed(4)}\n`);
+    console.warn(`--------------------\n`);
+
+    return parseFloat(totalCost);
+};
+
+
+/**
  * Asks the AI a question.
  * @param {string} prompt - The prompt to send to the AI.
  */
 const askAi = async (prompt) => {
-    console.warn(`\n--------------------\n${prompt}\n--------------------\n`);
+    console.log(`\n📝 Prompt:`);
+    console.warn(`--------------------\n${prompt}\n--------------------\n`);
 
     const rl = readline.createInterface({
         input: process.stdin,
@@ -144,7 +186,7 @@ const askAi = async (prompt) => {
         try {
             const response = await callOpenAiApi(GEN_AI_SYSTEM_MESSAGE, prompt);
             console.log("🤖 Answer from AI:");
-            console.log(response);
+            console.warn(`\n--------------------\n${response}\n--------------------\n`);
         } catch (error) {
             console.error(error.message);
             process.exit(1);
@@ -189,9 +231,20 @@ console.log(`
 *                                         *
 *******************************************
 
-Available scripts:
-- aidd-commit-msg : Generates a commit message.
 `)
+
+
+const getAiddFiles = (dir) => {
+    return fs.readdirSync(dir).filter(file => file.startsWith('aidd'));
+};
+
+console.log('💾 Available aliases:');
+
+const aiddFiles = getAiddFiles(path.join(__dirname, 'scripts'));
+
+for (const file of aiddFiles) {
+    console.warn(`- ${file.replace('.sh', '')}`);
+}
 
 const promptFilePath = path.join(__dirname, '/.prompt');
 
