@@ -55,5 +55,8 @@ else
     debug "~/.zshrc does not exist, skipping..."
 fi
 
+cd $DEST
+npm install
+
 success "AIDD-C installed successfully."
 tree $DEST

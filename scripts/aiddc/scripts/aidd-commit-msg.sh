@@ -31,7 +31,9 @@ Rules:
 - Should be formatted in Conventional Commit.
 - Remain consistent with the last commit messages if possibles.
 - Focus on describing the changes made, not the implementation details.
-- Commits should be small and focused on a single changes (but 1 commit can have multiple files).
+- Commits should be small and focused on a single change.
+- 1 commit message can have multiple files changes.
+- Answer with shell script ONLY.
 
 Previous commit messages:
 $PREV_COMMIT_MSG

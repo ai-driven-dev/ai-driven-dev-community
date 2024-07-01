@@ -17,7 +17,10 @@ cp -vr ../aiddc $DEST
 debug "Making scripts executable..."
 chmod +x $DEST/scripts/*.sh
 
-# Install AIDD-C locally
+# Install node modules
+cd $DEST
+npm install
+
 source ~/.bashrc
 
 success "AIDD-C installed successfully."

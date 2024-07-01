@@ -11,7 +11,7 @@ describe('getScriptsContent', () => {
 
 echo "test"
 
-# source: scripts/project-documentation-typescript.sh
+# source: scripts/generated/project-documentation-typescript.sh
 \`\`\`
     `;
 

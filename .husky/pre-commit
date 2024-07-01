@@ -35,7 +35,10 @@ else
   echo "👀 No changes in package.yml"
 fi
 
+# package upgrade
 git add package-lock.json
 git add package.json
-git add scripts/*.sh
+# generated scripts from doc
+git add scripts/generated/
+# espanso directory
 git add ai-driven-dev-prompts/
