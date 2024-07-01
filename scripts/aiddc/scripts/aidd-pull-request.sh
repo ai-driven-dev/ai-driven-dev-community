@@ -24,8 +24,8 @@ Create a pull request for my changes.
 Rules:
 - Use the changes from main.
 - Fill the "template" file to create the PR (the "output").
-- "AI instruction" comments are hints for you, follow them carefully.
-- "AI instruction" should be deleted from the output.
+- "Instructions" comments must be followed no matter what.
+- "Instructions" comments must be remove from the output.
 - Output should be properly formated in markdown.
 
 Changes from main (surrounded by """ delimiters):
