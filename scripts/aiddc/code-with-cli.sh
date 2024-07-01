@@ -217,4 +217,4 @@ reset
 
 # >>> HERE GOES YOUR CODE <<<
 
-# source: scripts/code-with-cli.sh
+# source: scripts/generated/code-with-cli.sh

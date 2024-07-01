@@ -275,7 +275,7 @@ matches:
     form: |
       find . -type f -name '*.md*' -exec cat {} \; > "[[name]]"-documentation.txt
 
-      # source: scripts/merge-documentation.sh
+      # source: scripts/generated/merge-documentation.sh
   - trigger: ':docExtractProjectDocumentationTS'
     form: |
       #!/bin/bash
@@ -309,7 +309,7 @@ matches:
         git commit -m "docs: update project documentation for version $VERSION"
       fi
 
-      # source: scripts/project-documentation-typescript.sh
+      # source: scripts/generated/project-documentation-typescript.sh
   - trigger: ':docSearchURL'
     form: |
       I need you to read the following documentation.
@@ -1302,7 +1302,7 @@ matches:
 
 
   - trigger: ':ragProjectStructureGenerate'
-    form: "#!/bin/bash\n\nEXCLUDE_DIRS=$(grep -v '^#' .gitignore | grep -v '^$' | sed 's|^/||' | sed 's|/$||' | sed 's/\\*//g' | sed -e :a -e '$!N; s/\\n/|/; ta')\nEXCLUDE_DIRS=\"${EXCLUDE_DIRS}|project-structure|.git\"\n\nif [ -n \"$EXCLUDE\" ]; then\n  EXCLUDE_DIRS=\"${EXCLUDE_DIRS}|$EXCLUDE\"\nfi\n\nCURRENT_DIR=$(basename \"$(pwd)\" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)\nFILE_NAME_STRUCTURE=\"project-structure-${CURRENT_DIR}.txt\"\n\necho \"\U0001F5C4️ Excluded directories: $EXCLUDE_DIRS\"\necho \"# Project structure for $CURRENT_DIR directory\" | tee \"$FILE_NAME_STRUCTURE\" && tree --du -h -aIif \"$EXCLUDE_DIRS\" >> \"$FILE_NAME_STRUCTURE\"\n\n# source: scripts/project-structure.sh\n"
+    form: "#!/bin/bash\n\nEXCLUDE_DIRS=$(grep -v '^#' .gitignore | grep -v '^$' | sed 's|^/||' | sed 's|/$||' | sed 's/\\*//g' | sed -e :a -e '$!N; s/\\n/|/; ta')\nEXCLUDE_DIRS=\"${EXCLUDE_DIRS}|project-structure|.git\"\n\nif [ -n \"$EXCLUDE\" ]; then\n  EXCLUDE_DIRS=\"${EXCLUDE_DIRS}|$EXCLUDE\"\nfi\n\nCURRENT_DIR=$(basename \"$(pwd)\" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)\nFILE_NAME_STRUCTURE=\"project-structure-${CURRENT_DIR}.txt\"\n\necho \"\U0001F5C4️ Excluded directories: $EXCLUDE_DIRS\"\necho \"# Project structure for $CURRENT_DIR directory\" | tee \"$FILE_NAME_STRUCTURE\" && tree --du -h -aIif \"$EXCLUDE_DIRS\" >> \"$FILE_NAME_STRUCTURE\"\n\n# source: scripts/generated/project-structure.sh\n"
   - trigger: ':ragInstructions'
     form: |
       # Roles

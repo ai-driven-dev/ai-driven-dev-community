@@ -1,0 +1,15 @@
+{
+  "name": "aiddc-scripts",
+  "version": "1.0.0",
+  "description": "A set of scripts for developers that use AI.",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alexsoyes",
+  "license": "ISC",
+  "dependencies": {
+    "clipboardy": "^4.0.0"
+  }
+}

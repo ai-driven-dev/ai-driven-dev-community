@@ -314,7 +314,7 @@ for file in $(ls "${PATH_SOURCE}"); do
   cp -v "${PATH_SOURCE}/${filename}" "${PATH_DESTINATION}/${filename}"
 done
 
-# source: scripts/snippets-install-osx.sh
+# source: scripts/generated/snippets-install-osx.sh
 ```
 
 ## **4#** ❤️ Get support

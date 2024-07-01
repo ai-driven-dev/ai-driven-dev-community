@@ -58,7 +58,7 @@ In order to upload a full documentation to your LLM, you need to merge all markd
 ```shell
 find . -type f -name '*.md*' -exec cat {} \; > "[[name]]"-documentation.txt
 
-# source: scripts/merge-documentation.sh
+# source: scripts/generated/merge-documentation.sh
 ```
 
 ### Extract project code documentation
@@ -120,7 +120,7 @@ if [ "$COMMIT_CHANGES" == "--commit" ]; then
   git commit -m "docs: update project documentation for version $VERSION"
 fi
 
-# source: scripts/project-documentation-typescript.sh
+# source: scripts/generated/project-documentation-typescript.sh
 ```
 
 ## 📄 Documentation

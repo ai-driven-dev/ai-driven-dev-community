@@ -65,7 +65,7 @@ FILE_NAME_STRUCTURE="project-structure-${CURRENT_DIR}.txt"
 echo "🗄️ Excluded directories: $EXCLUDE_DIRS"
 echo "# Project structure for $CURRENT_DIR directory" | tee "$FILE_NAME_STRUCTURE" && tree --du -h -aIif "$EXCLUDE_DIRS" >> "$FILE_NAME_STRUCTURE"
 
-# source: scripts/project-structure.sh
+# source: scripts/generated/project-structure.sh
 ```
 
 ## 🧠 Create a RAG for your project

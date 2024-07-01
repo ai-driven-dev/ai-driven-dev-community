@@ -29,4 +29,4 @@ if [ "$COMMIT_CHANGES" == "--commit" ]; then
   git commit -m "docs: update project documentation for version $VERSION"
 fi
 
-# source: scripts/project-documentation-typescript.sh
+# source: scripts/generated/project-documentation-typescript.sh
