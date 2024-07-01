@@ -354,7 +354,6 @@ Simplify and beautify this code.
 Rules:
 - Analyze everything that seem unclear, not performant, ugly, too complicated.
 - Make a bullet list of every potential readability issues that you identified.
-
 ```
 
 ## 🔥 Performance

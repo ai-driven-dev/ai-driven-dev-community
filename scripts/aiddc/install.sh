@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: if some existing files has been modified, then the script should not overwrite them.
+
 set -e
 
 . "$(dirname "$0")/scripts/_.sh"

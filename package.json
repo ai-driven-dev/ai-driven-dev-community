@@ -1,6 +1,6 @@
 {
   "name": "ai-driven-dev-community",
-  "version": "0.3.85",
+  "version": "0.3.86",
   "description": "From prompts in Readme to Espanso text expander!",
   "main": "index.js",
   "directories": {

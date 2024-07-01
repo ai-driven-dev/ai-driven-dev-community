@@ -91,6 +91,5 @@ Rules:
 - Use the following template file: #file
 - "AI instruction" comments are hints for you, follow them carefully, then, delete them.
 - Here are the changes:
-
-[[Copy your git changes here]]
+[[Copy your git changes (from main?) here]]
 ```
