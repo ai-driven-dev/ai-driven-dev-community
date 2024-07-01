@@ -1,20 +1,17 @@
----
-title: <!-- AI instruction: fill with the PR title, should be short, but still descriptive -->
----
-
 <!--
-  This template is supposed to be filled by an AI analyzing your commits.
-
-  CAREFULLY REVIEW IT BEFORE SUBMITTING.
+  This template must be filled out following the instructions in each section.
 -->
 
-# <!-- AI instruction: fill with the PR title, should be short, but still descriptive -->
+# <!-- Instructions: fill with the PR title, should be short, but still descriptive -->
 
 ## Type of PR
 
-<!-- AI instruction: Please check relevant ones, check all if applicable -->
-
-<!-- AI instruction: At least one of these must be checked, if you do not know which one to pick, pick "Feature" -->
+<!-- 
+Instructions: 
+  - At least one of these must be checked.
+  - If you do not know which one to pick, pick "Feature".
+  - Base yourself on commit history.
+-->
 
 - [ ] Refactor
 - [ ] Feature
@@ -24,23 +21,28 @@ title: <!-- AI instruction: fill with the PR title, should be short, but still d
 
 ## Description
 
-<!-- AI instruction: include concise summary of the change, also, include relevant motivation and context. -->
-
-<!-- AI instruction: if multiple aspects of the PR have been change, list them. -->
-
-<!-- AI instruction: put important details here if necessary, in **bold** -->
+<!--
+Instructions: 
+- make the most concise description possible.
+- focus on functional changes, not technical details.
+- put important details here if necessary, in **bold**.
+-->
 
 ## Behavior
 
 <!-- 
-  AI instruction:
-    - if this is a bug fix, include the current behavior and the expected behavior
-    - if this is a feature change, include the new behavior
+Instructions:
+- Summarize the behavior changes in a few sentences.
+- Use bullet points.
+- Focus on the user experience.
+- Be precise, not vague.
 -->
 
 ## Steps to test
 
-<!-- AI instruction:
- - Give a list of steps to test the PR, using UI or not. 
- - Use checkboxes 
+<!-- 
+Instructions:
+- Give a list of steps to test the PR, using UI or not. 
+- Use checkboxes.
+- Do not include installation process, focus on functional testing.
 -->
