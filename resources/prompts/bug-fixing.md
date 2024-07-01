@@ -1,6 +1,6 @@
 # 🖥️ AI Driven Dev - "Bug fixing" Prompts (`:bug`)
 
-In progress...
+This document provides you a list of prompt to detect and fix bugs in code.
 
 - [🐛 Bug fixing](#-bug-fixing)
   - [Detect technical issues `:bugDetectTechnical`](#detect-technical-issues-bugdetecttechnical)
@@ -60,15 +60,19 @@ Note that the issue might be induced by another part of the code, so you might n
 
 **Description:**
 
-- Find the issues in the doc
-- Give AI instructions about how to fix those
+- Find the issues in the doc.
+- Give AI instructions about how to fix those.
 
 **Prompt:**
 
 ```text
-@workspace Fix the following issues in the code #selection:
+@workspace
 
+Fix the following issues in the code using the error logs.
+
+---
 [[Copy/Paste errors from logs]]
+---
 ```
 
 ### Detect code inconsistencies `:bugCodeDetectInconsistencies`
