@@ -135,8 +135,8 @@ const callOpenAiApi = async (systemMessage, prompt, maxTokens = GEN_AI_MAX_TOKEN
 const openaiApiCalculateCost = (usage, model = GEN_AI_MODEL) => {
     const pricing = {
         'gpt-4o': {
-            'prompt': 0.5,
-            'completion': 0.15,
+            'prompt': 0.05,
+            'completion': 0.015,
         }
     };
 
@@ -170,7 +170,9 @@ const openaiApiCalculateCost = (usage, model = GEN_AI_MODEL) => {
  */
 const askAi = async (prompt) => {
     console.log(`\n📝 Prompt:`);
-    console.warn(`--------------------\n${prompt}\n--------------------\n`);
+    console.log(`--------------------`);
+    console.warn(prompt);
+    console.log(`--------------------`);
 
     const rl = readline.createInterface({
         input: process.stdin,
