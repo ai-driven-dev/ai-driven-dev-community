@@ -4,7 +4,7 @@
 
 # <!-- Instructions: fill with the PR title, should be short, but still descriptive -->
 
-## Type of PR
+## ✅ Type of PR
 
 <!-- 
 Instructions: 
@@ -19,7 +19,7 @@ Instructions:
 - [ ] Optimization
 - [ ] Documentation Update
 
-## Description
+## 🗒️ Description
 
 <!--
 Instructions: 
@@ -28,7 +28,7 @@ Instructions:
 - put important details here if necessary, in **bold**.
 -->
 
-## Behavior
+## 🚶‍➡️ Behavior
 
 <!-- 
 Instructions:
@@ -38,7 +38,7 @@ Instructions:
 - Be precise, not vague.
 -->
 
-## Steps to test
+## 🧪 Steps to test
 
 <!-- 
 Instructions:
