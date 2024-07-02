@@ -36,6 +36,11 @@ esac
 # --------------------
 GIT_CHANGES=$($GIT_CMD)
 
+if [ -z "$GIT_CHANGES" ]; then
+  error "No changes to review."
+  exit 0
+fi
+
 # PROMPT
 # --------------------
 PROMPT=$(cat <<_
