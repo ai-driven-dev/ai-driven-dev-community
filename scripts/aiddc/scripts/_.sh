@@ -39,6 +39,23 @@ error() {
 }
 
 #
+# Debug function
+# Prints debug messages if DEBUG environment variable is set to "true".
+# Arguments:
+#   $1 - The debug message to print.
+#
+if [[ "${DEBUG}" == "true" ]]; then
+    debug() {
+        echo "---> DEBUG: $1"
+    }
+else
+    debug() {
+        : # No-op when debug is not enabled
+    }
+fi
+
+
+#
 # This function checks if a binary is installed
 #
 check_binary() {
@@ -58,7 +75,7 @@ ENV_PATH="$BASE_DIR/../.env"
 
 if [ -f "$ENV_PATH" ]; then
     source "$ENV_PATH"
-    success ".env file loaded"
+    debug ".env file loaded"
 else
   error "No .env file found in dir $BASE_DIR"
   echo ""
@@ -67,22 +84,6 @@ else
   cat "$BASE_DIR/../.env.example"
   echo ""
   exit 1
-fi
-
-#
-# Debug function
-# Prints debug messages if DEBUG environment variable is set to "true".
-# Arguments:
-#   $1 - The debug message to print.
-#
-if [[ "${DEBUG}" == "true" ]]; then
-    debug() {
-        echo "---> DEBUG: $1"
-    }
-else
-    debug() {
-        : # No-op when debug is not enabled
-    }
 fi
 
 # Checking if OPENAI_API_KEY is set
@@ -105,4 +106,15 @@ call_ai() {
     node "$BASE_DIR/../main.js"
 
     rm "$BASE_DIR/../.prompt"
+}
+
+#
+# Copy to clipboard function
+#
+copy () {
+    notice "---"
+    echo "$1"
+    notice "---"
+    echo "$1" | pbcopy
+    success "📋 Copied to clipboard"
 }
