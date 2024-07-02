@@ -3,6 +3,9 @@
 # Pull Request
 alias aiddc-pull-request='~/.aiddc/scripts/aidd-pull-request.sh'
 
+# Review
+alias aiddc-review='~/.aiddc/scripts/aidd-review.sh'
+
 # Commits
 alias aiddc-commit-msg='~/.aiddc/scripts/aidd-commit-msg.sh'
 alias aiddc-commit-last='~/.aiddc/scripts/aidd-commit-last.sh'
