@@ -16,6 +16,5 @@ PREV_COMMIT_MSG=$(git log -10 --pretty=format:%s)
 
 # SCRIPT
 # --------------------
-echo "$PREV_COMMIT_MSG" | pbcopy
-success "Last 10 commits copied to clipboard"
+copy "$PREV_COMMIT_MSG"
 

@@ -35,6 +35,11 @@ $CMD
 _
 )
 
+#
+# COPY OUTPUT
+# 
+copy "$PROMPT"
+
 # CALLING AI
 # --------------------
 call_ai "$PROMPT"

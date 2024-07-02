@@ -16,5 +16,4 @@ CHANGES=$(git diff)
 
 # SCRIPT
 # --------------------
-echo "$CHANGES" | pbcopy
-success "Changes copied to clipboard!"
+copy "$CHANGES"
