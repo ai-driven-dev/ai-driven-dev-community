@@ -73,4 +73,4 @@ bash install-local.sh && source ~/.bashrc && aiddc-commit-msg
 - [ ] Add more scripts.
 - [ ] Do not overwrite the existing scripts.
 - [ ] Create a `.project` file at the root of the repository to store project info.
-  - [ ] Inject those info in `system` prompt.
+  - [ ] Inject this info in `system` prompt.
