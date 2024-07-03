@@ -12,8 +12,12 @@ notice "[aiddc-commits-diff-main]: Get the commits diff between the current bran
 
 # PROMPT PARAMS
 # --------------------
-DIFF=$(git log --oneline --graph --decorate --all main..HEAD)
+DIFF=$(git log --oneline --no-merges main..HEAD)
 
+#
+# PROMPT
+#
+PROMPT=$DIFF
 #
 # COPY OUTPUT
 # 
