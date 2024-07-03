@@ -22,6 +22,27 @@ if [ -z "$CHANGES" ]; then
     exit 1
 fi
 
+# FUNCTION
+# --------------------
+created_files_prompt() {
+
+    local UNTRACKED=$(git ls-files --others --exclude-standard)
+
+    if [ -z "$UNTRACKED" ]; then
+        return "No created files."
+    fi
+
+    echo "Created files:"
+    
+    for file in $UNTRACKED; do
+        echo "---"
+        echo "$file"
+        cat "$file"
+        echo "---"
+        echo ""
+    done
+}
+
 # PROMPT
 # --------------------
 PROMPT=$(cat <<EOF
@@ -37,12 +58,18 @@ Rules:
 - Commits should be small and focused on a single change.
 - 1 commit message can have multiple files changes.
 - Answer with shell script ONLY.
+- Use relative git add path based on $CURRENT_DIR.
+- Use "git add --patch" with hunks when little changes are made.
+    - When using path option, be sure to "y" in EOF multiple if needed.
+- Do not use "git add --patch" one 1 line changes.
 
 Previous commit messages:
 $PREV_COMMIT_MSG
 
 Current git changes:
 $CHANGES
+
+$(created_files_prompt)
 EOF
 )
 
