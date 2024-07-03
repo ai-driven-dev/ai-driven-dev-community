@@ -125,12 +125,19 @@ matches:
 
       Template: #file
 
+      Commits (surrounded by `---`):
+      ---
+      [[commits_list_from_main_here__use_aiddccommitsdiffmain]]
+      ---
+
       Code changes (surrendered by `---`):
       ---
-      [[copy_your_git_changes_from_main_here]]
+      [[copy_your_git_changes_from_main_here__use_aiddcchangesfrommain]]
       ---
     form_fields:
-      copy_your_git_changes_from_main_here:
+      commits_list_from_main_here__use_aiddccommitsdiffmain:
+        multiline: true
+      copy_your_git_changes_from_main_here__use_aiddcchangesfrommain:
         multiline: true
 
   - trigger: ':codeApplyStructure'
