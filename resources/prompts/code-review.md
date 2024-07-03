@@ -95,7 +95,10 @@ Rules:
 - "Instructions" comments must be remove from the output.
 - Output should be properly formatted in markdown.
 
-Template: #file
+Template (surrounded by `---`):
+---
+[[Copy your PR template here - use: .github/pull_request_template.md if needed]]
+---
 
 Commits (surrounded by `---`):
 ---
