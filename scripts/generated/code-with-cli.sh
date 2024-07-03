@@ -28,9 +28,8 @@ declare -a filesToIndex
 # Returns:
 #   None
 #
-function reset() {
+function reset() {  
   filesToIndex=()
-  declare -a filesToIndex
 }
 
 # 
