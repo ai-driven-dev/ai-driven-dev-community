@@ -85,11 +85,20 @@ Create a pull request from an AI template (eg: using `.github/pull_request_templ
 **Prompt**:
 
 ```text
-Goal: Create a pull request for my changes.
+Goal:
+Create a pull request for my changes.
 
 Rules:
-- Use the following template file: #file
-- "AI instruction" comments are hints for you, follow them carefully, then, delete them.
-- Here are the changes:
+- Use the changes from main.
+- Fill the "template" file to create the PR (the "output").
+- "Instructions" comments must be followed no matter what.
+- "Instructions" comments must be remove from the output.
+- Output should be properly formatted in markdown.
+
+Template: #file
+
+Code changes (surrendered by `---`):
+---
 [[Copy your git changes (from main?) here]]
+---
 ```
