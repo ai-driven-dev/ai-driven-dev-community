@@ -190,11 +190,11 @@ const askAi = async (prompt) => {
     console.warn(prompt);
     console.log(`--------------------`);
     
-try {
-    clipboardy.writeSync(prompt);
-} catch (error) {
-    console.error('Failed to copy prompt to clipboard:', error);
-}
+    try {
+        clipboardy.writeSync(prompt);
+    } catch (error) {
+        console.error('Failed to copy prompt to clipboard:', error);
+    }
 
     console.info(`📋 Prompt copied to clipboard.\n`);
 

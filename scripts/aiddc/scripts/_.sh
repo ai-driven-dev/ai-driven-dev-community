@@ -44,15 +44,11 @@ error() {
 # Arguments:
 #   $1 - The debug message to print.
 #
-if [[ "${DEBUG}" == "true" ]]; then
-    debug() {
+debug() {
+    if [ "${DEBUG}" = "true" ]; then
         echo "---> DEBUG: $1"
-    }
-else
-    debug() {
-        : # No-op when debug is not enabled
-    }
-fi
+    fi
+}
 
 
 #
@@ -74,7 +70,7 @@ BASE_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 ENV_PATH="$BASE_DIR/../.env"
 
 if [ -f "$ENV_PATH" ]; then
-    source "$ENV_PATH"
+    . "$ENV_PATH"
     debug ".env file loaded"
 else
   error "No .env file found in dir $BASE_DIR"

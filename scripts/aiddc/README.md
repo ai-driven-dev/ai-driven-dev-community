@@ -14,8 +14,9 @@ A list of aliases and pre-written scripts to help you inject AI into your dev wo
 
 ## Installation
 
-```bash
-curl -sSf https://raw.githubusercontent.com/alexsoyes/ai-driven-dev-community/main/scripts/aiddc/install.sh | bash
+```shell
+#!/bin/sh
+curl -sSf "https://raw.githubusercontent.com/alexsoyes/ai-driven-dev-community/main/scripts/aiddc/install.sh" | bash
 ```
 
 ## Configuration
@@ -26,7 +27,7 @@ Provide an OpenAI API key in the `.env` file.
 OPENAI_API_KEY=sk-<your-api-key>
 ```
 
-Or direcly in your `.bashrc` file.
+Or directly in your `.bashrc` file.
 
 ```bash
 export OPENAI_API_KEY=sk-<your-api-key>
@@ -38,7 +39,7 @@ Use `aiddc-<command>` to run our scripts.
 
 ### Available Commands
 
-There is two types of commands to help you.
+There are two types of commands to help you.
 
 - *Operation*: The ones which call the AI to help you with your code (e.g. `aiddc-commit-msg` - ask AI to generate a beautiful commit message for you).
 - *Asking AI*: The ones which are doing easier operations (e.g. `aiddc-changes` - copy `git diff` in your clipboard).
@@ -49,7 +50,7 @@ There is two types of commands to help you.
 
 - `aiddc-changes` - Copy the `git diff` output to your clipboard.
 - `aiddc-changes-from-main` - Copy the `git diff main` output to your clipboard.
-- `aidd-commit-last` - Copy last 10 commit messages to your clipboard.
+- `aidd-commit-last` - Copy the last 10 commit messages to your clipboard.
 
 #### Asking AI
 
