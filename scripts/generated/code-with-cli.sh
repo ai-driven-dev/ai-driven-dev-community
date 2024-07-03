@@ -29,7 +29,7 @@ declare -a filesToIndex
 #   None
 #
 function reset() {
-  unset filesToIndex
+  filesToIndex=()
   declare -a filesToIndex
 }
 
