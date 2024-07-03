@@ -12,12 +12,13 @@ notice "[aidd-commit-msg]: Preparing commit message"
 PREV_COMMIT_MSG=$(git log -10 --pretty=format:%s)
 
 # Current staged git changes.
-CHANGES=$(git diff --staged)
+CHANGES=$(git diff)
+CURRENT_DIR=$(pwd)
 
 # If there is no changes, exit.
 if [ -z "$CHANGES" ]; then
     error "No changes to commit"
-    echo "Please stage your changes before generating a commit message."
+    echo "Please UNSTAGE changes before generating a commit message."
     exit 1
 fi
 
@@ -25,7 +26,9 @@ fi
 # --------------------
 PROMPT=$(cat <<EOF
 Goal:
-Generate git add + git commit message for every changes in the code.
+1. Summarize functionnal changes in comments, with numbered list.
+2. Identify hunks (but do not display them).
+3. Generate git add + git commit message for every changes in the code, following rules.
 
 Rules:
 - Should be formatted in Conventional Commit.
