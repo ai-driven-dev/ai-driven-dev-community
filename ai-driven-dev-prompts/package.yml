@@ -123,7 +123,10 @@ matches:
       - "Instructions" comments must be remove from the output.
       - Output should be properly formatted in markdown.
 
-      Template: #file
+      Template (surrounded by `---`):
+      ---
+      [[copy_your_pr_template_here__use_githubpull_request_templatemd_if_needed]]
+      ---
 
       Commits (surrounded by `---`):
       ---
@@ -135,6 +138,8 @@ matches:
       [[copy_your_git_changes_from_main_here__use_aiddcchangesfrommain]]
       ---
     form_fields:
+      copy_your_pr_template_here__use_githubpull_request_templatemd_if_needed:
+        multiline: true
       commits_list_from_main_here__use_aiddccommitsdiffmain:
         multiline: true
       copy_your_git_changes_from_main_here__use_aiddcchangesfrommain:
