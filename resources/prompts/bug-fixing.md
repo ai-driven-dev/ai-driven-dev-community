@@ -1,6 +1,6 @@
 # 🖥️ AI Driven Dev - "Bug fixing" Prompts (`:bug`)
 
-This document provides you a list of prompt to detect and fix bugs in code.
+This document provides you with a list of prompts to detect and fix bugs in code.
 
 - [🐛 Bug fixing](#-bug-fixing)
   - [Detect technical issues `:bugDetectTechnical`](#detect-technical-issues-bugdetecttechnical)
