@@ -97,8 +97,13 @@ Rules:
 
 Template: #file
 
+Commits (surrounded by `---`):
+---
+[[commits list (from main?) here - use: aiddc-commits-diff-main]]
+---
+
 Code changes (surrendered by `---`):
 ---
-[[Copy your git changes (from main?) here]]
+[[Copy your git changes (from main?) here - use: aiddc-changes-from-main]]
 ---
 ```
