@@ -4,10 +4,6 @@
  * It reads environment variables, validates the OpenAI API key, and provides functions to call the OpenAI API.
  */
 
-// const fs = require('fs');
-// const path = require('path');
-// const https = require('https');
-// const readline = require('readline');
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -19,7 +15,6 @@ import fs from 'fs';
 import https from 'https';
 import readline from 'readline';
 
-// Redefine console.error to always print in red
 console.error = (function(origError) {
     return function(...args) {
         origError('\x1b[31m', ...args, '\x1b[0m');
@@ -31,7 +26,6 @@ console.warn = (function(origWarn) {
         origWarn('\x1b[33m', ...args, '\x1b[0m');
     };
 })(console.warn);
-
 
 console.info = (function(origInfo) {
     return function(...args) {
@@ -68,11 +62,14 @@ if (!process.env.OPENAI_API_KEY) {
 // Gen-AI parameters
 const GEN_AI_MODEL = 'gpt-4o';
 const GEN_AI_MAX_TOKENS = 600;
-const GEN_AI_TEMPERATURE = 0.7;
+const GEN_AI_TEMPERATURE = 1;
 const GEN_AI_SYSTEM_MESSAGE = `
 Act as a Senior Software Engineer that is experienced in software craft.
 Assist with high-quality, concise, efficient, and scalable software solutions.
-Limit the response to minimum tokens.
+Limit the response to minimum tokens when possible.
+
+Remember that code that will be provided to you is the result of a "git diff" command.
+"-" means that a line was removed, and "+" means that a line was added, etc. 
 `;
 
 /**
