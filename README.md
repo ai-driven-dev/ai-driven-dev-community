@@ -16,33 +16,35 @@ The GitHub Repository is updated weekly!
 
 Get started easily with the **AI Driven Dev Community**:
 
-- [**0#** 🚀 Get started](#0--get-started)
-  - [Best practices](#best-practices)
-  - [Tools to install](#tools-to-install)
-  - [Example workflow of an AI Driven Dev](#example-workflow-of-an-ai-driven-dev)
-- [**1#** 🤖 Custom AI for developers](#1--custom-ai-for-developers)
-  - [RAG Developer](#rag-developer)
-  - [Best Instructions](#best-instructions)
-  - [Custom GPT Agents](#custom-gpt-agents)
-- [**2#** ⭐️ Developer prompts list](#2-️-developer-prompts-list)
-  - [Usage](#usage)
-  - [Installation](#installation)
-  - [Prompts for developers (in IDE)](#prompts-for-developers-in-ide)
-  - [Prompts for developers (in Chat)](#prompts-for-developers-in-chat)
-  - [Coding with AI CLI](#coding-with-ai-cli)
-- [**3#** 🛠️ Install AI Toolbox for software engineers](#3-️-install-ai-toolbox-for-software-engineers)
-  - [AIDDC Scripts](#aiddc-scripts)
-  - [Website scraper](#website-scraper)
-  - [Private prompts](#private-prompts)
-  - [VSCode snippets](#vscode-snippets)
-- [**4#** ❤️ Get support](#4-️-get-support)
-  - [Discord](#discord)
-  - [✨ Courses (in french)](#-courses-in-french)
-  - [Links](#links)
-  - [AIDDC Video Demo (in french)](#aiddc-video-demo-in-french)
-- [**5#** 🚀 Super easy contribution](#5--super-easy-contribution)
-  - [5 steps to contribute in 2 minutes](#5-steps-to-contribute-in-2-minutes)
-  - [No  -fork contributions](#no---fork-contributions)
+- [AI Driven Dev Community](#ai-driven-dev-community)
+  - [**0#** 🚀 Get started](#0--get-started)
+    - [Best practices](#best-practices)
+    - [Tools to install](#tools-to-install)
+    - [Example workflow of an AI Driven Dev](#example-workflow-of-an-ai-driven-dev)
+  - [**1#** 🤖 Custom AI for developers](#1--custom-ai-for-developers)
+    - [RAG Developer](#rag-developer)
+    - [Best Instructions](#best-instructions)
+    - [Custom GPT Agents](#custom-gpt-agents)
+  - [**2#** ⭐️ Developer prompts list](#2-️-developer-prompts-list)
+    - [Usage](#usage)
+    - [Installation](#installation)
+    - [Prompts for developers (in IDE)](#prompts-for-developers-in-ide)
+    - [Prompts for developers (in Chat)](#prompts-for-developers-in-chat)
+    - [Coding with AI CLI](#coding-with-ai-cli)
+    - [Code Review using AI](#code-review-using-ai)
+  - [**3#** 🛠️ Install AI Toolbox for software engineers](#3-️-install-ai-toolbox-for-software-engineers)
+    - [AIDDC Scripts](#aiddc-scripts)
+    - [Website scraper](#website-scraper)
+    - [Private prompts](#private-prompts)
+    - [VSCode snippets](#vscode-snippets)
+  - [**4#** ❤️ Get support](#4-️-get-support)
+    - [Discord](#discord)
+    - [✨ Courses (in french)](#-courses-in-french)
+    - [Links](#links)
+    - [AIDDC Video Demo (in french)](#aiddc-video-demo-in-french)
+  - [**5#** 🚀 Super easy contribution](#5--super-easy-contribution)
+    - [5 steps to contribute in 2 minutes](#5-steps-to-contribute-in-2-minutes)
+    - [No  -fork contributions](#no---fork-contributions)
 
 ## **0#** 🚀 Get started
 
@@ -208,6 +210,14 @@ Use the CLI to code with the AI when you need to write in multiple files at once
 - 💾 [Guide - Coding with AI CLI (+ example script)](./resources/guide/coding-with-cli.md)
 
 ![Aider - Split file](images/aider-split-file.gif)
+
+### Code Review using AI
+
+AI is able to make good and clean code reviews for you, automaticly bound to your commit deployments.
+
+- [AI Code Review Guide](resources/guide/code-review-ai.md)
+
+![PR Agent by Codium](images/code-review/code-review-pr-agent.png)
 
 ## **3#** 🛠️ Install AI Toolbox for software engineers
 
