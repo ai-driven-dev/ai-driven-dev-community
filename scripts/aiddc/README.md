@@ -4,6 +4,7 @@ A list of aliases and pre-written scripts to help you inject AI into your dev wo
 
 - [Installation](#installation)
 - [Configuration](#configuration)
+  - [Ollama support](#ollama-support)
 - [Guide](#guide)
   - [Available Commands](#available-commands)
     - [Ops](#ops)
@@ -32,6 +33,16 @@ Or directly in your `.bashrc` file.
 ```bash
 export OPENAI_API_KEY=sk-<your-api-key>
 ```
+
+### Ollama support
+
+If you want to use Ollama, you need to provide the following environment variables.
+
+```bash
+LOCAL_MODEL=codellama # deepseek-coder, qwen2 etc.
+```
+
+Note: Responses might be way less effective than OpenAI's GPT calls.
 
 ## Guide
 
