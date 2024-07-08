@@ -322,19 +322,19 @@ for (const file of aiddFiles) {
 
 const promptFilePath = path.join(__dirname, '/.prompt');
 
+let callableAPI = null;
+
+if (process.env.LOCAL_MODEL) {
+    console.log('\n🤖 Loading local model: ' + process.env.LOCAL_MODEL);
+    callableAPI = callOllamaApi;
+} else {
+    console.log('\n🤖 Using OpenAI API!');
+    callableAPI = callOpenAiApi;
+}
+
 if (fs.existsSync(promptFilePath)) {
     const promptContent = fs.readFileSync(promptFilePath, 'utf-8');
-    // Proceed with the rest of the logic
-    if (argv['no-validate'] === 'true') {
-        callOpenAiApi(GEN_AI_SYSTEM_MESSAGE, promptContent)
-            .then(response => console.log(response))
-            .catch(error => {
-                console.error(error.message);
-                process.exit(1);
-            });
-    } else {
-        askAi(promptContent);
-    }
+    askAi(promptContent, callableAPI);
 } else {
     console.error('.prompt file not found. Exiting.');
     process.exit(1);
