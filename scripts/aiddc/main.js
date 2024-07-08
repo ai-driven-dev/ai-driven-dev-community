@@ -242,7 +242,7 @@ const openaiApiCalculateCost = (usage, model = GEN_AI_MODEL) => {
     console.warn(`Prompt: ${usage.prompt_tokens.toLocaleString()} tokens`);
     console.warn(`Completion: ${usage.completion_tokens.toLocaleString()} tokens`);
     console.warn(`Total: ${usage.total_tokens.toLocaleString()} tokens`);
-    console.warn(`Cost for ${model}: $${parseFloat(totalCost).toFixed(4)}\n`);
+    console.warn(`Cost for ${model}: $${parseFloat(totalCost).toFixed(2)}\n`);
     console.warn(`--------------------\n`);
 
     return parseFloat(totalCost);
@@ -251,8 +251,9 @@ const openaiApiCalculateCost = (usage, model = GEN_AI_MODEL) => {
 /**
  * Asks the AI a question.
  * @param {string} prompt - The prompt to send to the AI.
+ * @param {Function} callableAPI - The API function to call.
  */
-const askAi = async (prompt) => {
+const askAi = async (prompt, callableAPI) => {
     console.log(`\n📝 Prompt:`);
     console.log(`--------------------`);
     console.warn(prompt);
@@ -278,7 +279,7 @@ const askAi = async (prompt) => {
         }
 
         try {
-            const response = await callOpenAiApi(GEN_AI_SYSTEM_MESSAGE, prompt);
+            const response = await callableAPI(prompt);
             console.log("🤖 Answer from AI:");
             console.warn(`\n--------------------\n${response}\n--------------------\n`);
         } catch (error) {
@@ -287,27 +288,6 @@ const askAi = async (prompt) => {
         }
     });
 };
-
-/**
- * Parses command-line arguments.
- * @returns {{ 'no-validate': boolean }} - The parsed arguments as key-value pairs.
- */
-const parseArgs = () => {
-    const args = process.argv.slice(2);
-    const parsedArgs = {};
-
-    args.forEach(arg => {
-        const [key, value] = arg.split('=');
-        parsedArgs[key.replace(/^--/, '')] = value;
-    });
-
-    return parsedArgs;
-};
-
-/**
- * Parses command-line arguments and calls the OpenAI API.
- */
-const argv = parseArgs();
 
 console.log(`
            _____ _____  _____   _____ 
