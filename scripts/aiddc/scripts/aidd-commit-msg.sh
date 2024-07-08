@@ -29,7 +29,7 @@ created_files_prompt() {
     local UNTRACKED=$(git ls-files --others --exclude-standard)
 
     if [ -z "$UNTRACKED" ]; then
-        return "No created files."
+        return
     fi
 
     echo "Created files:"
