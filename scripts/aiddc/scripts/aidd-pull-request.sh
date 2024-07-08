@@ -9,10 +9,32 @@ check_binary "git"
 # NOTICE
 # --------------------
 notice "[aiddc-pull-request]: Preparing pull request with pre-filled Template"
+echo "Args:
+
+- 1: Template file path (default: $DEFAULT_PARAM)
+
+Example:
+$ aiddc-pull-request './my-projects/.github/pull_request_template.md'
+"
+
+# SCRIPT PARAMS
+# --------------------
+DEFAULT_PARAM="$(dirname "$0")/../templates/pull_request_template.md"
+PARAM=${1:-$DEFAULT_PARAM}
+
+# Validate the parameter
+if [ "$PARAM" = "$DEFAULT_PARAM" ]; then
+  notice "[aiddc-pull-request]: Using default template"
+fi
+
+if [ ! -f "$PARAM" ]; then
+  error "Template file does not exist: $PARAM"
+  exit 1
+fi
 
 # PARAMETERS
 # --------------------
-TEMPLATE=$(cat templates/pull_request_template.md)
+TEMPLATE=$PARAM
 CHANGES=$(git diff main)
 
 # PROMPT
