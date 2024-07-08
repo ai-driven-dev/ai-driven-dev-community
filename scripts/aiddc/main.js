@@ -12,6 +12,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 import clipboardy from 'clipboardy';
 import fs from 'fs';
+import http from 'http';
 import https from 'https';
 import readline from 'readline';
 
@@ -52,15 +53,8 @@ const loadEnv = () => {
 
 loadEnv();
 
-// Exit if OPENAI_API_KEY is not set
-if (!process.env.OPENAI_API_KEY) {
-    console.error('OPENAI_API_KEY is not set. Please set it to your OpenAI API key.');
-    console.error('You can find it in your OpenAI dashboard: https://platform.openai.com/api-keys');
-    process.exit(1);
-}
-
 // Gen-AI parameters
-const GEN_AI_MODEL = 'gpt-4o';
+const GEN_AI_MODEL = process.env.LOCAL_MODEL || 'gpt-4o';
 const GEN_AI_MAX_TOKENS = 600;
 const GEN_AI_TEMPERATURE = 1;
 const GEN_AI_SYSTEM_MESSAGE = `
@@ -73,6 +67,75 @@ Remember that code that will be provided to you is the result of a "git diff" co
 `;
 
 /**
+ * Calls the Ollama API with a specified prompt and model.
+ * 
+ * This function sends a POST request to the Ollama API endpoint, submitting a JSON payload
+ * that includes the model and input data. It logs the API response to the console.
+ * 
+ * @param {string} prompt - The input data to be processed by the Ollama API.
+ * @param {string} [model=GEN_AI_MODEL] - The model to use for processing the input. Defaults to GEN_AI_MODEL.
+ */
+function callOllamaApi(prompt, model=GEN_AI_MODEL) {
+    
+    const cleanPrompt = prompt.replace(/[^\x20-\x7E\t]/g, '');
+
+  const data = JSON.stringify({
+    model,
+    prompt: cleanPrompt,
+    system: GEN_AI_SYSTEM_MESSAGE,
+    stream: false,
+    options: {
+        temperature: GEN_AI_TEMPERATURE,
+    },
+    keep_alive: '0',
+  });
+
+  const options = {
+    hostname: '127.0.0.1',
+    port: 11434,
+    path: '/api/generate',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Content-Length': data.length
+    }
+  };
+
+    return new Promise((resolve, reject) => {
+        const req = http.request(options, (res) => {
+            let responseBody = '';
+
+            res.on('data', (chunk) => {
+            responseBody += chunk;
+            });
+
+            res.on('end', () => {
+                const parsedResponse = JSON.parse(responseBody);
+
+                if (parsedResponse.error) {
+                    return reject(new Error(parsedResponse.error));
+                }
+
+                console.log(parsedResponse)
+    console.log(`\n🚚 Usage:`);
+    console.warn(`--------------------\n`);
+    console.warn(`Loading time: ${(parsedResponse.total_duration / 1000000000).toFixed(2)} seconds.`);
+    console.warn(`Number of tokens in prompt: ${parsedResponse.prompt_eval_count}.`);
+    console.warn(`--------------------\n`);
+            resolve(parsedResponse.response);
+            });
+        })
+        
+        req.on('error', (error) => {
+            console.error('Error:', error);
+        });
+        
+        req.write(data);
+        req.end();
+    });
+}
+
+/**
  * Calls the OpenAI API with the provided parameters.
  * @param {string} systemMessage - The system message to send to the API.
  * @param {string} prompt - The user prompt to send to the API.
@@ -80,7 +143,15 @@ Remember that code that will be provided to you is the result of a "git diff" co
  * @param {number} [temperature=GEN_AI_TEMPERATURE] - The temperature to use for the generation.
  * @returns {Promise<string>} - The response message content from the API.
  */
-const callOpenAiApi = async (systemMessage, prompt, maxTokens = GEN_AI_MAX_TOKENS, temperature = GEN_AI_TEMPERATURE) => {
+const callOpenAiApi = async (prompt, systemMessage = GEN_AI_SYSTEM_MESSAGE, maxTokens = GEN_AI_MAX_TOKENS, temperature = GEN_AI_TEMPERATURE) => {
+
+    // Exit if OPENAI_API_KEY is not set
+    if (!process.env.OPENAI_API_KEY) {
+        console.error('OPENAI_API_KEY is not set. Please set it to your OpenAI API key.');
+        console.error('You can find it in your OpenAI dashboard: https://platform.openai.com/api-keys');
+        process.exit(1);
+    }
+
     const cleanSystemMessage = systemMessage.replace(/[^\x20-\x7E\t]/g, '');
     const cleanPrompt = prompt.replace(/[^\x20-\x7E\t]/g, '');
 
