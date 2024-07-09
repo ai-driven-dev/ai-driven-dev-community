@@ -34,7 +34,7 @@ fi
 
 # PARAMETERS
 # --------------------
-TEMPLATE=$PARAM
+TEMPLATE=$(cat $PARAM)
 CHANGES=$(git diff main)
 
 # PROMPT
