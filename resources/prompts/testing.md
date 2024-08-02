@@ -20,7 +20,8 @@ This document contains a list of prompts for developers that can be used to gene
     - [Generate new data-testid `:testGenerateNewDataTestId`](#generate-new-data-testid-testgeneratenewdatatestid)
   - [Create](#create)
     - [Create new test object with "fake" properties `:testCreateNewFakeTestObject`](#create-new-test-object-with-fake-properties-testcreatenewfaketestobject)
-  - [Fill](#fill)
+  - [Fill / Add](#fill--add)
+  - [List untested behaviors](#list-untested-behaviors)
     - [Fill empty test cases expectations `:testFillTestCases`](#fill-empty-test-cases-expectations-testfilltestcases)
   - [Mock](#mock)
     - [Mock function from file `:testMockFunction`](#mock-function-from-file-testmockfunction)
@@ -343,7 +344,42 @@ Super useful to generate a fake object with all properties filled.
 Without importing, create new fake filled object for every required properties of this file: #file
 ```
 
-### Fill
+### Fill / Add
+
+### List untested behaviors
+
+**Description**:
+
+List untested behaviors from some test files.
+
+The idea is to have a list of behaviors that are not tested yet.
+
+**How to use the prompt**:
+
+| Usage                   | Context                                                    |
+|-------------------------|------------------------------------------------------------|
+| 🚀 **Author**           | [@alexsoyes](https://beacons.ai/alexsoyes)                 |
+| 🤖 **Tool**             | Github Copilot                                             |
+| 🔍 **Context**          | Some tests exist but some are missing.                     |
+
+**Prompt**:
+
+```text
+Goal:
+List every untested behaviors for all the tests provided.
+
+Rules:
+- List every behavior that is not tested yet from every test files.
+- Provide bullet list of untested behaviors that will be written in "should" format.
+- Group those behaviors, by providing the files where the test should be written.
+- Focus on behavior, not on technical details.
+
+Test files to check:
+#file
+
+Implementations to test:
+#file
+```
 
 #### Fill empty test cases expectations `:testFillTestCases`
 

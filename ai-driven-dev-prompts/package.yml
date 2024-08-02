@@ -1157,7 +1157,20 @@ matches:
       Add in relevant component elements from #selection a "data-testid" if not already present.
   - trigger: ':testCreateNewFakeTestObject'
     form: |
-      Without importing, create new fake filled object for every required properties of this file: #file
+      Goal:
+      List every untested behaviors for all the tests provided.
+
+      Rules:
+      - List every behavior that is not tested yet from every test files.
+      - Provide bullet list of untested behaviors that will be written in "should" format.
+      - Group those behaviors, by providing the files where the test should be written.
+      - Focus on behavior, not on technical details.
+
+      Test files to check:
+      #file
+
+      Implementations to test:
+      #file
   - trigger: ':testFillTestCases'
     form: "Fill every empty tests in file #file\nCode implementation to test:\_#file\n\nRules:\n- Arrange fake data with valid ones (mock or stub if necessary) based on required properties of objects:\_#file\n- Act to test logic.\n- Assert that the result is expected.\n"
   - trigger: ':testMockFunction'

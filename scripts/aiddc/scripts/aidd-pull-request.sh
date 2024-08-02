@@ -36,6 +36,7 @@ fi
 # --------------------
 TEMPLATE=$(cat $PARAM)
 CHANGES=$(git diff main)
+COMMITS=$(git log --oneline main..)
 
 # PROMPT
 # --------------------
@@ -49,6 +50,11 @@ Rules:
 - "Instructions" comments must be followed no matter what.
 - "Instructions" comments must be remove from the output.
 - Output should be properly formated in markdown.
+
+List of commits:
+"""
+$COMMITS
+"""
 
 Changes from main (surrounded by """ delimiters):
 """
