@@ -1,5 +1,6 @@
 matches:
 
+
   - trigger: ':bugDetectTechnical'
     form: |
       @workspace
@@ -605,17 +606,17 @@ matches:
 
   - trigger: ':pmSpecsStart'
     form: |
-      We will discuss together about my projet and I need you to give my valuable proposition for my project.
+      We will discuss my project together, and I need you to provide valuable suggestions for it.
 
-      This always template always refers to "the template" when I do talk you about "a template".
+      This template always refers to "the template" whenever I talk to you about "a template."
 
-      Within all our conversation, remember it because I will need you to make it evolve every time I will need to.
+      Throughout our conversation, keep this in mind, as I will need you to make updates whenever necessary.
 
-      For example, I can ask you to "update the template with the specifications we just talked about".
+      For example, I may ask you to "update the template with the specifications we just discussed."
 
-      Is is clear to you?
+      Is this clear to you?
 
-      This markdown template that you need to update every time I ask is here, surrounded by "---":
+      This Markdown template, which you will update each time I request, is outlined here, surrounded by "---":
 
       ---
       Reusable Project Specification Template
@@ -722,121 +723,129 @@ matches:
       ### Feedback Management: [System for gathering and addressing feedback]
       ---
 
-      For the first answer, shortly explain in 1 sentence the user what we are doing here.
+      For the first answer, shortly explain in 1 sentence to the user what we are doing here.
 
-      Then, give him bullet points of the markdown template (with only the heading 1) to explain him what we are going to fill.
+      Then, give them bullet points of the markdown template (with only the heading 1) to explain what we are going to fill.
 
-      Finally, start to dialog with the user. The aim is to fill the template about during that discussion.
+      Finally, start to dialog with the user. The aim is to fill the template during that discussion.
 
-      Your job is to:
-      * get the data from the user.
-      * treat it to understand it and fill the template in the proper section.
-      * user might gave answer not in the order from the template, it is your task to organize it in a better way
-      * do challenge the user about the answers he gave you
-      * goal is to construct a well formatted exhaustive document for the team so everyone knows what we are talking about
-      * wait for the user to tell you to move the next section, otherwise, ask him if he wants more help regarding what he just type and ask him if everything is ok an if you can continue. Warn the user if the template is not fully filled.
-      * before going to the next section, ask the user if he wants to get the output of the things you just said
-      * your first question is: "tell me about your project".
+      Your objective is to help the user build a thorough, well-organized project specification document through guided interaction. 
+
+      Follow these steps:
+      1. Get data from the user, filling in sections of the template where it fits best.
+      2. Organize user input, even if it’s provided out of order, to keep the document structured.
+      3. Ask clarifying questions to ensure all responses are complete and relevant.
+      4. Challenge answers when needed to refine details and improve quality.
+      5. Before moving to the next section, verify with the user that they’re ready to proceed. 
+      6. Let the user know if any part of the template is incomplete, and ask if they’d like to fill in missing sections.
+      7. After each section, offer a summary of what's been added and ask if they’d like to see it.
+
+      To begin, ask the user: "Tell me about your project."
   - trigger: ':pmSpecsContinue'
     form: |
       Perfect!
 
       Now, I want you to go through the template I gave you because we need to fill it together.
 
-      1. The template is formatted in markdown. Let's start with the title 1 starting with #.
-      Below the titles, you will find sub-titles (aka title 2) starting with ##.
-      For each of the content within the title 2, let's call it "sub sections", you have to text plus a placeholder surrounded by brackets.
-      Please acknowledge this structure and do not inform the user about it (this is not needed for him)
+      1. **Template Structure**:
+         - The template is formatted in Markdown. It contains main sections with titles in the format `# Title` and subsections as `## Subtitle`.
+         - Each subsection includes text and a placeholder surrounded by brackets. Acknowledge this structure, but do not inform the user about it (this is not needed for them).
 
-      1. We need to fill every sub sections for the template. Ask the user to fill it, give him 3 short bullet points to
+      2. **Prompting User for Input**:
+         - For each subsection, ask the user to fill it in. Provide three brief bullet points to guide their response.
 
-      2. Once the user typed the answer, ask him:
-      * Do you want to continue?
-      * Is there anything else you want to add?
+      3. **User Confirmation**:
+         - After the user provides an answer, ask:
+           * "Do you want to continue?"
+           * "Is there anything else you want to add?"
 
-      1. If the user choose to edit his answer, repeat the part 3. and save the new answer for the template until he wants to continue.
+      4. **Handling Edits**:
+         - If the user chooses to edit their answer, repeat this step and save the updated response in the template until they confirm they want to continue.
 
-      2. He you think his answer is correct, go to the next sub-sections. If you think the user gave a wrong answer, just notify him. Do not hesitate to help him writing the best answer if you thing this is really important.
+      5. **Reviewing Answers**:
+         - If the answer is clear and suitable, proceed to the next subsection.
+         - If the answer seems unclear or incorrect, notify the user. Don’t hesitate to assist in refining the answer if necessary for quality.
 
-      3. When you arrived to the last sub-sections, inform the user that we need to go to the next sub-title (title 2) and starting asking questions about it to fill the template.
+      6. **Transitioning Sections**:
+         - When you reach the last subsection, inform the user that you’ll move to the next subtitle (##) and begin asking questions to fill it out.
+         - If the next title is a main section (`# Title`), give the user the option to:
+           * Jump to the next section
+           * Continue editing
 
-      4. If the next title is a title 1, give the user the choice to:
-      * Jump to the next section
-      * Continue editing
-
-      1. If the user wants to jump to the next section, fully display the template part he just filled
+      7. **Displaying Completed Sections**:
+         - If the user wants to jump to the next section, fully display the completed portion of the template.
   - trigger: ':pmSelectionTech'
     form: |
-      Regarding the technology project I am planning and giving the specifications, I need guidance on selecting the right tools and frameworks.
-      I have a team of developers (can be only 1 developer) ready to work on this, and they are open to learning new technologies if needed.
-      Please base your answers on the template we filled together.
+      Regarding the technology project I am planning and specifying, I need guidance on selecting the right tools and frameworks.
+      I have a team of developers (which may consist of just one developer) ready to work on this, and they are open to learning new technologies if needed.
+      Please base your answers on the template we filled out together.
 
       Here are the key aspects of my project and requirements:
 
-      1. Overview of Developer Skills (please read the developer expertises based on their web resume):
+      1. Overview of Developer Skills (please review the developers' expertise based on their web resumes):
 
       [[please_provide_urls_to_the_developers_resumes_for_reference]]
 
-      2. Project Needs: I'm considering various technologies for different aspects of the project, but not all may be necessary. It also depends on the selected tools, for example, If I am using NextJS with Vercel, database might not be needed).
+      2. Project Needs: I'm considering various technologies for different aspects of the project, though not all may be necessary. The needs will depend on the chosen tools. For example, if I am using Next.js with Vercel, a separate database might not be required.
       My tech stack could include:
          - Frontend frameworks.
-         - Frontend UI lib or framework (must fit the chosen frontend framework).
-         - Browser extension guidelines (can be optional depending on the specifications).
-         - Backend (can be optional depending on the specifications).
+         - Frontend UI libraries or frameworks (must be compatible with the chosen frontend framework).
+         - Browser extension guidelines (optional depending on specifications).
+         - Backend (optional depending on specifications).
          - User authentication systems.
-         - Database (can be optional depending on the specifications).
-         - Web hosting with email service (can be optional depending on the specifications).
+         - Database (optional depending on specifications).
+         - Web hosting with email service (optional depending on specifications).
          - Version control platform with Continuous Integration (CI).
-         - Containerization (can be optional depending on the specifications).
+         - Containerization (optional depending on specifications).
 
-      For each of those stack, please guess If this is needed or not regarding my project requirements.
+      Please assess the necessity of each component based on my project requirements.
 
       3. Selection Criteria:
-         - My project requirements from the template we filled together.
+         - My project requirements from the template we filled out together.
          - Performance: The solutions should be fast and efficient.
          - Ease of Use: User-friendly and quick to implement.
          - Cost-Effectiveness: Affordable options are preferred.
-         - Integration: Technologies should integrate well with each other.
-         - Community Support: Choose technologies with a strong community and ongoing improvements. Tools that are not actively maintained are forbidden (like ExpressJS which is very popular but not backed anymore).
-         - Time to Market: The focus is on a rapid launch for a Minimum Viable Product (MVP).
+         - Integration: Technologies should work well together.
+         - Community Support: Select technologies with strong community backing and ongoing updates. Avoid tools that are not actively maintained (e.g., Express.js, which is popular but no longer backed).
+         - Time to Market: Focus on a rapid launch for a Minimum Viable Product (MVP).
 
-      Based on these criteria and the developers' expertise, what is the best technology stack that you would recommend for each requirement? (If more than one tool is necessary, please specify.)
+      Based on these criteria and the developers' expertise, what technology stack would you recommend for each requirement? (If more than one tool is necessary, please specify.)
 
       Please format your answer like this (surrounded by "---" delimiters):
       ---
       Project Needs:
-      - Recommended.
-      - Why.
-      - Needed for the current project from the template (y/n with short explanation).
-      - Alternative.
+      - Recommended Technology.
+      - Rationale.
+      - Required for this project based on the template (y/n with brief explanation).
+      - Alternative Option.
       ---
 
-      After that, please justify your choices regarding my project requirements.
+      Afterward, please justify your choices in relation to my project requirements.
     form_fields:
       please_provide_urls_to_the_developers_resumes_for_reference:
         multiline: true
   - trigger: ':pmGenerateMilestones'
     form: |
-      Define milestones for the project, we do need to have very short releases and sprints in order to iterate quickly.
+      Define the key milestones for the project; we aim for short release cycles and sprints to support quick iteration.
 
-      Once you have done that, for each step of those milestones, can you estimate the date for development?
+      Once milestones are defined, estimate the development timeline for each one.
 
-      Team is composed of:
-      [[bullet_point_list_of_the_team]]
+      Team composition:
+      [[bullet_point_list_of_team_members]]
 
-      Development start date on: "[[second_week_on_january]]"
+      Development is scheduled to start in the "[[second_week_of_january]]".
 
-      Generate a table with: Task, Estimate date begin, Estimate date end. (date format is "09 Jan. - 10 Feb.", starts on Mondays and ends en Fridays)
+      Please generate a table with the following columns: Task, Estimated Start Date, Estimated End Date. Use the date format "09 Jan. - 10 Feb.," starting each milestone on a Monday and ending on a Friday.
     form_fields:
-      bullet_point_list_of_the_team:
+      bullet_point_list_of_team_members:
         multiline: true
   - trigger: ':pmGenerateUS'
     form: |
-      Regarding those specifications, I must write user-stories for the developer to write code about it.
+      Based on these specifications, I need user stories for the developer to follow when implementing the code.
 
-      Giving our wire-frames and the documentation, can you generate all the user-stories associated to this project?
+      Using our wireframes and documentation, please generate a comprehensive list of user stories for this project.
 
-      For each milestones we decide, write a list of use-stories that will cover all needed info.
+      For each milestone we define, create a set of user stories that will capture all essential details.
   - trigger: ':pmGenerateGherkin'
     form: |
       Please interpret the following feature description to create a Gherkin-style user story.
@@ -1369,6 +1378,7 @@ matches:
     form_fields:
       your_question:
         multiline: true
+
 
 
 
